@@ -1140,7 +1140,6 @@ export const cmmsSoftware: CMMSProduct[] = [
     tagline: "Connected worker platform for industrial operations.",
     description: "While not a traditional CMMS, Parsable is a connected worker platform that digitizes standard operating procedures (SOPs) and maintenance execution. It is used by top manufacturers to ensure maintenance tasks are performed safely, correctly, and with full data capture.",
     website: "https://parsable.com/",
-    website: "https://parsable.com/",
     foundedYear: 2013,
     pricingModel: "Enterprise",
     deployment: ["Cloud / SaaS"],
