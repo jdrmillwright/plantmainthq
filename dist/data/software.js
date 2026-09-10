@@ -1,0 +1,2549 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CMMS_DATABASE = void 0;
+exports.CMMS_DATABASE = [
+    {
+        id: 'maintainx',
+        slug: 'maintainx',
+        name: 'MaintainX',
+        logoUrl: 'https://ui-avatars.com/api/?name=MaintainX&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'The world’s first workflow coordination and CMMS with integrated chat',
+        websiteUrl: 'https://getmaintainx.com',
+        affiliateUrl: 'https://www.getmaintainx.com',
+        yearFounded: 2018,
+        overview: 'MaintainX is a cloud-based maintenance and workflow coordination platform that combines traditional CMMS features with real-time in-app messaging. Designed to modernize operations in manufacturing, facilities, and logistics, MaintainX allows frontline technicians and floor supervisors to capture photos, record voice dictations, and resolve maintenance requests within an interface as intuitive as consumer messaging apps.',
+        implementationTime: '1 to 2 weeks',
+        customerSupport: 'In-app chat support with fast turnaround, comprehensive video tutorials, and dedicated enterprise account management.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Packaging & Logistics',
+            'Food & Beverage',
+            'Facilities & Property',
+            'Fleet & Heavy Equipment',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.9,
+        reviewCount: 2200,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 19,
+            plans: [
+                {
+                    name: 'Basic (Free)',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Unlimited work orders', 'Real-time messaging', '2 active repeat work orders'],
+                },
+                {
+                    name: 'Essential',
+                    pricePerUserMonth: 19,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited repeat work orders', 'Custom checklists', 'Parts tracking'],
+                },
+                {
+                    name: 'Premium',
+                    pricePerUserMonth: 49,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Inventory threshold alerts', 'Time tracking', 'API access'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 115,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['ERP integrations', 'Audit trails', 'Condition-based monitoring'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.8,
+            preventiveMaintenance: 9.2,
+            assetTrackingAndHierarchy: 8.9,
+            mroInventoryManagement: 8.6,
+            mobileAppUsability: 9.9,
+            predictiveMaintenanceAndIot: 8.4,
+            reportingAndAnalytics: 9.1,
+            vendorAndContractorManagement: 8.8,
+            complianceAndAuditReadiness: 9.0,
+        },
+        coreCapabilities: [
+            {
+                title: 'Integrated Team Chat & Task Threads',
+                description: 'Connect operators, technicians, and safety managers in real-time message threads tied directly to individual work orders and equipment records.',
+            },
+            {
+                title: 'Digital SOPs & Smart Checklists',
+                description: 'Convert paper standard operating procedures into interactive checklists with mandatory photo validation, digital signatures, and branch logic.',
+            },
+            {
+                title: 'Predictive & Condition-Based Triggers',
+                description: 'Ingest sensor telemetry via REST APIs and webhooks to trigger work orders when vibration, temperature, or cycle counts exceed limits.',
+            },
+            {
+                title: 'MRO Parts & Barcode Tracking',
+                description: 'Scan barcodes with smartphone cameras to log replacement parts against assets and track reorder thresholds.',
+            },
+        ],
+        pros: [
+            'Built-in real-time team messaging directly on work order threads',
+            'Generous free plan for small maintenance teams',
+            'Exceptional mobile chat and photo-capture interface',
+        ],
+        cons: [
+            'Complex multi-level asset hierarchy is less robust than legacy enterprise systems',
+            'Advanced predictive analytics require top tiers',
+        ],
+        keyIntegrations: ['SAP S/4HANA', 'Oracle NetSuite', 'Samsara', 'Zapier', 'PowerBI'],
+        bestFor: 'Agile maintenance crews needing rapid communication and smartphone-driven workflows',
+        editorsVerdict: 'MaintainX is a top-tier choice for teams seeking a modern, mobile-first CMMS with built-in chat, making it incredibly easy for frontline workers to adopt and use daily.',
+        faqs: [
+            {
+                question: 'Does MaintainX have a free plan?',
+                answer: 'Yes, MaintainX offers a generous Basic free plan that includes unlimited work orders and real-time messaging, making it ideal for small teams.'
+            },
+            {
+                question: 'Is MaintainX easy to use for field technicians?',
+                answer: 'Absolutely. MaintainX was built with a mobile-first approach, featuring an interface that mimics popular consumer messaging apps for zero-friction adoption.'
+            }
+        ]
+    },
+    {
+        id: 'limble-cmms',
+        slug: 'limble-cmms',
+        name: 'Limble CMMS',
+        logoUrl: 'https://ui-avatars.com/api/?name=Limble&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Modern, mobile-first CMMS software that technicians actually love to use',
+        websiteUrl: 'https://limblecmms.com',
+        affiliateUrl: 'https://limblecmms.com',
+        yearFounded: 2015,
+        overview: 'Limble CMMS is a highly rated, mobile-first maintenance management platform designed to simplify work order management, PM scheduling, and asset tracking. Known for its incredibly intuitive mobile app, Limble empowers technicians to log work, look up parts, and view asset histories directly from the plant floor, drastically reducing administrative data entry.',
+        implementationTime: '1 to 3 weeks',
+        customerSupport: '24/7 live chat with under 60-second response times, dedicated success managers, and extensive video libraries.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Food & Beverage',
+            'Fleet & Heavy Equipment',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.9,
+        reviewCount: 3200,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 40,
+            plans: [
+                {
+                    name: 'Starter',
+                    pricePerUserMonth: 40,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Preventive maintenance', 'Mobile app access'],
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 70,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Parts & inventory management', 'Vendor management', 'Custom dashboards'],
+                },
+                {
+                    name: 'Business Plus',
+                    pricePerUserMonth: 105,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Multi-site management', 'Purchasing & POs', 'API access'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 185,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['SSO / SAML', 'Dedicated account manager', 'Advanced IoT integrations'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.7,
+            preventiveMaintenance: 9.5,
+            assetTrackingAndHierarchy: 9.2,
+            mroInventoryManagement: 9.1,
+            mobileAppUsability: 9.8,
+            predictiveMaintenanceAndIot: 8.5,
+            reportingAndAnalytics: 9.4,
+            vendorAndContractorManagement: 8.9,
+            complianceAndAuditReadiness: 9.1,
+        },
+        coreCapabilities: [
+            {
+                title: 'Frictionless Mobile App',
+                description: 'A native mobile application designed specifically for technicians to view tasks, scan barcodes, and log wrench time with minimal clicks.',
+            },
+            {
+                title: 'Modular Asset Hierarchies',
+                description: 'Easily build and navigate parent-child asset relationships to track costs and failure rates down to the component level.',
+            },
+            {
+                title: 'Automated PM Scheduling',
+                description: 'Set up calendar-based or meter-based preventive maintenance schedules that automatically generate and assign work orders.',
+            },
+            {
+                title: 'Customizable Reporting Dashboards',
+                description: 'Drag-and-drop reporting widgets to track KPIs like MTTR, MTBF, and total maintenance costs in real-time.',
+            },
+        ],
+        pros: [
+            'Industry-leading mobile app usability for field technicians',
+            'Exceptional customer support with lightning-fast response times',
+            'Highly customizable reporting and dashboarding tools',
+        ],
+        cons: [
+            'No permanent free tier available for very small teams',
+            'Advanced purchasing and multi-site features require higher-tier plans',
+        ],
+        keyIntegrations: ['SAP', 'NetSuite', 'QuickBooks', 'Samsara', 'Zapier'],
+        bestFor: 'Maintenance teams looking for an exceptionally easy-to-use mobile app with robust reporting',
+        editorsVerdict: 'Limble CMMS stands out as one of the most user-friendly platforms on the market, boasting an incredible mobile experience that drives high adoption rates among technicians.',
+        faqs: [
+            {
+                question: 'Does Limble CMMS offer a free trial?',
+                answer: 'Yes, Limble offers a 30-day free trial so teams can test the mobile app and features before committing.'
+            },
+            {
+                question: 'Can Limble track spare parts inventory?',
+                answer: 'Yes, starting on the Professional plan, Limble provides robust MRO inventory tracking, including barcode scanning and low-stock alerts.'
+            }
+        ]
+    },
+    {
+        id: 'fiix',
+        slug: 'fiix',
+        name: 'Fiix by Rockwell Automation',
+        logoUrl: 'https://ui-avatars.com/api/?name=Fiix&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'AI-powered cloud CMMS backed by Rockwell industrial automation',
+        websiteUrl: 'https://fiixsoftware.com',
+        affiliateUrl: 'https://fiixsoftware.com',
+        yearFounded: 2008,
+        overview: 'Fiix by Rockwell Automation is a comprehensive cloud-based CMMS built specifically for high-throughput industrial and manufacturing operations. By connecting machine assets, maintenance schedules, multi-warehouse MRO inventories, and Rockwell Automation PLC controllers, Fiix equips reliability engineers with predictive failure foresight and structured asset hierarchies.',
+        implementationTime: '3 to 6 weeks',
+        customerSupport: '24/5 technical support, dedicated Rockwell Automation customer success reps, and extensive Fiix Academy training programs.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Oil & Gas',
+            'Utilities & Energy',
+            'Food & Beverage',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.5,
+        reviewCount: 890,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 45,
+            plans: [
+                {
+                    name: 'Free',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Up to 3 users', 'Asset management', 'Work order tracking'],
+                },
+                {
+                    name: 'Basic',
+                    pricePerUserMonth: 45,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited work orders', 'Calendar scheduling', 'Standard reporting'],
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 75,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Multi-site asset management', 'Custom reports', 'Parts forecasting'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Fiix Foresight AI', 'Rockwell Automation integration', 'Dedicated SLA'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.3,
+            assetTrackingAndHierarchy: 9.6,
+            mroInventoryManagement: 9.4,
+            mobileAppUsability: 8.5,
+            predictiveMaintenanceAndIot: 9.5,
+            reportingAndAnalytics: 9.4,
+            vendorAndContractorManagement: 8.7,
+            complianceAndAuditReadiness: 9.3,
+        },
+        coreCapabilities: [
+            {
+                title: 'Fiix Foresight AI Reliability Engine',
+                description: 'Utilize machine learning models to detect subtle equipment anomaly patterns and predict component failures before catastrophic outages happen.',
+            },
+            {
+                title: 'Rockwell FactoryTalk Industrial Integration',
+                description: 'Directly ingest PLC fault codes, cycle counts, and machine runtime hours into automated work order creation workflows.',
+            },
+            {
+                title: 'Multi-Site Asset & Warehouse Control',
+                description: 'Coordinate spare parts inventories, transfers, and bill of materials (BOM) across multiple regional manufacturing facilities.',
+            },
+            {
+                title: 'Reliability-Centered Maintenance (RCM) Analytics',
+                description: 'Detailed MTTR, MTBF, and cost-per-asset reporting with custom dashboard visualizers for plant leadership.',
+            },
+        ],
+        pros: [
+            'Direct integration into Rockwell Automation and industrial PLC systems',
+            'Fiix Foresight AI engine predicts equipment failure patterns',
+            'Deep parts and MRO multi-warehouse inventory control',
+        ],
+        cons: [
+            'Steeper learning curve for field technicians',
+            'Interface can feel heavy compared to modern chat-based tools',
+        ],
+        keyIntegrations: ['Rockwell FactoryTalk', 'SAP', 'Infor', 'Microsoft Dynamics 365'],
+        bestFor: 'Large-scale industrial plants and automated manufacturing facilities',
+    },
+    {
+        id: 'upkeep',
+        slug: 'upkeep',
+        name: 'UpKeep Asset Operations Management',
+        logoUrl: 'https://ui-avatars.com/api/?name=UpKeep&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Asset Operations Management platform for maintenance, reliability, and operations',
+        websiteUrl: 'https://onupkeep.com',
+        affiliateUrl: 'https://onupkeep.com',
+        yearFounded: 2014,
+        overview: 'UpKeep is a modern Asset Operations Management (AOM) platform designed to unify maintenance, reliability, and operations teams. Built from day one for mobile usability, UpKeep empowers technicians to complete work orders, log equipment downtime, and monitor IoT sensor data right from their smartphones and tablets.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: '24/7 email and live chat support, dedicated customer success managers for business tiers, and UpKeep Academy certifications.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Fleet & Heavy Equipment',
+            'Utilities & Energy',
+            'Packaging & Logistics',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.7,
+        reviewCount: 1800,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 45,
+            plans: [
+                {
+                    name: 'Community (Free)',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Unlimited work orders', 'Asset profiles', 'Mobile access'],
+                },
+                {
+                    name: 'Starter',
+                    pricePerUserMonth: 45,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Preventive maintenance', 'Checklists', 'Parts inventory'],
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 75,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Advanced analytics', 'Warranty tracking', 'Purchase orders'],
+                },
+                {
+                    name: 'Business Plus',
+                    pricePerUserMonth: 120,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['UpKeep Edge IoT sensors', 'Multi-site', 'API access', 'Custom workflows'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.4,
+            preventiveMaintenance: 9.2,
+            assetTrackingAndHierarchy: 9.1,
+            mroInventoryManagement: 9.0,
+            mobileAppUsability: 9.7,
+            predictiveMaintenanceAndIot: 9.0,
+            reportingAndAnalytics: 9.2,
+            vendorAndContractorManagement: 8.6,
+            complianceAndAuditReadiness: 8.8,
+        },
+        coreCapabilities: [
+            {
+                title: 'UpKeep Edge IoT Sensor Ecosystem',
+                description: 'Plug-and-play wireless vibration, temperature, and humidity sensors that automatically push condition alerts into the maintenance workflow.',
+            },
+            {
+                title: 'Native Mobile Workflow & Barcode Scanning',
+                description: 'Scan asset tags and parts bins with phone cameras to immediately display repair history, open work orders, and attach diagnostic photos.',
+            },
+            {
+                title: 'Inventory & Purchase Order Automation',
+                description: 'Track parts usage by work order, calculate total cost of ownership (TCO) per machine, and automatically trigger POs when stock falls low.',
+            },
+            {
+                title: 'Custom Reliability Analytics & KPI Reporting',
+                description: 'Interactive dashboards tracking mean time between failures (MTBF), planned vs. reactive maintenance ratios, and technician wrench time.',
+            },
+        ],
+        pros: [
+            'Seamless IoT sensor ecosystem (UpKeep Edge) for vibration and temperature',
+            'Award-winning mobile experience for floor technicians',
+            'Strong inventory barcode tracking and parts consumption auditing',
+        ],
+        cons: [
+            'Higher starting cost for professional tiers',
+            'User permission granularity can be restrictive on lower plans',
+        ],
+        keyIntegrations: ['SAP', 'Oracle', 'Monnit', 'Fluke Sensors', 'QuickBooks Online'],
+        bestFor: 'Facilities and manufacturers seeking integrated IoT vibration monitoring and asset tracking',
+    },
+    {
+        id: 'servicechannel',
+        slug: 'servicechannel',
+        name: 'ServiceChannel',
+        logoUrl: 'https://ui-avatars.com/api/?name=ServiceChannel&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Facilities management platform for multi-site retail and commercial brands',
+        websiteUrl: 'https://servicechannel.com',
+        affiliateUrl: 'https://servicechannel.com',
+        yearFounded: 1999,
+        overview: 'ServiceChannel is the leading facilities management platform for multi-site retail, restaurant, and commercial brands. It specializes in contractor management, work order dispatching, and spend analytics, connecting facility managers with a massive network of commercial contractors to ensure brand consistency across thousands of locations.',
+        implementationTime: '4 to 8 weeks',
+        customerSupport: 'Enterprise support, dedicated account management, and comprehensive contractor onboarding assistance.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Food & Beverage',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 650,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Enterprise FM',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Contractor sourcing', 'Work order dispatch', 'Spend analytics', 'Invoice automation'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.2,
+            preventiveMaintenance: 8.5,
+            assetTrackingAndHierarchy: 8.4,
+            mroInventoryManagement: 7.5,
+            mobileAppUsability: 8.6,
+            predictiveMaintenanceAndIot: 7.0,
+            reportingAndAnalytics: 9.5,
+            vendorAndContractorManagement: 10.0,
+            complianceAndAuditReadiness: 9.2,
+        },
+        coreCapabilities: [
+            {
+                title: 'Contractor Directory & Sourcing',
+                description: 'Access a massive network of vetted commercial contractors, track their compliance, and dispatch work orders directly to them.',
+            },
+            {
+                title: 'Automated Invoicing & Spend Analytics',
+                description: 'Automate invoice approvals based on predefined rules and analyze facility spend across hundreds of locations to identify cost-saving opportunities.',
+            },
+            {
+                title: 'Multi-Site Asset Management',
+                description: 'Track warranties, repair histories, and total cost of ownership for critical assets like HVAC and refrigeration units across all store locations.',
+            },
+            {
+                title: 'Provider Performance Tracking',
+                description: 'Score contractors based on response times, first-time fix rates, and invoice accuracy to ensure high-quality service.',
+            },
+        ],
+        pros: [
+            'Unmatched vendor and contractor management capabilities',
+            'Deep spend analytics and automated invoice processing',
+            'Perfectly tailored for multi-site retail and restaurant chains',
+        ],
+        cons: [
+            'Not designed for heavy industrial or manufacturing plant maintenance',
+            'Pricing and implementation are geared toward enterprise-scale operations',
+        ],
+        keyIntegrations: ['SAP', 'Oracle', 'Workday', 'ServiceNow'],
+        bestFor: 'Multi-site retail and restaurant chains relying heavily on external contractors',
+        editorsVerdict: 'For retail and restaurant brands managing hundreds of locations and relying on external vendors, ServiceChannel is the undisputed leader in contractor and spend management.',
+    },
+    {
+        id: 'ibm-maximo',
+        slug: 'ibm-maximo',
+        name: 'IBM Maximo Application Suite',
+        logoUrl: 'https://ui-avatars.com/api/?name=IBM+Maximo&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Enterprise asset management and intelligent asset performance monitoring',
+        websiteUrl: 'https://ibm.com/products/maximo',
+        affiliateUrl: 'https://ibm.com/products/maximo',
+        yearFounded: 1985,
+        overview: 'IBM Maximo Application Suite (MAS) is the benchmark Enterprise Asset Management (EAM) platform for asset-intensive multinational enterprises. Combining comprehensive lifecycle asset tracking, AI-powered predictive reliability, computer-vision inspection, and Red Hat OpenShift hybrid cloud architecture, Maximo supports global utilities, aerospace, and continuous process manufacturing.',
+        implementationTime: '3 to 12 months',
+        customerSupport: 'Global enterprise SLA support, certified IBM system integrator ecosystem, 24/7 dedicated support teams.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise', 'Hybrid'],
+        supportedIndustries: [
+            'Oil & Gas',
+            'Utilities & Energy',
+            'Manufacturing',
+            'Fleet & Heavy Equipment',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 650,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Maximo Application Suite (AppPoints)',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: [
+                        'Enterprise Asset Management (EAM)',
+                        'Maximo Health & Predict',
+                        'Maximo Visual Inspection (AI)',
+                        'Unlimited scale & customization',
+                    ],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.2,
+            preventiveMaintenance: 9.5,
+            assetTrackingAndHierarchy: 10.0,
+            mroInventoryManagement: 9.9,
+            mobileAppUsability: 7.2,
+            predictiveMaintenanceAndIot: 9.9,
+            reportingAndAnalytics: 9.8,
+            vendorAndContractorManagement: 9.6,
+            complianceAndAuditReadiness: 9.9,
+        },
+        coreCapabilities: [
+            {
+                title: 'Deep Asset Lifecycle Management & Hierarchy',
+                description: 'Model thousands of interconnected parent-child asset structures with complete linear asset tracking for pipelines, power grids, and rail.',
+            },
+            {
+                title: 'Maximo Visual Inspection & AI Health',
+                description: 'Utilize computer vision models to detect defect patterns and thermal irregularities automatically during quality and maintenance audits.',
+            },
+            {
+                title: 'ISO 55000 Compliance & Regulatory Assurance',
+                description: 'Rigorous compliance controls conforming to strict nuclear, FDA 21 CFR Part 11, and defense security mandates.',
+            },
+            {
+                title: 'Advanced Reliability Centered Maintenance (RCM)',
+                description: 'Execute sophisticated failure mode and effects analysis (FMEA) to optimize preventive and predictive maintenance strategies.',
+            },
+        ],
+        pros: [
+            'Unrivaled depth for massive complex enterprise asset hierarchies',
+            'Leading AI predictive reliability and computer vision quality inspection',
+            'Strict regulatory compliance and ISO 55000 alignment',
+        ],
+        cons: [
+            'Long implementation timelines (typically 3 to 12 months)',
+            'High total cost of ownership and consulting overhead',
+            'Complex UI for basic frontline maintenance tasks',
+        ],
+        keyIntegrations: ['SAP ERP', 'Oracle ERP Cloud', 'SCADA Systems', 'IBM Watson IoT', 'GIS / Esri'],
+        bestFor: 'Global utilities, oil & gas operations, and heavy enterprise infrastructure',
+        editorsVerdict: 'IBM Maximo is the gold standard for enterprise asset management, offering unparalleled depth for complex, global asset hierarchies and predictive maintenance.',
+        faqs: [
+            {
+                question: 'Is IBM Maximo cloud-based?',
+                answer: 'IBM Maximo Application Suite can be deployed via Cloud/SaaS, On-Premise, or Hybrid environments depending on your security and infrastructure needs.'
+            },
+            {
+                question: 'What industries use IBM Maximo?',
+                answer: 'It is heavily used in asset-intensive industries like Oil & Gas, Utilities, Manufacturing, Aerospace, and Fleet Management.'
+            }
+        ]
+    },
+    {
+        id: 'emaint-cmms',
+        slug: 'emaint-cmms',
+        name: 'eMaint CMMS by Fluke Reliability',
+        logoUrl: 'https://ui-avatars.com/api/?name=eMaint&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Configurable enterprise CMMS connected to Fluke industrial test and sensor tools',
+        websiteUrl: 'https://emaint.com',
+        affiliateUrl: 'https://emaint.com',
+        yearFounded: 1986,
+        overview: 'eMaint CMMS by Fluke Reliability bridges computerized maintenance management with industrial vibration, thermal, and electrical condition monitoring. Designed for plants that rely on Fluke diagnostic sensors, eMaint offers deep table customization, regulatory audit logs, and predictive maintenance capabilities.',
+        implementationTime: '4 to 8 weeks',
+        customerSupport: 'Dedicated Fluke Reliability customer success representatives, bootcamps, and 24/5 technical support.',
+        deploymentTypes: ['Cloud/SaaS', 'Hybrid'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Food & Beverage',
+            'Oil & Gas',
+            'Packaging & Logistics',
+            'Utilities & Energy',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.4,
+        reviewCount: 720,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 69,
+            plans: [
+                {
+                    name: 'Team',
+                    pricePerUserMonth: 69,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'PM scheduling', 'Spare parts inventory'],
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 85,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Multi-site management', 'Condition monitoring', 'Fluke sensor integration'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 120,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Custom workflow automation', 'Full API', 'Dedicated account manager'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.1,
+            preventiveMaintenance: 9.4,
+            assetTrackingAndHierarchy: 9.5,
+            mroInventoryManagement: 9.3,
+            mobileAppUsability: 8.1,
+            predictiveMaintenanceAndIot: 9.6,
+            reportingAndAnalytics: 9.3,
+            vendorAndContractorManagement: 8.5,
+            complianceAndAuditReadiness: 9.4,
+        },
+        coreCapabilities: [
+            {
+                title: 'Fluke Connect Hardware Integration',
+                description: 'Seamlessly ingest telemetry data from Fluke 3563 vibration sensors and thermal sensors directly into condition-monitoring dashboards.',
+            },
+            {
+                title: 'Configurable Architecture & Custom Tables',
+                description: 'Customize forms, custom fields, approval workflows, and relational tables to match unique plant processes.',
+            },
+            {
+                title: 'MRO Multi-Site Inventory Management',
+                description: 'Manage distributed storerooms, min/max reorder levels, purchase requisition routing, and vendor catalogs.',
+            },
+            {
+                title: 'Audit Logging & FDA 21 CFR Part 11 Compliance',
+                description: 'Built-in electronic signatures, unalterable historical audit trails, and calibration history documentation.',
+            },
+        ],
+        pros: [
+            'Direct integration with Fluke vibration, thermal, and electrical sensors',
+            'High degree of custom field configuration and table customization',
+            'Robust audit logging conforming to FDA 21 CFR Part 11 and ISO guidelines',
+        ],
+        cons: [
+            'Interface feels more traditional and less modern than newer mobile tools',
+            'Setup requires structured planning and administration overhead',
+        ],
+        keyIntegrations: ['Fluke Connect', 'SAP', 'Oracle ERP', 'PowerBI'],
+        bestFor: 'Reliability engineers and plants utilizing Fluke condition-monitoring hardware',
+    },
+    {
+        id: 'hxgn-eam',
+        slug: 'hxgn-eam',
+        name: 'HxGN EAM (formerly Infor EAM)',
+        logoUrl: 'https://ui-avatars.com/api/?name=HxGN+EAM&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Best-in-class Enterprise Asset Management for asset-intensive industrial leaders',
+        websiteUrl: 'https://hexagon.com/products/hxgn-eam',
+        affiliateUrl: 'https://hexagon.com/products/hxgn-eam',
+        yearFounded: 1986,
+        overview: 'HxGN EAM (formerly Infor EAM) delivers enterprise asset management for asset-intensive industries including energy, oil & gas, defense, and manufacturing. Backed by Hexagon’s spatial intelligence and 3D digital twin capabilities, HxGN EAM extends beyond work order processing into linear asset management, energy performance tracking, and equipment sustainability optimization.',
+        implementationTime: '3 to 9 months',
+        customerSupport: 'Global enterprise support infrastructure, certified Hexagon implementation partners, and 24/7 dedicated support.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise', 'Hybrid'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Oil & Gas',
+            'Utilities & Energy',
+            'Fleet & Heavy Equipment',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Enterprise (500+)'],
+        overallRating: 4.4,
+        reviewCount: 540,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Enterprise Cloud',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: [
+                        'Digital Twin 3D asset navigation',
+                        'Linear asset tracking',
+                        'Full regulatory & energy compliance suite',
+                        'Advanced reliability centered maintenance (RCM)',
+                    ],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.3,
+            preventiveMaintenance: 9.7,
+            assetTrackingAndHierarchy: 9.9,
+            mroInventoryManagement: 9.8,
+            mobileAppUsability: 7.9,
+            predictiveMaintenanceAndIot: 9.7,
+            reportingAndAnalytics: 9.7,
+            vendorAndContractorManagement: 9.5,
+            complianceAndAuditReadiness: 9.8,
+        },
+        coreCapabilities: [
+            {
+                title: '3D Digital Twin & Spatial Asset Navigation',
+                description: 'Integrate physical spatial scans and CAD models with real-time operational telemetry for interactive 3D visual maintenance dispatch.',
+            },
+            {
+                title: 'Linear & Dynamic Segment Asset Tracking',
+                description: 'Manage continuous assets like power lines, pipelines, and rail tracks using segment-based maintenance and inspection logs.',
+            },
+            {
+                title: 'Sustainability & Energy Performance Modules',
+                description: 'Track equipment carbon footprint, water consumption, and power utilization to hit enterprise environmental and ESG targets.',
+            },
+            {
+                title: 'Contractor Lifecycle & Settlement Portal',
+                description: 'Manage complex third-party contractor contracts, rate cards, insurance compliance, and work order invoicing verification.',
+            },
+        ],
+        pros: [
+            'Comprehensive 3D Digital Twin visualization integration with Hexagon spatial models',
+            'Exceptional linear asset management for pipelines, rail, and utility corridors',
+            'Extensive warranty and multi-tier contractor settlement controls',
+        ],
+        cons: [
+            'Requires professional implementation consultants',
+            'Substantial training curve for shop-floor operators',
+        ],
+        keyIntegrations: ['Hexagon Leica Geosystems', 'SAP', 'Oracle', 'SCADA', 'AVEVA PI System'],
+        bestFor: 'Large industrial enterprises requiring linear asset management and digital twin models',
+    },
+    {
+        id: 'maintenance-connection',
+        slug: 'maintenance-connection',
+        name: 'Accruent Maintenance Connection',
+        logoUrl: 'https://ui-avatars.com/api/?name=Accruent&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Scalable multi-site CMMS/EAM for industrial plants and healthcare networks',
+        websiteUrl: 'https://accruent.com/solutions/cmms-maintenance-connection',
+        affiliateUrl: 'https://accruent.com/solutions/cmms-maintenance-connection',
+        yearFounded: 1999,
+        overview: 'Maintenance Connection by Accruent is a proven CMMS/EAM solution tailored for healthcare networks, industrial plants, and multi-facility enterprises requiring strict regulatory compliance (such as FDA, Joint Commission, and OSHA). It offers deep asset lifecycle tracking, maintenance route scheduling, and offline mobile connectivity.',
+        implementationTime: '4 to 8 weeks',
+        customerSupport: 'Accruent Academy LMS, 24/5 dedicated technical support, and consultative configuration services.',
+        deploymentTypes: ['Cloud/SaaS', 'Hybrid'],
+        supportedIndustries: [
+            'Healthcare & Pharmaceuticals',
+            'Manufacturing',
+            'Utilities & Energy',
+            'Facilities & Property',
+            'Food & Beverage',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 460,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 58,
+            plans: [
+                {
+                    name: 'Express',
+                    pricePerUserMonth: 58,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order routing', 'Asset records', 'Basic preventive maintenance'],
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 88,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['MRO inventory management', 'MC Mobile offline', 'Custom report builder'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Multi-site database', 'API data bridges', 'Single Sign-On (SSO)'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.1,
+            assetTrackingAndHierarchy: 9.4,
+            mroInventoryManagement: 9.2,
+            mobileAppUsability: 8.0,
+            predictiveMaintenanceAndIot: 8.7,
+            reportingAndAnalytics: 9.3,
+            vendorAndContractorManagement: 8.9,
+            complianceAndAuditReadiness: 9.5,
+        },
+        coreCapabilities: [
+            {
+                title: 'Compliance & Medical Device Calibration',
+                description: 'Structured calibration management and audit histories for FDA 21 CFR Part 11 and Joint Commission accreditation.',
+            },
+            {
+                title: 'Multi-Asset Preventive Maintenance Routes',
+                description: 'Group multiple machinery inspections and lubrication points into optimized route-based work orders.',
+            },
+            {
+                title: 'MC Mobile Technician App',
+                description: 'Native mobile application allowing technicians to review histories, log labor hours, and capture signatures offline.',
+            },
+            {
+                title: 'Centralized Multi-Site Administration',
+                description: 'Standardize maintenance codes, KPIs, and inventory taxonomies across regional hospitals and manufacturing plants.',
+            },
+        ],
+        pros: [
+            'Deep regulatory tracking for FDA, Joint Commission, and OSHA compliance',
+            'Robust preventive maintenance scheduler with multi-asset route generation',
+            'High security standards suitable for defense and healthcare settings',
+        ],
+        cons: [
+            'Mobile application UI has a steeper learning curve',
+            'Configuration of complex workflows takes technical familiarity',
+        ],
+        keyIntegrations: ['Accruent Meridian', 'Oracle', 'SAP', 'Workday', 'PowerBI'],
+        bestFor: 'Regulated industries and hospital networks needing compliance verification',
+    },
+    {
+        id: 'ifs-ultimo',
+        slug: 'ifs-ultimo',
+        name: 'IFS Ultimo EAM',
+        logoUrl: 'https://ui-avatars.com/api/?name=IFS+Ultimo&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Practical EAM software linking Maintenance, Safety (EHS), and Operations',
+        websiteUrl: 'https://ultimo.com',
+        affiliateUrl: 'https://ultimo.com',
+        yearFounded: 1988,
+        overview: 'IFS Ultimo is a flexible Enterprise Asset Management platform distinguished by its native integration of maintenance work execution with Environmental Health & Safety (EHS/HSE) workflows. Ultimo bridges the gap between engineering maintenance and safety compliance by providing integrated work permits, Lockout/Tagout (LOTO) protocols, and incident reporting.',
+        implementationTime: '3 to 6 weeks',
+        customerSupport: 'European and North American support hubs, certified training academies, and continuous release updates.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Food & Beverage',
+            'Utilities & Energy',
+            'Packaging & Logistics',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.6,
+        reviewCount: 380,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 55,
+            plans: [
+                {
+                    name: 'Lite',
+                    pricePerUserMonth: 55,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Core asset management', 'Corrective & preventive work orders'],
+                },
+                {
+                    name: 'Premium',
+                    pricePerUserMonth: 85,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Integrated HSE/EHS permits', 'Lockout/Tagout (LOTO)', 'MRO purchase orders'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Multi-site operations', 'Power BI standard connector', 'Custom integrations'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.2,
+            preventiveMaintenance: 9.2,
+            assetTrackingAndHierarchy: 9.3,
+            mroInventoryManagement: 9.0,
+            mobileAppUsability: 8.8,
+            predictiveMaintenanceAndIot: 8.9,
+            reportingAndAnalytics: 9.2,
+            vendorAndContractorManagement: 9.0,
+            complianceAndAuditReadiness: 9.6,
+        },
+        coreCapabilities: [
+            {
+                title: 'Integrated HSE & Permit-to-Work',
+                description: 'Synchronize work orders directly with safety work permits, gas tests, and Lockout/Tagout (LOTO) procedures.',
+            },
+            {
+                title: 'Visual Asset Hierarchy & Cost Tracking',
+                description: 'Interactive tree structures visualizing parent-child equipment relationships and historical maintenance cost accumulation.',
+            },
+            {
+                title: 'MRO Parts & Procurement Routing',
+                description: 'End-to-end purchasing cycles from technician requisition to purchase order generation and storeroom receipt.',
+            },
+            {
+                title: 'Pre-configured Industry Frameworks',
+                description: 'Out-of-the-box best practice templates tailored for food production, chemical manufacturing, and logistics centers.',
+            },
+        ],
+        pros: [
+            'Direct convergence of maintenance work orders and Environment Health & Safety (EHS) permits',
+            'Native Lockout/Tagout (LOTO) procedure and incident management',
+            'Well-balanced cost-to-capability ratio for mid-market manufacturing',
+        ],
+        cons: [
+            'Predominantly European presence with expanding US support base',
+            'Advanced IoT predictive modules require third-party gateway connectors',
+        ],
+        keyIntegrations: ['IFS Cloud', 'SAP', 'Microsoft Dynamics 365', 'AVEVA', 'PowerBI'],
+        bestFor: 'Plants seeking unified maintenance and environmental health and safety (EHS) compliance',
+    },
+    {
+        id: 'fracttal-one',
+        slug: 'fracttal-one',
+        name: 'Fracttal One',
+        logoUrl: 'https://ui-avatars.com/api/?name=Fracttal&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: '100% mobile, AI-powered intelligent maintenance management platform',
+        websiteUrl: 'https://fracttal.com',
+        affiliateUrl: 'https://fracttal.com',
+        yearFounded: 2014,
+        overview: 'Fracttal One is an AI-driven, 100% mobile CMMS designed to simplify maintenance across manufacturing facilities, fleets, and physical assets. Accessible on any browser or mobile device, Fracttal integrates AI recommendations, plug-and-play IoT hardware (Fracttal Sense), and automated QR ticketing.',
+        implementationTime: '1 to 2 weeks',
+        customerSupport: '24/7 online technical support, multilingual onboarding assistance, and comprehensive video documentation.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Fleet & Heavy Equipment',
+            'Facilities & Property',
+            'Food & Beverage',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.6,
+        reviewCount: 310,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 35,
+            plans: [
+                {
+                    name: 'Community (Free)',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Up to 2 users', 'Basic asset register', 'Work requests'],
+                },
+                {
+                    name: 'Basic',
+                    pricePerUserMonth: 35,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['PM scheduling', 'QR code asset tagging', 'Mobile app'],
+                },
+                {
+                    name: 'Pro',
+                    pricePerUserMonth: 65,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Fracttal AI assistant', 'MRO parts management', 'Cost tracking'],
+                },
+                {
+                    name: 'Corporate',
+                    pricePerUserMonth: 95,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Fracttal Sense IoT hub', 'Full REST API', 'Multi-company'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.1,
+            preventiveMaintenance: 8.9,
+            assetTrackingAndHierarchy: 8.8,
+            mroInventoryManagement: 8.5,
+            mobileAppUsability: 9.4,
+            predictiveMaintenanceAndIot: 9.0,
+            reportingAndAnalytics: 8.9,
+            vendorAndContractorManagement: 8.2,
+            complianceAndAuditReadiness: 8.7,
+        },
+        coreCapabilities: [
+            {
+                title: 'Fracttal Sense Plug-and-Play IoT',
+                description: 'Dedicated wireless sensors that measure vibration, 3-phase current, and ambient temperature with instant cloud sync.',
+            },
+            {
+                title: 'Fracttal AI Copilot',
+                description: 'Generative AI assistant that suggests root cause diagnoses and standard corrective procedures based on failure codes.',
+            },
+            {
+                title: 'Universal PWA Mobile Experience',
+                description: 'Zero-install Progressive Web App running seamlessly across iOS, Android, laptops, and rugged industrial tablets.',
+            },
+            {
+                title: 'Dynamic QR Code Dispatch',
+                description: 'Deploy physical QR codes on machines allowing operators to submit immediate tickets without needing account logins.',
+            },
+        ],
+        pros: [
+            'Fracttal Sense plug-and-play IoT sensors for instant condition monitoring',
+            'Clean Progressive Web App (PWA) that operates smoothly on any mobile browser or tablet',
+            'Built-in AI assistant for root cause recommendations',
+        ],
+        cons: [
+            'Smaller third-party integration catalog than older EAM giants',
+            'Reporting customizations have limits on lower tiers',
+        ],
+        keyIntegrations: ['Fracttal Sense IoT', 'Zapier', 'PowerBI', 'Google Data Studio'],
+        bestFor: 'Agile industrial teams wanting rapid IoT plug-and-play condition monitoring',
+    },
+    {
+        id: 'hippo-cmms',
+        slug: 'hippo-cmms',
+        name: 'Hippo CMMS by Eptura',
+        logoUrl: 'https://ui-avatars.com/api/?name=Hippo+CMMS&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Simple, visual maintenance management software for facilities and plants',
+        websiteUrl: 'https://eptura.com/products/hippo-cmms',
+        affiliateUrl: 'https://eptura.com/products/hippo-cmms',
+        yearFounded: 2004,
+        overview: 'Hippo CMMS by Eptura specializes in graphical, floor-plan-driven maintenance management. By allowing teams to plot equipment, work orders, and emergency shutoff valves directly onto digital facility floor plans, Hippo helps facility managers and maintenance staff visualize open maintenance tasks spatially.',
+        implementationTime: '2 to 3 weeks',
+        customerSupport: 'Full-service onboarding and floor plan mapping, 24/5 support, and continuous training webinars.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Manufacturing',
+            'Healthcare & Pharmaceuticals',
+            'Food & Beverage',
+            'Packaging & Logistics',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.4,
+        reviewCount: 930,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 39,
+            plans: [
+                {
+                    name: 'Starter',
+                    pricePerUserMonth: 39,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Interactive floor plans', 'Preventive maintenance'],
+                },
+                {
+                    name: 'Plus',
+                    pricePerUserMonth: 69,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Parts & inventory tracking', 'Equipment warranty tracking', 'Custom fields'],
+                },
+                {
+                    name: 'Pro',
+                    pricePerUserMonth: 99,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['API integrations', 'Multi-site dashboards', 'SSO / SAML'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 8.9,
+            preventiveMaintenance: 8.8,
+            assetTrackingAndHierarchy: 8.7,
+            mroInventoryManagement: 8.4,
+            mobileAppUsability: 8.7,
+            predictiveMaintenanceAndIot: 7.6,
+            reportingAndAnalytics: 8.6,
+            vendorAndContractorManagement: 8.3,
+            complianceAndAuditReadiness: 8.5,
+        },
+        coreCapabilities: [
+            {
+                title: 'Interactive Floor Plan Mapping',
+                description: 'Pin equipment locations, critical safety shutoff points, and open work orders onto architectural floor plans.',
+            },
+            {
+                title: 'Automated Preventive Maintenance Scheduling',
+                description: 'Set time-based and meter-based PM triggers with task checklists, tool requirements, and safety guidelines.',
+            },
+            {
+                title: 'Equipment Warranty & Document Vault',
+                description: 'Attach PDF operator manuals, wiring schematics, and warranty expiration alerts directly to machine profiles.',
+            },
+            {
+                title: 'Work Request Portal with Email Notifications',
+                description: 'Allow facility occupants and plant workers to submit work requests that route automatically to maintenance leads.',
+            },
+        ],
+        pros: [
+            'Interactive visual floor plans allow mapping work orders directly to physical floor layouts',
+            'Fast onboarding and dedicated setup support',
+            'Clear, graphical representation of maintenance queues',
+        ],
+        cons: [
+            'Predictive maintenance and SCADA integration capabilities are limited',
+            'Mobile app has fewer deep offline features than Limble or MaintainX',
+        ],
+        keyIntegrations: ['Archibus', 'SpaceIQ', 'QuickBooks', 'Zapier'],
+        bestFor: 'Facility managers and plants needing interactive floor plan work order mapping',
+    },
+    {
+        id: 'redlist',
+        slug: 'redlist',
+        name: 'Redlist Maintenance CMMS',
+        logoUrl: 'https://ui-avatars.com/api/?name=Redlist&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Field-proven lubrication and industrial asset maintenance software',
+        websiteUrl: 'https://yourredlist.com',
+        affiliateUrl: 'https://yourredlist.com',
+        yearFounded: 2015,
+        overview: 'Redlist is a ruggedized industrial CMMS built by lubrication and maintenance professionals specifically for heavy industry, mining, aggregates, and fleet operations. Redlist excels in handling complex lubrication routing, oil sampling integration, and offline mobile work order completion in remote environments.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Dedicated lubrication engineering specialists, ongoing onboarding support, and phone/chat assistance.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Fleet & Heavy Equipment',
+            'Oil & Gas',
+            'Utilities & Energy',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.7,
+        reviewCount: 290,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 49,
+            plans: [
+                {
+                    name: 'Core',
+                    pricePerUserMonth: 49,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Digital work orders', 'Equipment inspection checklists', 'Mobile dispatch'],
+                },
+                {
+                    name: 'Lubrication Management Pro',
+                    pricePerUserMonth: 79,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Lubrication route routing', 'Lube oil sampling integration', 'MRO parts'],
+                },
+                {
+                    name: 'Enterprise Industrial',
+                    pricePerUserMonth: 119,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['ERP bidirectional sync', 'Telematics fleet tracking', 'Custom safety audits'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.2,
+            preventiveMaintenance: 9.3,
+            assetTrackingAndHierarchy: 9.0,
+            mroInventoryManagement: 8.8,
+            mobileAppUsability: 9.3,
+            predictiveMaintenanceAndIot: 8.8,
+            reportingAndAnalytics: 9.0,
+            vendorAndContractorManagement: 8.4,
+            complianceAndAuditReadiness: 9.1,
+        },
+        coreCapabilities: [
+            {
+                title: 'Precision Lubrication Routing & Grease Point Tracking',
+                description: 'Calculate grease volume, lubricant compatibility, and auto-route lube routes to eliminate bearing burnout.',
+            },
+            {
+                title: 'Oil Analysis Laboratory Integration',
+                description: 'Import oil sample test results automatically from testing labs to pinpoint wear metals and fluid degradation.',
+            },
+            {
+                title: 'Heavy Equipment Telematics & Meter Sync',
+                description: 'Ingest engine runtime hours, fault codes, and odometer readings automatically via Geotab and Samsara integrations.',
+            },
+            {
+                title: 'Full Offline Field Dispatching',
+                description: 'Enable technicians in remote mines, quarries, and oil fields to execute checklists without cell reception.',
+            },
+        ],
+        pros: [
+            'Specialized industrial lubrication route scheduling and grease gun / oil sample tracking',
+            'Robust offline mobile workflow for heavy industry and remote plant environments',
+            'Strong dispatch and safety inspection checklists',
+        ],
+        cons: [
+            'Less suited for pure corporate facilities or healthcare applications',
+            'Advanced analytics configuration requires vendor assistance',
+        ],
+        keyIntegrations: ['Geotab', 'Samsara', 'QuickBooks', 'Sage', 'SAP'],
+        bestFor: 'Heavy industry, mining, and manufacturing facilities with intensive lubrication schedules',
+    },
+    {
+        id: 'managerplus',
+        slug: 'managerplus',
+        name: 'ManagerPlus by Eptura',
+        logoUrl: 'https://ui-avatars.com/api/?name=ManagerPlus&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Enterprise asset tracking and preventive maintenance software for heavy equipment and facilities',
+        websiteUrl: 'https://eptura.com/products/managerplus',
+        affiliateUrl: 'https://eptura.com/products/managerplus',
+        yearFounded: 1992,
+        overview: 'ManagerPlus by Eptura is a versatile asset management system engineered for fleet managers, construction sites, and multi-site manufacturing facilities. Built around robust work order tracking and parts inventory controls, ManagerPlus enables organizations to minimize unbudgeted equipment downtime and streamline vendor purchase order routing.',
+        editorsVerdict: 'ManagerPlus offers a reliable asset lifecycle management framework for operations managing high-value mobile machinery alongside plant assets.',
+        implementationTime: '3 to 5 weeks',
+        customerSupport: '24/5 dedicated phone and web portal support, onboarding specialists, and certified training courses.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Fleet & Heavy Equipment',
+            'Manufacturing',
+            'Facilities & Property',
+            'Utilities & Energy',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 510,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 55,
+            plans: [
+                {
+                    name: 'Lightning Standard',
+                    pricePerUserMonth: 55,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order tracking', 'Asset profiles', 'Mobile technician app'],
+                },
+                {
+                    name: 'Lightning Plus',
+                    pricePerUserMonth: 85,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['MRO inventory management', 'Purchase orders', 'Custom dashboards'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 8.8,
+            preventiveMaintenance: 9.0,
+            assetTrackingAndHierarchy: 9.2,
+            mroInventoryManagement: 8.9,
+            mobileAppUsability: 8.3,
+            predictiveMaintenanceAndIot: 8.0,
+            reportingAndAnalytics: 8.8,
+            vendorAndContractorManagement: 8.7,
+            complianceAndAuditReadiness: 8.9,
+        },
+        coreCapabilities: [
+            {
+                title: 'Fleet & Heavy Equipment Service Schedules',
+                description: 'Set meter-based PM triggers using runtime hours, mileage, or cycle counts to protect heavy machinery capital assets.',
+            },
+            {
+                title: 'Purchase Order & Inventory Optimization',
+                description: 'Track parts consumption per work order and route vendor requisitions through structured approval channels.',
+            },
+        ],
+        pros: [
+            'Strong fleet and heavy machinery meter tracking features',
+            'Comprehensive MRO parts reordering workflows',
+        ],
+        cons: [
+            'UI is less modern compared to mobile-first competitors',
+            'Reporting setup can require initial configuration assistance',
+        ],
+        keyIntegrations: ['Geotab', 'Samsara', 'QuickBooks', 'SAP'],
+        bestFor: 'Fleet maintenance managers and multi-site heavy equipment operators',
+    },
+    {
+        id: 'asset-essentials',
+        slug: 'asset-essentials',
+        name: 'Asset Essentials by Brightly (Siemens)',
+        logoUrl: 'https://ui-avatars.com/api/?name=Asset+Essentials&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Enterprise operations and facility maintenance management for institutions and industry',
+        websiteUrl: 'https://brightlysoftware.com',
+        affiliateUrl: 'https://brightlysoftware.com',
+        yearFounded: 1999,
+        overview: 'Asset Essentials by Brightly Software (a Siemens business) provides enterprise-grade maintenance and operations management software designed for education, government, healthcare, and industrial manufacturing plants. It combines work order routing, asset lifecycle tracking, GIS mapping, and safety compliance.',
+        editorsVerdict: 'Backed by Siemens, Asset Essentials is a robust platform for public sector organizations, educational institutions, and facilities teams needing structured compliance auditing.',
+        implementationTime: '3 to 6 weeks',
+        customerSupport: 'Dedicated account managers, Siemens technical support infrastructure, and extensive video documentation.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals',
+            'Utilities & Energy',
+            'Manufacturing',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.4,
+        reviewCount: 680,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 48,
+            plans: [
+                {
+                    name: 'Core',
+                    pricePerUserMonth: 48,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order processing', 'PM scheduling', 'Asset history logs'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['GIS mapping', 'Capital planning', 'Custom reporting'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.1,
+            assetTrackingAndHierarchy: 9.3,
+            mroInventoryManagement: 8.7,
+            mobileAppUsability: 8.2,
+            predictiveMaintenanceAndIot: 8.4,
+            reportingAndAnalytics: 9.1,
+            vendorAndContractorManagement: 8.8,
+            complianceAndAuditReadiness: 9.4,
+        },
+        coreCapabilities: [
+            {
+                title: 'GIS Integration & Spatial Asset Tracking',
+                description: 'Map facility assets, outdoor infrastructure, and utility lines onto Esri GIS mapping platforms.',
+            },
+            {
+                title: 'Capital Predictor & Budget Planning',
+                description: 'Analyze long-term deferred maintenance liability and forecast equipment replacement capital expenses.',
+            },
+        ],
+        pros: [
+            'Strong GIS mapping and multi-site spatial tracking',
+            'Backed by Siemens industrial automation support network',
+        ],
+        cons: [
+            'Higher setup complexity for simple small manufacturing setups',
+        ],
+        keyIntegrations: ['Esri GIS', 'Siemens MindSphere', 'SAP', 'PowerBI'],
+        bestFor: 'Municipalities, universities, and multi-building corporate campuses',
+    },
+    {
+        id: 'mpulse-cmms',
+        slug: 'mpulse-cmms',
+        name: 'MPulse CMMS',
+        logoUrl: 'https://ui-avatars.com/api/?name=MPulse&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Reliable, scalable CMMS software with advanced condition monitoring',
+        websiteUrl: 'https://mpulsesoftware.com',
+        affiliateUrl: 'https://mpulsesoftware.com',
+        yearFounded: 1995,
+        overview: 'MPulse CMMS is an established maintenance management solution offering flexible cloud and on-premise deployment options for manufacturing, healthcare, and facilities. MPulse features deep equipment condition tracking, graphical reporting, and customizable field layout tools.',
+        editorsVerdict: 'MPulse CMMS provides a highly customizable data structure, making it ideal for teams that require tailored fields and hybrid deployment choices.',
+        implementationTime: '2 to 5 weeks',
+        customerSupport: '24/5 phone and web ticket support, MPulse University training modules, and configuration coaching.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise', 'Hybrid'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Food & Beverage',
+            'Healthcare & Pharmaceuticals',
+            'Facilities & Property',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 410,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 50,
+            plans: [
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 50,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order tracking', 'Preventive maintenance', 'Asset records'],
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 80,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Inventory management', 'Condition monitoring', 'Advanced analytics'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 8.9,
+            preventiveMaintenance: 9.0,
+            assetTrackingAndHierarchy: 9.1,
+            mroInventoryManagement: 8.8,
+            mobileAppUsability: 8.0,
+            predictiveMaintenanceAndIot: 8.2,
+            reportingAndAnalytics: 8.9,
+            vendorAndContractorManagement: 8.5,
+            complianceAndAuditReadiness: 9.0,
+        },
+        coreCapabilities: [
+            {
+                title: 'Custom Layout Designer & Data Tables',
+                description: 'Tailor work order entry screens and field layouts to reflect unique plant safety procedures and terminology.',
+            },
+            {
+                title: 'Condition-Based Maintenance (CBM)',
+                description: 'Track meter readings, operating hours, and fluid temperature to trigger preventative service calls.',
+            },
+        ],
+        pros: [
+            'Flexible deployment options including full on-premise installation',
+            'Highly customizable data fields and layout design tools',
+        ],
+        cons: [
+            'Mobile interface is functional but feels less polished than newer SaaS alternatives',
+        ],
+        keyIntegrations: ['QuickBooks', 'SAP', 'Sage', 'PowerBI'],
+        bestFor: 'Plants requiring on-premise deployment or customized operational fields',
+    },
+    {
+        id: 'sap-pm',
+        slug: 'sap-pm',
+        name: 'SAP Plant Maintenance (SAP PM)',
+        logoUrl: 'https://ui-avatars.com/api/?name=SAP+PM&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Comprehensive enterprise asset management integrated directly into SAP ERP',
+        websiteUrl: 'https://www.sap.com/products/scm/enterprise-asset-management.html',
+        affiliateUrl: 'https://www.sap.com/products/scm/enterprise-asset-management.html',
+        yearFounded: 1972,
+        overview: 'SAP Plant Maintenance (SAP PM) is a core module of the SAP ERP system designed to manage the inspection, preventive maintenance, and repair of complex industrial assets. It provides unparalleled integration with SAP Materials Management (MM), Production Planning (PP), and Finance (FI), making it the default choice for massive global enterprises already running SAP.',
+        editorsVerdict: 'If your enterprise runs on SAP, SAP PM is the logical choice for seamless financial and procurement integration, though it requires significant training for frontline technicians.',
+        implementationTime: '6 to 12 months',
+        customerSupport: 'Global enterprise support, extensive certified partner network, and dedicated SAP consultants.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise', 'Hybrid'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Oil & Gas',
+            'Utilities & Energy',
+            'Healthcare & Pharmaceuticals',
+            'Packaging & Logistics',
+        ],
+        targetCompanySizes: ['Enterprise (500+)'],
+        overallRating: 4.2,
+        reviewCount: 1150,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Enterprise License',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Full ERP integration', 'Advanced asset hierarchies', 'Global multi-site deployment'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.4,
+            assetTrackingAndHierarchy: 9.8,
+            mroInventoryManagement: 9.9,
+            mobileAppUsability: 6.5,
+            predictiveMaintenanceAndIot: 8.5,
+            reportingAndAnalytics: 9.5,
+            vendorAndContractorManagement: 9.2,
+            complianceAndAuditReadiness: 9.7,
+        },
+        coreCapabilities: [
+            {
+                title: 'Native SAP ERP Integration',
+                description: 'Flawless synchronization with SAP Materials Management (MM) for parts and SAP Finance (FI) for maintenance cost roll-ups.',
+            },
+            {
+                title: 'Complex Functional Locations',
+                description: 'Build infinitely deep functional location hierarchies to map entire refineries, power grids, and global manufacturing footprints.',
+            },
+        ],
+        pros: [
+            'Unmatched integration with enterprise finance and procurement',
+            'Highly scalable for global, multi-language deployments',
+        ],
+        cons: [
+            'Notoriously complex user interface for floor technicians',
+            'Requires expensive specialized consultants to implement and modify',
+        ],
+        keyIntegrations: ['SAP MM', 'SAP FI', 'SAP PP', 'SAP Asset Intelligence Network'],
+        bestFor: 'Global enterprises already utilizing the SAP ERP ecosystem',
+    },
+    {
+        id: 'fmx',
+        slug: 'fmx',
+        name: 'FMX',
+        logoUrl: 'https://ui-avatars.com/api/?name=FMX&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Facilities management software that empowers your team to do more',
+        websiteUrl: 'https://www.gofmx.com',
+        affiliateUrl: 'https://www.gofmx.com',
+        yearFounded: 2012,
+        overview: 'FMX is a highly intuitive facilities management and CMMS platform designed to streamline work orders, preventive maintenance, and facility scheduling. It is widely adopted by K-12 schools, universities, property managers, and light manufacturing facilities due to its calendar-centric interface and ease of use.',
+        editorsVerdict: 'FMX is a top-tier choice for facility managers and educational institutions that need a calendar-driven, easy-to-adopt maintenance system.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Highly rated customer success team, fast response times, and comprehensive onboarding.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals',
+            'Manufacturing',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.7,
+        reviewCount: 850,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 35,
+            plans: [
+                {
+                    name: 'Essentials',
+                    pricePerUserMonth: 35,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Calendar scheduling', 'Basic reporting'],
+                },
+                {
+                    name: 'Advanced',
+                    pricePerUserMonth: 60,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Preventive maintenance', 'Inventory tracking', 'Equipment management'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.2,
+            preventiveMaintenance: 8.8,
+            assetTrackingAndHierarchy: 8.5,
+            mroInventoryManagement: 8.2,
+            mobileAppUsability: 8.9,
+            predictiveMaintenanceAndIot: 6.5,
+            reportingAndAnalytics: 8.7,
+            vendorAndContractorManagement: 8.5,
+            complianceAndAuditReadiness: 8.4,
+        },
+        coreCapabilities: [
+            {
+                title: 'Calendar-Centric Dashboard',
+                description: 'Visualize all open work orders, preventive maintenance tasks, and facility events on a unified, easy-to-read calendar.',
+            },
+            {
+                title: 'Facility Event Scheduling',
+                description: 'Manage room bookings, event setups, and community facility usage alongside standard maintenance tasks.',
+            },
+        ],
+        pros: [
+            'Extremely easy for non-technical staff to submit and track requests',
+            'Excellent calendar visualization for facility scheduling',
+        ],
+        cons: [
+            'Lacks deep predictive maintenance and IoT sensor integrations',
+            'Not designed for heavy industrial process manufacturing',
+        ],
+        keyIntegrations: ['Google Workspace', 'Microsoft 365', 'Clever', 'ClassLink'],
+        bestFor: 'Schools, universities, and commercial property facility managers',
+    },
+    {
+        id: 'maintainly',
+        slug: 'maintainly',
+        name: 'Maintainly',
+        logoUrl: 'https://ui-avatars.com/api/?name=Maintainly&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Affordable, easy-to-use CMMS for modern maintenance teams',
+        websiteUrl: 'https://maintainly.com',
+        affiliateUrl: 'https://maintainly.com',
+        yearFounded: 2018,
+        overview: 'Maintainly is a lightweight, cloud-based CMMS focused on simplicity and affordability. It provides essential work order management, preventive maintenance scheduling, and asset tracking without the bloat of enterprise systems, making it perfect for small to mid-sized operations.',
+        editorsVerdict: 'Maintainly is a fantastic budget-friendly option for small teams looking to transition from paper or spreadsheets to a digital system quickly.',
+        implementationTime: '1 to 2 weeks',
+        customerSupport: 'Email and chat support, online knowledge base, and quick setup guides.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Food & Beverage',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.5,
+        reviewCount: 120,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 29,
+            plans: [
+                {
+                    name: 'Free',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['1 User', 'Basic work orders', 'Asset tracking'],
+                },
+                {
+                    name: 'Premium',
+                    pricePerUserMonth: 29,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited users (pay per tech)', 'Preventive maintenance', 'Reporting'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 8.7,
+            preventiveMaintenance: 8.5,
+            assetTrackingAndHierarchy: 8.2,
+            mroInventoryManagement: 7.9,
+            mobileAppUsability: 8.5,
+            predictiveMaintenanceAndIot: 6.0,
+            reportingAndAnalytics: 8.0,
+            vendorAndContractorManagement: 7.5,
+            complianceAndAuditReadiness: 7.8,
+        },
+        coreCapabilities: [
+            {
+                title: 'Streamlined Work Order Flow',
+                description: 'Create, assign, and track work orders with a clean, distraction-free interface designed for speed.',
+            },
+            {
+                title: 'Simple Asset Register',
+                description: 'Maintain a digital ledger of all equipment, including manuals, warranty dates, and repair history.',
+            },
+        ],
+        pros: [
+            'Very affordable pricing model for small teams',
+            'Zero clutter; extremely easy to learn and adopt',
+        ],
+        cons: [
+            'Lacks advanced enterprise features like multi-site inventory routing',
+            'No native IoT or SCADA integrations',
+        ],
+        keyIntegrations: ['Zapier', 'QuickBooks'],
+        bestFor: 'Small manufacturing shops and facility teams on a strict budget',
+    },
+    {
+        id: 'mri-software',
+        slug: 'mri-software',
+        name: 'MRI Software (Facilities Management)',
+        logoUrl: 'https://ui-avatars.com/api/?name=MRI+Software&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Comprehensive real estate and facility management solutions',
+        websiteUrl: 'https://www.mrisoftware.com',
+        affiliateUrl: 'https://www.mrisoftware.com',
+        yearFounded: 1971,
+        overview: 'MRI Software provides a massive suite of real estate and property management tools, including a robust Facilities Management (FM) module. It is designed to handle complex property portfolios, integrating maintenance work orders directly with lease management, space planning, and property accounting.',
+        editorsVerdict: 'If you manage large commercial real estate portfolios, MRI Software seamlessly connects maintenance costs directly to property accounting and lease management.',
+        implementationTime: '8 to 16 weeks',
+        customerSupport: 'Global enterprise support, dedicated account managers, and extensive training resources.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise'],
+        supportedIndustries: [
+            'Facilities & Property',
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.2,
+        reviewCount: 340,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Enterprise FM',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Property accounting sync', 'Vendor management'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 8.8,
+            preventiveMaintenance: 8.6,
+            assetTrackingAndHierarchy: 8.5,
+            mroInventoryManagement: 8.0,
+            mobileAppUsability: 8.2,
+            predictiveMaintenanceAndIot: 7.0,
+            reportingAndAnalytics: 9.0,
+            vendorAndContractorManagement: 9.2,
+            complianceAndAuditReadiness: 8.8,
+        },
+        coreCapabilities: [
+            {
+                title: 'Real Estate Portfolio Integration',
+                description: 'Link maintenance expenses directly to specific leases, properties, and tenant accounts for accurate CAM reconciliation.',
+            },
+            {
+                title: 'Vendor & Contractor Portal',
+                description: 'Manage external service providers, track insurance certificates, and route invoices for approval.',
+            },
+        ],
+        pros: [
+            'Unbeatable integration with property management and real estate accounting',
+            'Excellent tools for managing external contractors and vendors',
+        ],
+        cons: [
+            'Overkill for standalone manufacturing plants',
+            'Implementation can be lengthy and complex',
+        ],
+        keyIntegrations: ['MRI Financials', 'Yardi', 'Angus AnyWhere'],
+        bestFor: 'Commercial real estate firms and large property management companies',
+    },
+    {
+        id: 'planon',
+        slug: 'planon',
+        name: 'Planon',
+        logoUrl: 'https://ui-avatars.com/api/?name=Planon&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Integrated Workplace Management System (IWMS) and Facility Management',
+        websiteUrl: 'https://planonsoftware.com',
+        affiliateUrl: 'https://planonsoftware.com',
+        yearFounded: 1982,
+        overview: 'Planon is a global leader in Integrated Workplace Management Systems (IWMS). It goes beyond standard CMMS by offering a holistic platform that manages maintenance, space utilization, sustainability, and real estate portfolios. It is highly favored by multinational corporations managing massive office and facility footprints.',
+        editorsVerdict: 'Planon is the ultimate IWMS for global corporations looking to unify maintenance, space planning, and sustainability tracking in one platform.',
+        implementationTime: '12 to 24 weeks',
+        customerSupport: 'Global 24/7 support, dedicated implementation consultants, and extensive partner network.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Enterprise (500+)'],
+        overallRating: 4.4,
+        reviewCount: 280,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Planon Universe',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Asset & Maintenance Management', 'Space & Workplace Management', 'Sustainability Tracking'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.1,
+            assetTrackingAndHierarchy: 9.2,
+            mroInventoryManagement: 8.5,
+            mobileAppUsability: 8.6,
+            predictiveMaintenanceAndIot: 8.8,
+            reportingAndAnalytics: 9.4,
+            vendorAndContractorManagement: 9.3,
+            complianceAndAuditReadiness: 9.5,
+        },
+        coreCapabilities: [
+            {
+                title: 'Integrated Workplace Management',
+                description: 'Combine reactive maintenance with space booking, visitor management, and lease accounting.',
+            },
+            {
+                title: 'IoT Smart Building Integration',
+                description: 'Connect with smart building sensors to monitor occupancy, air quality, and trigger cleaning or maintenance tasks.',
+            },
+        ],
+        pros: [
+            'True IWMS capabilities covering all aspects of facility and real estate management',
+            'Strong IoT integrations for smart building automation',
+        ],
+        cons: [
+            'Very high cost and complexity for organizations that only need basic maintenance tracking',
+            'Not tailored for heavy industrial manufacturing',
+        ],
+        keyIntegrations: ['SAP', 'Workday', 'Schneider Electric', 'Siemens'],
+        bestFor: 'Multinational corporations managing large smart-building portfolios',
+    },
+    {
+        id: 'ibm-tririga',
+        slug: 'ibm-tririga',
+        name: 'IBM TRIRIGA',
+        logoUrl: 'https://ui-avatars.com/api/?name=IBM+TRIRIGA&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Intelligent real estate and facilities management',
+        websiteUrl: 'https://www.ibm.com/products/tririga',
+        affiliateUrl: 'https://www.ibm.com/products/tririga',
+        yearFounded: 2000,
+        overview: 'IBM TRIRIGA is an enterprise-class Integrated Workplace Management System (IWMS) that leverages AI and IoT to optimize facility maintenance, space utilization, and capital projects. While Maximo handles heavy industrial assets, TRIRIGA is IBM’s flagship solution for corporate real estate and facility lifecycle management.',
+        editorsVerdict: 'TRIRIGA is the premier choice for Fortune 500 companies needing to optimize massive corporate real estate portfolios and facility maintenance operations.',
+        implementationTime: '12 to 24 weeks',
+        customerSupport: 'IBM global enterprise support, extensive integrator network, and 24/7 SLA.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Utilities & Energy',
+        ],
+        targetCompanySizes: ['Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 210,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'TRIRIGA Application Suite',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Facility maintenance', 'Space optimization', 'Capital project management'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.1,
+            preventiveMaintenance: 9.0,
+            assetTrackingAndHierarchy: 9.2,
+            mroInventoryManagement: 8.4,
+            mobileAppUsability: 8.0,
+            predictiveMaintenanceAndIot: 9.2,
+            reportingAndAnalytics: 9.6,
+            vendorAndContractorManagement: 9.4,
+            complianceAndAuditReadiness: 9.5,
+        },
+        coreCapabilities: [
+            {
+                title: 'AI-Driven Space Optimization',
+                description: 'Use AI and IoT data to analyze floor plan utilization and optimize cleaning and maintenance schedules based on actual occupancy.',
+            },
+            {
+                title: 'Capital Project Management',
+                description: 'Manage large-scale facility renovations and construction projects, tracking budgets, schedules, and contractor performance.',
+            },
+        ],
+        pros: [
+            'Exceptional space planning and real estate portfolio analytics',
+            'Deep AI and IoT integration for smart facility management',
+        ],
+        cons: [
+            'Requires significant enterprise IT resources to deploy and maintain',
+            'Overly complex for standard manufacturing plant maintenance',
+        ],
+        keyIntegrations: ['IBM Watson IoT', 'Cisco DNA Spaces', 'SAP', 'Oracle'],
+        bestFor: 'Fortune 500 corporate real estate and global facility management teams',
+    },
+    {
+        id: 'eworkorders',
+        slug: 'eworkorders',
+        name: 'eWorkOrders',
+        logoUrl: 'https://ui-avatars.com/api/?name=eWorkOrders&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Powerful, user-friendly CMMS software for maintenance professionals',
+        websiteUrl: 'https://eworkorders.com',
+        affiliateUrl: 'https://eworkorders.com',
+        yearFounded: 1999,
+        overview: 'eWorkOrders is a highly rated, web-based CMMS known for its excellent customer support and ease of use. It provides a comprehensive suite of tools for work order management, preventive maintenance, and inventory tracking, catering to both facility managers and industrial maintenance teams.',
+        editorsVerdict: 'eWorkOrders consistently ranks high for customer satisfaction, offering a robust feature set without the overwhelming complexity of larger EAMs.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Renowned for highly responsive, personalized customer support and free training.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals',
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.8,
+        reviewCount: 450,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 35,
+            plans: [
+                {
+                    name: 'Standard',
+                    pricePerUserMonth: 35,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Preventive maintenance', 'Asset tracking'],
+                },
+                {
+                    name: 'Advanced',
+                    pricePerUserMonth: 65,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Inventory management', 'Purchase orders', 'Custom reporting'],
+                },
+            ],
+        },
+        features: {
+            workOrderManagement: 9.4,
+            preventiveMaintenance: 9.3,
+            assetTrackingAndHierarchy: 9.0,
+            mroInventoryManagement: 8.8,
+            mobileAppUsability: 8.7,
+            predictiveMaintenanceAndIot: 7.5,
+            reportingAndAnalytics: 9.0,
+            vendorAndContractorManagement: 8.6,
+            complianceAndAuditReadiness: 8.9,
+        },
+        coreCapabilities: [
+            {
+                title: 'Service Request Portal',
+                description: 'Provide a simple, customizable web portal for employees or tenants to submit and track maintenance requests.',
+            },
+            {
+                title: 'Document & Image Management',
+                description: 'Easily attach manuals, safety data sheets (SDS), and photos directly to asset records and work orders.',
+            },
+        ],
+        pros: [
+            'Consistently praised for outstanding, personalized customer support',
+            'Very intuitive interface that requires minimal training',
+        ],
+        cons: [
+            'Lacks native predictive maintenance (PdM) sensor hardware',
+            'Mobile experience is web-based rather than a native offline app',
+        ],
+        keyIntegrations: ['Active Directory', 'QuickBooks', 'Custom API'],
+        bestFor: 'Mid-sized facilities and plants prioritizing ease of use and excellent support',
+    },
+    {
+        id: 'asset-panda',
+        slug: 'asset-panda',
+        name: 'Asset Panda',
+        logoUrl: 'https://ui-avatars.com/api/?name=Asset+Panda&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Highly configurable asset tracking and maintenance management',
+        websiteUrl: 'https://www.assetpanda.com',
+        affiliateUrl: 'https://www.assetpanda.com',
+        yearFounded: 2012,
+        overview: 'Asset Panda is a highly configurable cloud-based asset tracking and maintenance management platform. It allows organizations to track the lifecycle of their assets, schedule maintenance, and manage workflows from a mobile app or web browser.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Email, phone, and chat support with a dedicated customer success manager for enterprise plans.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals',
+            'Manufacturing',
+            'Fleet & Heavy Equipment'
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.6,
+        reviewCount: 1100,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Custom Plan',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited users', 'Custom workflows', 'Mobile app access', 'API access']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.5,
+            preventiveMaintenance: 8.4,
+            assetTrackingAndHierarchy: 9.8,
+            mroInventoryManagement: 8.6,
+            mobileAppUsability: 9.2,
+            predictiveMaintenanceAndIot: 6.5,
+            reportingAndAnalytics: 8.8,
+            vendorAndContractorManagement: 8.0,
+            complianceAndAuditReadiness: 8.9
+        },
+        coreCapabilities: [
+            {
+                title: 'Customizable Asset Tracking',
+                description: 'Create custom fields, workflows, and actions to track assets exactly how your organization needs.'
+            },
+            {
+                title: 'Mobile Barcode Scanning',
+                description: 'Use the native mobile app to scan barcodes and QR codes for quick asset lookups and maintenance logging.'
+            }
+        ],
+        pros: [
+            'Extremely customizable to fit unique workflows',
+            'Unlimited users on most plans (priced by asset count)',
+            'Excellent mobile app with built-in barcode scanning'
+        ],
+        cons: [
+            'Pricing can be opaque as it is based on asset volume',
+            'Setup can take time due to the high level of customization'
+        ],
+        keyIntegrations: ['Zendesk', 'Jira', 'Active Directory', 'Okta'],
+        bestFor: 'Organizations needing highly customizable asset tracking and maintenance workflows'
+    },
+    {
+        id: 'micromain',
+        slug: 'micromain',
+        name: 'MicroMain CMMS',
+        logoUrl: 'https://ui-avatars.com/api/?name=MicroMain&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Robust CMMS software for facility and maintenance management',
+        websiteUrl: 'https://www.micromain.com',
+        affiliateUrl: 'https://www.micromain.com',
+        yearFounded: 1991,
+        overview: 'MicroMain provides comprehensive CMMS and EAM solutions designed to simplify maintenance operations, manage work orders, and track preventive maintenance. It caters to a wide range of industries including manufacturing, healthcare, and hospitality.',
+        implementationTime: '3 to 6 weeks',
+        customerSupport: 'Phone and email support, online training, and implementation services.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Healthcare & Pharmaceuticals'
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.3,
+        reviewCount: 250,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 89,
+            plans: [
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 89,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Preventive maintenance', 'Asset tracking']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.8,
+            preventiveMaintenance: 8.9,
+            assetTrackingAndHierarchy: 8.7,
+            mroInventoryManagement: 8.5,
+            mobileAppUsability: 7.8,
+            predictiveMaintenanceAndIot: 7.0,
+            reportingAndAnalytics: 8.6,
+            vendorAndContractorManagement: 8.2,
+            complianceAndAuditReadiness: 8.5
+        },
+        coreCapabilities: [
+            {
+                title: 'Comprehensive Work Order Management',
+                description: 'Easily create, assign, and track work orders from inception to completion.'
+            },
+            {
+                title: 'Preventive Maintenance Scheduling',
+                description: 'Automate PM tasks based on calendar dates or meter readings to extend asset life.'
+            }
+        ],
+        pros: [
+            'Solid, reliable feature set honed over decades',
+            'Offers both cloud and on-premise deployment options'
+        ],
+        cons: [
+            'User interface feels dated compared to newer SaaS competitors',
+            'Mobile app lacks some of the polish of mobile-first platforms'
+        ],
+        keyIntegrations: ['QuickBooks', 'SAP', 'Oracle'],
+        bestFor: 'Mid-sized to large facilities needing robust preventive maintenance and work order tracking'
+    },
+    {
+        id: 'ezofficeinventory',
+        slug: 'ezofficeinventory',
+        name: 'EZOfficeInventory',
+        logoUrl: 'https://ui-avatars.com/api/?name=EZOfficeInventory&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Leading equipment tracking and maintenance software',
+        websiteUrl: 'https://www.ezofficeinventory.com',
+        affiliateUrl: 'https://www.ezofficeinventory.com',
+        yearFounded: 2011,
+        overview: 'EZOfficeInventory is an equipment tracking software that includes robust maintenance management features. It helps businesses track asset lifecycles, schedule recurring maintenance, and manage check-ins/check-outs for tools and equipment.',
+        implementationTime: '1 to 3 weeks',
+        customerSupport: '24/5 customer support via chat and email, extensive knowledge base.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Fleet & Heavy Equipment',
+            'Manufacturing',
+            'Healthcare & Pharmaceuticals'
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.6,
+        reviewCount: 850,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 40,
+            plans: [
+                {
+                    name: 'Essential',
+                    pricePerUserMonth: 40,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Asset tracking', 'Check-in/Check-out', 'Basic maintenance']
+                },
+                {
+                    name: 'Advanced',
+                    pricePerUserMonth: 60,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Advanced maintenance', 'Purchase orders', 'Custom reports']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.2,
+            preventiveMaintenance: 8.5,
+            assetTrackingAndHierarchy: 9.5,
+            mroInventoryManagement: 8.8,
+            mobileAppUsability: 8.9,
+            predictiveMaintenanceAndIot: 6.0,
+            reportingAndAnalytics: 8.7,
+            vendorAndContractorManagement: 7.5,
+            complianceAndAuditReadiness: 8.6
+        },
+        coreCapabilities: [
+            {
+                title: 'Equipment Check-in/Check-out',
+                description: 'Track who has what equipment, when it is due back, and its current condition.'
+            },
+            {
+                title: 'Service and Maintenance Triage',
+                description: 'Schedule recurring services, track maintenance costs, and put assets into triage when broken.'
+            }
+        ],
+        pros: [
+            'Exceptional for tracking tool and equipment check-outs',
+            'Very easy to use with a clean interface',
+            'Strong mobile app for field scanning'
+        ],
+        cons: [
+            'Maintenance features are secondary to asset tracking',
+            'Not suited for complex industrial plant maintenance'
+        ],
+        keyIntegrations: ['Zendesk', 'Jira', 'Azure AD', 'Okta'],
+        bestFor: 'Companies needing to track tool check-outs alongside routine equipment maintenance'
+    },
+    {
+        id: 'tractian',
+        slug: 'tractian',
+        name: 'Tractian',
+        logoUrl: 'https://ui-avatars.com/api/?name=Tractian&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'AI-assisted maintenance and industrial IoT condition monitoring',
+        websiteUrl: 'https://tractian.com',
+        affiliateUrl: 'https://tractian.com',
+        yearFounded: 2019,
+        overview: 'Tractian combines an intuitive CMMS platform with proprietary plug-and-play IoT sensors to deliver predictive maintenance. It uses AI to analyze machine vibration and temperature, automatically generating work orders before failures occur.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: '24/7 support, dedicated reliability engineers, and hardware replacement guarantees.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Food & Beverage',
+            'Oil & Gas',
+            'Packaging & Logistics'
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.8,
+        reviewCount: 450,
+        pricing: {
+            hasFreeTrial: false,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'TracOS',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Asset tree', 'Mobile app']
+                },
+                {
+                    name: 'Smart Trac (IoT)',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Vibration & temperature sensors', 'AI fault detection', 'Automated work orders']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 9.2,
+            assetTrackingAndHierarchy: 8.9,
+            mroInventoryManagement: 8.5,
+            mobileAppUsability: 9.5,
+            predictiveMaintenanceAndIot: 9.9,
+            reportingAndAnalytics: 9.3,
+            vendorAndContractorManagement: 7.5,
+            complianceAndAuditReadiness: 8.8
+        },
+        coreCapabilities: [
+            {
+                title: 'Smart Trac IoT Sensors',
+                description: 'Plug-and-play sensors that monitor 3-axis vibration and temperature, sending real-time data to the cloud.'
+            },
+            {
+                title: 'AI-Driven Fault Detection',
+                description: 'Proprietary machine learning models that identify specific mechanical failures (e.g., unbalance, misalignment) before they cause downtime.'
+            }
+        ],
+        pros: [
+            'Seamless integration of CMMS software and predictive IoT hardware',
+            'Highly accurate AI fault detection',
+            'Modern, user-friendly mobile and web interfaces'
+        ],
+        cons: [
+            'Pricing is custom and can be higher due to hardware inclusion',
+            'Vendor management features are less mature than legacy EAMs'
+        ],
+        keyIntegrations: ['SAP', 'Oracle', 'PowerBI'],
+        bestFor: 'Industrial plants looking for an all-in-one CMMS and predictive IoT sensor solution'
+    },
+    {
+        id: 'maxpanda',
+        slug: 'maxpanda',
+        name: 'Maxpanda CMMS',
+        logoUrl: 'https://ui-avatars.com/api/?name=Maxpanda&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Award-winning cloud CMMS software with unlimited users',
+        websiteUrl: 'https://www.maxpanda.com',
+        affiliateUrl: 'https://www.maxpanda.com',
+        yearFounded: 2011,
+        overview: 'Maxpanda is a cloud-based CMMS designed to be affordable and easy to use. It stands out by offering unlimited users on all of its pricing plans, making it highly scalable for organizations that want to give maintenance access to their entire staff without paying per-seat licenses.',
+        implementationTime: '1 to 2 weeks',
+        customerSupport: '24/7 online support, extensive knowledge base, and video tutorials.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Manufacturing',
+            'Healthcare & Pharmaceuticals'
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.5,
+        reviewCount: 320,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 'Custom',
+            plans: [
+                {
+                    name: 'Starter',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited users', '50 work orders/month', 'Asset management']
+                },
+                {
+                    name: 'Professional',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited users', 'Unlimited work orders', 'Preventive maintenance']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.9,
+            preventiveMaintenance: 8.7,
+            assetTrackingAndHierarchy: 8.5,
+            mroInventoryManagement: 8.2,
+            mobileAppUsability: 8.4,
+            predictiveMaintenanceAndIot: 6.5,
+            reportingAndAnalytics: 8.5,
+            vendorAndContractorManagement: 8.1,
+            complianceAndAuditReadiness: 8.0
+        },
+        coreCapabilities: [
+            {
+                title: 'Unlimited Users',
+                description: 'Maxpanda prices by feature and work order volume, allowing unlimited users to submit and manage requests.'
+            },
+            {
+                title: 'Cloud-Based Work Orders',
+                description: 'Submit, track, and close work orders from any web-enabled device or smartphone.'
+            }
+        ],
+        pros: [
+            'Unlimited users on all plans',
+            'Affordable flat-rate pricing structure',
+            'Easy to set up and deploy quickly'
+        ],
+        cons: [
+            'Interface can feel a bit dated compared to newer tools',
+            'Mobile app lacks some advanced offline capabilities'
+        ],
+        keyIntegrations: ['QuickBooks', 'Active Directory', 'Single Sign-On (SSO)'],
+        bestFor: 'Organizations that want to give CMMS access to hundreds of employees without per-user fees'
+    },
+    {
+        id: 'coast',
+        slug: 'coast',
+        name: 'Coast',
+        logoUrl: 'https://ui-avatars.com/api/?name=Coast&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Maintenance and facility management in one simple app',
+        websiteUrl: 'https://coastapp.com',
+        affiliateUrl: 'https://coastapp.com',
+        yearFounded: 2019,
+        overview: 'Coast is a mobile-first maintenance app that combines work order management with team communication. It is designed to be as easy to use as a standard messaging app, making it perfect for small teams and frontline workers who need to coordinate maintenance tasks on the go.',
+        implementationTime: 'Under 1 week',
+        customerSupport: 'Chat and email support with a comprehensive online help center.',
+        deploymentTypes: ['Cloud/SaaS', 'Mobile-First'],
+        supportedIndustries: [
+            'Facilities & Property',
+            'Manufacturing',
+            'Food & Beverage'
+        ],
+        targetCompanySizes: ['Small (1-50)'],
+        overallRating: 4.7,
+        reviewCount: 150,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 20,
+            plans: [
+                {
+                    name: 'Free',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Basic work orders', 'Team messaging', 'Mobile app']
+                },
+                {
+                    name: 'Pro',
+                    pricePerUserMonth: 20,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Preventive maintenance', 'Asset tracking', 'Reporting']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 9.0,
+            preventiveMaintenance: 8.2,
+            assetTrackingAndHierarchy: 7.5,
+            mroInventoryManagement: 7.0,
+            mobileAppUsability: 9.5,
+            predictiveMaintenanceAndIot: 5.0,
+            reportingAndAnalytics: 7.8,
+            vendorAndContractorManagement: 7.0,
+            complianceAndAuditReadiness: 7.5
+        },
+        coreCapabilities: [
+            {
+                title: 'Team Messaging',
+                description: 'Built-in chat functionality allows maintenance teams to communicate directly within the app.'
+            },
+            {
+                title: 'Mobile Work Orders',
+                description: 'Create, assign, and complete work orders directly from your smartphone with photo attachments.'
+            }
+        ],
+        pros: [
+            'Extremely intuitive mobile app that requires zero training',
+            'Built-in team communication streamlines coordination',
+            'Great free tier for very small teams'
+        ],
+        cons: [
+            'Lacks advanced enterprise asset hierarchies',
+            'No predictive maintenance or IoT capabilities'
+        ],
+        keyIntegrations: ['Zapier', 'Google Calendar'],
+        bestFor: 'Small maintenance teams looking for a simple, chat-based mobile work order app'
+    },
+    {
+        id: 'manwinwin',
+        slug: 'manwinwin',
+        name: 'ManWinWin',
+        logoUrl: 'https://ui-avatars.com/api/?name=ManWinWin&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Flexible and easy-to-use CMMS with a free version',
+        websiteUrl: 'https://manwinwin.com',
+        affiliateUrl: 'https://manwinwin.com',
+        yearFounded: 1981,
+        overview: 'ManWinWin is a highly flexible CMMS with decades of industry experience. It offers a completely free Express version for small teams, while its premium tiers provide advanced features like AI-assisted maintenance insights, smart tags, and deep ERP integrations.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Email, phone, and dedicated account managers for premium tiers.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Fleet & Heavy Equipment'
+        ],
+        targetCompanySizes: ['Small (1-50)', 'Mid-Market (51-500)'],
+        overallRating: 4.6,
+        reviewCount: 210,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: true,
+            startingPricePerUserMonth: 45,
+            plans: [
+                {
+                    name: 'Express (Free)',
+                    pricePerUserMonth: 'Free',
+                    billingCycle: 'monthly',
+                    highlightedFeatures: ['Core maintenance', 'Asset register', 'Single user']
+                },
+                {
+                    name: 'Start',
+                    pricePerUserMonth: 45,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Unlimited assets', 'Preventive maintenance', 'Mobile app']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.8,
+            preventiveMaintenance: 9.0,
+            assetTrackingAndHierarchy: 8.9,
+            mroInventoryManagement: 8.5,
+            mobileAppUsability: 8.2,
+            predictiveMaintenanceAndIot: 7.5,
+            reportingAndAnalytics: 8.7,
+            vendorAndContractorManagement: 8.0,
+            complianceAndAuditReadiness: 8.5
+        },
+        coreCapabilities: [
+            {
+                title: 'Artificial Intelligence (Winnie)',
+                description: 'An AI assistant that provides maintenance insights, alerts, and automated reporting.'
+            },
+            {
+                title: 'Smart Tags',
+                description: 'Utilize NFC and QR code scanning for quick asset identification and work order logging in the field.'
+            }
+        ],
+        pros: [
+            'Offers a completely free Express version for single users',
+            'Very flexible and customizable to different industries',
+            'Strong AI features for a mid-market tool'
+        ],
+        cons: [
+            'User interface can be complex for basic users',
+            'Implementation can take longer due to its high flexibility'
+        ],
+        keyIntegrations: ['ERP Systems', 'PowerBI', 'Zapier'],
+        bestFor: 'Mid-market manufacturing and facility teams needing a flexible, AI-assisted CMMS'
+    },
+    {
+        id: 'proteus-mmx',
+        slug: 'proteus-mmx',
+        name: 'Proteus MMX',
+        logoUrl: 'https://ui-avatars.com/api/?name=Proteus+MMX&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'Next-generation enterprise asset management',
+        websiteUrl: 'https://www.eaglecmms.com',
+        affiliateUrl: 'https://www.eaglecmms.com',
+        yearFounded: 1986,
+        overview: 'Proteus MMX by Eagle Technology is a robust CMMS/EAM solution that integrates seamlessly with Building Information Modeling (BIM) and enterprise ERP systems. It is designed to handle complex facility and manufacturing maintenance, offering deep inventory controls and multi-site management.',
+        implementationTime: '4 to 8 weeks',
+        customerSupport: 'Phone, email, and comprehensive training programs.',
+        deploymentTypes: ['Cloud/SaaS', 'On-Premise'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Facilities & Property',
+            'Food & Beverage'
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.4,
+        reviewCount: 180,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 33,
+            plans: [
+                {
+                    name: 'Cloud',
+                    pricePerUserMonth: 33,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Work order management', 'Preventive maintenance', 'Asset tracking']
+                },
+                {
+                    name: 'Enterprise',
+                    pricePerUserMonth: 'Custom',
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['BIM integration', 'ERP integration', 'Multi-site management']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 8.7,
+            preventiveMaintenance: 8.9,
+            assetTrackingAndHierarchy: 9.0,
+            mroInventoryManagement: 8.8,
+            mobileAppUsability: 8.0,
+            predictiveMaintenanceAndIot: 8.5,
+            reportingAndAnalytics: 8.6,
+            vendorAndContractorManagement: 8.2,
+            complianceAndAuditReadiness: 8.8
+        },
+        coreCapabilities: [
+            {
+                title: 'BIM Integration',
+                description: 'Integrates with Building Information Modeling (BIM) software for 3D facility views and spatial asset tracking.'
+            },
+            {
+                title: 'ERP Integration',
+                description: 'Seamlessly connects with SAP, Oracle, and other ERPs to synchronize purchasing and inventory data.'
+            }
+        ],
+        pros: [
+            'Strong BIM and IoT integrations for modern facilities',
+            'Excellent for multi-site facility management',
+            'Robust inventory and purchasing modules'
+        ],
+        cons: [
+            'Steeper learning curve compared to lightweight CMMS tools',
+            'Mobile app is functional but less modern than mobile-first competitors'
+        ],
+        keyIntegrations: ['SAP', 'Oracle', 'Honeywell', 'Johnson Controls'],
+        bestFor: 'Large facilities and manufacturing plants requiring BIM and deep ERP integrations'
+    },
+    {
+        id: 'maintmaster',
+        slug: 'maintmaster',
+        name: 'MaintMaster',
+        logoUrl: 'https://ui-avatars.com/api/?name=MaintMaster&background=0f52ba&color=fff&rounded=true&bold=true',
+        tagline: 'The CMMS that adapts to you',
+        websiteUrl: 'https://maintmaster.com',
+        affiliateUrl: 'https://maintmaster.com',
+        yearFounded: 2000,
+        overview: 'MaintMaster is a flexible CMMS built by maintenance professionals, for maintenance professionals. It is highly regarded in the European market for its visual interface, allowing users to navigate their plant and assets using pictures and visual maps rather than just text lists.',
+        implementationTime: '2 to 4 weeks',
+        customerSupport: 'Online support, phone assistance, and the MaintMaster Academy for training.',
+        deploymentTypes: ['Cloud/SaaS'],
+        supportedIndustries: [
+            'Manufacturing',
+            'Food & Beverage',
+            'Packaging & Logistics'
+        ],
+        targetCompanySizes: ['Mid-Market (51-500)', 'Enterprise (500+)'],
+        overallRating: 4.7,
+        reviewCount: 190,
+        pricing: {
+            hasFreeTrial: true,
+            hasFreeTier: false,
+            startingPricePerUserMonth: 50,
+            plans: [
+                {
+                    name: 'Standard',
+                    pricePerUserMonth: 50,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Visual asset navigation', 'Work order management', 'Preventive maintenance']
+                },
+                {
+                    name: 'Advanced',
+                    pricePerUserMonth: 80,
+                    billingCycle: 'annual',
+                    highlightedFeatures: ['Custom workflows', 'Advanced reporting', 'API access']
+                }
+            ]
+        },
+        features: {
+            workOrderManagement: 9.1,
+            preventiveMaintenance: 9.2,
+            assetTrackingAndHierarchy: 9.0,
+            mroInventoryManagement: 8.7,
+            mobileAppUsability: 8.8,
+            predictiveMaintenanceAndIot: 8.0,
+            reportingAndAnalytics: 9.0,
+            vendorAndContractorManagement: 8.5,
+            complianceAndAuditReadiness: 9.1
+        },
+        coreCapabilities: [
+            {
+                title: 'Visual Interface',
+                description: 'Use pictures and visual maps to navigate assets, making it incredibly intuitive for floor workers to locate machines.'
+            },
+            {
+                title: 'Customizable Workflows',
+                description: 'Adapt the system to your exact processes and terminology without needing to write any code.'
+            }
+        ],
+        pros: [
+            'Highly adaptable to specific plant needs and workflows',
+            'Built by maintenance professionals with real-world experience',
+            'Excellent visual navigation for assets'
+        ],
+        cons: [
+            'Pricing can be higher for smaller teams',
+            'Primarily focused on the European market, though expanding globally'
+        ],
+        keyIntegrations: ['PowerBI', 'ERP Systems', 'Active Directory'],
+        bestFor: 'Manufacturing plants looking for a highly visual and adaptable maintenance system'
+    }
+];
