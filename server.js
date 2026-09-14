@@ -23,17 +23,8 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', service: 'plantmainthq' });
 });
 
-// Serve static assets from dist
-app.use(express.static(DIST_DIR));
-
-// Clean URL support for software detail pages (e.g. /software/ibm-maximo -> /software/ibm-maximo.html)
-app.get('/software/:slug', (req, res, next) => {
-  const filePath = path.join(DIST_DIR, 'software', `${req.params.slug}.html`);
-  if (fs.existsSync(filePath)) {
-    return res.sendFile(filePath);
-  }
-  next();
-});
+// Serve static assets from dist (with index.html serving and extension matching)
+app.use(express.static(DIST_DIR, { extensions: ['html'] }));
 
 // Fallback to index.html for any unmatched routes
 app.use((req, res) => {

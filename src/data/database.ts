@@ -174,7 +174,7 @@ function mapProductToSoftware(prod: CMMSProduct): CMMSSoftware {
     logoUrl: `https://ui-avatars.com/api/?name=${encodeURIComponent(prod.name)}&background=0f52ba&color=fff&rounded=true&bold=true`,
     tagline: prod.tagline,
     websiteUrl: prod.website,
-    affiliateUrl: `/go/${prod.slug}`,
+    affiliateUrl: prod.website ? `${prod.website}${prod.website.includes('?') ? '&' : '?'}ref=plantmainthq&utm_source=plantmainthq&utm_medium=directory&utm_campaign=cmms_comparison` : `/software/${prod.slug}`,
     yearFounded: prod.foundedYear || 2015,
     overview: prod.description,
     implementationTime: isCloud ? (isEnterprise ? '3 to 6 weeks' : '1 to 3 weeks') : '6 to 12 weeks',

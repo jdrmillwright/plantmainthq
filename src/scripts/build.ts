@@ -1044,6 +1044,34 @@ function renderVsComparison(softwareA: CMMSSoftware, softwareB: CMMSSoftware): {
       </div>
     </div>
 
+    <!-- Editorial Decision Guide -->
+    <div class="card" style="background: #f8fafc; border: 1px solid #cbd5e1;">
+      <h2>Strategic Recommendation: How to Choose</h2>
+      <div class="grid-2" style="margin-top: 1rem;">
+        <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">Why choose ${escapeHtml(softwareA.name)}?</h3>
+          <p style="font-size: 0.95rem; color: #374151; line-height: 1.6;">
+            Select <strong>${escapeHtml(softwareA.name)}</strong> if your team prioritizes <strong>${escapeHtml(softwareA.bestFor)}</strong>. It is designed for ${softwareA.targetCompanySizes.join(' and ')} operations with an estimated implementation time of ${escapeHtml(softwareA.implementationTime)}.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="/go/${softwareA.slug}" target="_blank" rel="nofollow sponsored noopener" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">Explore ${escapeHtml(softwareA.name)} Plans ↗</a>
+          </div>
+        </div>
+        <div style="background: #ffffff; border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+          <h3 style="font-size: 1.1rem; color: var(--primary); margin-bottom: 0.5rem;">Why choose ${escapeHtml(softwareB.name)}?</h3>
+          <p style="font-size: 0.95rem; color: #374151; line-height: 1.6;">
+            Select <strong>${escapeHtml(softwareB.name)}</strong> if your operational focus leans toward <strong>${escapeHtml(softwareB.bestFor)}</strong>. It fits ${softwareB.targetCompanySizes.join(' and ')} facilities and delivers an implementation speed of ${escapeHtml(softwareB.implementationTime)}.
+          </p>
+          <div style="margin-top: 1rem;">
+            <a href="/go/${softwareB.slug}" target="_blank" rel="nofollow sponsored noopener" class="btn btn-primary" style="font-size: 0.85rem; padding: 0.45rem 1rem;">Explore ${escapeHtml(softwareB.name)} Plans ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive CMMS Downtime & ROI Savings Calculator -->
+    ${renderRoiCalculator()}
+
     <!-- Section: Comparison FAQs -->
     ${renderFaqSection(faqs)}
   `;
@@ -1386,6 +1414,19 @@ function buildStaticSite(): void {
         }
         breadcrumbs.push({ name: 'Comparisons', url: '/' });
         breadcrumbs.push({ name: `${swA.name} vs ${swB.name}`, url: `/${route.slug}` });
+      }
+    } else if (route.pageType === 'software_alternatives') {
+      const sw = CMMS_DATABASE.find((s) => route.slug.endsWith(`/${s.slug}`));
+      const rendered = renderListingPage(route);
+      bodyHtml = rendered.bodyHtml;
+      if (rendered.faqs.length > 0) {
+        jsonLdSchemas.push(generateFaqSchema(rendered.faqs));
+      }
+      if (sw) {
+        breadcrumbs.push({ name: sw.name, url: `/software/${sw.slug}` });
+        breadcrumbs.push({ name: `${sw.name} Alternatives`, url: `/${route.slug}` });
+      } else {
+        breadcrumbs.push({ name: route.h1, url: `/${route.slug}` });
       }
     } else {
       const rendered = renderListingPage(route);
