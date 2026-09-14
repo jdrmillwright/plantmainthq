@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlantMaintHQ - Industrial CMMS & Reliability Software Directory</title>
+    <meta name="description" content="Compare top Computerized Maintenance Management Systems (CMMS) software for industrial plants, manufacturing, and facilities.">
+    <meta property="og:title" content="PlantMaintHQ - Industrial CMMS & Reliability Software Directory">
+    <meta property="og:description" content="Compare top Computerized Maintenance Management Systems (CMMS) software for industrial plants, manufacturing, and facilities.">
+    <meta property="og:image" content="https://plantmainthq.com/og-banner.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-banner.png">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --text-color: #e6edf3;
+            --card-bg: #161b22;
+            --border-color: #30363d;
+            --accent-color: #2f81f7;
+            --table-hover: #1c2128;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg-color); color: var(--text-color); margin: 0; padding: 15px; }
+        
+        .header-logo { text-align: center; margin-top: 20px; }
+        .header-logo h1 { color: var(--accent-color); font-size: 2.5em; margin: 0; }
+        p.subtitle { text-align: center; opacity: 0.7; margin-bottom: 25px; font-size: 1em; }
+        
+        .stats-badge { text-align: center; margin-bottom: 25px; }
+        .badge-pill { background: var(--card-bg); border: 1px solid var(--border-color); padding: 6px 16px; border-radius: 20px; display: inline-block; font-size: 0.85em; color: #3fb950; font-weight: bold; }
+
+        .search-container { text-align: center; margin-bottom: 20px; }
+        .search-box { width: 100%; max-width: 500px; padding: 12px 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 25px; color: var(--text-color); font-size: 1.1em; outline: none; box-sizing: border-box; }
+        .search-box:focus { border-color: var(--accent-color); }
+        
+        .filters { text-align: center; margin-bottom: 30px; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px; }
+        .filter-btn { background: var(--card-bg); color: var(--text-color); border: 1px solid var(--border-color); padding: 8px 14px; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9em; transition: 0.2s; }
+        .filter-btn:hover, .filter-btn.active { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto 40px auto; }
+        .card { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: center; box-shadow: 0 6px 12px rgba(0,0,0,0.3); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-3px); border-color: var(--accent-color); }
+        .card h2 { margin-top: 0; color: #3fb950; font-size: 1.7em; }
+        .offer { font-size: 1.1em; margin: 15px 0; font-weight: bold; }
+        
+        .actions { display: flex; gap: 10px; justify-content: center; margin-top: 15px; }
+        .btn { background-color: var(--accent-color); color: #ffffff; text-decoration: none; padding: 10px 12px; border-radius: 6px; font-weight: bold; flex: 1; font-size: 0.9em; text-align: center; }
+        .btn-secondary { background-color: var(--bg-color); color: var(--text-color); border: 1px solid var(--border-color); }
+        .btn:hover { opacity: 0.9; }
+
+        .matrix-container { max-width: 1200px; margin: 40px auto; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 12px; padding: 25px; box-shadow: 0 6px 12px rgba(0,0,0,0.3); overflow-x: auto; }
+        .matrix-title { color: var(--accent-color); font-size: 1.8em; margin-top: 0; margin-bottom: 5px; text-align: center; }
+        .matrix-subtitle { text-align: center; opacity: 0.7; margin-bottom: 25px; font-size: 0.95em; }
+        table { width: 100%; border-collapse: collapse; min-width: 700px; }
+        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border-color); font-size: 0.95em; }
+        th { background-color: var(--bg-color); color: var(--accent-color); font-weight: bold; }
+        tr:hover { background-color: var(--table-hover); }
+        a.table-link { color: #3fb950; text-decoration: none; font-weight: bold; }
+        a.table-link:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="header-logo">
+        <h1>PlantMaintHQ ⚙️</h1>
+    </div>
+    <p class="subtitle">Industrial Computerized Maintenance Management Systems (CMMS) & Reliability Software Directory.</p>
+    
+    <div class="stats-badge">
+        <div class="badge-pill">⚡ Live Database: 10 CMMS Platforms Tracked (Build 1788801239)</div>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="Search software, pricing, or features..." onkeyup="filterContent()">
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="setCategory('all', this)">All Platforms</button>
+        <button class="filter-btn" onclick="setCategory('Enterprise CMMS', this)">Enterprise CMMS</button>
+        <button class="filter-btn" onclick="setCategory('Mobile-First CMMS', this)">Mobile-First</button>
+        <button class="filter-btn" onclick="setCategory('Operations & CMMS', this)">Operations</button>
+        <button class="filter-btn" onclick="setCategory('Visual & Facility CMMS', this)">Facility CMMS</button>
+        <button class="filter-btn" onclick="setCategory('Heavy Enterprise EAM', this)">Heavy EAM</button>
+    </div>
+
+    <div class="grid" id="cardGrid">
+
+        <div class="card" data-category="Enterprise CMMS" data-name="fiix cmms" data-pricing="from $45/user/month" data-rating="4.8">
+            <h2>Fiix CMMS</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Enterprise CMMS • Rating: 4.8/5</div>
+            <div class="offer">From $45/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based / Multi-Site</div>
+            <div class="actions">
+                <a href="software/fiix.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Mobile-First CMMS" data-name="upkeep" data-pricing="from $45/user/month" data-rating="4.7">
+            <h2>UpKeep</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Mobile-First CMMS • Rating: 4.7/5</div>
+            <div class="offer">From $45/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based / Hybrid</div>
+            <div class="actions">
+                <a href="software/upkeep.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Operations & CMMS" data-name="maintainx" data-pricing="from $16/user/month" data-rating="4.8">
+            <h2>MaintainX</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Operations & CMMS • Rating: 4.8/5</div>
+            <div class="offer">From $16/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/maintainx.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Modern Automated CMMS" data-name="limble cmms" data-pricing="from $40/user/month" data-rating="4.9">
+            <h2>Limble CMMS</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Modern Automated CMMS • Rating: 4.9/5</div>
+            <div class="offer">From $40/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/limble.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Visual & Facility CMMS" data-name="hippo cmms" data-pricing="from $35/user/month" data-rating="4.4">
+            <h2>Hippo CMMS</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Visual & Facility CMMS • Rating: 4.4/5</div>
+            <div class="offer">From $35/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/hippo-cmms.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Enterprise Asset Management" data-name="emaint cmms" data-pricing="request quote" data-rating="4.5">
+            <h2>eMaint CMMS</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Enterprise Asset Management • Rating: 4.5/5</div>
+            <div class="offer">Request Quote</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: SaaS / On-Premise</div>
+            <div class="actions">
+                <a href="software/emaint.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Heavy Enterprise EAM" data-name="ibm maximo" data-pricing="request quote" data-rating="4.5">
+            <h2>IBM Maximo</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Heavy Enterprise EAM • Rating: 4.5/5</div>
+            <div class="offer">Request Quote</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud / On-Premise / Hybrid</div>
+            <div class="actions">
+                <a href="software/ibm-maximo.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="IoT-Connected CMMS" data-name="fracttal one" data-pricing="from $29/user/month" data-rating="4.6">
+            <h2>Fracttal One</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">IoT-Connected CMMS • Rating: 4.6/5</div>
+            <div class="offer">From $29/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/fracttal-one.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Facility & Municipal CMMS" data-name="asset essentials" data-pricing="request quote" data-rating="4.3">
+            <h2>Asset Essentials</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Facility & Municipal CMMS • Rating: 4.3/5</div>
+            <div class="offer">Request Quote</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/asset-essentials.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+        <div class="card" data-category="Lean Plant CMMS" data-name="cloudapex cmms" data-pricing="from $25/user/month" data-rating="4.2">
+            <h2>CloudAPEX CMMS</h2>
+            <div style="opacity: 0.7; font-size: 0.85em; margin-bottom: 10px;">Lean Plant CMMS • Rating: 4.2/5</div>
+            <div class="offer">From $25/user/month</div>
+            <div style="font-size: 0.9em; opacity: 0.8; margin-bottom: 15px;">Deployment: Cloud-Based</div>
+            <div class="actions">
+                <a href="software/cloudapex-cmms.html?v=1788801239" class="btn btn-secondary">Read Review</a>
+                <a href="#" class="btn">Visit Vendor</a>
+            </div>
+        </div>
+    
+    </div>
+
+    <div class="matrix-container">
+        <h2 class="matrix-title">Comparison Matrix</h2>
+        <p class="matrix-subtitle">Side-by-Side Specifications for Industrial Teams</p>
+        <table id="comparisonTable">
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Category</th>
+                    <th>Pricing</th>
+                    <th>Setup Time</th>
+                    <th>Free Tier</th>
+                    <th>Offline Mode</th>
+                    <th>Review</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr data-category="Enterprise CMMS" data-search="fiix cmms from $45/user/month">
+                    <td><strong>Fiix CMMS</strong></td>
+                    <td>Enterprise CMMS</td>
+                    <td>From $45/user/month</td>
+                    <td>2-6 weeks</td>
+                    <td>No (14-day trial)</td>
+                    <td>Yes (All tiers)</td>
+                    <td><a href="software/fiix.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Mobile-First CMMS" data-search="upkeep from $45/user/month">
+                    <td><strong>UpKeep</strong></td>
+                    <td>Mobile-First CMMS</td>
+                    <td>From $45/user/month</td>
+                    <td>1-3 weeks</td>
+                    <td>No (14-day trial)</td>
+                    <td>Yes (Select tiers)</td>
+                    <td><a href="software/upkeep.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Operations & CMMS" data-search="maintainx from $16/user/month">
+                    <td><strong>MaintainX</strong></td>
+                    <td>Operations & CMMS</td>
+                    <td>From $16/user/month</td>
+                    <td>2-4 weeks</td>
+                    <td>Yes (Free-forever tier)</td>
+                    <td>Yes (All paid tiers)</td>
+                    <td><a href="software/maintainx.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Modern Automated CMMS" data-search="limble cmms from $40/user/month">
+                    <td><strong>Limble CMMS</strong></td>
+                    <td>Modern Automated CMMS</td>
+                    <td>From $40/user/month</td>
+                    <td>4-12 weeks</td>
+                    <td>No (14-day trial)</td>
+                    <td>Limited (Select tiers)</td>
+                    <td><a href="software/limble.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Visual & Facility CMMS" data-search="hippo cmms from $35/user/month">
+                    <td><strong>Hippo CMMS</strong></td>
+                    <td>Visual & Facility CMMS</td>
+                    <td>From $35/user/month</td>
+                    <td>2-4 weeks</td>
+                    <td>No (Demo available)</td>
+                    <td>Limited (Web responsive)</td>
+                    <td><a href="software/hippo-cmms.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Enterprise Asset Management" data-search="emaint cmms request quote">
+                    <td><strong>eMaint CMMS</strong></td>
+                    <td>Enterprise Asset Management</td>
+                    <td>Request Quote</td>
+                    <td>6-16 weeks</td>
+                    <td>No (Demo only)</td>
+                    <td>Yes (Full Offline)</td>
+                    <td><a href="software/emaint.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Heavy Enterprise EAM" data-search="ibm maximo request quote">
+                    <td><strong>IBM Maximo</strong></td>
+                    <td>Heavy Enterprise EAM</td>
+                    <td>Request Quote</td>
+                    <td>12-26 weeks</td>
+                    <td>No</td>
+                    <td>Yes (Full Enterprise)</td>
+                    <td><a href="software/ibm-maximo.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="IoT-Connected CMMS" data-search="fracttal one from $29/user/month">
+                    <td><strong>Fracttal One</strong></td>
+                    <td>IoT-Connected CMMS</td>
+                    <td>From $29/user/month</td>
+                    <td>2-4 weeks</td>
+                    <td>No (14-day trial)</td>
+                    <td>Yes</td>
+                    <td><a href="software/fracttal-one.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Facility & Municipal CMMS" data-search="asset essentials request quote">
+                    <td><strong>Asset Essentials</strong></td>
+                    <td>Facility & Municipal CMMS</td>
+                    <td>Request Quote</td>
+                    <td>4-10 weeks</td>
+                    <td>No</td>
+                    <td>Limited</td>
+                    <td><a href="software/asset-essentials.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+                <tr data-category="Lean Plant CMMS" data-search="cloudapex cmms from $25/user/month">
+                    <td><strong>CloudAPEX CMMS</strong></td>
+                    <td>Lean Plant CMMS</td>
+                    <td>From $25/user/month</td>
+                    <td>1-2 weeks</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td><a href="software/cloudapex-cmms.html?v=1788801239" class="table-link">View Review →</a></td>
+                </tr>
+    
+            </tbody>
+        </table>
+    </div>
+
+    
+    <footer style="text-align: center; margin-top: 60px; padding: 20px; color: #8b949e; font-size: 0.85em; border-top: 1px solid #30363d;">
+        <p><strong>Disclaimer:</strong> PlantMaintHQ is an independent software directory. Verify pricing and operational specifications with vendors before purchasing.</p>
+        <p>&copy; 2026 PlantMaintHQ.com. All rights reserved | <a href="/api/software.json?v=1788801239" style="color: #2f81f7; text-decoration: none;">JSON API Feed</a></p>
+    </footer>
+
+
+    <script>
+        let currentCategory = 'all';
+
+        function setCategory(category, btnElement) {
+            currentCategory = category;
+            let buttons = document.querySelectorAll('.filters .filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            filterContent();
+        }
+
+        function filterContent() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            
+            // Filter Cards
+            let grid = document.getElementById('cardGrid');
+            let cardsArray = Array.from(grid.getElementsByClassName('card'));
+            
+            cardsArray.forEach(card => {
+                let cat = card.getAttribute('data-category');
+                let name = card.getAttribute('data-name');
+                let pricing = card.getAttribute('data-pricing');
+                
+                let matchesCategory = (currentCategory === 'all' || cat === currentCategory);
+                let matchesSearch = (name.includes(input) || pricing.includes(input));
+                
+                if (matchesCategory && matchesSearch) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Filter Table Rows
+            let tbody = document.getElementById('comparisonTable').getElementsByTagName('tbody')[0];
+            let rowsArray = Array.from(tbody.getElementsByTagName('tr'));
+            
+            rowsArray.forEach(row => {
+                let cat = row.getAttribute('data-category');
+                let searchTxt = row.getAttribute('data-search');
+                
+                let matchesCategory = (currentCategory === 'all' || cat === currentCategory);
+                let matchesSearch = searchTxt.includes(input);
+                
+                if (matchesCategory && matchesSearch) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
