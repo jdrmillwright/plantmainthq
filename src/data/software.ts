@@ -1897,5 +1897,1633 @@ export const cmmsSoftware: CMMSProduct[] = [
       "Risk Management": "High",
       "Implementation Complexity": "High"
     }
+  },
+  {
+    id: "cmms-063",
+    name: "Spiridon CMMS",
+    slug: "spiridon-cmms",
+    tagline: "Industrial equipment maintenance and work permit coordination software.",
+    description: "Spiridon CMMS specializes in heavy industrial plant maintenance, shutdown planning, and safe work permit management. Engineered for petrochemical plants and heavy machinery fabricators, it aligns preventive scheduling with lock-out/tag-out (LOTO) procedures and technician certification tracking.",
+    website: "https://www.spiridon.com",
+    foundedYear: 2004,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Shutdown & Turnaround Management",
+      "Lockout/Tagout (LOTO) Permit Tracking",
+      "Work Order Management",
+      "Preventive Maintenance",
+      "MRO Spare Parts Catalog",
+      "Technician Skill Certifications"
+    ],
+    targetIndustries: ["Manufacturing", "Oil & Gas", "Utilities & Energy"],
+    pros: [
+      "Rigorous environmental health and safety (EHS) permit tracking",
+      "Excellent plant shutdown turnaround scheduling",
+      "Supports complex multi-tier asset bills of materials (BOM)"
+    ],
+    cons: [
+      "User interface requires administrative training",
+      "Mobile offline mode has limited synchronization speeds on large databases",
+      "Custom integrations require vendor engineering support"
+    ],
+    pricingTiers: ["Standard", "Industrial Pro", "Enterprise Plant"],
+    technicianUsabilityScore: 7.9,
+    featureBenchmarks: {
+      "EHS Compliance": "Outstanding",
+      "Shutdown Planning": "Very High",
+      "Mobile Modernity": "Moderate"
+    }
+  },
+  {
+    id: "cmms-064",
+    name: "Engica Q4",
+    slug: "engica-q4",
+    tagline: "Integrated maintenance, work control, and process safety management.",
+    description: "Engica Q4 provides enterprise-grade maintenance management tightly integrated with permit to work (PTW), isolation management, and operational risk assessment. It is tailored for high-hazard industrial environments including offshore platforms, refineries, and power generation facilities.",
+    website: "https://www.engica.com",
+    foundedYear: 1980,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Process Safety Management",
+      "Electronic Permit to Work (e-PTW)",
+      "Preventive Maintenance Scheduling",
+      "MRO Inventory & Procurement",
+      "Asset Lifecycle Costing",
+      "Hazard & Risk Analysis"
+    ],
+    targetIndustries: ["Oil & Gas", "Utilities & Energy", "Manufacturing"],
+    pros: [
+      "Industry benchmark for hazardous environment safety and work control",
+      "Deep integration between asset work orders and safety permits",
+      "Zero-downtime on-premise failover architectures"
+    ],
+    cons: [
+      "Substantial initial licensing and deployment cost",
+      "Long implementation cycle requiring extensive process mapping",
+      "Not suited for simple or small facility teams"
+    ],
+    pricingTiers: ["Professional", "Enterprise Plant", "Corporate Multi-Site"],
+    technicianUsabilityScore: 7.5,
+    featureBenchmarks: {
+      "Hazardous Work Control": "Industry Benchmark",
+      "Risk Mitigation": "Very High",
+      "Implementation Complexity": "High"
+    }
+  },
+  {
+    id: "cmms-065",
+    name: "Axxerion CMMS",
+    slug: "axxerion-cmms",
+    tagline: "Cloud-based facility management and asset maintenance automation.",
+    description: "Axxerion (by Nemetschek Group) is a cloud-based CMMS and IWMS platform designed for complex commercial, corporate, and campus facilities. It automates preventive maintenance schedules, vendor service level agreements (SLAs), and space utilization metrics within a unified modular workspace.",
+    website: "https://www.axxerion.com",
+    foundedYear: 2003,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "Automated Work Dispatch",
+      "Preventive Maintenance Calendars",
+      "Vendor SLA & Contractor Management",
+      "Space & Asset Inventory",
+      "Condition Assessment Audits",
+      "Mobile Inspection Workflows"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Packaging & Logistics"],
+    pros: [
+      "Modular design allows companies to activate only needed components",
+      "Strong tenant service portal and automated request routing",
+      "Solid European data privacy and multi-currency support"
+    ],
+    cons: [
+      "Less optimized for heavy discrete production machinery",
+      "Advanced reporting configuration requires admin scripting",
+      "Initial configuration requires hands-on consulting"
+    ],
+    pricingTiers: ["Essential", "Advanced", "Complete IWMS"],
+    technicianUsabilityScore: 8.1,
+    featureBenchmarks: {
+      "Facility Workflow": "Excellent",
+      "Vendor SLA Tracking": "High",
+      "Shop Floor Usability": "Moderate"
+    }
+  },
+  {
+    id: "cmms-066",
+    name: "Blue Mountain RAM",
+    slug: "blue-mountain-ram",
+    tagline: "Regulatory asset manager designed specifically for Life Sciences.",
+    description: "Blue Mountain RAM combines CMMS, calibration management, and validation workflows into a single system built specifically for GMP-regulated pharmaceutical and biotech manufacturers. It enforces FDA 21 CFR Part 11 compliant audit trails, electronic signatures, and strict calibration protocols.",
+    website: "https://coolblue.com",
+    foundedYear: 1989,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "Hybrid"],
+    features: [
+      "GMP & FDA 21 CFR Part 11 Compliance",
+      "Integrated Calibration Management",
+      "Preventive Maintenance & Work Orders",
+      "Electronic Signatures & Audit Trails",
+      "Standard Operating Procedure (SOP) Validation",
+      "Out-of-Tolerance Alerts"
+    ],
+    targetIndustries: ["Healthcare & Pharmaceuticals", "Manufacturing"],
+    pros: [
+      "Recognized gold standard for pharmaceutical FDA compliance",
+      "Native calibration management tied directly to equipment maintenance",
+      "Guaranteed pre-validated software release updates"
+    ],
+    cons: [
+      "Strict regulatory fields slow down rapid technician entry",
+      "High licensing cost tailored for life science balance sheets",
+      "Overly structured for general industrial plants"
+    ],
+    pricingTiers: ["GMP Core", "Enterprise Life Sciences"],
+    technicianUsabilityScore: 7.7,
+    featureBenchmarks: {
+      "FDA Compliance": "Industry Benchmark",
+      "Calibration Rigor": "Outstanding",
+      "Deployment Speed": "Moderate"
+    }
+  },
+  {
+    id: "cmms-067",
+    name: "Maintenity",
+    slug: "maintenity",
+    tagline: "Agile mobile CMMS for light manufacturing and technical workshops.",
+    description: "Maintenity is a nimble, modern CMMS built for rapid deployment in small-to-medium manufacturing plants and technical facilities. With QR-code equipment tagging, one-tap mobile work order generation, and automated inventory depletion tracking, teams get up and running in days without IT overhead.",
+    website: "https://maintenity.com",
+    foundedYear: 2020,
+    pricingModel: "Freemium",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "QR Code Asset Scanning",
+      "Mobile Photo Work Orders",
+      "Preventive Maintenance Schedules",
+      "Parts Reorder Level Alerts",
+      "Equipment Downtime Logging",
+      "Offline Sync for Shop Floor"
+    ],
+    targetIndustries: ["Manufacturing", "Food & Beverage", "Packaging & Logistics"],
+    pros: [
+      "Setup takes less than an afternoon with self-serve import tools",
+      "Very low learning curve for machine operators and technicians",
+      "Generous freemium tier for small single-plant operations"
+    ],
+    cons: [
+      "Lacks deep enterprise ERP or SCADA communication protocols",
+      "Standard reporting templates cannot be heavily scripted",
+      "Limited multi-level permission matrices for large corporate teams"
+    ],
+    pricingTiers: ["Free Starter", "Growth ($39/mo)", "Scale ($79/mo)"],
+    technicianUsabilityScore: 9.1,
+    featureBenchmarks: {
+      "Mobile Adoption": "Outstanding",
+      "Setup Simplicity": "Best-in-class",
+      "ERP Integration": "Basic"
+    }
+  },
+  {
+    id: "cmms-068",
+    name: "NetFacilities",
+    slug: "netfacilities",
+    tagline: "All-in-one web maintenance and facilities management software.",
+    description: "NetFacilities provides a cloud-hosted facilities and equipment maintenance suite managing work orders, preventative tasks, assets, and vendor bids across physical sites. Its multi-location hierarchy allows regional managers to benchmark asset failure frequencies across buildings.",
+    website: "https://www.netfacilities.com",
+    foundedYear: 2003,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "Multi-Location Work Order Dispatch",
+      "Automated PM Recurring Generation",
+      "Subcontractor Work Order Bidding",
+      "Real-time Inventory Reorder Alerts",
+      "Tenant Work Request Portal",
+      "Mobile Barcode Audits"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Manufacturing"],
+    pros: [
+      "Straightforward multi-site portfolio hierarchy",
+      "Unlimited requester accounts without added per-seat costs",
+      "Responsive customer onboarding and training team"
+    ],
+    cons: [
+      "Interface styling reflects older web application standards",
+      "Mobile app occasionally requires page reload upon reconnect",
+      "Limited predictive sensor vibration analysis capabilities"
+    ],
+    pricingTiers: ["Standard Site", "Multi-Property", "Enterprise Portfolio"],
+    technicianUsabilityScore: 8.0,
+    featureBenchmarks: {
+      "Multi-Site Management": "Very High",
+      "Requester Portal": "High",
+      "Predictive Analytics": "Low"
+    }
+  },
+  {
+    id: "cmms-069",
+    name: "Spacewell Maintenance (Axxerion)",
+    slug: "spacewell-maintenance",
+    tagline: "Smart building and IoT-driven facility maintenance management.",
+    description: "Spacewell Maintenance merges computer-aided facility management (CAFM) with IoT occupancy and indoor air quality sensors. By pairing technician schedules with actual asset run-hours and room utilization, operations shift from calendar-based maintenance to dynamic need-based maintenance.",
+    website: "https://spacewell.com",
+    foundedYear: 1989,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "IoT Run-hour Maintenance Triggers",
+      "Dynamic Cleaning & Inspection Routing",
+      "Asset Lifecycle Assessment",
+      "Mobile Field Service App",
+      "Energy & HVAC Monitoring Integration",
+      "BIM 3D Model Asset Viewer"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Utilities & Energy"],
+    pros: [
+      "Cuts unnecessary calendar maintenance using actual IoT sensor usage",
+      "Seamless integration with Building Information Modeling (BIM)",
+      "Strong corporate environmental and sustainability tracking"
+    ],
+    cons: [
+      "Requires IoT hardware or BMS gateways to unlock maximum value",
+      "Enterprise pricing model with significant initial configuration",
+      "Less focused on heavy machine shop stamping or tool maintenance"
+    ],
+    pricingTiers: ["Smart Building", "Enterprise Portfolio"],
+    technicianUsabilityScore: 8.3,
+    featureBenchmarks: {
+      "IoT Integration": "Outstanding",
+      "Facility Ergonomics": "Very High",
+      "Production Heavy Machine Focus": "Moderate"
+    }
+  },
+  {
+    id: "cmms-070",
+    name: "TabWare CMMS",
+    slug: "tabware-cmms",
+    tagline: "Proven asset management software designed by maintenance professionals.",
+    description: "TabWare (by AssetPoint) has been an industrial CMMS staple for decades. Built specifically for manufacturing plants, mining operations, and oil refineries, it emphasizes technician wrench time optimization, inventory storeroom control, and standardized equipment failure codes (ISO 14224).",
+    website: "https://www.assetpoint.com",
+    foundedYear: 1979,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Storeroom & Spare Parts Inventory",
+      "Work Order Planning & Scheduling",
+      "Asset Reliability Analytics",
+      "ISO 14224 Equipment Failure Codes",
+      "Preventive & Predictive Workflows",
+      "Mobile Tech Work Execution"
+    ],
+    targetIndustries: ["Manufacturing", "Oil & Gas", "Utilities & Energy", "Mining"],
+    pros: [
+      "Deep understanding of plant floor maintenance terminology and workflows",
+      "Comprehensive inventory storeroom min/max and vendor catalog tools",
+      "Proven track record in high-demand continuous manufacturing"
+    ],
+    cons: [
+      "User interface retains legacy Windows desktop heritage",
+      "Mobile app requires dedicated onboarding sessions for technicians",
+      "Third-party REST API integrations are more restrictive than modern cloud-native tools"
+    ],
+    pricingTiers: ["TabWare Xi Cloud", "On-Premise Enterprise"],
+    technicianUsabilityScore: 7.6,
+    featureBenchmarks: {
+      "Storeroom Management": "Outstanding",
+      "Failure Code Rigor": "Very High",
+      "Modern Web Aesthetics": "Moderate"
+    }
+  },
+  {
+    id: "cmms-071",
+    name: "Maintenance Care",
+    slug: "maintenance-care",
+    tagline: "Simple 2D and 3D visual maintenance software for modern facilities.",
+    description: "Maintenance Care simplifies work order tracking, preventative maintenance, and asset tracking through visual 3D building modeling and voice-to-text mobile ticketing. It is widely adopted by nursing homes, hotels, school districts, and commercial facility management firms.",
+    website: "https://www.maintenancecare.com",
+    foundedYear: 2003,
+    pricingModel: "Freemium",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Interactive 3D Virtual Facility Rooms",
+      "Free Work Order Generation Tier",
+      "Automated PM Calendars",
+      "Mobile Voice-to-Text Work Orders",
+      "Asset Capital Reserve Planning",
+      "Vendor Document Compliance"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Food & Beverage"],
+    pros: [
+      "Free Forever tier supports basic reactive work orders for small teams",
+      "Unique 3D room visualization makes locating equipment fast",
+      "Voice-to-text feature dramatically increases frontline note logging"
+    ],
+    cons: [
+      "Lacks deep multi-tier machine bill of materials (BOM) for manufacturing",
+      "Reporting lacks statistical MTBF / MTTR predictive modeling",
+      "Parts inventory management is basic compared to industrial MRO tools"
+    ],
+    pricingTiers: ["Free Edition", "Work Order Edition ($90/mo)", "Enterprise ($180/mo)"],
+    technicianUsabilityScore: 8.8,
+    featureBenchmarks: {
+      "Visual UI Simplicity": "Outstanding",
+      "Small Team Onboarding": "Best-in-class",
+      "Industrial Heavy Manufacturing": "Basic"
+    }
+  },
+  {
+    id: "cmms-072",
+    name: "ManagerPlus",
+    slug: "managerplus",
+    tagline: "Enterprise asset management for fleets, facilities, and production equipment.",
+    description: "ManagerPlus (an Eptura company) delivers unified asset tracking bridging production equipment with vehicular fleets and fixed plant infrastructure. It automates work order dispatching, fuel log reconciliation, DOT compliance inspection checklists, and procurement reorders.",
+    website: "https://www.managerplus.com",
+    foundedYear: 1992,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Dual Asset & Fleet Management",
+      "DOT & Safety Inspection Checklists",
+      "Work Order Management",
+      "Predictive Maintenance Meter Triggers",
+      "MRO Inventory & Parts Reorder",
+      "Mobile Offline Field Service"
+    ],
+    targetIndustries: ["Fleet & Heavy Equipment", "Manufacturing", "Packaging & Logistics"],
+    pros: [
+      "Seamless management of both fixed machines and moving vehicular fleets",
+      "Automated meter-reading and odometer-based maintenance scheduling",
+      "Backed by Eptura's global customer support and development resources"
+    ],
+    cons: [
+      "User interface has experienced multiple rebranding migrations",
+      "Custom metric dashboards require learning their proprietary reporting tool",
+      "Setup of multi-location inventory transfer workflows can be tedious"
+    ],
+    pricingTiers: ["Lightning Starter", "Lightning Plus", "Lightning Enterprise"],
+    technicianUsabilityScore: 8.2,
+    featureBenchmarks: {
+      "Fleet & Asset Synergy": "Outstanding",
+      "Meter-based PM": "Very High",
+      "Modern Web UX": "High"
+    }
+  },
+  {
+    id: "cmms-073",
+    name: "Asset Panda CMMS",
+    slug: "asset-panda-cmms",
+    tagline: "Hyper-configurable asset tracking and maintenance management platform.",
+    description: "Asset Panda gives facilities and operations managers complete flexibility to build custom fields, lifecycle tracking stages, and maintenance check-in/check-out flows without writing code. With unlimited users on all plans, it eliminates per-seat licensing penalties for growing plants.",
+    website: "https://www.assetpanda.com",
+    foundedYear: 2012,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Unlimited User Licensing Model",
+      "Custom Field & Workflow Engine",
+      "Built-in Barcode & QR Code Scanner",
+      "Repair Ticketing & Work Orders",
+      "Preventive Maintenance Reminders",
+      "Electronic Signature Capture"
+    ],
+    targetIndustries: ["Facilities & Property", "Manufacturing", "Healthcare & Pharmaceuticals", "Packaging & Logistics"],
+    pros: [
+      "Unlimited user pricing allows shop floor operators to report issues freely",
+      "Virtually infinite field customization without engineering tickets",
+      "Top-tier mobile app with native camera barcode scanning"
+    ],
+    cons: [
+      "Heavy customization means initial onboarding requires thorough workflow planning",
+      "Lacks advanced discrete manufacturing machine hierarchy (ISO parent/child BOM)",
+      "Vibration/thermal predictive sensor integrations require external webhooks"
+    ],
+    pricingTiers: ["Standard Portfolio", "Professional Enterprise"],
+    technicianUsabilityScore: 8.7,
+    featureBenchmarks: {
+      "Custom Field Flexibility": "Best-in-class",
+      "Unlimited Seats Model": "Outstanding",
+      "Industrial PM Rigor": "High"
+    }
+  },
+  {
+    id: "cmms-074",
+    name: "GDM (Gestão de Manutenção)",
+    slug: "gdm-cmms",
+    tagline: "Reliability-centered maintenance software for industrial manufacturing.",
+    description: "GDM is an engineered maintenance management platform focused on total productive maintenance (TPM), overall equipment effectiveness (OEE), and reliability-centered maintenance (RCM). Widely used in Latin American and European automotive and chemical facilities.",
+    website: "https://gdm.software",
+    foundedYear: 2011,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Reliability Centered Maintenance (RCM)",
+      "Overall Equipment Effectiveness (OEE) Tracking",
+      "Preventive & Condition-based PM",
+      "Root Cause Analysis (RCA) 5-Why Module",
+      "Spare Parts Inventory Optimization",
+      "Technician Time & Cost Tracking"
+    ],
+    targetIndustries: ["Manufacturing", "Food & Beverage", "Oil & Gas"],
+    pros: [
+      "Direct integration between maintenance work orders and line OEE calculations",
+      "Built-in structured Root Cause Analysis tools for recurring breakdowns",
+      "Competitive per-plant pricing structure"
+    ],
+    cons: [
+      "English localization and North American support hours are limited",
+      "Mobile application interface is more utilitarian than visual",
+      "Cloud integrations with North American accounting packages require Zapier/webhooks"
+    ],
+    pricingTiers: ["Essential", "Professional RCM", "Multi-Plant"],
+    technicianUsabilityScore: 7.7,
+    featureBenchmarks: {
+      "OEE Calculation": "Very High",
+      "Root Cause Analysis": "Outstanding",
+      "Global Support Hours": "Moderate"
+    }
+  },
+  {
+    id: "cmms-075",
+    name: "MainBoss",
+    slug: "mainboss",
+    tagline: "Time-tested maintenance management software for physical plant operations.",
+    description: "MainBoss has served industrial facilities, hospitals, and property complexes since 1980. Renowned for its transparent upfront pricing, rock-solid SQL database architecture, and zero-bloat work order tracking, it remains a favorite for conservative maintenance managers who distrust opaque SaaS subscriptions.",
+    website: "https://www.mainboss.com",
+    foundedYear: 1980,
+    pricingModel: "Subscription",
+    deployment: ["On-Premise", "Cloud / SaaS"],
+    features: [
+      "Work Order Management",
+      "Preventive Maintenance Scheduling",
+      "Purchasing & Storeroom Inventory",
+      "Equipment History Log",
+      "Work Request Email Parser",
+      "Maintenance Labor Accounting"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Exceptionally cost-effective transparent pricing with no hidden seat penalties",
+      "Rock-solid database reliability requiring virtually zero routine maintenance",
+      "Email-to-ticket generation works out of the box with any existing mail server"
+    ],
+    cons: [
+      "Windows desktop user interface looks and feels like software from 2005",
+      "Lacks native iOS/Android mobile apps (operates via responsive web browser)",
+      "No native IoT sensor vibration or predictive telemetry modules"
+    ],
+    pricingTiers: ["MainBoss Basic", "MainBoss Advanced SQL"],
+    technicianUsabilityScore: 7.3,
+    featureBenchmarks: {
+      "Cost-Effectiveness": "Outstanding",
+      "Database Stability": "Very High",
+      "Modern Mobile UX": "Low"
+    }
+  },
+  {
+    id: "cmms-076",
+    name: "CWorks",
+    slug: "cworks",
+    tagline: "Modular maintenance management software for utilities and public works.",
+    description: "CWorks is a modular CMMS developed to support municipal water utilities, ports, and regional transportation departments. It offers flexible work order tracking, asset GIS location integration, and preventive servicing regimes tailored to geographically dispersed infrastructure.",
+    website: "https://www.cworks.com.my",
+    foundedYear: 2001,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "GIS Linear Asset Tracking",
+      "Work Order Dispatch & Labor Hours",
+      "Preventive Maintenance Schedules",
+      "Inventory & Spare Parts Warehousing",
+      "Contractor Service Agreements",
+      "Capital Replacement Budgeting"
+    ],
+    targetIndustries: ["Utilities & Energy", "Facilities & Property", "Packaging & Logistics"],
+    pros: [
+      "Affordable entry points with modular add-ons as municipal operations grow",
+      "Strong support for linear public infrastructure assets (pipelines, roads, bridges)",
+      "Supports offline field audits in remote utility corridors"
+    ],
+    cons: [
+      "Interface feels somewhat clinical and form-heavy for younger technicians",
+      "Primary vendor support hubs operate on Asia-Pacific business hours",
+      "Integration with modern North American utility billing software requires custom API work"
+    ],
+    pricingTiers: ["CWorks Plus", "CWorks Enterprise", "CWorks Mobile"],
+    technicianUsabilityScore: 7.5,
+    featureBenchmarks: {
+      "Linear Asset Support": "Very High",
+      "Public Utility Compliance": "High",
+      "UI Elegance": "Moderate"
+    }
+  },
+  {
+    id: "cmms-077",
+    name: "AssetInfinity",
+    slug: "assetinfinity",
+    tagline: "Cloud-hosted asset tracking, CMMS, and auditing software.",
+    description: "AssetInfinity provides an intuitive cloud platform combining equipment lifecycle tracking with preventive maintenance schedules, RFID/NFC tag verification, and tool checkout management. It gives plant supervisors complete visibility over asset whereabouts and repair histories.",
+    website: "https://www.assetinfinity.com",
+    foundedYear: 2017,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "RFID & NFC Asset Auditing",
+      "Tool Crib Check-In / Check-Out",
+      "Breakdown Ticketing & PM Scheduling",
+      "Spare Parts Minimum Threshold Alerts",
+      "Mobile Offline Audit Mode",
+      "Depreciation & Cost Tracking"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Fleet & Heavy Equipment"],
+    pros: [
+      "Built-in support for cutting-edge RFID, NFC, and QR scanning hardware",
+      "Very clean modern mobile application interface",
+      "Strong tool crib tracking prevents lost plant specialty tools"
+    ],
+    cons: [
+      "Less suited for deep automated condition-based vibration monitoring",
+      "Custom report builder has a slight learning curve for complex SQL joins",
+      "Notifications can be overly aggressive out of the box without tuning"
+    ],
+    pricingTiers: ["Starter ($50/mo)", "Professional ($120/mo)", "Enterprise"],
+    technicianUsabilityScore: 8.6,
+    featureBenchmarks: {
+      "Tool Crib / RFID Support": "Outstanding",
+      "Mobile App Fluidity": "Very High",
+      "Advanced Vibration Analytics": "Moderate"
+    }
+  },
+  {
+    id: "cmms-078",
+    name: "Spacewell Axxerion IWMS",
+    slug: "spacewell-axxerion",
+    tagline: "Integrated workplace and maintenance management software for campuses.",
+    description: "Spacewell Axxerion integrates building maintenance, lease administration, energy monitoring, and space optimization. Tailored for university campuses, corporate headquarters, and healthcare hospital systems requiring unified physical asset governance.",
+    website: "https://www.axxerion.com",
+    foundedYear: 2003,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "Campus Facility Maintenance",
+      "Space & Moves Management",
+      "Vendor SLA Performance Audits",
+      "Energy Consumption Benchmarking",
+      "Capital Lifecycle Planning",
+      "Mobile Floorplan Technician Routing"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Utilities & Energy"],
+    pros: [
+      "Single database replaces separate CAFM, CMMS, and leasing tools",
+      "Excellent floorplan-based maintenance routing for large hospital campuses",
+      "Solid European data privacy compliance (GDPR)"
+    ],
+    cons: [
+      "Requires dedicated project manager to configure properly",
+      "Overkill for a standalone discrete manufacturing plant",
+      "Enterprise licensing carries substantial annual commitment"
+    ],
+    pricingTiers: ["Professional Campus", "Enterprise Global"],
+    technicianUsabilityScore: 8.0,
+    featureBenchmarks: {
+      "Campus Asset Routing": "Outstanding",
+      "IWMS Depth": "Very High",
+      "Industrial Plant Floor Fit": "Moderate"
+    }
+  },
+  {
+    id: "cmms-079",
+    name: "Idhammar Systems",
+    slug: "idhammar-systems",
+    tagline: "OEE and maintenance management software developed for industrial excellence.",
+    description: "Idhammar Systems delivers specialized CMMS and overall equipment effectiveness (OEE) software designed by reliability engineers. It helps food & beverage, pharmaceutical, and high-speed packaging plants pinpoint micro-stops and schedule high-precision maintenance during line changeovers.",
+    website: "https://www.idhammarsystems.com",
+    foundedYear: 1971,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Real-time OEE Line Monitoring",
+      "Line Changeover Maintenance Schedulers",
+      "Work Order Management",
+      "MRO Inventory & Kitting",
+      "Shift Log Handover Notes",
+      "Root Cause Defect Tracking"
+    ],
+    targetIndustries: ["Food & Beverage", "Manufacturing", "Packaging & Logistics", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Exceptional correlation between machine micro-stoppages and maintenance tasks",
+      "Decades of British and European manufacturing plant deployment pedigree",
+      "Excellent shift handover communication logs for 24/7 continuous operations"
+    ],
+    cons: [
+      "Legacy software styling across administrative configuration modules",
+      "Mobile interface functionality lags behind consumerized apps like MaintainX",
+      "Pricing geared toward mid-to-large automated factories"
+    ],
+    pricingTiers: ["OEE Core", "CMMS Professional", "Integrated Plant Suite"],
+    technicianUsabilityScore: 7.8,
+    featureBenchmarks: {
+      "OEE Micro-stop Tracking": "Best-in-class",
+      "Continuous Shift Handover": "Outstanding",
+      "App Visual Design": "Moderate"
+    }
+  },
+  {
+    id: "cmms-080",
+    name: "Field Force Tracker",
+    slug: "field-force-tracker",
+    tagline: "Field service and maintenance management for external contractors and plants.",
+    description: "Field Force Tracker handles both internal facility maintenance and external field service dispatching. Featuring mobile GPS route optimization, customer quotation generation, preventive service agreements, and parts catalog invoicing.",
+    website: "https://www.fieldforcetracker.com",
+    foundedYear: 2012,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Field Service Dispatch & GPS Routing",
+      "Preventive Service Contract Management",
+      "Customer Work Order Signatures",
+      "Mobile Invoicing & Estimates",
+      "Inventory & Van Stock Replenishment",
+      "Asset Service History Logs"
+    ],
+    targetIndustries: ["Facilities & Property", "Fleet & Heavy Equipment", "Utilities & Energy"],
+    pros: [
+      "Perfect for maintenance contractors managing client machines across regional plants",
+      "Mobile customer signature capture and immediate job invoicing",
+      "Real-time technician geolocation dispatch map"
+    ],
+    cons: [
+      "Less focused on internal heavy machine reliability engineering (MTBF/MTTR)",
+      "UI contains numerous dense data entry forms",
+      "Lacks native vibration sensor telemetry monitoring"
+    ],
+    pricingTiers: ["Basic ($29/mo)", "Standard ($49/mo)", "Enterprise ($79/mo)"],
+    technicianUsabilityScore: 8.1,
+    featureBenchmarks: {
+      "Contractor Invoicing": "Outstanding",
+      "Mobile Field Dispatch": "Very High",
+      "Plant OEE / MTBF Analytics": "Low"
+    }
+  },
+  {
+    id: "cmms-081",
+    name: "Maxi-Maint",
+    slug: "maxi-maint",
+    tagline: "Industrial preventive maintenance and spare parts inventory system.",
+    description: "Maxi-Maint is an engineered CMMS focused on preventative work scheduling, equipment rebuild tracking, and multi-warehouse MRO inventory control. Designed for metal stamping plants, injection molding shops, and automated packaging facilities.",
+    website: "https://www.maximaint.com",
+    foundedYear: 1996,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Die & Mold Rebuild Tracking",
+      "Preventive Maintenance Calendars",
+      "Multi-Warehouse Spare Parts Control",
+      "Purchasing & Vendor Reorder Triggers",
+      "Technician Time Study Logging",
+      "Equipment Depreciation Schedules"
+    ],
+    targetIndustries: ["Manufacturing", "Packaging & Logistics", "Food & Beverage"],
+    pros: [
+      "Dedicated tracking for production dies, molds, and tooling cycles",
+      "Very deep spare parts interchangeability catalog",
+      "Accessible customer service with direct access to senior product engineers"
+    ],
+    cons: [
+      "Desktop software styling requires user acclimatization",
+      "Mobile features are delivered through web browser rather than native app store apps",
+      "Limited out-of-the-box API connectors for modern cloud CRMs"
+    ],
+    pricingTiers: ["Single Plant", "Multi-Plant Corporate"],
+    technicianUsabilityScore: 7.6,
+    featureBenchmarks: {
+      "Tooling & Mold Lifecycle": "Outstanding",
+      "MRO Warehouse Logic": "Very High",
+      "Modern Web Aesthetic": "Moderate"
+    }
+  },
+  {
+    id: "cmms-082",
+    name: "Coswin 8i (Siveco)",
+    slug: "coswin-8i",
+    tagline: "Enterprise Asset Management and maintenance software with global reach.",
+    description: "Coswin 8i by Siveco Group is an international EAM and CMMS solution deployed across global manufacturing giants, transportation networks, and utility consortiums. It provides rich multicompany, multilingual, and multicurrency support alongside deep integration with BIM (Building Information Modeling) and GIS.",
+    website: "https://www.siveco.com",
+    foundedYear: 1986,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Global Multi-Site, Multi-Currency EAM",
+      "BIM 3D Model Asset Integration",
+      "GIS Linear Asset Mapping",
+      "Predictive Condition-Based Maintenance",
+      "Comprehensive Spare Parts Storerooms",
+      "Auditable Safety & Work Permits"
+    ],
+    targetIndustries: ["Manufacturing", "Utilities & Energy", "Packaging & Logistics", "Oil & Gas"],
+    pros: [
+      "Superb internationalization capabilities for cross-border industrial operations",
+      "Direct interactive 3D BIM asset visualization for complex industrial buildings",
+      "Nearly 40 years of proven continuous reliability engineering pedigree"
+    ],
+    cons: [
+      "High implementation and consulting footprint",
+      "Steep learning curve for casual line operators",
+      "Complex licensing tiers requiring enterprise negotiation"
+    ],
+    pricingTiers: ["Coswin Professional", "Coswin Enterprise Multi-Country"],
+    technicianUsabilityScore: 7.5,
+    featureBenchmarks: {
+      "Global Enterprise Scalability": "Industry Benchmark",
+      "BIM/GIS Integration": "Outstanding",
+      "Quick Mobile Setup": "Low"
+    }
+  },
+  {
+    id: "cmms-083",
+    name: "MaintPlex",
+    slug: "maintplex",
+    tagline: "Lightweight cloud maintenance tracker for machine shops and small plants.",
+    description: "MaintPlex offers a zero-clutter maintenance workspace focused strictly on work orders, scheduled machine lubrication routes, and basic spare parts counts. Perfect for machine shops and job fabrication businesses transitioning away from dry-erase whiteboards and Excel sheets.",
+    website: "https://www.maintplex.com",
+    foundedYear: 2021,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Kanban Board Work Order Management",
+      "Lubrication & Greasing Route Scheduler",
+      "Simple Spare Parts Tally",
+      "Equipment QR Code Tagging",
+      "Technician Mobile Camera Logging",
+      "Automated Email Overdue Notifications"
+    ],
+    targetIndustries: ["Manufacturing", "Food & Beverage", "Packaging & Logistics"],
+    pros: [
+      "Visual Kanban boards make daily maintenance prioritization completely intuitive",
+      "Extremely affordable fixed per-plant pricing model",
+      "Can be configured and operational in less than 30 minutes"
+    ],
+    cons: [
+      "Lacks advanced statistical MTBF/MTTR analytics",
+      "No automated purchase order generation for enterprise vendors",
+      "Cannot handle complex parent-child asset trees with hundreds of sub-components"
+    ],
+    pricingTiers: ["Shop Starter ($29/mo)", "Plant Pro ($69/mo)"],
+    technicianUsabilityScore: 9.0,
+    featureBenchmarks: {
+      "Kanban Simplicity": "Outstanding",
+      "Small Shop Adoption": "Best-in-class",
+      "Complex Enterprise BOM": "Basic"
+    }
+  },
+  {
+    id: "cmms-084",
+    name: "MaintenancePro",
+    slug: "maintenance-pro",
+    tagline: "Equipment and fleet maintenance software with automated PM schedules.",
+    description: "MaintenancePro (by Innovative Maintenance Systems) automates preventative maintenance for machinery, industrial facilities, and vehicle fleets. Its color-coded dashboards highlight due and overdue PMs based on both calendar intervals and runtime meters.",
+    website: "https://www.mtcpro.com",
+    foundedYear: 1994,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Automated PM Alert Dashboards",
+      "Meter & Hour Tracking Triggers",
+      "Work Order Generation & Invoicing",
+      "Parts Inventory & Low Stock Alerts",
+      "Employee Labor Tracking",
+      "Comprehensive Maintenance Audit Histories"
+    ],
+    targetIndustries: ["Fleet & Heavy Equipment", "Manufacturing", "Facilities & Property"],
+    pros: [
+      "Color-coded green/yellow/red status indicators make overdue tasks impossible to miss",
+      "Dual tracking of fixed machinery and fleet vehicles",
+      "Perpetual on-premise license available alongside cloud subscriptions"
+    ],
+    cons: [
+      "User interface layout reflects classic 2000s desktop utility design",
+      "Mobile web companion lacks native offline caching",
+      "No direct IoT wireless sensor ingestion"
+    ],
+    pricingTiers: ["Standard", "Deluxe", "Premier", "Online Cloud"],
+    technicianUsabilityScore: 7.9,
+    featureBenchmarks: {
+      "Meter Interval Tracking": "Very High",
+      "Visual Due-Date Alerts": "Outstanding",
+      "Cloud Modernity": "Moderate"
+    }
+  },
+  {
+    id: "cmms-085",
+    name: "Aquitas Solutions",
+    slug: "aquitas-solutions",
+    tagline: "Connected maintenance and IoT asset management services powered by Maximo.",
+    description: "Aquitas Solutions delivers tailored enterprise asset management configurations and connected maintenance architectures built around the IBM Maximo Application Suite. They specialize in bridging plant-floor SCADA, PLC telemetry, and vibration sensors directly into automated work order triggers.",
+    website: "https://www.aquitas-solutions.com",
+    foundedYear: 2006,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "Hybrid"],
+    features: [
+      "IBM Maximo Connected EAM Architecture",
+      "IoT Vibration & Thermal Sensor Integration",
+      "Condition-Based Maintenance Rules",
+      "Maximo Mobile Field Deployments",
+      "Asset Reliability Engineering Advisory",
+      "Predictive Failure Algorithms"
+    ],
+    targetIndustries: ["Manufacturing", "Utilities & Energy", "Oil & Gas", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Bridges the gap between raw IBM Maximo power and practical plant-floor execution",
+      "Elite engineering expertise in condition monitoring and industrial IoT",
+      "Pre-configured industry accelerators speed up Maximo deployment timelines"
+    ],
+    cons: [
+      "High total investment suitable only for enterprise industrial budgets",
+      "Dependent on IBM Maximo licensing infrastructure",
+      "Requires dedicated organizational change management to realize full ROI"
+    ],
+    pricingTiers: ["Maximo Enterprise Accelerator", "Custom Quote"],
+    technicianUsabilityScore: 8.0,
+    featureBenchmarks: {
+      "Maximo IoT Optimization": "Industry Benchmark",
+      "Condition Monitoring": "Outstanding",
+      "Affordability": "Low"
+    }
+  },
+  {
+    id: "cmms-086",
+    name: "OptiMaint",
+    slug: "optimaint",
+    tagline: "Accessible industrial CMMS designed for rapid implementation in factories.",
+    description: "OptiMaint (by Apave) is an industrial maintenance management system focused on work order execution, technician scheduling, regulatory compliance audits, and inventory management. Deployed across more than 1,000 industrial sites across Europe and North Africa.",
+    website: "https://www.optimaint.com",
+    foundedYear: 1993,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Preventive & Curative Work Orders",
+      "Technician Workload Planning",
+      "Spare Parts Inventory & Purchase Requests",
+      "Regulatory Safety Inspections",
+      "Subcontractor Performance Tracking",
+      "Equipment Reliability Statistics"
+    ],
+    targetIndustries: ["Manufacturing", "Food & Beverage", "Utilities & Energy"],
+    pros: [
+      "Backed by Apave's century-long industrial safety and risk verification expertise",
+      "Very structured regulatory inspection logs for safety compliance",
+      "Balanced functionality suitable for medium-sized manufacturing plants"
+    ],
+    cons: [
+      "English documentation is less comprehensive than French materials",
+      "Modern cloud REST API connectivity is somewhat limited",
+      "Mobile tablet interface is functional but visually basic"
+    ],
+    pricingTiers: ["OptiMaint Cloud", "OptiMaint On-Premise License"],
+    technicianUsabilityScore: 7.7,
+    featureBenchmarks: {
+      "Safety Inspection Rigor": "Very High",
+      "Technician Workload Planning": "High",
+      "Modern Web Design": "Moderate"
+    }
+  },
+  {
+    id: "cmms-087",
+    name: "Assettrac",
+    slug: "assettrac",
+    tagline: "Custom asset tracking and mobile maintenance auditing solutions.",
+    description: "Assettrac provides barcode and RFID-driven equipment tracking paired with scheduled inspection checklists and work orders. It enables manufacturing maintenance supervisors to verify physical equipment presence, audit tool calibrations, and assign maintenance routines on mobile devices.",
+    website: "https://www.assettrac.co.uk",
+    foundedYear: 2004,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Barcode & RFID Tag Auditing",
+      "Mobile Equipment Inspections",
+      "Preventive Maintenance Work Orders",
+      "Tool Calibration Scheduling",
+      "Asset Depreciation & Financials",
+      "Audit Trail & Compliance Reports"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Hands-on hardware configuration services (tags, scanners, mobile terminals)",
+      "Excellent physical inventory verification and calibration auditing",
+      "Customizable inspection checklist workflows"
+    ],
+    cons: [
+      "Less optimized for automated high-volume spare parts warehouse kitting",
+      "No native automated vibration or SCADA telemetry triggers",
+      "UK-centric support team"
+    ],
+    pricingTiers: ["Core Asset", "Asset & Maintenance Pro", "Enterprise"],
+    technicianUsabilityScore: 8.2,
+    featureBenchmarks: {
+      "Physical Tag Auditing": "Outstanding",
+      "Calibration Tracking": "High",
+      "Predictive Telemetry": "Low"
+    }
+  },
+  {
+    id: "cmms-088",
+    name: "Maintelligence",
+    slug: "maintelligence",
+    tagline: "Asset basic care, lubrication management, and predictive reliability software.",
+    description: "Maintelligence (by DMSI) is engineered around asset basic care, precision lubrication, and condition-based reliability. It bridges the traditional gap between operator rounds, lubrication routes, and advanced vibration/oil analysis data to catch machinery wear before failure occurs.",
+    website: "https://www.desmaint.com",
+    foundedYear: 1986,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Operator Driven Reliability (ODR) Rounds",
+      "Precision Lubrication Route Management",
+      "Vibration, Infrared & Oil Analysis Logs",
+      "Work Order & PM Scheduling",
+      "MRO Inventory & Parts Management",
+      "Failure Mode and Effects Analysis (FMEA)"
+    ],
+    targetIndustries: ["Manufacturing", "Mining", "Oil & Gas", "Utilities & Energy"],
+    pros: [
+      "Unsurpassed precision lubrication management with exact viscosity and volume tracking",
+      "Exceptional operator round inspection logging on ruggedized handhelds",
+      "Direct import of oil laboratory test results and vibration trends"
+    ],
+    cons: [
+      "Very high initial configuration requirement to map exact lubrication points",
+      "Interface designed for reliability engineers rather than casual users",
+      "High implementation and specialized training costs"
+    ],
+    pricingTiers: ["Standard CMMS", "Predictive Reliability Suite"],
+    technicianUsabilityScore: 7.5,
+    featureBenchmarks: {
+      "Lubrication Management": "Industry Benchmark",
+      "Operator Rounds (ODR)": "Best-in-class",
+      "App User Experience": "Moderate"
+    }
+  },
+  {
+    id: "cmms-089",
+    name: "Siveco Valuekeep",
+    slug: "siveco-valuekeep",
+    tagline: "Modern cloud and mobile CMMS built to optimize asset operations.",
+    description: "Valuekeep is a cloud-native CMMS platform designed to unify work orders, preventive maintenance, stock management, and technical team scheduling. Featuring dedicated technician mobile apps with full offline capabilities, it speeds up work completion times across decentralized facilities.",
+    website: "https://www.valuekeep.com",
+    foundedYear: 2015,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Technician Mobile App with Offline Mode",
+      "Preventive & Corrective Maintenance",
+      "MRO Stock & Warehouse Management",
+      "Subcontractor Service Management",
+      "Asset QR Code Scanning",
+      "Interactive Maintenance Planning Calendar"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Food & Beverage", "Packaging & Logistics"],
+    pros: [
+      "Intuitive modern mobile application designed for shop-floor technicians",
+      "Solid offline synchronization allows work in basements and remote plants",
+      "Clean visual calendar for technician work order load balancing"
+    ],
+    cons: [
+      "Reporting module requires learning custom report designer for advanced KPIs",
+      "Initial configuration of multi-warehouse inventory transfer takes patience",
+      "Predictive sensor telemetry requires third-party API bridging"
+    ],
+    pricingTiers: ["Starter ($45/user/mo)", "Professional ($75/user/mo)", "Enterprise"],
+    technicianUsabilityScore: 8.5,
+    featureBenchmarks: {
+      "Mobile Offline Sync": "Very High",
+      "Visual Scheduling": "High",
+      "Predictive Telemetry": "Moderate"
+    }
+  },
+  {
+    id: "cmms-090",
+    name: "MaintenancePro Online",
+    slug: "maintenancepro-online",
+    tagline: "Cloud-based fleet and industrial machinery maintenance tracking.",
+    description: "MaintenancePro Online takes the established reliability algorithms of IMS software and delivers them through a 100% cloud web browser and mobile platform. It handles preventative maintenance schedules, breakdown work orders, fuel logging, and spare parts depletion seamlessly across distributed locations.",
+    website: "https://www.mtcpro.com/cloud",
+    foundedYear: 2018,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Automated PM Schedule Calculations",
+      "Equipment & Vehicle Mileage Tracking",
+      "Work Order Generation & Dispatch",
+      "Parts Inventory Control & Purchase Orders",
+      "Technician Mobile Scanning",
+      "Cost-per-Hour & Downtime Reports"
+    ],
+    targetIndustries: ["Fleet & Heavy Equipment", "Manufacturing", "Facilities & Property"],
+    pros: [
+      "No servers to maintain with automatic cloud updates and backups",
+      "Superb dual-role coverage for mixed industrial plants with forklift and truck fleets",
+      "Clean color-coded dashboard indicators for due preventative tasks"
+    ],
+    cons: [
+      "Custom fields and workflow automation are less flexible than Asset Panda",
+      "Requires active internet connection for real-time parts deductions",
+      "Lacks deep predictive vibration or thermal camera integration"
+    ],
+    pricingTiers: ["Standard Cloud ($35/mo)", "Deluxe Cloud ($65/mo)", "Enterprise"],
+    technicianUsabilityScore: 8.3,
+    featureBenchmarks: {
+      "Fleet + Plant Equipment Synergy": "Outstanding",
+      "Cloud Convenience": "Very High",
+      "IoT Sensor Ingestion": "Moderate"
+    }
+  },
+  {
+    id: "cmms-091",
+    name: "Infor EAM (Hexagon)",
+    slug: "infor-eam-cloud",
+    tagline: "Enterprise Asset Management engineered to maximize capital asset performance.",
+    description: "Infor EAM (now operating under Hexagon) is one of the world's premier enterprise asset management software suites. Designed for multi-billion dollar industrial corporations, it provides predictive maintenance modeling, energy sustainability analytics, linear asset tracking, and strict regulatory compliance.",
+    website: "https://hexagon.com/products/infor-eam",
+    foundedYear: 1986,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Predictive & Condition-Based Maintenance",
+      "Multi-Site Global Asset Registry",
+      "Linear & GIS Asset Hierarchy",
+      "Energy & Carbon Footprint Monitoring",
+      "Contractor & Warranty Management",
+      "Advanced Inventory & Global Procurement"
+    ],
+    targetIndustries: ["Manufacturing", "Oil & Gas", "Utilities & Energy", "Fleet & Heavy Equipment"],
+    pros: [
+      "Unrivaled enterprise scalability handling millions of assets worldwide",
+      "Deep energy monitoring ties maintenance to environmental sustainability goals",
+      "Extensive ecosystem of certified system integrators and consultants"
+    ],
+    cons: [
+      "Demands substantial implementation budgets and specialized consulting teams",
+      "Long learning curve for everyday line workers without tailored screen masking",
+      "Total cost of ownership is prohibitive for mid-sized manufacturers"
+    ],
+    pricingTiers: ["Enterprise Cloud Subscription", "Dedicated Private Cloud"],
+    technicianUsabilityScore: 7.6,
+    featureBenchmarks: {
+      "Global Enterprise Scalability": "Industry Benchmark",
+      "Sustainability / Energy Tracking": "Outstanding",
+      "Affordability for Small Plants": "Low"
+    }
+  },
+  {
+    id: "cmms-092",
+    name: "FTMaintenance Select",
+    slug: "ftmaintenance-select",
+    tagline: "Modern cloud CMMS software for maintenance, work orders, and MRO inventory.",
+    description: "FTMaintenance Select is the next-generation cloud maintenance management platform from FasMaint. Built specifically to eliminate paper work orders and disorganized spare parts storerooms, it features automated maintenance request routing, barcode scanning, and detailed equipment lifecycle accounting.",
+    website: "https://ftmaintenance.com/select",
+    foundedYear: 2021,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Automated Work Order Dispatch",
+      "Preventative Maintenance Scheduling",
+      "MRO Inventory & Barcoding",
+      "Vendor & Purchasing Automation",
+      "Equipment Downtime Tracking",
+      "Technician Mobile App"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Utilities & Energy", "Food & Beverage"],
+    pros: [
+      "Clean, modern user experience designed from scratch for modern browsers",
+      "Very strong MRO spare parts inventory control and barcode printing",
+      "Attentive US-based customer training and onboarding support"
+    ],
+    cons: [
+      "Newer cloud platform still expanding its library of native third-party ERP connectors",
+      "Advanced predictive vibration features require custom API integration",
+      "Reporting dashboard customization is less open-ended than PowerBI"
+    ],
+    pricingTiers: ["Standard", "Professional", "Enterprise"],
+    technicianUsabilityScore: 8.4,
+    featureBenchmarks: {
+      "MRO Inventory Accuracy": "Very High",
+      "User Interface Polish": "High",
+      "Predictive Sensor Ecosystem": "Moderate"
+    }
+  },
+  {
+    id: "cmms-093",
+    name: "FastMaint CMMS",
+    slug: "fastmaint-cmms",
+    tagline: "Straightforward maintenance management software for facilities and plants.",
+    description: "FastMaint CMMS is an easy-to-use maintenance planning and work order tracking solution available as both cloud software and standalone on-premise installation. It is popular with small manufacturing plants, utilities, and commercial buildings looking for fast setup without recurring subscription traps.",
+    website: "https://www.fastmaint.com",
+    foundedYear: 2001,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Work Order Tracking",
+      "Calendar & Meter Preventive Maintenance",
+      "Inventory & Spare Parts Control",
+      "Vendor Management & PO Tracking",
+      "Email Work Order Dispatch",
+      "Maintenance Labor Cost Accounting"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Utilities & Energy"],
+    pros: [
+      "Offers perpetual on-premise license option for businesses avoiding SaaS subscriptions",
+      "Simple setup allows plants to be productive within a few days",
+      "Very low ongoing maintenance overhead for internal IT departments"
+    ],
+    cons: [
+      "Classic desktop interface looks dated next to modern SaaS solutions",
+      "Mobile access is browser-based rather than a dedicated native mobile app",
+      "Lacks automated predictive analytics or AI work order triage"
+    ],
+    pricingTiers: ["Standard Edition", "Professional Edition", "Web Cloud Edition"],
+    technicianUsabilityScore: 7.5,
+    featureBenchmarks: {
+      "Perpetual License Option": "Outstanding",
+      "Setup Simplicity": "High",
+      "Modern Mobile UX": "Low"
+    }
+  },
+  {
+    id: "cmms-094",
+    name: "Asset Pro CMMS",
+    slug: "asset-pro-cmms",
+    tagline: "Industrial equipment maintenance and work tracking software.",
+    description: "Asset Pro CMMS provides a structured maintenance management environment that emphasizes equipment preventive maintenance schedules, spare parts storeroom management, and technician labor utilization metrics for continuous manufacturing operations.",
+    website: "https://www.assetprocmms.com",
+    foundedYear: 2008,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise"],
+    features: [
+      "Scheduled PM Calendars",
+      "Work Order Queue & Priority Flags",
+      "Spare Parts Reorder Thresholds",
+      "Technician Labor Hour Auditing",
+      "Equipment Failure Mode Tracking",
+      "Historical Maintenance Cost Accounting"
+    ],
+    targetIndustries: ["Manufacturing", "Packaging & Logistics", "Food & Beverage"],
+    pros: [
+      "Solid tracking of technician labor hours against actual job standards",
+      "Affordable multi-tier pricing for mid-market manufacturing facilities",
+      "Direct equipment repair history logs assist in capital replacement planning"
+    ],
+    cons: [
+      "Mobile interface requires consistent connectivity without strong offline cache",
+      "Lacks automated IoT vibration or thermal camera ingestion",
+      "Reporting export formats are largely restricted to PDF and CSV"
+    ],
+    pricingTiers: ["Plant Core ($45/user/mo)", "Plant Enterprise ($80/user/mo)"],
+    technicianUsabilityScore: 7.9,
+    featureBenchmarks: {
+      "Labor Tracking": "High",
+      "Preventive Scheduling": "Very High",
+      "Predictive IoT": "Low"
+    }
+  },
+  {
+    id: "cmms-095",
+    name: "Simpro Asset Maintenance",
+    slug: "simpro-asset-maintenance",
+    tagline: "Field service and maintenance management for trade contractors and facilities.",
+    description: "Simpro provides a comprehensive operations management platform that excels in asset maintenance for commercial trade contractors and facilities management service providers. It automates testing schedules, service quotes, job costing, and customer compliance reporting.",
+    website: "https://www.simprogroup.com",
+    foundedYear: 2002,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Customer Asset Testing Registers",
+      "Preventative Service Maintenance Contracts",
+      "Mobile Job Dispatch & Invoicing",
+      "GPS Fleet & Technician Tracking",
+      "Material Purchase Orders & Van Inventory",
+      "Compliance Certificates & Sign-offs"
+    ],
+    targetIndustries: ["Facilities & Property", "Utilities & Energy", "Fleet & Heavy Equipment"],
+    pros: [
+      "Exceptional job costing and profitability tracking on every maintenance contract",
+      "Generates professional compliance testing certificates automatically for clients",
+      "Seamless flow from technician job completion to accounting invoicing"
+    ],
+    cons: [
+      "Geared heavily toward service contractors rather than internal industrial plant maintenance",
+      "Setup and onboarding requires significant configuration investment",
+      "Lacks deep discrete manufacturing line OEE tracking"
+    ],
+    pricingTiers: ["Simpro Enterprise Suite (Custom Quote)"],
+    technicianUsabilityScore: 8.2,
+    featureBenchmarks: {
+      "Job Costing & Profitability": "Outstanding",
+      "Client Compliance Sign-off": "Very High",
+      "Factory Floor Machine Hierarchy": "Moderate"
+    }
+  },
+  {
+    id: "cmms-096",
+    name: "AssetWorks FleetFocus",
+    slug: "assetworks-fleetfocus",
+    tagline: "The industry standard in fleet and maintenance management for public & private sectors.",
+    description: "AssetWorks FleetFocus is the premier fleet maintenance management system utilized by county transit systems, public works departments, and commercial haulers. It manages the complete lifecycle of heavy vehicles, plant yellow iron, and stationary support machinery.",
+    website: "https://www.assetworks.com/fleet",
+    foundedYear: 1980,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Fleet & Heavy Equipment Work Orders",
+      "Fuel Management & Automated Dispensing",
+      "Parts Storeroom & Warranty Recovery",
+      "DOT Regulatory Inspection Checklists",
+      "Telematics & OBD-II Engine Code Sync",
+      "Total Cost of Ownership (TCO) Analytics"
+    ],
+    targetIndustries: ["Fleet & Heavy Equipment", "Utilities & Energy", "Packaging & Logistics"],
+    pros: [
+      "Industry benchmark for municipal transit and heavy vocational fleet maintenance",
+      "Automated warranty claim tracking saves massive capital on parts recovery",
+      "Direct integration with commercial automated fuel island dispensers"
+    ],
+    cons: [
+      "High implementation and consulting footprint",
+      "Specialized for vehicles and mobile heavy equipment, not discrete plant machines",
+      "User interface requires structured administrative training"
+    ],
+    pricingTiers: ["FleetFocus Core", "FleetFocus Enterprise Suite"],
+    technicianUsabilityScore: 7.7,
+    featureBenchmarks: {
+      "Fleet Maintenance Rigor": "Industry Benchmark",
+      "Warranty Parts Recovery": "Outstanding",
+      "Manufacturing Line Fit": "Low"
+    }
+  },
+  {
+    id: "cmms-097",
+    name: "Jobber for Commercial Facilities",
+    slug: "jobber-maintenance",
+    tagline: "Operations management software for facility maintenance contractors.",
+    description: "Jobber streamlines client communication, scheduling, mobile work orders, and invoicing for commercial maintenance contractors and service teams. With an award-winning mobile app, it keeps field technicians connected with central dispatch and clients in real time.",
+    website: "https://getjobber.com",
+    foundedYear: 2011,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Client Self-Serve Request Portal",
+      "Recurring Maintenance Contract Scheduling",
+      "Mobile Work Orders with Photo Attachments",
+      "GPS Route Optimization",
+      "Automated Client SMS & Email Reminders",
+      "Credit Card Processing & Invoicing"
+    ],
+    targetIndustries: ["Facilities & Property", "Food & Beverage"],
+    pros: [
+      "Best-in-class mobile application usability for field technicians",
+      "Client communications and booking portal reduce office phone calls",
+      "Quick setup allows new teams to send work orders on day one"
+    ],
+    cons: [
+      "Designed for service businesses rather than internal industrial plant reliability",
+      "Lacks industrial machine hierarchy (BOM) and failure mode tracking",
+      "No vibration sensor or predictive maintenance telemetry"
+    ],
+    pricingTiers: ["Core ($49/mo)", "Connect ($129/mo)", "Grow ($249/mo)"],
+    technicianUsabilityScore: 9.3,
+    featureBenchmarks: {
+      "Mobile UX": "Best-in-class",
+      "Client Communication": "Outstanding",
+      "Industrial Plant Hierarchy": "Basic"
+    }
+  },
+  {
+    id: "cmms-098",
+    name: "ServiceChannel",
+    slug: "servicechannel",
+    tagline: "Multi-location facility maintenance and commercial contractor management platform.",
+    description: "ServiceChannel connects national retail chains, restaurant groups, and enterprise facility owners with thousands of specialized maintenance contractors. It manages work requests, invoice verification, contractor insurance compliance, and asset warranty enforcement at enterprise scale.",
+    website: "https://www.servicechannel.com",
+    foundedYear: 1999,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Contractor Marketplace & Dispatch",
+      "Automated Invoice Machine Auditing",
+      "Asset Warranty Validation",
+      "Preventative Maintenance Tracking",
+      "Contractor Insurance & Safety Verification",
+      "Multi-Location Facilities Benchmarking"
+    ],
+    targetIndustries: ["Facilities & Property", "Food & Beverage", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Industry standard for multi-site retail and restaurant facility management",
+      "Automated invoice auditing catches duplicate contractor charges automatically",
+      "Vast pre-vetted contractor marketplace across North America"
+    ],
+    cons: [
+      "Heavy enterprise pricing model geared toward national commercial portfolios",
+      "Not designed for internal heavy industrial factory maintenance",
+      "Contractors often dislike having to pay vendor access fees"
+    ],
+    pricingTiers: ["Enterprise Multi-Location Facility (Custom Quote)"],
+    technicianUsabilityScore: 8.0,
+    featureBenchmarks: {
+      "Contractor Network Management": "Industry Benchmark",
+      "Automated Invoice Auditing": "Outstanding",
+      "Industrial Shop Floor Fit": "Low"
+    }
+  },
+  {
+    id: "cmms-099",
+    name: "Corrigo Enterprise",
+    slug: "corrigo",
+    tagline: "Intelligent facility management and work order automation platform by JLL.",
+    description: "Corrigo (a JLL company) is an enterprise facilities maintenance management platform managing billions of square feet worldwide. It delivers automated work order triage, contractor scorecards, asset maintenance lifecycles, and advanced spend analytics across global corporate real estate.",
+    website: "https://www.jllt.com/corrigo-cmms",
+    foundedYear: 1999,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "AI-Powered Work Order Routing",
+      "Subcontractor Performance Scorecards",
+      "Preventive Maintenance Automation",
+      "Capital Planning & Asset Lifecycles",
+      "Budget & Spending Control Audits",
+      "Mobile Tech & Vendor Execution"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Packaging & Logistics"],
+    pros: [
+      "Backed by JLL's unmatched commercial real estate data and expertise",
+      "Sophisticated contractor SLA scorecards ensure service compliance",
+      "Exceptional multi-location budget and spend controls"
+    ],
+    cons: [
+      "High implementation costs and long configuration periods",
+      "Geared toward corporate real estate rather than machine floor millwrights",
+      "Support and account management can feel bureaucratic"
+    ],
+    pricingTiers: ["Corrigo Pro", "Corrigo Enterprise"],
+    technicianUsabilityScore: 7.9,
+    featureBenchmarks: {
+      "Corporate Facilities Scale": "Industry Benchmark",
+      "Contractor Governance": "Outstanding",
+      "Heavy Machinery Focus": "Moderate"
+    }
+  },
+  {
+    id: "cmms-100",
+    name: "Ariba MRO Procurement",
+    slug: "ariba-mro",
+    tagline: "SAP enterprise procurement and maintenance spare parts supply chain software.",
+    description: "SAP Ariba MRO optimizes the purchasing, supplier catalogs, and inventory replenishment of maintenance, repair, and operations (MRO) spare parts. Seamlessly synchronizing with SAP S/4HANA and plant CMMS platforms, it ensures critical machine replacement parts are never out of stock.",
+    website: "https://www.ariba.com",
+    foundedYear: 1996,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "MRO Supplier Punchout Catalogs",
+      "Automated Stock Replenishment Orders",
+      "Contract Compliance & Volume Discounts",
+      "Spend Analytics & Supplier Risk",
+      "Direct ERP & Work Order Integration",
+      "Vendor Lead Time Tracking"
+    ],
+    targetIndustries: ["Manufacturing", "Oil & Gas", "Utilities & Energy", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Eliminates stockouts on critical machine components through automated purchasing",
+      "Negotiated corporate discount enforcement across global vendor contracts",
+      "Native zero-latency synchronization with SAP S/4HANA Enterprise core"
+    ],
+    cons: [
+      "Focuses specifically on MRO procurement rather than technician work order execution",
+      "High enterprise licensing and implementation overhead",
+      "Requires integration with an execution CMMS for frontline wrench-time logging"
+    ],
+    pricingTiers: ["SAP Enterprise Sourcing Suite (Custom Quote)"],
+    technicianUsabilityScore: 7.4,
+    featureBenchmarks: {
+      "MRO Supply Chain Power": "Industry Benchmark",
+      "ERP Synchronization": "Outstanding",
+      "Shop Floor Wrench Time": "Moderate"
+    }
+  },
+  {
+    id: "cmms-101",
+    name: "Proteus MMX",
+    slug: "proteus-mmx",
+    tagline: "Modern web and mobile CMMS with Building Automation System (BAS) integration.",
+    description: "Proteus MMX (by Eagle Technology) bridges the gap between Building Automation Systems (BAS), SCADA plant controls, and maintenance work orders. When IoT temperature thresholds or runtime meters exceed set limits, Proteus MMX generates work orders instantly.",
+    website: "https://www.eaglecmms.com",
+    foundedYear: 1986,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise", "Mobile-First"],
+    features: [
+      "Building Automation System (BAS) Integration",
+      "Automated Runtime & Alarm Work Orders",
+      "Preventive Maintenance Scheduling",
+      "MRO Inventory & Parts Reorder",
+      "Technician Mobile Barcode Scanner",
+      "Audit Trail & FDA 21 CFR Compliance"
+    ],
+    targetIndustries: ["Facilities & Property", "Healthcare & Pharmaceuticals", "Manufacturing"],
+    pros: [
+      "Direct BACnet and Modbus connectivity triggers work orders from live equipment alarms",
+      "Solid FDA compliance features including audit logs and digital signatures",
+      "Mature product with decades of deployment stability"
+    ],
+    cons: [
+      "User interface layout reflects traditional engineering software aesthetics",
+      "Mobile app requires user onboarding to master navigation shortcuts",
+      "Custom integrations outside standard BAS protocols require vendor engineering"
+    ],
+    pricingTiers: ["Proteus Cloud Standard", "Proteus Enterprise", "On-Premise Server"],
+    technicianUsabilityScore: 8.0,
+    featureBenchmarks: {
+      "BACnet/BAS Integration": "Outstanding",
+      "Alarm-Triggered Work Orders": "Very High",
+      "Modern Consumer UX": "Moderate"
+    }
+  },
+  {
+    id: "cmms-102",
+    name: "Agility CMMS (SSG Insight)",
+    slug: "agility-cmms",
+    tagline: "Agile asset and maintenance management software for complex operational environments.",
+    description: "Agility CMMS by SSG Insight delivers flexible workflow management connecting plant assets, production lines, and facilities. Deployed in hospitals, manufacturing facilities, and heavy transport terminals, it coordinates preventive schedules and reactive repairs with minimal friction.",
+    website: "https://ssginsight.com/agility",
+    foundedYear: 1983,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Helpdesk & Service Request Management",
+      "Preventive & Condition-Based Maintenance",
+      "MRO Inventory & Auto-Reordering",
+      "Contractor Management & Permits",
+      "Mobile Technician Work Offline",
+      "Asset Lifecycle & Depreciation"
+    ],
+    targetIndustries: ["Healthcare & Pharmaceuticals", "Manufacturing", "Facilities & Property", "Packaging & Logistics"],
+    pros: [
+      "Versatile software adaptable to both clinical healthcare facilities and manufacturing floors",
+      "Strong helpdesk ticket routing and priority escalation rules",
+      "Proven British and European deployment heritage"
+    ],
+    cons: [
+      "Interface feels slightly dated compared to modern venture-backed CMMS apps",
+      "Report builder has a steep learning curve for non-technical supervisors",
+      "Mobile application configuration requires administrative tuning"
+    ],
+    pricingTiers: ["Agility Standard", "Agility Enterprise"],
+    technicianUsabilityScore: 7.9,
+    featureBenchmarks: {
+      "Helpdesk Routing": "Very High",
+      "Healthcare Asset Rigor": "High",
+      "Mobile Fluidity": "Moderate"
+    }
+  },
+  {
+    id: "cmms-103",
+    name: "Smartware CMMS",
+    slug: "smartware-cmms",
+    tagline: "Intuitive facilities and equipment maintenance tracking platform.",
+    description: "Smartware CMMS provides an uncluttered workspace designed for municipal facilities, sports arenas, and light industrial plants. It centralizes scheduled inspections, equipment history records, and technician work assignments within an accessible web portal.",
+    website: "https://www.smartwaregroup.com",
+    foundedYear: 2005,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS"],
+    features: [
+      "Work Order Assignment & Tracking",
+      "Scheduled Preventive Maintenance",
+      "Asset Equipment Registry",
+      "Spare Parts Storeroom Catalog",
+      "Vendor Service Records",
+      "Mobile Inspection Checklists"
+    ],
+    targetIndustries: ["Facilities & Property", "Utilities & Energy", "Manufacturing"],
+    pros: [
+      "Straightforward setup with fast user adoption across diverse maintenance crews",
+      "Affordable pricing structure for municipal and non-profit facility teams",
+      "Prompt customer support with direct phone and email assistance"
+    ],
+    cons: [
+      "Lacks advanced statistical MTBF and predictive vibration analysis",
+      "Mobile application lacks advanced offline caching for dead zones",
+      "Limited out-of-the-box ERP integrations"
+    ],
+    pricingTiers: ["Essential ($39/mo)", "Professional ($79/mo)", "Enterprise"],
+    technicianUsabilityScore: 8.2,
+    featureBenchmarks: {
+      "Ease of Adoption": "High",
+      "Affordability": "Very High",
+      "Predictive Analytics": "Low"
+    }
+  },
+  {
+    id: "cmms-104",
+    name: "Cryotos CMMS",
+    slug: "cryotos-cmms",
+    tagline: "Next-generation mobile CMMS and facility management software.",
+    description: "Cryotos delivers a mobile-first CMMS and field service platform built around custom inspection workflows, QR asset audits, and technician SLA tracking. Widely used across manufacturing plants, data centers, and multi-tenant commercial facilities.",
+    website: "https://www.cryotos.com",
+    foundedYear: 2017,
+    pricingModel: "Subscription",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Custom Workflow & Form Builder",
+      "QR Code Asset Tagging & Verification",
+      "Preventive Maintenance Schedules",
+      "Technician SLA Monitoring",
+      "Offline Mobile Mode with GPS",
+      "IoT Sensor Gateway Integration"
+    ],
+    targetIndustries: ["Manufacturing", "Facilities & Property", "Healthcare & Pharmaceuticals"],
+    pros: [
+      "Highly flexible form builder for creating custom equipment checklists",
+      "Very competitive pricing compared to legacy enterprise CMMS suites",
+      "Responsive mobile app with smooth offline synchronization"
+    ],
+    cons: [
+      "Advanced enterprise ERP connectors require custom webhook configurations",
+      "Documentation is occasionally brief on advanced scripting modules",
+      "Brand recognition is lower compared to legacy incumbents"
+    ],
+    pricingTiers: ["Growth ($30/user/mo)", "Pro ($50/user/mo)", "Enterprise"],
+    technicianUsabilityScore: 8.7,
+    featureBenchmarks: {
+      "Custom Form Flexibility": "Outstanding",
+      "Mobile User Experience": "Very High",
+      "Enterprise ERP Connectors": "Moderate"
+    }
+  },
+  {
+    id: "cmms-105",
+    name: "MaintainX Enterprise",
+    slug: "maintainx-enterprise",
+    tagline: "Industrial frontline execution platform connecting plants with corporate ERP.",
+    description: "MaintainX Enterprise scales frontline operational procedures, real-time messaging, and machine maintenance to multi-plant industrial corporations. With single sign-on (SSO), SAP/NetSuite ERP synchronization, and automated regulatory reporting, it empowers executives with shop-floor visibility.",
+    website: "https://www.getmaintainx.com/enterprise",
+    foundedYear: 2018,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "Mobile-First"],
+    features: [
+      "Multi-Plant Operational Benchmarking",
+      "Enterprise ERP (SAP, Oracle) Integration",
+      "Single Sign-On (SSO) & SCIM User Provisioning",
+      "Digital SOPs & Frontline Chat",
+      "Predictive Vibration Sensor Telemetry",
+      "Custom Enterprise SLA & Dedicated Success"
+    ],
+    targetIndustries: ["Manufacturing", "Food & Beverage", "Packaging & Logistics", "Utilities & Energy"],
+    pros: [
+      "Unmatched technician mobile adoption rate across large industrial workforces",
+      "Real-time team chat eliminates radio delays and missing shift handover notes",
+      "Top-rated enterprise security and SOC 2 Type II compliance"
+    ],
+    cons: [
+      "Enterprise licensing tiers require custom annual negotiation",
+      "Heavy discrete manufacturing machine BOM hierarchies are still maturing",
+      "Requires disciplined admin governance to keep frontline chat channels organized"
+    ],
+    pricingTiers: ["Enterprise Multi-Site (Custom Quote)"],
+    technicianUsabilityScore: 9.6,
+    featureBenchmarks: {
+      "Technician Adoption": "Industry Benchmark",
+      "Shop Floor Communication": "Best-in-class",
+      "Legacy Asset BOM Depth": "High"
+    }
+  },
+  {
+    id: "cmms-106",
+    name: "AssetWorks Enterprise EAM",
+    slug: "assetworks-eam",
+    tagline: "Comprehensive capital asset lifecycle and facility management.",
+    description: "AssetWorks Enterprise EAM offers complete lifecycle governance for facilities, fixed machinery, utilities, and infrastructure. It handles work management, capital project budgeting, space management, and compliance auditing in an integrated enterprise database.",
+    website: "https://www.assetworks.com/eam",
+    foundedYear: 1980,
+    pricingModel: "Enterprise",
+    deployment: ["Cloud / SaaS", "On-Premise", "Hybrid"],
+    features: [
+      "Capital Replacement Budget Forecasting",
+      "Work Order Management & Resource Scheduling",
+      "Facilities Condition Assessment (FCA)",
+      "Spare Parts Storerooms & Automated POs",
+      "GIS & BIM Asset Visualization",
+      "Comprehensive Audit & Regulatory History"
+    ],
+    targetIndustries: ["Utilities & Energy", "Facilities & Property", "Manufacturing"],
+    pros: [
+      "Exceptional long-range capital asset replacement and condition forecasting",
+      "Proven stability in university campuses and public utility agencies",
+      "Deep integration across financial accounting and procurement modules"
+    ],
+    cons: [
+      "Substantial initial implementation time and consulting investment",
+      "User interface is dense with municipal and accounting data fields",
+      "Not suited for simple manufacturing machine shops"
+    ],
+    pricingTiers: ["Enterprise Campus & Plant (Custom Quote)"],
+    technicianUsabilityScore: 7.6,
+    featureBenchmarks: {
+      "Capital Forecasting": "Outstanding",
+      "Condition Assessment": "Very High",
+      "Light Industrial Simplicity": "Low"
+    }
   }
 ];

@@ -1,4 +1,5 @@
 import { cmmsSoftware } from './software';
+import { additionalCmmsProducts } from './additionalSoftware';
 import {
   CMMSSoftware,
   CMMSProduct,
@@ -209,4 +210,8 @@ function mapProductToSoftware(prod: CMMSProduct): CMMSSoftware {
   };
 }
 
-export const CMMS_DATABASE: CMMSSoftware[] = cmmsSoftware.map(mapProductToSoftware);
+const rawProductsMap = new Map<string, CMMSProduct>();
+[...cmmsSoftware, ...additionalCmmsProducts].forEach((p) => rawProductsMap.set(p.id, p));
+export const ALL_RAW_PRODUCTS: CMMSProduct[] = Array.from(rawProductsMap.values());
+
+export const CMMS_DATABASE: CMMSSoftware[] = ALL_RAW_PRODUCTS.map(mapProductToSoftware);

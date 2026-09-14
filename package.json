@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "node server.js",
     "build": "ts-node src/scripts/build.ts",
+    "generate:sitemap": "ts-node src/scripts/generate-sitemap.ts",
+    "generate:comparisons": "ts-node src/scripts/generate-comparisons.ts",
+    "lint": "tsc --noEmit",
     "start": "node server.js"
   },
   "devDependencies": {
