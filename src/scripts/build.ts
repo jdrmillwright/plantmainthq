@@ -18,14 +18,26 @@ function escapeHtml(str: string): string {
     .replace(/'/g, '&#039;');
 }
 
-// Basic HTML Minifier
+// Basic HTML Minifier that safely preserves script tags
 function minifyHtml(html: string): string {
-  return html
-    .replace(/\n/g, ' ')
-    .replace(/\s\s+/g, ' ')
+  const scripts: string[] = [];
+  const placeholderPrefix = '___SCRIPT_PLACEHOLDER_';
+  const htmlWithoutScripts = html.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, (match) => {
+    const idx = scripts.length;
+    scripts.push(match);
+    return `${placeholderPrefix}${idx}___`;
+  });
+
+  const minifiedHtml = htmlWithoutScripts
+    .replace(/<!--[\s\S]*?-->/g, '')
+    .replace(/\r\n/g, '\n')
+    .replace(/\n\s+/g, '\n')
     .replace(/>\s+</g, '><')
-    .replace(/<!--[^>]*-->/g, '')
     .trim();
+
+  return minifiedHtml.replace(new RegExp(`${placeholderPrefix}(\\d+)___`, 'g'), (_, idx) => {
+    return scripts[Number(idx)];
+  });
 }
 
 // Generate JSON-LD SoftwareApplication schema markup for software profile pages
@@ -166,14 +178,14 @@ function renderRoiCalculator(): string {
             const hourlyCost = Math.max(0, parseFloat(costInput.value) || 0);
             const monthlyDowntime = Math.max(0, parseFloat(hoursInput.value) || 0);
 
-            // Assumptions: CMMS reduces unplanned downtime by ~60%, recovers 2 hrs/tech/week of admin time
+            /* Assumptions: CMMS reduces unplanned downtime by ~60%, recovers 2 hrs/tech/week of admin time */
             const annualDowntimeCost = monthlyDowntime * 12 * hourlyCost;
             const downtimeSavings = Math.round(annualDowntimeCost * 0.60);
 
-            const hoursSavedPerTechYear = 2 * 52; // 104 hours/year per tech
+            const hoursSavedPerTechYear = 2 * 52; /* 104 hours/year per tech */
             const totalHoursSaved = techs * hoursSavedPerTechYear;
 
-            // Estimated CMMS cost: $600/user/year
+            /* Estimated CMMS cost: $600/user/year */
             const estimatedCmmsCost = techs * 600;
             const roiRatio = estimatedCmmsCost > 0 ? (downtimeSavings / estimatedCmmsCost).toFixed(1) : '0';
 
@@ -1334,7 +1346,9 @@ function buildStaticSite(): void {
     canonicalUrl: `${DOMAIN}/`,
     bodyHtml: renderHomePage(),
   });
-  fs.writeFileSync(path.join(DIST_DIR, 'index.html'), minifyHtml(homeHtml), 'utf-8');
+  const minifiedHomeHtml = minifyHtml(homeHtml);
+  fs.writeFileSync(path.join(DIST_DIR, 'index.html'), minifiedHomeHtml, 'utf-8');
+  fs.writeFileSync(path.join(process.cwd(), 'index.html'), minifiedHomeHtml, 'utf-8');
 
   // 2. Build Programmatic Pages
   let pageCount = 1; // including homepage
