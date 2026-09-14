@@ -508,7 +508,8 @@ app.get(['/admin/inquiries', '/admin/leads', '/leads'], (req, res) => {
   res.send(renderAdminInquiriesHtml());
 });
 
-// Serve static assets from dist (with index.html serving and extension matching)
+// Serve static assets from public and dist (with index.html serving and extension matching)
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(DIST_DIR, { extensions: ['html'] }));
 
 // Fallback to index.html for any unmatched routes

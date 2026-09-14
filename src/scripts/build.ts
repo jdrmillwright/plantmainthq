@@ -242,7 +242,8 @@ function renderLayout(page: {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <meta name="theme-color" content="#0f52ba" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1e3a8a" />
 
   <!-- Google Analytics (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PLANTMAINT"></script>
@@ -256,14 +257,14 @@ function renderLayout(page: {
   <!-- Open Graph / Social SEO -->
   <meta property="og:title" content="${escapeHtml(page.title)}" />
   <meta property="og:description" content="${escapeHtml(page.metaDescription)}" />
-  <meta property="og:image" content="${DOMAIN}/og-banner.png" />
+  <meta property="og:image" content="${DOMAIN}/og-image.png" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="${page.canonicalUrl}" />
   <meta property="og:site_name" content="PlantMaintHQ" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="${escapeHtml(page.title)}" />
   <meta name="twitter:description" content="${escapeHtml(page.metaDescription)}" />
-  <meta name="twitter:image" content="${DOMAIN}/og-banner.png" />
+  <meta name="twitter:image" content="${DOMAIN}/og-image.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2220,12 +2221,16 @@ function buildStaticSite(): void {
   // 4. Generate Dynamic Sitemap and Robots.txt
   writeSitemapAndRobots(DIST_DIR);
 
-  // 5. Copy Static Brand Assets (Favicon, App Icons)
-  const faviconSvgPath = path.resolve(process.cwd(), 'favicon.svg');
-  if (fs.existsSync(faviconSvgPath)) {
-    fs.copyFileSync(faviconSvgPath, path.join(DIST_DIR, 'favicon.svg'));
-    fs.copyFileSync(faviconSvgPath, path.join(DIST_DIR, 'favicon.ico'));
-    fs.copyFileSync(faviconSvgPath, path.join(DIST_DIR, 'apple-touch-icon.png'));
+  // 5. Copy Static Brand Assets (Favicons, App Icons, Web Manifest, Social Banner)
+  const publicDir = path.resolve(process.cwd(), 'public');
+  if (fs.existsSync(publicDir)) {
+    const publicFiles = fs.readdirSync(publicDir);
+    publicFiles.forEach((file) => {
+      const srcFile = path.join(publicDir, file);
+      if (fs.statSync(srcFile).isFile()) {
+        fs.copyFileSync(srcFile, path.join(DIST_DIR, file));
+      }
+    });
   }
 
   console.log(`✅ Static build finished successfully!`);

@@ -4,7 +4,8 @@
   "description": "PlantMaintHQ CMMS Directory",
   "scripts": {
     "dev": "node server.js",
-    "build": "ts-node src/scripts/build.ts",
+    "generate:assets": "node scripts/generate-assets.js",
+    "build": "node scripts/generate-assets.js && ts-node src/scripts/build.ts",
     "generate:sitemap": "ts-node src/scripts/generate-sitemap.ts",
     "generate:comparisons": "ts-node src/scripts/generate-comparisons.ts",
     "lint": "tsc --noEmit",
@@ -13,6 +14,7 @@
   "devDependencies": {
     "@types/express": "^5.0.6",
     "@types/node": "^20.0.0",
+    "sharp": "^0.35.4",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.0"
   },
