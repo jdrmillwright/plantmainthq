@@ -577,6 +577,22 @@ function renderLayout(page: {
       background: var(--primary);
       border-radius: 4px;
     }
+    .dimension-category-tag {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #334155;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      text-transform: capitalize;
+    }
+    .dimension-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
+      margin-top: 0.15rem;
+    }
     .pros-cons {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -778,6 +794,182 @@ function renderLayout(page: {
       .footer-col ul li a {
         display: inline-block;
         padding: 0.25rem 0;
+      }
+
+      /* ========================================================
+         Evaluation Dimension Ratings: Mobile Card-Based Layout
+         (max-width: 768px)
+         ======================================================== */
+      /* 5. Ensure there is absolutely no horizontal overflow or scrolling */
+      html, body {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+      main {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .card {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      .table-responsive.evaluation-table-responsive,
+      .table-responsive:has(.evaluation-table) {
+        overflow-x: visible;
+        border: none;
+        background: transparent;
+        margin: 0.75rem 0;
+        padding: 0;
+      }
+
+      /* 1. Table, tbody, tr, and td display as block elements instead of a horizontal grid */
+      table.data-table.evaluation-table,
+      .evaluation-table,
+      .evaluation-table tbody,
+      .evaluation-table tr,
+      .evaluation-table td {
+        display: block;
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box;
+      }
+
+      table.data-table.evaluation-table {
+        background: transparent;
+        border: none;
+      }
+
+      /* 3. Standard table headers (th) are visually hidden on mobile screens */
+      .evaluation-table thead,
+      .evaluation-table th {
+        display: none !important;
+        visibility: hidden;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        border: none !important;
+      }
+
+      /* 2. Each table row (tr) becomes a self-contained vertical card with border, padding, rounded corners, and margin */
+      .evaluation-table tbody tr {
+        display: block;
+        background: #ffffff;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.15rem 1rem;
+        margin-bottom: 0.85rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .evaluation-table tbody tr:last-child {
+        margin-bottom: 0;
+      }
+
+      .evaluation-table tbody tr:hover td {
+        background: transparent;
+      }
+
+      /* 4. Column data ("Feature Dimension", "Score Rating", and "Category") stack vertically inside each card */
+      .evaluation-table td {
+        display: block;
+        width: 100% !important;
+        padding: 0;
+        border: none !important;
+        text-align: left;
+      }
+
+      /* First Column: Feature Dimension */
+      .evaluation-table td.col-dimension,
+      .evaluation-table td:nth-child(1) {
+        margin-bottom: 0.75rem;
+      }
+
+      .evaluation-table td.col-dimension strong,
+      .evaluation-table td:nth-child(1) strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text-main);
+        margin-bottom: 0.25rem;
+      }
+
+      .evaluation-table td.col-dimension .dimension-desc,
+      .evaluation-table td:nth-child(1) .dimension-desc,
+      .evaluation-table td:nth-child(1) div {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.45;
+      }
+
+      /* Second Column: Score Rating */
+      .evaluation-table td.col-rating,
+      .evaluation-table td:nth-child(2) {
+        margin-bottom: 0.75rem;
+        padding-top: 0.25rem;
+      }
+
+      .evaluation-table td.col-rating .score-bar-container,
+      .evaluation-table td:nth-child(2) .score-bar-container {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+      }
+
+      .evaluation-table td.col-rating .score-bar-bg,
+      .evaluation-table td:nth-child(2) .score-bar-bg {
+        flex: 1;
+        height: 10px;
+        background: #e2e8f0;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+
+      .evaluation-table td.col-rating .score-bar-fill,
+      .evaluation-table td:nth-child(2) .score-bar-fill {
+        height: 100%;
+        background: var(--primary);
+        border-radius: 5px;
+      }
+
+      .evaluation-table td.col-rating .rating-badge,
+      .evaluation-table td:nth-child(2) .rating-badge {
+        flex-shrink: 0;
+        font-size: 0.88rem;
+        font-weight: 700;
+        padding: 0.25rem 0.65rem;
+      }
+
+      /* Third Column: Category */
+      .evaluation-table td.col-category,
+      .evaluation-table td:nth-child(3) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding-top: 0.65rem;
+        border-top: 1px dashed #e2e8f0 !important;
+      }
+
+      .evaluation-table td.col-category::before,
+      .evaluation-table td:nth-child(3)::before {
+        content: "Category:";
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: #64748b;
+      }
+
+      .evaluation-table td.col-category .dimension-category-tag,
+      .evaluation-table td:nth-child(3) span {
+        display: inline-block;
+        background: #f1f5f9;
+        color: #334155;
+        font-size: 0.8rem;
+        font-weight: 600;
+        padding: 0.2rem 0.55rem;
+        border-radius: 6px;
       }
     }
   </style>
@@ -1056,8 +1248,8 @@ function renderSoftwareProfile(software: CMMSSoftware): { bodyHtml: string; faqs
     <!-- Section: Evaluation Dimension Ratings -->
     <div class="card">
       <h2>Evaluation Dimension Ratings (Out of 10)</h2>
-      <div class="table-responsive">
-        <table class="data-table">
+      <div class="table-responsive evaluation-table-responsive">
+        <table class="data-table evaluation-table">
           <thead>
             <tr>
               <th style="width: 38%;">Feature Dimension</th>
@@ -1070,11 +1262,11 @@ function renderSoftwareProfile(software: CMMSSoftware): { bodyHtml: string; faqs
               const score = software.features[criterion.id as keyof typeof software.features];
               const pct = Math.round((score / 10) * 100);
               return `<tr>
-                <td>
+                <td class="col-dimension" data-label="Feature Dimension">
                   <strong>${escapeHtml(criterion.name)}</strong>
-                  <div style="font-size: 0.8rem; color: var(--text-muted);">${escapeHtml(criterion.description)}</div>
+                  <div class="dimension-desc">${escapeHtml(criterion.description)}</div>
                 </td>
-                <td>
+                <td class="col-rating" data-label="Score Rating">
                   <div class="score-bar-container">
                     <div class="score-bar-bg">
                       <div class="score-bar-fill" style="width: ${pct}%;"></div>
@@ -1082,7 +1274,7 @@ function renderSoftwareProfile(software: CMMSSoftware): { bodyHtml: string; faqs
                     <span class="rating-badge">${score.toFixed(1)} / 10</span>
                   </div>
                 </td>
-                <td><span style="text-transform: capitalize; color: var(--text-muted); font-size: 0.85rem;">${criterion.category}</span></td>
+                <td class="col-category" data-label="Category"><span class="dimension-category-tag">${criterion.category}</span></td>
               </tr>`;
             }).join('')}
           </tbody>
