@@ -243,6 +243,7 @@ function renderLayout(page: {
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css" />
   <meta name="theme-color" content="#1e3a8a" />
 
   <!-- Google Analytics (GA4) -->
@@ -824,24 +825,49 @@ function renderLayout(page: {
 
       /* 1. Table, tbody, tr, and td display as block elements instead of a horizontal grid */
       table.data-table.evaluation-table,
+      table.evaluation-table,
+      table.evaluation-dimension-table,
+      table.evaluation-ratings-table,
+      .evaluation-table-responsive table,
       .evaluation-table,
       .evaluation-table tbody,
       .evaluation-table tr,
-      .evaluation-table td {
+      .evaluation-table td,
+      .evaluation-dimension-table,
+      .evaluation-dimension-table tbody,
+      .evaluation-dimension-table tr,
+      .evaluation-dimension-table td,
+      .evaluation-ratings-table,
+      .evaluation-ratings-table tbody,
+      .evaluation-ratings-table tr,
+      .evaluation-ratings-table td,
+      .evaluation-table-responsive table tbody,
+      .evaluation-table-responsive table tr,
+      .evaluation-table-responsive table td {
         display: block;
         width: 100% !important;
         min-width: 0 !important;
         box-sizing: border-box;
       }
 
-      table.data-table.evaluation-table {
+      table.data-table.evaluation-table,
+      table.evaluation-table,
+      table.evaluation-dimension-table,
+      table.evaluation-ratings-table,
+      .evaluation-table-responsive table {
         background: transparent;
         border: none;
       }
 
       /* 3. Standard table headers (th) are visually hidden on mobile screens */
       .evaluation-table thead,
-      .evaluation-table th {
+      .evaluation-table th,
+      .evaluation-dimension-table thead,
+      .evaluation-dimension-table th,
+      .evaluation-ratings-table thead,
+      .evaluation-ratings-table th,
+      .evaluation-table-responsive table thead,
+      .evaluation-table-responsive table th {
         display: none !important;
         visibility: hidden;
         height: 0;
@@ -851,7 +877,10 @@ function renderLayout(page: {
       }
 
       /* 2. Each table row (tr) becomes a self-contained vertical card with border, padding, rounded corners, and margin */
-      .evaluation-table tbody tr {
+      .evaluation-table tbody tr,
+      .evaluation-dimension-table tbody tr,
+      .evaluation-ratings-table tbody tr,
+      .evaluation-table-responsive table tbody tr {
         display: block;
         background: #ffffff;
         border: 1px solid var(--border-color);
@@ -862,16 +891,25 @@ function renderLayout(page: {
         transition: border-color 0.15s ease, box-shadow 0.15s ease;
       }
 
-      .evaluation-table tbody tr:last-child {
+      .evaluation-table tbody tr:last-child,
+      .evaluation-dimension-table tbody tr:last-child,
+      .evaluation-ratings-table tbody tr:last-child,
+      .evaluation-table-responsive table tbody tr:last-child {
         margin-bottom: 0;
       }
 
-      .evaluation-table tbody tr:hover td {
+      .evaluation-table tbody tr:hover td,
+      .evaluation-dimension-table tbody tr:hover td,
+      .evaluation-ratings-table tbody tr:hover td,
+      .evaluation-table-responsive table tbody tr:hover td {
         background: transparent;
       }
 
       /* 4. Column data ("Feature Dimension", "Score Rating", and "Category") stack vertically inside each card */
-      .evaluation-table td {
+      .evaluation-table td,
+      .evaluation-dimension-table td,
+      .evaluation-ratings-table td,
+      .evaluation-table-responsive table td {
         display: block;
         width: 100% !important;
         padding: 0;
@@ -881,12 +919,18 @@ function renderLayout(page: {
 
       /* First Column: Feature Dimension */
       .evaluation-table td.col-dimension,
-      .evaluation-table td:nth-child(1) {
+      .evaluation-table td:nth-child(1),
+      .evaluation-dimension-table td:nth-child(1),
+      .evaluation-ratings-table td:nth-child(1),
+      .evaluation-table-responsive table td:nth-child(1) {
         margin-bottom: 0.75rem;
       }
 
       .evaluation-table td.col-dimension strong,
-      .evaluation-table td:nth-child(1) strong {
+      .evaluation-table td:nth-child(1) strong,
+      .evaluation-dimension-table td:nth-child(1) strong,
+      .evaluation-ratings-table td:nth-child(1) strong,
+      .evaluation-table-responsive table td:nth-child(1) strong {
         display: block;
         font-size: 1rem;
         font-weight: 700;
@@ -896,7 +940,10 @@ function renderLayout(page: {
 
       .evaluation-table td.col-dimension .dimension-desc,
       .evaluation-table td:nth-child(1) .dimension-desc,
-      .evaluation-table td:nth-child(1) div {
+      .evaluation-table td:nth-child(1) div,
+      .evaluation-dimension-table td:nth-child(1) div,
+      .evaluation-ratings-table td:nth-child(1) div,
+      .evaluation-table-responsive table td:nth-child(1) div {
         font-size: 0.85rem;
         color: var(--text-muted);
         line-height: 1.45;
@@ -904,13 +951,19 @@ function renderLayout(page: {
 
       /* Second Column: Score Rating */
       .evaluation-table td.col-rating,
-      .evaluation-table td:nth-child(2) {
+      .evaluation-table td:nth-child(2),
+      .evaluation-dimension-table td:nth-child(2),
+      .evaluation-ratings-table td:nth-child(2),
+      .evaluation-table-responsive table td:nth-child(2) {
         margin-bottom: 0.75rem;
         padding-top: 0.25rem;
       }
 
       .evaluation-table td.col-rating .score-bar-container,
-      .evaluation-table td:nth-child(2) .score-bar-container {
+      .evaluation-table td:nth-child(2) .score-bar-container,
+      .evaluation-dimension-table td:nth-child(2) .score-bar-container,
+      .evaluation-ratings-table td:nth-child(2) .score-bar-container,
+      .evaluation-table-responsive table td:nth-child(2) .score-bar-container {
         display: flex;
         align-items: center;
         gap: 0.75rem;
@@ -918,7 +971,10 @@ function renderLayout(page: {
       }
 
       .evaluation-table td.col-rating .score-bar-bg,
-      .evaluation-table td:nth-child(2) .score-bar-bg {
+      .evaluation-table td:nth-child(2) .score-bar-bg,
+      .evaluation-dimension-table td:nth-child(2) .score-bar-bg,
+      .evaluation-ratings-table td:nth-child(2) .score-bar-bg,
+      .evaluation-table-responsive table td:nth-child(2) .score-bar-bg {
         flex: 1;
         height: 10px;
         background: #e2e8f0;
@@ -927,14 +983,20 @@ function renderLayout(page: {
       }
 
       .evaluation-table td.col-rating .score-bar-fill,
-      .evaluation-table td:nth-child(2) .score-bar-fill {
+      .evaluation-table td:nth-child(2) .score-bar-fill,
+      .evaluation-dimension-table td:nth-child(2) .score-bar-fill,
+      .evaluation-ratings-table td:nth-child(2) .score-bar-fill,
+      .evaluation-table-responsive table td:nth-child(2) .score-bar-fill {
         height: 100%;
         background: var(--primary);
         border-radius: 5px;
       }
 
       .evaluation-table td.col-rating .rating-badge,
-      .evaluation-table td:nth-child(2) .rating-badge {
+      .evaluation-table td:nth-child(2) .rating-badge,
+      .evaluation-dimension-table td:nth-child(2) .rating-badge,
+      .evaluation-ratings-table td:nth-child(2) .rating-badge,
+      .evaluation-table-responsive table td:nth-child(2) .rating-badge {
         flex-shrink: 0;
         font-size: 0.88rem;
         font-weight: 700;
@@ -943,7 +1005,10 @@ function renderLayout(page: {
 
       /* Third Column: Category */
       .evaluation-table td.col-category,
-      .evaluation-table td:nth-child(3) {
+      .evaluation-table td:nth-child(3),
+      .evaluation-dimension-table td:nth-child(3),
+      .evaluation-ratings-table td:nth-child(3),
+      .evaluation-table-responsive table td:nth-child(3) {
         display: flex;
         align-items: center;
         gap: 0.5rem;
@@ -952,7 +1017,10 @@ function renderLayout(page: {
       }
 
       .evaluation-table td.col-category::before,
-      .evaluation-table td:nth-child(3)::before {
+      .evaluation-table td:nth-child(3)::before,
+      .evaluation-dimension-table td:nth-child(3)::before,
+      .evaluation-ratings-table td:nth-child(3)::before,
+      .evaluation-table-responsive table td:nth-child(3)::before {
         content: "Category:";
         font-size: 0.75rem;
         font-weight: 700;
@@ -962,7 +1030,10 @@ function renderLayout(page: {
       }
 
       .evaluation-table td.col-category .dimension-category-tag,
-      .evaluation-table td:nth-child(3) span {
+      .evaluation-table td:nth-child(3) span,
+      .evaluation-dimension-table td:nth-child(3) span,
+      .evaluation-ratings-table td:nth-child(3) span,
+      .evaluation-table-responsive table td:nth-child(3) span {
         display: inline-block;
         background: #f1f5f9;
         color: #334155;
@@ -1249,7 +1320,7 @@ function renderSoftwareProfile(software: CMMSSoftware): { bodyHtml: string; faqs
     <div class="card">
       <h2>Evaluation Dimension Ratings (Out of 10)</h2>
       <div class="table-responsive evaluation-table-responsive">
-        <table class="data-table evaluation-table">
+        <table class="data-table evaluation-table evaluation-dimension-table evaluation-ratings-table" data-table="evaluation">
           <thead>
             <tr>
               <th style="width: 38%;">Feature Dimension</th>
