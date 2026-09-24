@@ -35,13 +35,74 @@
           </div>
           PlantMaint<span class="logo-brand">HQ</span>
         </a>
-        <nav class="nav-links">
-          <a href="/#directory">CMMS Directory</a>
-          <a href="/#matrix" class="active">Comparison Matrix</a>
-          <a href="/#guide">Evaluation Criteria</a>
-          <a href="/contact">Advisor Help</a>
-        </nav>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory">CMMS Directory</a>
+            <a href="/#matrix" class="active">Comparison Matrix</a>
+            <a href="/#guide">Evaluation Criteria</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
       </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('manufacturing');">Manufacturing</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('energy');">Power &amp; Energy</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('facilities');">Facilities</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('fleet');">Fleet</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
     </header>
 
 

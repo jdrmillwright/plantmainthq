@@ -120,6 +120,64 @@
         }
     };
 
+    // Navigation Drawer Toggle Logic
+    window.toggleDrawer = function() {
+        var drawer = document.getElementById('nav-drawer');
+        var backdrop = document.getElementById('drawer-backdrop');
+        var btn = document.getElementById('mobile-menu-toggle');
+        if (!drawer) return;
+        var isOpen = drawer.classList.contains('open');
+        if (isOpen) {
+            drawer.classList.remove('open');
+            if (backdrop) backdrop.classList.remove('open');
+            if (btn) btn.classList.remove('active');
+            document.body.style.overflow = '';
+        } else {
+            drawer.classList.add('open');
+            if (backdrop) backdrop.classList.add('open');
+            if (btn) btn.classList.add('active');
+        }
+    };
+
+    window.closeDrawer = function() {
+        var drawer = document.getElementById('nav-drawer');
+        var backdrop = document.getElementById('drawer-backdrop');
+        var btn = document.getElementById('mobile-menu-toggle');
+        if (drawer) drawer.classList.remove('open');
+        if (backdrop) backdrop.classList.remove('open');
+        if (btn) btn.classList.remove('active');
+        document.body.style.overflow = '';
+    };
+
+    window.filterByTag = function(tag) {
+        var searchInput = document.getElementById('cmms-search');
+        if (searchInput) {
+            searchInput.value = tag;
+            searchInput.dispatchEvent(new Event('input', { bubbles: true }));
+            var el = document.getElementById('directory');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            window.location.href = '/#directory';
+        }
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var toggleBtn = document.getElementById('mobile-menu-toggle');
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                window.toggleDrawer();
+            });
+        }
+        var backdrop = document.getElementById('drawer-backdrop');
+        if (backdrop) {
+            backdrop.addEventListener('click', window.closeDrawer);
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') window.closeDrawer();
+        });
+    });
+
     if (window.location.search.indexOf('analytics=1') !== -1) {
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', showAnalyticsDashboard);
