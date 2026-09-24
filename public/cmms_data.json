@@ -1,0 +1,367 @@
+[
+  {
+    "id": "cmms-001",
+    "name": "Limble CMMS",
+    "slug": "limble-cmms",
+    "tagline": "Modern, mobile-first CMMS engineered for high mechanic adoption and rapid ROI.",
+    "description": "Limble CMMS is a purpose-built Computerized Maintenance Management System designed to bridge the gap between maintenance managers and frontline technicians. Built from the shop floor up, Limble emphasizes extreme usability, rapid implementation, and flexible asset hierarchy management. It enables industrial manufacturing and facilities operations to eliminate clipboards, automate preventive maintenance intervals, track MRO spare parts inventory, and dramatically reduce equipment downtime without the multi-month consulting overhead typical of legacy EAMs.",
+    "website": "https://limblecmms.com",
+    "founded_year": 2015,
+    "deployment_timeline": "1 - 3 weeks",
+    "starting_price_tier": "$28 / user / month",
+    "pricing_model": "Per user / month (billed annually)",
+    "mobile_ux_rating": 4.9,
+    "overall_rating": 4.9,
+    "review_count": 1680,
+    "supported_industry_verticals": [
+      "Discrete Manufacturing",
+      "Food & Beverage Processing",
+      "Packaging & Converting",
+      "Facilities & Commercial Real Estate",
+      "Consumer Goods Production",
+      "Chemicals & Plastics",
+      "Municipalities & Utilities"
+    ],
+    "target_company_scales": [
+      "SMB (5-25 technicians)",
+      "Mid-Market (25-150 technicians)",
+      "Multi-Plant Enterprises"
+    ],
+    "deployment_types": [
+      "Cloud SaaS",
+      "iOS Native App",
+      "Android Native App",
+      "Web Browser"
+    ],
+    "features": [
+      "Mobile Work Order Management",
+      "Automated Preventive Maintenance Scheduling",
+      "Instant QR Code Equipment Tagging & Lookup",
+      "Parts Inventory with Min/Max Threshold Alerts",
+      "Customizable Modular Asset Hierarchies",
+      "Bi-Directional Offline Mobile Data Sync",
+      "Public Work Request Portal with QR Access",
+      "Vendor & Outside Contractor Tracking",
+      "Real-Time Downtime, MTBF & MTTR Analytics",
+      "Automated Purchase Order Generation"
+    ],
+    "pros": [
+      "Exceptional frontline adoption: Mechanics require under 30 minutes of initial training to navigate, complete, and log work orders accurately.",
+      "True offline functionality: Field technicians working in shielded basements, grain silos, or remote substations can execute work orders with seamless auto-sync upon reconnection.",
+      "Self-service equipment hierarchy: Plant engineers can build custom machine attributes, attach manuals, and configure meter rules without vendor engineering services.",
+      "Industry-leading onboarding speed: Average go-live is reached in 1 to 3 weeks via streamlined CSV data importers and pre-built maintenance templates.",
+      "Frictionless work request submission: Machine operators can scan a laminated QR code on any equipment frame with their phone camera to file photo-backed issue reports without software logins."
+    ],
+    "limitations": [
+      "Enterprise predictive analytics and cross-facility global benchmarking are restricted to higher-tier Enterprise plans.",
+      "Native out-of-the-box ERP connectors are fewer than legacy incumbents, requiring REST API or webhook middleware for deep SAP PM / Oracle EBS integrations.",
+      "Complex multi-stage financial approval workflows for capital repairs require manual configuration of permission roles."
+    ],
+    "editorial_teardown": {
+      "verdict": "Limble CMMS represents the modern benchmark for industrial maintenance software. It delivers the perfect balance between technician-friendly simplicity on the shop floor and executive-level reporting for maintenance directors.",
+      "who_its_for": "Manufacturing plants, distribution hubs, and processing facilities with 5 to 100 technicians seeking to eradicate paper work orders, slash unplanned downtime, and track parts consumption with minimal software friction.",
+      "who_should_avoid": "Mega-scale conglomerates requiring a monolithic ERP suite that combines deep financial ledger accounting, HR dispatch, and SCADA control under a single vendor contract.",
+      "mobile_experience": "Rated 4.9/5 by floor technicians. Zero-lag responsiveness, large touch targets for gloved operation, one-tap voice-to-text dictation, and native photo markup for documenting mechanical failures.",
+      "implementation_insights": "Median deployment time is 14 days. Limble assigns dedicated technical account specialists who help structure asset trees and import legacy equipment records directly.",
+      "pricing_analysis": "Starts at $28/user/month (Starter tier billed annually), $69/user/month (Professional tier), and custom Enterprise tiers for multi-site deployments. Free unlimited work request portals eliminate hidden seat costs.",
+      "key_specifications": {
+        "Offline Sync": "Full offline read/write with automatic background conflict resolution",
+        "Asset Hierarchy": "Unlimited parent/child depth with drag-and-drop structural reorganization",
+        "Barcode / QR Support": "Built-in camera scanner, auto-generated printable label sheets, direct URL links",
+        "Condition Monitoring": "Runtime meter triggers, IoT sensor integration, API webhook alert triggers",
+        "Security & Compliance": "SOC 2 Type II certified, 256-bit TLS encryption, role-based granular permissions"
+      }
+    }
+  },
+  {
+    "id": "cmms-002",
+    "name": "MaintainX",
+    "slug": "maintainx",
+    "tagline": "Mobile-first work order execution, SOP digitization, and frontline team communication.",
+    "description": "MaintainX is a cloud-based, mobile-first maintenance and procedure execution platform designed specifically for frontline operations. Known for its WhatsApp-like conversational interface and intuitive digital Standard Operating Procedures (SOPs), MaintainX bridges the communication gap between shop-floor mechanics, machine operators, and maintenance management. It simplifies work order dispatch, tracks spare parts usage, records safety audits, and automates preventive maintenance tasks across industrial and facility operations.",
+    "website": "https://www.getmaintainx.com",
+    "founded_year": 2018,
+    "deployment_timeline": "Days to 2 weeks",
+    "starting_price_tier": "$0 free tier / $21 / user / month",
+    "pricing_model": "Freemium / Per user / month (billed annually)",
+    "mobile_ux_rating": 4.9,
+    "overall_rating": 4.8,
+    "review_count": 2150,
+    "supported_industry_verticals": [
+      "Industrial Manufacturing",
+      "Food & Beverage Processing",
+      "Warehousing & Logistics Hubs",
+      "Fleet & Heavy Equipment",
+      "Hospitality & Commercial Facilities",
+      "Energy & Utilities Operations"
+    ],
+    "target_company_scales": [
+      "Small Maintenance Teams (1-15 technicians)",
+      "Growing Mid-Market Operations",
+      "Multi-Site Industrial Networks"
+    ],
+    "deployment_types": [
+      "Cloud SaaS",
+      "iOS Native App",
+      "Android Native App",
+      "Web Dashboard"
+    ],
+    "features": [
+      "Built-in Real-Time Team Messaging",
+      "Digital Standard Operating Procedures (SOPs)",
+      "Photo & Voice Dictation Work Orders",
+      "Calendar-Based Preventive Maintenance",
+      "Spare Parts & Inventory Management",
+      "Electronic Signatures & Audit Trails",
+      "Asset Health & Meter Reading Logs",
+      "Automated Vendor Work Requests",
+      "IoT Sensor Automated Work Order Triggers",
+      "Interactive Time & Cost Tracking"
+    ],
+    "pros": [
+      "Conversational messaging interface: Embedded chat directly inside work orders allows technicians, operators, and supervisors to communicate without switching apps.",
+      "Frictionless procedure digitization: Easily convert paper SOPs, lockout/tagout checklists, and safety inspections into step-by-step mobile forms with mandatory photo capture.",
+      "Accessible entry point: The genuine free-forever tier allows single plants or maintenance sub-teams to prove ROI before committing capital budget.",
+      "Superb mobile UX: Modern consumer-grade mobile design eliminates technician resistance and fosters 100% daily compliance.",
+      "Rapid rollout: Small to mid-sized plants can onboard technicians and begin issuing live work orders in under 48 hours."
+    ],
+    "limitations": [
+      "MRO parts inventory lacks multi-echelon bill-of-materials (BOM) explosion depth found in heavy-duty legacy EAM platforms.",
+      "Advanced custom business intelligence dashboards and cross-site metric exports require upgrading to the Premium or Enterprise tiers.",
+      "High-density preventive maintenance calendars can feel congested when tracking hundreds of concurrent recurring inspections."
+    ],
+    "editorial_teardown": {
+      "verdict": "MaintainX is the easiest CMMS platform on the market to get operational. If frontline technician resistance has doomed past software initiatives, MaintainX's messaging-first mobile workflow is the antidote.",
+      "who_its_for": "Plants transitioning off paper clipboards, whiteboards, or chaotic text message threads where technician buy-in and immediate shop-floor communication are mission-critical.",
+      "who_should_avoid": "Continuous heavy chemical or primary metals refineries that require complex engineering change order workflows and multi-warehouse supply-chain forecasting.",
+      "mobile_experience": "Industry benchmark mobile application rated 4.9/5 stars. Includes instant photo annotation, audio notes, barcode scanning, and push notifications for urgent breakdowns.",
+      "implementation_insights": "Can be self-implemented in under 48 hours for standard maintenance workflows. Complete asset taxonomy and PM library migration typically completes within 7 to 14 days.",
+      "pricing_analysis": "Free Basic tier for small teams; Essential tier at $21/user/mo; Premium tier at $59/user/mo with advanced analytics; Enterprise tier with custom quotes and dedicated account governance.",
+      "key_specifications": {
+        "Offline Sync": "Native mobile offline cache stores pending updates and syncs seamlessly upon network restoration",
+        "Asset Hierarchy": "Visual asset registry organized by location, production line, machine, and sub-component",
+        "Barcode / QR Support": "In-app camera scanner for assets, spare parts bins, and inspection checkpoints",
+        "Condition Monitoring": "Direct integrations with Samsara, Monnit, and ifm sensors; webhook trigger automation",
+        "Security & Compliance": "SOC 2 Type II certified, ISO 27001, HIPAA compliant, role-based access controls"
+      }
+    }
+  },
+  {
+    "id": "cmms-003",
+    "name": "UpKeep",
+    "slug": "upkeep",
+    "tagline": "Asset Operations Management platform connecting maintenance, reliability, and operations data.",
+    "description": "UpKeep is a modern, cloud-based Asset Operations Management (AOM) platform and CMMS designed to unite maintenance technicians, plant reliability engineers, and operations managers under a single source of truth. UpKeep combines work order dispatch, preventive maintenance scheduling, and MRO parts tracking with native Edge IoT condition monitoring sensors, providing plant teams with actionable insights into machine health, downtime costs, and workforce productivity.",
+    "website": "https://www.upkeep.com",
+    "founded_year": 2014,
+    "deployment_timeline": "2 - 4 weeks",
+    "starting_price_tier": "$20 / user / month",
+    "pricing_model": "Subscription (Per user / month, billed annually)",
+    "mobile_ux_rating": 4.7,
+    "overall_rating": 4.7,
+    "review_count": 1940,
+    "supported_industry_verticals": [
+      "Manufacturing & Assembly Plants",
+      "Facilities & Property Management",
+      "Warehousing & Distribution",
+      "Food Production & Agriculture",
+      "Fleet Maintenance & Terminals",
+      "Healthcare Facilities & Hospitals"
+    ],
+    "target_company_scales": [
+      "Small Facilities (1-10 technicians)",
+      "Mid-Sized Manufacturing Plants",
+      "Multi-Location Regional Enterprises"
+    ],
+    "deployment_types": [
+      "Cloud SaaS",
+      "iOS Native App",
+      "Android Native App",
+      "Web Management Console"
+    ],
+    "features": [
+      "Mobile Work Order Dispatch & Tracking",
+      "Preventive Maintenance & Recurring Tasks",
+      "UpKeep Edge Wireless IoT Condition Monitoring",
+      "Parts Inventory & Automated Purchase Orders",
+      "Labor Time Tracking & Cost Allocation",
+      "Asset Lifecycle & Depreciation Calculations",
+      "Third-Party Contractor & Vendor Portal",
+      "Customizable KPI & Downtime Dashboards",
+      "Checklists & Inspection Step Validation",
+      "App Marketplace Integrations"
+    ],
+    "pros": [
+      "Holistic Asset Operations Management: Unifies frontline task execution with executive reliability reporting and asset financial depreciation.",
+      "Integrated IoT hardware: Native UpKeep Edge wireless vibration and temperature sensors allow plants to launch condition-based predictive maintenance programs without third-party gateways.",
+      "Comprehensive parts inventory: Multi-stockroom tracking with automated reorder thresholds, barcode bin scanning, and PO approval routing.",
+      "Field-proven mobile app: Technicians can quickly log hours, allocate consumed spare parts to assets, and close out work orders from their smartphones.",
+      "Rich ecosystem: Extensive pre-built integrations with ERPs, accounting packages, and business automation platforms via Zapier and open REST APIs."
+    ],
+    "limitations": [
+      "Licensing costs scale rapidly: Per-technician subscription pricing can become substantial for large plant crews requiring full system access.",
+      "Advanced workflow automation, custom roles, and API access are gated behind premium tiers ($75+/user/mo).",
+      "Reporting console query speeds can exhibit latency when generating complex historical reports over high work-order volumes."
+    ],
+    "editorial_teardown": {
+      "verdict": "UpKeep is a highly mature CMMS platform that bridges the gap between field maintenance tasks and corporate asset performance management, made stronger by its native wireless IoT ecosystem.",
+      "who_its_for": "Industrial facilities seeking a balance of modern mobile convenience, structured spare parts inventory control, and accessible condition-based sensor integration.",
+      "who_should_avoid": "Budget-constrained small operations that only need a basic digital work order dispatch board without needing inventory control or IoT metrics.",
+      "mobile_experience": "Solid 4.7/5 app rating. Intuitive navigation with real-time push alerts, camera photo uploads, barcode scanning, and direct technician time logging.",
+      "implementation_insights": "Average implementation spans 2 to 4 weeks. UpKeep provides structured onboarding packages, CSV import templates, and live customer success guidance.",
+      "pricing_analysis": "Lite tier starts at $20/user/month; Starter tier at $45/user/month; Professional tier at $75/user/month; Business Plus enterprise tier with custom volume pricing. Work requesters submit requests for free.",
+      "key_specifications": {
+        "Offline Sync": "Mobile offline mode preserves updates locally and reconciles changes upon regaining connectivity",
+        "Asset Hierarchy": "Multi-tier asset structure organized by facility, production zone, machine, and sub-assembly",
+        "Barcode / QR Support": "In-app camera scanner for assets and parts bins, printable barcode sheets",
+        "Condition Monitoring": "UpKeep Edge wireless vibration/temperature sensors, runtime meters, open API webhooks",
+        "Security & Compliance": "SOC 2 Type II certified, GDPR compliant, enterprise SAML 2.0 single sign-on"
+      }
+    }
+  },
+  {
+    "id": "cmms-004",
+    "name": "Fiix",
+    "slug": "fiix",
+    "tagline": "AI-powered CMMS and enterprise reliability platform backed by Rockwell Automation.",
+    "description": "Fiix, a Rockwell Automation company, is an enterprise-grade, cloud-based CMMS that combines asset management, work order optimization, and parts inventory control with advanced artificial intelligence. Leveraging its Fiix Foresight AI analytics engine and native connectivity to industrial automation networks, Fiix helps manufacturing operations transition from reactive emergency repairs to predictive, condition-based maintenance programs. It is designed to scale across multi-facility enterprises requiring strict compliance auditing and deep equipment telemetry integration.",
+    "website": "https://www.fiixsoftware.com",
+    "founded_year": 2008,
+    "deployment_timeline": "4 - 8 weeks",
+    "starting_price_tier": "$45 / user / month",
+    "pricing_model": "Annual subscription (Per user / month)",
+    "mobile_ux_rating": 4.5,
+    "overall_rating": 4.6,
+    "review_count": 1280,
+    "supported_industry_verticals": [
+      "Heavy Industrial Manufacturing",
+      "Automotive & Tier 1 Suppliers",
+      "Food & Beverage Processing",
+      "Metals, Mining & Minerals",
+      "Chemical Processing & Refining",
+      "Plastics & Extrusion Operations"
+    ],
+    "target_company_scales": [
+      "Mid-Market Manufacturing Plants",
+      "Large-Scale Industrial Sites",
+      "Global Multi-Plant Enterprises"
+    ],
+    "deployment_types": [
+      "Cloud SaaS",
+      "iOS Native App",
+      "Android Native App",
+      "Web Enterprise Console"
+    ],
+    "features": [
+      "Fiix Foresight AI Failure Prediction",
+      "Rockwell Automation & FactoryTalk Connectivity",
+      "Comprehensive Work Order Management",
+      "Multi-Plant Asset Standardization",
+      "Advanced MRO Inventory & Stockroom Control",
+      "Failure Mode and Effects Analysis (FMEA)",
+      "Regulatory Audit Logging (ISO 9001 / FDA 21 CFR)",
+      "Interactive KPI Benchmarking & OEE Dashboards",
+      "Customizable User Roles & Approval Hierarchies",
+      "Condition-Based Asset Health Triggers"
+    ],
+    "pros": [
+      "Rockwell Automation synergy: Seamless telemetry pipeline with FactoryTalk, Allen-Bradley PLCs, and SCADA infrastructure for real-time fault code integration.",
+      "Predictive AI insights: Fiix Foresight machine learning models analyze historical work orders to identify hidden failure triggers before catastrophic machine breakdown occurs.",
+      "Enterprise multi-site standardization: Central corporate engineering can benchmark mean time between failures (MTBF), wrench time, and PM compliance across multiple plants.",
+      "Deep inventory architecture: Multi-location stockrooms, automated vendor replenishment, cycle counting, and detailed part obsolescence tracking.",
+      "Rigorous audit compliance: Complete historical audit trails, electronic signature captures, and regulatory reporting suitable for ISO, OSHA, and FDA inspections."
+    ],
+    "limitations": [
+      "Longer implementation cycle (4 to 8 weeks) requiring rigorous data cleanup, asset taxonomy mapping, and staff training.",
+      "The mobile application prioritizes industrial utility over sleek consumer aesthetics, carrying a slight learning curve for novice mechanics.",
+      "Unlocking predictive AI value requires a consistent baseline of clean historical maintenance records."
+    ],
+    "editorial_teardown": {
+      "verdict": "Fiix is the premier CMMS choice for mature industrial manufacturing plants—particularly those running Rockwell Automation hardware—that want to move past basic work order dispatching into true predictive reliability engineering.",
+      "who_its_for": "Mid-to-large manufacturing plants, automotive plants, and heavy industrial facilities with dedicated reliability personnel seeking deep automation integration.",
+      "who_should_avoid": "Small repair operations, commercial facilities, or organizations without the bandwidth to conduct structured asset data migrations.",
+      "mobile_experience": "4.5/5 app rating. Utilitarian, reliable industrial application focused on quick work order closure, equipment history lookup, and parts scanning on the plant floor.",
+      "implementation_insights": "4 to 8 weeks on average. Supported by dedicated Fiix implementation engineers who supervise CSV data cleansing, taxonomy structure, and administrator training.",
+      "pricing_analysis": "Basic tier starts at $45/user/month; Professional tier at $75/user/month; Enterprise tier with custom multi-site pricing. Add-ons available for AI Foresight and FactoryTalk integration.",
+      "key_specifications": {
+        "Offline Sync": "Mobile app allows offline task execution with automatic background sync when reconnected",
+        "Asset Hierarchy": "Deep multi-tier asset tree supporting component assemblies and associated spare parts lists",
+        "Barcode / QR Support": "Integrated mobile camera scanning for machinery tags and spare parts inventory control",
+        "Condition Monitoring": "Native FactoryTalk connectors, MQTT protocols, OPC-UA gateway, and open REST APIs",
+        "Security & Compliance": "SOC 2 Type II, ISO 27001, FDA 21 CFR Part 11 compliant electronic signature logging"
+      }
+    }
+  },
+  {
+    "id": "cmms-005",
+    "name": "eMaint",
+    "slug": "emaint",
+    "tagline": "Fluke Reliability's highly configurable enterprise CMMS and condition monitoring platform.",
+    "description": "eMaint, a Fluke Reliability company, is an enterprise-grade, deeply configurable Computerized Maintenance Management System and EAM suite. Engineered to handle complex continuous process industries and heavily regulated facilities, eMaint integrates directly with Fluke condition monitoring sensors and diagnostic tools. It provides organizations with extensive workflow customization, interactive plant image mapping, robust MRO inventory management, and stringent regulatory audit compliance.",
+    "website": "https://www.emaint.com",
+    "founded_year": 1986,
+    "deployment_timeline": "6 - 12 weeks",
+    "starting_price_tier": "$69 / user / month",
+    "pricing_model": "Annual subscription (Tiered / Per user)",
+    "mobile_ux_rating": 4.4,
+    "overall_rating": 4.5,
+    "review_count": 1120,
+    "supported_industry_verticals": [
+      "Discrete & Continuous Process Manufacturing",
+      "Oil & Gas / Petrochemicals",
+      "Aerospace & Defense Production",
+      "Pharmaceuticals & Life Sciences",
+      "Power Generation & Utilities",
+      "Water & Wastewater Treatment"
+    ],
+    "target_company_scales": [
+      "Mid-Market Industrial Facilities",
+      "Large Multi-Facility Enterprises",
+      "Global Fortune 500 Industrial Operations"
+    ],
+    "deployment_types": [
+      "Cloud SaaS",
+      "eMaint Mobile iOS & Android",
+      "Enterprise Web Portal"
+    ],
+    "features": [
+      "Fluke Condition Monitoring & Sensor Integration",
+      "Condition-Based Predictive Maintenance",
+      "Interactive Plant Floorplan & P&ID Asset Mapping",
+      "FDA 21 CFR Part 11 & ISO Regulatory Compliance",
+      "Complex Preventive Maintenance Scheduling",
+      "Multi-Warehouse MRO Spare Parts Tracking",
+      "Work Order Dispatch & Labor Resource Planning",
+      "Vendor Scorecards & Service Contract Tracking",
+      "No-Code Form, Field, and Workflow Configuration",
+      "Advanced Root Cause Analysis (RCA) Tracking"
+    ],
+    "pros": [
+      "Fluke sensor ecosystem: Direct plug-and-play integration with Fluke 3561 vibration sensors, thermal imaging systems, and power quality loggers for real-time condition triggers.",
+      "Infinite configurability: System administrators can customize tables, custom fields, data validation rules, and approval routings without writing custom software code.",
+      "Interactive image mapping: Technicians can click directly on plant schematics, CAD floorplans, or P&ID diagrams to inspect equipment health and launch work orders.",
+      "Exemplary regulatory compliance: Strict audit logs, electronic signatures, and historical records engineered for strict FDA, EPA, and OSHA regulatory inspections.",
+      "Industrial multi-warehouse logistics: Robust multi-site inventory transfers, repairable spares tracking, vendor warranty monitoring, and automated purchasing."
+    ],
+    "limitations": [
+      "Extended implementation timeline (6 to 12 weeks) requiring dedicated project management, IT coordination, and administrator training.",
+      "Administrative desktop console exhibits legacy styling and high configuration density that can overwhelm novice users.",
+      "Higher initial cost of entry and consulting investment compared to plug-and-play SaaS alternatives."
+    ],
+    "editorial_teardown": {
+      "verdict": "eMaint by Fluke Reliability is a powerhouse CMMS built for high-consequence industrial facilities and plants with serious predictive maintenance, condition monitoring, or regulatory compliance mandates.",
+      "who_its_for": "Mid-to-large process manufacturing plants, pharmaceutical facilities, and utilities that require deep customization, Fluke sensor integration, and bulletproof compliance auditing.",
+      "who_should_avoid": "Light commercial operations or small maintenance crews seeking an out-of-the-box system that can be deployed without formal training.",
+      "mobile_experience": "4.4/5 rating. Stable, functional mobile field app supporting work order execution, offline caching, meter reading entry, and barcode scanning.",
+      "implementation_insights": "6 to 12 weeks. Supported by Fluke Reliability professional services consultants who guide asset hierarchy design, data migration, and sandbox validation.",
+      "pricing_analysis": "Team package starts at $69/user/month (for a 3-user package); Professional tier is $120/user/month; Enterprise tier offers custom quotes with dedicated server options and Fluke condition monitoring packages.",
+      "key_specifications": {
+        "Offline Sync": "Mobile offline mode preserves work order status and uploads data when connectivity is re-established",
+        "Asset Hierarchy": "Unlimited parent/child hierarchy with interactive architectural and P&ID schematic overlays",
+        "Barcode / QR Support": "Comprehensive camera-based and handheld barcode scanner support for assets and parts bins",
+        "Condition Monitoring": "Native Fluke Connect wireless sensors, SCADA/PLC telemetry feeds, open REST API",
+        "Security & Compliance": "SOC 2 Type II certified, FDA 21 CFR Part 11 compliant audit trail, SSO/SAML 2.0"
+      }
+    }
+  }
+]

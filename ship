@@ -1,0 +1,14 @@
+#!/bin/bash
+set -e
+MSG="${1:-auto-update site engine}"
+echo "==> Running Master Engine..."
+python3 engine.py
+echo "==> Committing to GitHub..."
+git add .
+git commit -m "$MSG" || echo "No changes to commit"
+git -c credential.helper='!f() { gh auth git-credential "$@"; }; f' push origin main
+echo "==> Deploying to Cloud Run..."
+gcloud run deploy plantmainthq --source . --region us-east1 --quiet
+echo "==> Production Live!"
+echo "==> Registering Sitemap with Google Search Console..."
+python3 submit_sitemap.py || echo "Warning: Sitemap submission skipped"

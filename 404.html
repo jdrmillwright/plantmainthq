@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Maintenance Routine Not Found | PlantMaintHQ</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #0a0e17; --bg-surface: #111827; --border: rgba(255, 255, 255, 0.08);
+            --amber: #f59e0b; --text: #f8fafc; --text-muted: #94a3b8;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg-main);
+            color: var(--text); display: flex; align-items: center; justify-content: center;
+            min-height: 100vh; padding: 20px; text-align: center;
+        }
+        .box {
+            max-width: 520px; width: 100%; background: var(--bg-surface);
+            border: 1px solid var(--border); border-radius: 16px; padding: 40px 24px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.6);
+        }
+        .code {
+            font-family: 'Syne', sans-serif; font-size: 5rem; font-weight: 800;
+            color: var(--amber); line-height: 1; margin-bottom: 12px;
+        }
+        h1 { font-family: 'Syne', sans-serif; font-size: 1.6rem; margin-bottom: 12px; }
+        p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px; line-height: 1.5; }
+        .links { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            background: linear-gradient(135deg, var(--amber), #d97706); color: #000;
+            font-weight: 800; text-decoration: none; padding: 10px 20px; border-radius: 8px;
+            font-size: 0.9rem;
+        }
+        .btn-sec {
+            background: rgba(255,255,255,0.06); color: var(--text); border: 1px solid var(--border);
+            text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="code">404</div>
+        <h1>Equipment Record Not Found</h1>
+        <p>The CMMS platform, teardown guide, or head-to-head comparison page you are attempting to access has been decommissioned, relocated, or scheduled for unscheduled downtime.</p>
+        <div class="links">
+            <a href="/" class="btn">&larr; Return to CMMS Directory</a>
+            <a href="/#comparisons" class="btn-sec">View Comparisons</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UpKeep Review & Technical Teardown 2026 | PlantMaintHQ</title>
+    <meta name="description" content="Exhaustive technical review of UpKeep. Starting price: $20 / user / month. Deployment timeline: 2 - 4 weeks. Mobile UX score: 4.7/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <link rel="canonical" href="https://plantmainthq.com/cmms/upkeep/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="UpKeep Review & Technical Teardown 2026 | PlantMaintHQ">
+    <meta property="og:description" content="Exhaustive technical review of UpKeep. Starting price: $20 / user / month. Deployment timeline: 2 - 4 weeks. Mobile UX score: 4.7/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/cmms/upkeep/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="UpKeep Review & Technical Teardown 2026 | PlantMaintHQ">
+    <meta name="twitter:description" content="Exhaustive technical review of UpKeep. Starting price: $20 / user / month. Deployment timeline: 2 - 4 weeks. Mobile UX score: 4.7/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "UpKeep", "operatingSystem": "iOS, Android, Web", "applicationCategory": "BusinessApplication", "description": "UpKeep is a modern, cloud-based Asset Operations Management (AOM) platform and CMMS designed to unite maintenance technicians, plant reliability engineers, and operations managers under a single source of truth. UpKeep combines work order dispatch, preventive maintenance scheduling, and MRO parts tracking with native Edge IoT condition monitoring sensors, providing plant teams with actionable insights into machine health, downtime costs, and workforce productivity.", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.7", "reviewCount": "1940", "bestRating": "5", "worstRating": "1"}, "offers": {"@type": "Offer", "price": "20", "priceCurrency": "USD"}}</script>
+
+</head>
+<body>
+  
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="/" class="brand">
+          <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span>HQ</span>
+        </a>
+        <nav class="nav-links">
+          <a href="/#directory" class="nav-link active">CMMS Directory</a>
+          <a href="/#matrix" class="nav-link">Comparison Matrix</a>
+          <a href="/#guide" class="nav-link">Buyer's Guide</a>
+        </nav>
+      </div>
+    </header>
+
+
+  <main class="container" style="padding-top: 24px;">
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/#directory">CMMS Directory</a>
+      <span>&rsaquo;</span>
+      <span style="color:var(--text-primary);">UpKeep</span>
+    </nav>
+
+    <!-- Header Card -->
+    <article class="teardown-header-card">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:16px;">
+        <div>
+          <h1 style="font-size: 2.4rem; margin-bottom: 6px;">UpKeep</h1>
+          <p style="color:var(--accent-amber); font-weight:700; font-size:1.1rem;">Asset Operations Management platform connecting maintenance, reliability, and operations data.</p>
+        </div>
+        <div class="score-badge" style="padding:12px 18px;">
+          <div style="text-align:right;">
+            <div class="score-num font-mono" style="font-size:1.8rem;">4.7 <span style="font-size:1rem; color:var(--text-muted);">/ 5.0</span></div>
+            <div style="font-size:0.75rem; color:var(--text-secondary);">1940+ Verified Reviews</div>
+          </div>
+        </div>
+      </div>
+
+      <p style="color:var(--text-secondary); font-size:1.05rem; line-height:1.7; margin-bottom:24px;">
+        UpKeep is a modern, cloud-based Asset Operations Management (AOM) platform and CMMS designed to unite maintenance technicians, plant reliability engineers, and operations managers under a single source of truth. UpKeep combines work order dispatch, preventive maintenance scheduling, and MRO parts tracking with native Edge IoT condition monitoring sensors, providing plant teams with actionable insights into machine health, downtime costs, and workforce productivity.
+      </p>
+
+      <!-- Key Metrics Row -->
+      <div class="metrics-row" style="margin-bottom:24px;">
+        <div class="metric-item">
+          <span class="metric-label">Deployment Timeline</span>
+          <span class="metric-val emerald font-mono" style="font-size:1.05rem;">2 - 4 weeks</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Starting Price Tier</span>
+          <span class="metric-val gold font-mono" style="font-size:1.05rem;">$20 / user / month</span>
+        </div>
+        <div class="metric-item">
+          <span class="metric-label">Mobile UX Score</span>
+          <span class="metric-val sky font-mono" style="font-size:1.05rem;">4.7 / 5.0 Rating</span>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="https://www.upkeep.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-track="visit_site" data-platform="UpKeep" data-slug="upkeep">
+          Visit Official UpKeep Site &#8599;
+        </a>
+        <a href="/#matrix" class="btn btn-secondary">
+          &larr; Back to Comparison Matrix
+        </a>
+      </div>
+    </article>
+
+    <!-- Detailed Key Specs Grid -->
+    <section style="margin-bottom:32px;">
+      <h2 style="font-size:1.6rem; margin-bottom:16px;">Platform Architecture &amp; Technical Specs</h2>
+      <div class="specs-grid">
+        <div class="spec-box">
+          <div class="spec-box-title">Target Company Scales</div>
+          <div class="spec-box-content">Small Facilities (1-10 technicians), Mid-Sized Manufacturing Plants, Multi-Location Regional Enterprises</div>
+        </div>
+        <div class="spec-box">
+          <div class="spec-box-title">Supported Industry Verticals</div>
+          <div class="spec-box-content">Manufacturing & Assembly Plants, Facilities & Property Management, Warehousing & Distribution, Food Production & Agriculture, Fleet Maintenance & Terminals, Healthcare Facilities & Hospitals</div>
+        </div>
+        <div class="spec-box">
+          <div class="spec-box-title">Deployment Models</div>
+          <div class="spec-box-content">Cloud SaaS, iOS Native App, Android Native App, Web Management Console</div>
+        </div>
+        <div class="spec-box">
+          <div class="spec-box-title">Pricing Architecture</div>
+          <div class="spec-box-content">Subscription (Per user / month, billed annually)</div>
+        </div>
+        <div class="spec-box"><div class="spec-box-title">Offline Sync</div><div class="spec-box-content">Mobile offline mode preserves updates locally and reconciles changes upon regaining connectivity</div></div><div class="spec-box"><div class="spec-box-title">Asset Hierarchy</div><div class="spec-box-content">Multi-tier asset structure organized by facility, production zone, machine, and sub-assembly</div></div><div class="spec-box"><div class="spec-box-title">Barcode / QR Support</div><div class="spec-box-content">In-app camera scanner for assets and parts bins, printable barcode sheets</div></div><div class="spec-box"><div class="spec-box-title">Condition Monitoring</div><div class="spec-box-content">UpKeep Edge wireless vibration/temperature sensors, runtime meters, open API webhooks</div></div><div class="spec-box"><div class="spec-box-title">Security & Compliance</div><div class="spec-box-content">SOC 2 Type II certified, GDPR compliant, enterprise SAML 2.0 single sign-on</div></div>
+      </div>
+    </section>
+
+    <!-- Pros vs Limitations Columns -->
+    <section class="teardown-columns">
+      <div class="teardown-column" style="border-top: 3px solid var(--accent-emerald);">
+        <h3 style="font-size:1.3rem; margin-bottom:16px; color:var(--accent-emerald); display:flex; align-items:center; gap:8px;">
+          <span>&#10003;</span> What Plant Teams Love (Strengths)
+        </h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Holistic Asset Operations Management: Unifies frontline task execution with executive reliability reporting and asset financial depreciation.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Integrated IoT hardware: Native UpKeep Edge wireless vibration and temperature sensors allow plants to launch condition-based predictive maintenance programs without third-party gateways.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Comprehensive parts inventory: Multi-stockroom tracking with automated reorder thresholds, barcode bin scanning, and PO approval routing.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Field-proven mobile app: Technicians can quickly log hours, allocate consumed spare parts to assets, and close out work orders from their smartphones.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Rich ecosystem: Extensive pre-built integrations with ERPs, accounting packages, and business automation platforms via Zapier and open REST APIs.</span></li>
+        </ul>
+      </div>
+
+      <div class="teardown-column" style="border-top: 3px solid var(--accent-rose);">
+        <h3 style="font-size:1.3rem; margin-bottom:16px; color:var(--accent-rose); display:flex; align-items:center; gap:8px;">
+          <span>&#9888;</span> Limitations &amp; Trade-offs
+        </h3>
+        <ul style="list-style:none; padding:0;">
+          <li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Licensing costs scale rapidly: Per-technician subscription pricing can become substantial for large plant crews requiring full system access.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Advanced workflow automation, custom roles, and API access are gated behind premium tiers ($75+/user/mo).</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Reporting console query speeds can exhibit latency when generating complex historical reports over high work-order volumes.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Editorial Verdict & Implementation Guidance -->
+    <section class="verdict-box">
+      <h2 style="font-size:1.5rem; margin-bottom:12px; color:var(--accent-amber);">PlantMaintHQ Editorial Verdict</h2>
+      <p style="font-size:1rem; line-height:1.7; margin-bottom:16px; color:var(--text-primary);">
+        UpKeep is a highly mature CMMS platform that bridges the gap between field maintenance tasks and corporate asset performance management, made stronger by its native wireless IoT ecosystem.
+      </p>
+
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-top:20px;">
+        <div style="background:var(--bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+          <div style="font-weight:700; color:var(--accent-emerald); margin-bottom:6px; font-size:0.9rem;">IDEAL FIT (WHO IT'S FOR)</div>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Industrial facilities seeking a balance of modern mobile convenience, structured spare parts inventory control, and accessible condition-based sensor integration.</p>
+        </div>
+        <div style="background:var(--bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
+          <div style="font-weight:700; color:var(--accent-rose); margin-bottom:6px; font-size:0.9rem;">CAUTION (WHO SHOULD AVOID)</div>
+          <p style="font-size:0.85rem; color:var(--text-secondary);">Budget-constrained small operations that only need a basic digital work order dispatch board without needing inventory control or IoT metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Grid -->
+    <section style="margin-bottom:40px;">
+      <h2 style="font-size:1.5rem; margin-bottom:16px;">Core Functional Capabilities</h2>
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
+        <div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Mobile Work Order Dispatch & Tracking</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Preventive Maintenance & Recurring Tasks</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>UpKeep Edge Wireless IoT Condition Monitoring</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Parts Inventory & Automated Purchase Orders</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Labor Time Tracking & Cost Allocation</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Asset Lifecycle & Depreciation Calculations</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Third-Party Contractor & Vendor Portal</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Customizable KPI & Downtime Dashboards</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Checklists & Inspection Step Validation</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>App Marketplace Integrations</span></div>
+      </div>
+    </section>
+
+    <!-- Head-to-Head Matchups Section -->
+    <section class="card" style="padding:24px; background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); margin-bottom:48px;">
+      <h2 style="font-size:1.4rem; margin-bottom:10px;">Compare UpKeep Head-to-Head</h2>
+      <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:16px;">
+        Direct side-by-side feature, pricing, and adoption breakdowns comparing UpKeep against top market alternatives:
+      </p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="/vs/limble-cmms-vs-upkeep/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">UpKeep vs Limble CMMS &rarr;</a><a href="/vs/maintainx-vs-upkeep/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">UpKeep vs MaintainX &rarr;</a><a href="/vs/fiix-vs-upkeep/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">UpKeep vs Fiix &rarr;</a><a href="/vs/emaint-vs-upkeep/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">UpKeep vs eMaint &rarr;</a>
+      </div>
+    </section>
+  </main>
+
+  
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          <strong>PlantMaintHQ</strong> &copy; 2026 &bull; Independent CMMS &amp; EAM Software Engineering Directory.
+        </div>
+        <div class="footer-links">
+          <a href="/#directory">Directory</a>
+          <a href="/#matrix">Matrix</a>
+          <a href="/#guide">Evaluation Criteria</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
