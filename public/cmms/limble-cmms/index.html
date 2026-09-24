@@ -4,183 +4,157 @@
   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Limble CMMS Review & Technical Teardown 2026 | PlantMaintHQ</title>
-    <meta name="description" content="Exhaustive technical review of Limble CMMS. Starting price: $28 / user / month. Deployment timeline: 1 - 3 weeks. Mobile UX score: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <title>Limble CMMS Review &amp; Analysis 2026 | PlantMaintHQ</title>
+    <meta name="description" content="Independent CMMS review of Limble CMMS. Starting price: $28 / user / month. Implementation time: 1 - 3 weeks. Ratings: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
     <link rel="canonical" href="https://plantmainthq.com/cmms/limble-cmms/">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="/style.css">
     <script src="/analytics.js" defer></script>
-    <meta property="og:title" content="Limble CMMS Review & Technical Teardown 2026 | PlantMaintHQ">
-    <meta property="og:description" content="Exhaustive technical review of Limble CMMS. Starting price: $28 / user / month. Deployment timeline: 1 - 3 weeks. Mobile UX score: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <meta property="og:title" content="Limble CMMS Review &amp; Analysis 2026 | PlantMaintHQ">
+    <meta property="og:description" content="Independent CMMS review of Limble CMMS. Starting price: $28 / user / month. Implementation time: 1 - 3 weeks. Ratings: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://plantmainthq.com/cmms/limble-cmms/">
     <meta property="og:site_name" content="PlantMaintHQ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Limble CMMS Review & Technical Teardown 2026 | PlantMaintHQ">
-    <meta name="twitter:description" content="Exhaustive technical review of Limble CMMS. Starting price: $28 / user / month. Deployment timeline: 1 - 3 weeks. Mobile UX score: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
-    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Limble CMMS", "operatingSystem": "iOS, Android, Web", "applicationCategory": "BusinessApplication", "description": "Limble CMMS is a purpose-built Computerized Maintenance Management System designed to bridge the gap between maintenance managers and frontline technicians. Built from the shop floor up, Limble emphasizes extreme usability, rapid implementation, and flexible asset hierarchy management. It enables industrial manufacturing and facilities operations to eliminate clipboards, automate preventive maintenance intervals, track MRO spare parts inventory, and dramatically reduce equipment downtime without the multi-month consulting overhead typical of legacy EAMs.", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1680", "bestRating": "5", "worstRating": "1"}, "offers": {"@type": "Offer", "price": "28", "priceCurrency": "USD"}}</script>
+    <meta name="twitter:title" content="Limble CMMS Review &amp; Analysis 2026 | PlantMaintHQ">
+    <meta name="twitter:description" content="Independent CMMS review of Limble CMMS. Starting price: $28 / user / month. Implementation time: 1 - 3 weeks. Ratings: 4.9/5.0. Pros, limitations, and shop-floor adoption analysis.">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Limble CMMS", "operatingSystem": "iOS, Android, Web", "applicationCategory": "BusinessApplication", "description": "Limble CMMS is designed to be highly intuitive and easy to deploy. It focuses on reducing equipment downtime and organizing maintenance operations through a streamlined mobile and web interface. Limble is known for its excellent customer support and rapid feature development based on user feedback.", "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1680", "bestRating": "5", "worstRating": "1"}}</script>
 
 </head>
 <body>
   
-    <header class="topbar">
-      <div class="container topbar-inner">
-        <a href="/" class="brand">
-          <div class="brand-icon">
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="3"/>
               <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
             </svg>
           </div>
-          PlantMaint<span>HQ</span>
+          PlantMaint<span class="logo-brand">HQ</span>
         </a>
         <nav class="nav-links">
-          <a href="/#directory" class="nav-link active">CMMS Directory</a>
-          <a href="/#matrix" class="nav-link">Comparison Matrix</a>
-          <a href="/#guide" class="nav-link">Buyer's Guide</a>
+          <a href="/#directory" class="active">CMMS Directory</a>
+          <a href="/#matrix">Comparison Matrix</a>
+          <a href="/#guide">Evaluation Criteria</a>
+          <a href="/contact">Advisor Help</a>
         </nav>
       </div>
     </header>
 
 
-  <main class="container" style="padding-top: 24px;">
-    <!-- Breadcrumbs -->
-    <nav class="breadcrumbs">
-      <a href="/">Home</a>
-      <span>&rsaquo;</span>
-      <a href="/#directory">CMMS Directory</a>
-      <span>&rsaquo;</span>
-      <span style="color:var(--text-primary);">Limble CMMS</span>
-    </nav>
+  <main class="container" style="padding-top: 2rem;">
+    <!-- Back to Directory -->
+    <div style="margin-bottom: 1.5rem;">
+      <a href="/" class="btn btn-dark">&larr; Back to Directory</a>
+    </div>
 
-    <!-- Header Card -->
-    <article class="teardown-header-card">
-      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:16px;">
+    <!-- Review Header (Exact Restored Layout) -->
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:1.5rem;">
+      <img src="https://ui-avatars.com/api/?name=Limble CMMS&background=1d4ed8&color=fff&rounded=true&bold=true" alt="Limble CMMS logo" style="width: 72px; height: 72px; object-fit: contain; margin-bottom: 1rem; border-radius: 12px; box-shadow: var(--shadow-sm);" />
+      <br />
+      <span class="badge">Independent CMMS Software Review</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Limble CMMS Review &amp; Analysis</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">Modern, easy-to-use CMMS software built by maintenance professionals.</p>
+      
+      <div style="margin-top: 1.25rem; display: flex; justify-content: center; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+        <span class="rating-badge">&#9733; 4.9 / 5.0 (1,680 verified ratings)</span>
+        <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Starts at $28 / user / month</span>
+        <a href="/contact?tool=Limble CMMS" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; background: #ffffff;">Get Advisor Advice on Limble CMMS</a>
+        <a href="https://limblecmms.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" data-track="visit_site" data-platform="Limble CMMS" data-slug="limble-cmms">Official Website &#8599;</a>
+      </div>
+    </div>
+
+    <!-- 2x2 Quick Metric Grid (Exact Restored Layout) -->
+    <div class="grid-stats-mobile">
+      <div class="metric-stat-box">
+        <div class="metric-stat-label">Implementation</div>
+        <div class="metric-stat-val" style="color: var(--primary);">1 - 3 weeks</div>
+      </div>
+      <div class="metric-stat-box">
+        <div class="metric-stat-label">Deployment</div>
+        <div class="metric-stat-val" style="color: #111827;">Cloud SaaS, iOS Native App, Android Native App, Web Browser</div>
+      </div>
+      <div class="metric-stat-box">
+        <div class="metric-stat-label">Free Trial</div>
+        <div class="metric-stat-val" style="color: var(--success);">Yes (Full Access)</div>
+      </div>
+      <div class="metric-stat-box">
+        <div class="metric-stat-label">Founded</div>
+        <div class="metric-stat-val" style="color: #111827;">2015</div>
+      </div>
+    </div>
+
+    <!-- Section: System Overview -->
+    <div class="card">
+      <h2>System Overview</h2>
+      <p style="font-size: 1.05rem; color: #374151; line-height: 1.7; margin-bottom: 1.25rem;">
+        Limble CMMS is designed to be highly intuitive and easy to deploy. It focuses on reducing equipment downtime and organizing maintenance operations through a streamlined mobile and web interface. Limble is known for its excellent customer support and rapid feature development based on user feedback.
+      </p>
+
+      <!-- Contextual Editor's Verdict Block -->
+      <div style="background: #f8fafc; border-left: 4px solid var(--primary); padding: 1.25rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.05rem; color: #0f172a; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+          &#128161; Editor's Verdict
+        </h3>
+        <p style="font-size: 0.95rem; color: #334155; line-height: 1.6; margin-bottom: 0.75rem;">
+          Limble CMMS represents the modern benchmark for industrial maintenance software. It delivers the perfect balance between technician-friendly simplicity on the shop floor and executive-level reporting for maintenance directors.
+        </p>
+        <div style="font-size: 0.9rem; color: #1e293b; border-top: 1px solid #e2e8f0; padding-top: 0.5rem;">
+          <strong>Target Recommendation:</strong> Manufacturing plants, distribution hubs, and processing facilities with 5 to 100 technicians seeking to eradicate paper work orders, slash unplanned downtime, and track parts consumption with minimal software friction.
+        </div>
+      </div>
+
+      <div class="grid-2">
         <div>
-          <h1 style="font-size: 2.4rem; margin-bottom: 6px;">Limble CMMS</h1>
-          <p style="color:var(--accent-amber); font-weight:700; font-size:1.1rem;">Modern, mobile-first CMMS engineered for high mechanic adoption and rapid ROI.</p>
+          <h3 style="font-size: 1rem; color: #111827; margin-bottom: 0.5rem;">Supported Industry Verticals</h3>
+          <div><span class="pill">Discrete Manufacturing</span><span class="pill">Food &amp; Beverage Processing</span><span class="pill">Packaging &amp; Converting</span><span class="pill">Facilities &amp; Commercial Real Estate</span><span class="pill">Consumer Goods Production</span><span class="pill">Chemicals &amp; Plastics</span><span class="pill">Municipalities &amp; Utilities</span></div>
         </div>
-        <div class="score-badge" style="padding:12px 18px;">
-          <div style="text-align:right;">
-            <div class="score-num font-mono" style="font-size:1.8rem;">4.9 <span style="font-size:1rem; color:var(--text-muted);">/ 5.0</span></div>
-            <div style="font-size:0.75rem; color:var(--text-secondary);">1680+ Verified Reviews</div>
-          </div>
+        <div>
+          <h3 style="font-size: 1rem; color: #111827; margin-bottom: 0.5rem;">Target Company Scales</h3>
+          <div><span class="pill">SMB (5-25 technicians)</span><span class="pill">Mid-Market (25-150 technicians)</span><span class="pill">Multi-Plant Enterprises</span></div>
         </div>
       </div>
+    </div>
 
-      <p style="color:var(--text-secondary); font-size:1.05rem; line-height:1.7; margin-bottom:24px;">
-        Limble CMMS is a purpose-built Computerized Maintenance Management System designed to bridge the gap between maintenance managers and frontline technicians. Built from the shop floor up, Limble emphasizes extreme usability, rapid implementation, and flexible asset hierarchy management. It enables industrial manufacturing and facilities operations to eliminate clipboards, automate preventive maintenance intervals, track MRO spare parts inventory, and dramatically reduce equipment downtime without the multi-month consulting overhead typical of legacy EAMs.
-      </p>
+    <!-- Section: Core Capabilities Deep Dive -->
+    <div class="card">
+      <h2>Core Capabilities &amp; Architecture</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1.5rem;">A granular look into how Limble CMMS structures day-to-day work orders, preventive triggers, and equipment telemetry.</p>
+      <div class="grid-2">
+        <div class="capability-card"><h4>Mobile Maintenance App</h4><p>Industrial-grade mobile maintenance app designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div><div class="capability-card"><h4>Preventive Maintenance</h4><p>Industrial-grade preventive maintenance designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div><div class="capability-card"><h4>Work Requests Portal</h4><p>Industrial-grade work requests portal designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div><div class="capability-card"><h4>Enterprise Asset Management</h4><p>Industrial-grade enterprise asset management designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div><div class="capability-card"><h4>Parts and Inventory Management</h4><p>Industrial-grade parts and inventory management designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div><div class="capability-card"><h4>Custom Dashboards and Reporting</h4><p>Industrial-grade custom dashboards and reporting designed to optimize uptime, streamline technician wrench time, and maintain regulatory compliance.</p></div>
+      </div>
+    </div>
 
-      <!-- Key Metrics Row -->
-      <div class="metrics-row" style="margin-bottom:24px;">
-        <div class="metric-item">
-          <span class="metric-label">Deployment Timeline</span>
-          <span class="metric-val emerald font-mono" style="font-size:1.05rem;">1 - 3 weeks</span>
+    <!-- Section: Pros vs Limitations -->
+    <div class="card">
+      <h2>Strengths &amp; Trade-offs</h2>
+      <div class="pro-con-grid">
+        <div class="pro-box">
+          <h3><span>&#10003;</span> What Plant Teams Love (Pros)</h3>
+          <ul class="pro-list">
+            <li><span style="color:#059669; font-weight:800;">&#10003;</span><span>Exceptional frontline adoption: Mechanics require under 30 minutes of initial training to navigate, complete, and log work orders accurately.</span></li><li><span style="color:#059669; font-weight:800;">&#10003;</span><span>True offline functionality: Field technicians working in shielded basements, grain silos, or remote substations can execute work orders with seamless auto-sync upon reconnection.</span></li><li><span style="color:#059669; font-weight:800;">&#10003;</span><span>Self-service equipment hierarchy: Plant engineers can build custom machine attributes, attach manuals, and configure meter rules without vendor engineering services.</span></li><li><span style="color:#059669; font-weight:800;">&#10003;</span><span>Industry-leading onboarding speed: Average go-live is reached in 1 to 3 weeks via streamlined CSV data importers and pre-built maintenance templates.</span></li><li><span style="color:#059669; font-weight:800;">&#10003;</span><span>Frictionless work request submission: Machine operators can scan a laminated QR code on any equipment frame with their phone camera to file photo-backed issue reports without software logins.</span></li>
+          </ul>
         </div>
-        <div class="metric-item">
-          <span class="metric-label">Starting Price Tier</span>
-          <span class="metric-val gold font-mono" style="font-size:1.05rem;">$28 / user / month</span>
-        </div>
-        <div class="metric-item">
-          <span class="metric-label">Mobile UX Score</span>
-          <span class="metric-val sky font-mono" style="font-size:1.05rem;">4.9 / 5.0 Rating</span>
+        <div class="con-box">
+          <h3><span>&#9888;</span> Limitations &amp; Considerations (Cons)</h3>
+          <ul class="con-list">
+            <li><span style="color:#dc2626; font-weight:800;">&#9888;</span><span>Enterprise predictive analytics and cross-facility global benchmarking are restricted to higher-tier Enterprise plans.</span></li><li><span style="color:#dc2626; font-weight:800;">&#9888;</span><span>Native out-of-the-box ERP connectors are fewer than legacy incumbents, requiring REST API or webhook middleware for deep SAP PM / Oracle EBS integrations.</span></li><li><span style="color:#dc2626; font-weight:800;">&#9888;</span><span>Complex multi-stage financial approval workflows for capital repairs require manual configuration of permission roles.</span></li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="https://limblecmms.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary" data-track="visit_site" data-platform="Limble CMMS" data-slug="limble-cmms">
-          Visit Official Limble CMMS Site &#8599;
-        </a>
-        <a href="/#matrix" class="btn btn-secondary">
-          &larr; Back to Comparison Matrix
-        </a>
+    <!-- Head-to-Head Comparisons -->
+    <div class="card">
+      <h2>Compare Limble CMMS Head-to-Head</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">Direct side-by-side technical evaluation against other leading CMMS platforms:</p>
+      <div>
+        <a href="/vs/limble-cmms-vs-maintainx/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs MaintainX &rarr;</a><a href="/vs/limble-cmms-vs-maintainx-enterprise/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs MaintainX Enterprise &rarr;</a><a href="/vs/jobber-maintenance-vs-limble-cmms/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs Jobber for Commercial Facilities &rarr;</a><a href="/vs/limble-cmms-vs-upkeep/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs UpKeep &rarr;</a><a href="/vs/fiix-vs-limble-cmms/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs Fiix &rarr;</a><a href="/vs/limble-cmms-vs-maintenity/" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem; margin:0.25rem;">Limble CMMS vs Maintenity &rarr;</a>
       </div>
-    </article>
-
-    <!-- Detailed Key Specs Grid -->
-    <section style="margin-bottom:32px;">
-      <h2 style="font-size:1.6rem; margin-bottom:16px;">Platform Architecture &amp; Technical Specs</h2>
-      <div class="specs-grid">
-        <div class="spec-box">
-          <div class="spec-box-title">Target Company Scales</div>
-          <div class="spec-box-content">SMB (5-25 technicians), Mid-Market (25-150 technicians), Multi-Plant Enterprises</div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-box-title">Supported Industry Verticals</div>
-          <div class="spec-box-content">Discrete Manufacturing, Food & Beverage Processing, Packaging & Converting, Facilities & Commercial Real Estate, Consumer Goods Production, Chemicals & Plastics, Municipalities & Utilities</div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-box-title">Deployment Models</div>
-          <div class="spec-box-content">Cloud SaaS, iOS Native App, Android Native App, Web Browser</div>
-        </div>
-        <div class="spec-box">
-          <div class="spec-box-title">Pricing Architecture</div>
-          <div class="spec-box-content">Per user / month (billed annually)</div>
-        </div>
-        <div class="spec-box"><div class="spec-box-title">Offline Sync</div><div class="spec-box-content">Full offline read/write with automatic background conflict resolution</div></div><div class="spec-box"><div class="spec-box-title">Asset Hierarchy</div><div class="spec-box-content">Unlimited parent/child depth with drag-and-drop structural reorganization</div></div><div class="spec-box"><div class="spec-box-title">Barcode / QR Support</div><div class="spec-box-content">Built-in camera scanner, auto-generated printable label sheets, direct URL links</div></div><div class="spec-box"><div class="spec-box-title">Condition Monitoring</div><div class="spec-box-content">Runtime meter triggers, IoT sensor integration, API webhook alert triggers</div></div><div class="spec-box"><div class="spec-box-title">Security & Compliance</div><div class="spec-box-content">SOC 2 Type II certified, 256-bit TLS encryption, role-based granular permissions</div></div>
-      </div>
-    </section>
-
-    <!-- Pros vs Limitations Columns -->
-    <section class="teardown-columns">
-      <div class="teardown-column" style="border-top: 3px solid var(--accent-emerald);">
-        <h3 style="font-size:1.3rem; margin-bottom:16px; color:var(--accent-emerald); display:flex; align-items:center; gap:8px;">
-          <span>&#10003;</span> What Plant Teams Love (Strengths)
-        </h3>
-        <ul style="list-style:none; padding:0;">
-          <li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Exceptional frontline adoption: Mechanics require under 30 minutes of initial training to navigate, complete, and log work orders accurately.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>True offline functionality: Field technicians working in shielded basements, grain silos, or remote substations can execute work orders with seamless auto-sync upon reconnection.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Self-service equipment hierarchy: Plant engineers can build custom machine attributes, attach manuals, and configure meter rules without vendor engineering services.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Industry-leading onboarding speed: Average go-live is reached in 1 to 3 weeks via streamlined CSV data importers and pre-built maintenance templates.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-emerald); font-weight:800; line-height:1.4;">&#10003;</span><span>Frictionless work request submission: Machine operators can scan a laminated QR code on any equipment frame with their phone camera to file photo-backed issue reports without software logins.</span></li>
-        </ul>
-      </div>
-
-      <div class="teardown-column" style="border-top: 3px solid var(--accent-rose);">
-        <h3 style="font-size:1.3rem; margin-bottom:16px; color:var(--accent-rose); display:flex; align-items:center; gap:8px;">
-          <span>&#9888;</span> Limitations &amp; Trade-offs
-        </h3>
-        <ul style="list-style:none; padding:0;">
-          <li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Enterprise predictive analytics and cross-facility global benchmarking are restricted to higher-tier Enterprise plans.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Native out-of-the-box ERP connectors are fewer than legacy incumbents, requiring REST API or webhook middleware for deep SAP PM / Oracle EBS integrations.</span></li><li style="margin-bottom:12px; display:flex; align-items:flex-start; gap:10px;"><span style="color:var(--accent-rose); font-weight:800; line-height:1.4;">&#9888;</span><span>Complex multi-stage financial approval workflows for capital repairs require manual configuration of permission roles.</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Editorial Verdict & Implementation Guidance -->
-    <section class="verdict-box">
-      <h2 style="font-size:1.5rem; margin-bottom:12px; color:var(--accent-amber);">PlantMaintHQ Editorial Verdict</h2>
-      <p style="font-size:1rem; line-height:1.7; margin-bottom:16px; color:var(--text-primary);">
-        Limble CMMS represents the modern benchmark for industrial maintenance software. It delivers the perfect balance between technician-friendly simplicity on the shop floor and executive-level reporting for maintenance directors.
-      </p>
-
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-top:20px;">
-        <div style="background:var(--bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
-          <div style="font-weight:700; color:var(--accent-emerald); margin-bottom:6px; font-size:0.9rem;">IDEAL FIT (WHO IT'S FOR)</div>
-          <p style="font-size:0.85rem; color:var(--text-secondary);">Manufacturing plants, distribution hubs, and processing facilities with 5 to 100 technicians seeking to eradicate paper work orders, slash unplanned downtime, and track parts consumption with minimal software friction.</p>
-        </div>
-        <div style="background:var(--bg-surface); padding:16px; border-radius:var(--radius-md); border:1px solid var(--border-subtle);">
-          <div style="font-weight:700; color:var(--accent-rose); margin-bottom:6px; font-size:0.9rem;">CAUTION (WHO SHOULD AVOID)</div>
-          <p style="font-size:0.85rem; color:var(--text-secondary);">Mega-scale conglomerates requiring a monolithic ERP suite that combines deep financial ledger accounting, HR dispatch, and SCADA control under a single vendor contract.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Key Features Grid -->
-    <section style="margin-bottom:40px;">
-      <h2 style="font-size:1.5rem; margin-bottom:16px;">Core Functional Capabilities</h2>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap:12px;">
-        <div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Mobile Work Order Management</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Automated Preventive Maintenance Scheduling</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Instant QR Code Equipment Tagging & Lookup</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Parts Inventory with Min/Max Threshold Alerts</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Customizable Modular Asset Hierarchies</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Bi-Directional Offline Mobile Data Sync</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Public Work Request Portal with QR Access</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Vendor & Outside Contractor Tracking</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Real-Time Downtime, MTBF & MTTR Analytics</span></div><div style="display:flex; align-items:center; gap:8px; background:var(--bg-surface-elevated); padding:10px 14px; border-radius:6px; font-size:0.88rem; border:1px solid var(--border-subtle);"><span style="color:var(--accent-emerald); font-weight:800;">&#10003;</span><span>Automated Purchase Order Generation</span></div>
-      </div>
-    </section>
-
-    <!-- Head-to-Head Matchups Section -->
-    <section class="card" style="padding:24px; background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-lg); margin-bottom:48px;">
-      <h2 style="font-size:1.4rem; margin-bottom:10px;">Compare Limble CMMS Head-to-Head</h2>
-      <p style="color:var(--text-secondary); font-size:0.9rem; margin-bottom:16px;">
-        Direct side-by-side feature, pricing, and adoption breakdowns comparing Limble CMMS against top market alternatives:
-      </p>
-      <div style="display:flex; flex-wrap:wrap; gap:10px;">
-        <a href="/vs/limble-cmms-vs-maintainx/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">Limble CMMS vs MaintainX &rarr;</a><a href="/vs/limble-cmms-vs-upkeep/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">Limble CMMS vs UpKeep &rarr;</a><a href="/vs/fiix-vs-limble-cmms/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">Limble CMMS vs Fiix &rarr;</a><a href="/vs/emaint-vs-limble-cmms/" class="btn btn-secondary" style="font-size:0.8rem; padding:8px 12px;">Limble CMMS vs eMaint &rarr;</a>
-      </div>
-    </section>
+    </div>
   </main>
 
   
@@ -193,6 +167,7 @@
           <a href="/#directory">Directory</a>
           <a href="/#matrix">Matrix</a>
           <a href="/#guide">Evaluation Criteria</a>
+          <a href="/contact">Advisor Contact</a>
           <a href="/sitemap.xml">Sitemap</a>
         </div>
       </div>
