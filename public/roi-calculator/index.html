@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maintenance ROI &amp; Downtime Calculator | PlantMaintHQ</title>
+    <meta name="description" content="Interactive ROI calculator to prove the financial value of CMMS software to your plant management. Calculate downtime savings and payback period.">
+    <link rel="canonical" href="https://plantmainthq.com/roi-calculator/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="Maintenance ROI &amp; Downtime Calculator | PlantMaintHQ">
+    <meta property="og:description" content="Interactive ROI calculator to prove the financial value of CMMS software to your plant management. Calculate downtime savings and payback period.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/roi-calculator/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta property="og:image" content="https://plantmainthq.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Maintenance ROI &amp; Downtime Calculator | PlantMaintHQ">
+    <meta name="twitter:description" content="Interactive ROI calculator to prove the financial value of CMMS software to your plant management. Calculate downtime savings and payback period.">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-image.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CMMS & Maintenance ROI Calculator", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "Interactive calculator to estimate wrench time recovery, annual downtime savings, and CMMS software payback period.", "url": "https://plantmainthq.com/roi-calculator/"}</script>
+
+</head>
+<body>
+  
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span class="logo-brand">HQ</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/#matrix">Comparison Matrix</a>
+            <a href="/#guide">Evaluation Criteria</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('manufacturing');">Manufacturing</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('energy');">Power &amp; Energy</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('facilities');">Facilities</a>
+              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('fleet');">Fleet</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    </header>
+
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>ROI Calculator</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <span class="badge">Interactive Tool</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">CMMS Maintenance ROI Calculator</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        Estimate your potential annual savings from reduced unplanned downtime and increased wrench time by implementing a modern CMMS.
+      </p>
+    </div>
+
+    <div class="grid-2" style="align-items: start;">
+      <div class="card" style="margin-bottom:0;">
+        <h2>Facility Inputs</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Number of Maintenance Technicians</label>
+            <input type="number" id="roi-techs" value="10" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Average Hourly Wage (with burden)</label>
+            <input type="number" id="roi-wage" value="45" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Unplanned Downtime Hours (Annual)</label>
+            <input type="number" id="roi-downtime" value="250" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Cost per Hour of Downtime ($)</label>
+            <input type="number" id="roi-downtime-cost" value="10000" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Estimated CMMS Cost (Annual)</label>
+            <input type="number" id="roi-cmms-cost" value="12000" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" style="background:#f8fafc; margin-bottom:0;">
+        <h2>Estimated ROI Breakdown</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Labor Efficiency Savings</div>
+            <div id="out-labor" style="font-size:1.5rem; font-weight:800; color:var(--primary);">$0</div>
+            <div style="font-size:0.85rem; color:var(--text-light); margin-top:0.25rem;">Based on 15% wrench time increase</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Downtime Reduction Savings</div>
+            <div id="out-downtime" style="font-size:1.5rem; font-weight:800; color:var(--primary);">$0</div>
+            <div style="font-size:0.85rem; color:var(--text-light); margin-top:0.25rem;">Based on 20% reduction in downtime</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px; border-left:4px solid var(--success);">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Total Annual ROI</div>
+            <div id="out-total" style="font-size:2rem; font-weight:800; color:var(--success);">$0</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Payback Period</div>
+            <div id="out-payback" style="font-size:1.5rem; font-weight:800; color:var(--text-main);">0 Months</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+          <a href="/contact/?inquiry_type=ROI%20Breakdown" class="btn btn-primary" style="width:100%;">Email Me This ROI Breakdown &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    function formatCurrency(val) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
+    }
+    
+    function calculateROI() {
+      const techs = parseFloat(document.getElementById('roi-techs').value) || 0;
+      const wage = parseFloat(document.getElementById('roi-wage').value) || 0;
+      const downtime = parseFloat(document.getElementById('roi-downtime').value) || 0;
+      const downtimeCost = parseFloat(document.getElementById('roi-downtime-cost').value) || 0;
+      const cmmsCost = parseFloat(document.getElementById('roi-cmms-cost').value) || 0;
+      
+      const laborSavings = techs * 2080 * wage * 0.15;
+      const downtimeSavings = downtime * downtimeCost * 0.20;
+      const totalSavings = laborSavings + downtimeSavings;
+      const netSavings = totalSavings - cmmsCost;
+      
+      let payback = 0;
+      if (totalSavings > 0) {
+        payback = (cmmsCost / totalSavings) * 12;
+      }
+      
+      document.getElementById('out-labor').textContent = formatCurrency(laborSavings);
+      document.getElementById('out-downtime').textContent = formatCurrency(downtimeSavings);
+      document.getElementById('out-total').textContent = formatCurrency(totalSavings);
+      document.getElementById('out-payback').textContent = payback.toFixed(1) + " Months";
+    }
+    
+    document.querySelectorAll('input[type="number"]').forEach(input => {
+      input.addEventListener('input', calculateROI);
+    });
+    
+    document.addEventListener('DOMContentLoaded', calculateROI);
+  </script>
+  
+  
+    <footer>
+      <div class="container footer-inner">
+        <div>
+          <strong>PlantMaintHQ</strong> &copy; 2026 &bull; Independent CMMS &amp; EAM Software Engineering Directory.
+        </div>
+        <div class="footer-links">
+          <a href="/#directory">Directory</a>
+          <a href="/#matrix">Matrix</a>
+          <a href="/#guide">Evaluation Criteria</a>
+          <a href="/contact">Advisor Contact</a>
+          <a href="/sitemap.xml">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var searchInput = document.getElementById('cmms-search');
+      var filterButtons = document.querySelectorAll('#scale-filters .filter-pill');
+      var cards = document.querySelectorAll('.platform-card');
+      var statusEl = document.getElementById('filter-status');
+      var currentFilter = 'all';
+
+      function filterCards() {
+        var query = (searchInput.value || '').toLowerCase().trim();
+        var visibleCount = 0;
+        cards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          var scale = (card.getAttribute('data-scale') || '').toLowerCase();
+          var matchesQuery = !query || text.indexOf(query) !== -1;
+          var matchesFilter = currentFilter === 'all' || scale.indexOf(currentFilter) !== -1;
+          var isVisible = matchesQuery && matchesFilter;
+          card.style.display = isVisible ? 'block' : 'none';
+          if (isVisible) visibleCount++;
+        });
+
+        if (statusEl) {
+          statusEl.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' platforms';
+        }
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterCards);
+        searchInput.addEventListener('keyup', filterCards);
+        searchInput.addEventListener('paste', function() { setTimeout(filterCards, 10); });
+      }
+
+      filterButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          filterButtons.forEach(function(b) { b.classList.remove('active'); });
+          this.classList.add('active');
+          currentFilter = this.getAttribute('data-filter');
+          filterCards();
+        });
+      });
+
+      var urlParams = new URLSearchParams(window.location.search);
+      var queryFilter = urlParams.get('filter');
+      if (queryFilter && searchInput) {
+        searchInput.value = queryFilter;
+        filterCards();
+      }
+    });
+</script>
+</body>
+</html>

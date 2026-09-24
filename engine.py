@@ -145,6 +145,13 @@ def get_header_html(active_nav="directory"):
 
           <div class="drawer-section">
             <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
             <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
               <span class="drawer-icon">&#128172;</span>
               <div>
@@ -248,7 +255,7 @@ for idx, p in enumerate(platforms):
         <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
           Read Review &amp; Teardown &rarr;
         </a>
-        <a href="{p['website']}" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
+        <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
           Official Website &#8599;
         </a>
       </div>
@@ -627,7 +634,7 @@ for p in platforms:
         <span class="rating-badge">&#9733; {overall_rating} / 5.0 ({review_count:,} verified ratings)</span>
         <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Starts at {html.escape(price)}</span>
         <a href="/contact/?tool={html.escape(name)}&slug={slug}" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; background: #ffffff;">Get Advisor Advice on {html.escape(name)}</a>
-        <a href="{website}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">Official Website &#8599;</a>
+        <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">Official Website &#8599;</a>
       </div>
     </div>
 
@@ -727,6 +734,39 @@ for p in platforms:
 """
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(page_html)
+
+    # -------------------------------------------------------------
+    # Generate /go/<slug> Redirect Page
+    # -------------------------------------------------------------
+    go_dir = os.path.join("public", "go", slug)
+    os.makedirs(go_dir, exist_ok=True)
+    
+    redirect_url = website
+    if "?" in redirect_url:
+        redirect_url += "&utm_source=plantmainthq&utm_medium=directory&utm_campaign=cmms_review"
+    else:
+        redirect_url += "?utm_source=plantmainthq&utm_medium=directory&utm_campaign=cmms_review"
+        
+    go_html = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting to {html.escape(name)}...</title>
+    <meta http-equiv="refresh" content="2; url={redirect_url}">
+    <script>
+        setTimeout(function() {{
+            window.location.href = "{redirect_url}";
+        }}, 2000);
+    </script>
+</head>
+<body style="font-family:sans-serif; text-align:center; padding: 40px; background-color: #f8fafc; color: #0f172a;">
+    <h2 style="font-size: 1.5rem; margin-bottom: 10px;">Redirecting you to {html.escape(name)}...</h2>
+    <p style="color: #475569;">If you are not redirected automatically, <a href="{redirect_url}" style="color: #1d4ed8;">click here</a>.</p>
+</body>
+</html>
+"""
+    with open(os.path.join(go_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(go_html)
 
 # ==============================================================================
 # Step 4: Compile Head-to-Head Pairwise Comparisons (5,565 pages)
@@ -981,6 +1021,346 @@ for p1, p2 in matchup_pairs:
 """
     with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(vs_html)
+
+# ==============================================================================
+# Step 4.5: Compile SEO Category Pages
+# ==============================================================================
+print(f">>> [4.5/5] Compiling High-Value SEO Category Pages...")
+
+categories = [
+    {
+        "url_path": "best-cmms-for-manufacturing",
+        "title": "Best CMMS Software for Manufacturing (2026)",
+        "h1": "Best CMMS for Manufacturing",
+        "desc": "Compare the top CMMS platforms built specifically for manufacturing facilities, discrete assembly, and production lines.",
+        "filter": lambda p: any("manufacturing" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-facilities",
+        "title": "Best CMMS Software for Facilities Management (2026)",
+        "h1": "Best CMMS for Facilities Management",
+        "desc": "Top maintenance software for commercial real estate, campuses, and facilities management.",
+        "filter": lambda p: any("facilities" in v.lower() or "property" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-food-beverage",
+        "title": "Best CMMS Software for Food & Beverage Processing (2026)",
+        "h1": "Best CMMS for Food & Beverage",
+        "desc": "FDA and regulatory compliant maintenance software for food and beverage processing plants.",
+        "filter": lambda p: any("food" in v.lower() or "beverage" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-fleet-maintenance",
+        "title": "Best CMMS Software for Fleet Maintenance (2026)",
+        "h1": "Best CMMS for Fleet Maintenance",
+        "desc": "Top EAM and CMMS solutions for heavy equipment, logistics, and fleet maintenance.",
+        "filter": lambda p: any("fleet" in v.lower() or "heavy equipment" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "pricing/best-free-cmms-software",
+        "title": "Best Free CMMS Software & Trials (2026)",
+        "h1": "Best Free CMMS Software",
+        "desc": "The ultimate list of completely free CMMS software and full-access free trials for maintenance teams.",
+        "filter": lambda p: p.get("has_free_trial") or "free" in str(p.get("starting_price_tier", "")).lower()
+    },
+    {
+        "url_path": "pricing/affordable-cmms-under-50",
+        "title": "Best Affordable CMMS Software Under $50 (2026)",
+        "h1": "Affordable CMMS Under $50/mo",
+        "desc": "Cost-effective CMMS and work order management solutions starting under $50 per user per month.",
+        "filter": lambda p: "$" in str(p.get("starting_price_tier", "")) and int(re.search(r'\$?(\d+)', str(p.get("starting_price_tier", ""))).group(1)) <= 50 if re.search(r'\$?(\d+)', str(p.get("starting_price_tier", ""))) else False
+    },
+    {
+        "url_path": "best-cmms-for-small-teams",
+        "title": "Best CMMS Software for Small Teams (2026)",
+        "h1": "Best CMMS for Small Teams",
+        "desc": "Agile, easy-to-use maintenance management software designed for small teams of 1 to 15 technicians.",
+        "filter": lambda p: any("smb" in s.lower() or "small" in s.lower() for s in p.get("target_company_scales", []))
+    },
+    {
+        "url_path": "best-enterprise-eam-software",
+        "title": "Best Enterprise EAM Software (2026)",
+        "h1": "Best Enterprise EAM Software",
+        "desc": "Heavy-duty Enterprise Asset Management (EAM) platforms for multi-plant networks and global operations.",
+        "filter": lambda p: any("enterprise" in s.lower() for s in p.get("target_company_scales", []))
+    }
+]
+
+def generate_card_html(p):
+    slug = p["slug"]
+    name = p["name"]
+    tagline = p.get("tagline", "")
+    rating = p.get("overall_rating", 4.7)
+    reviews = p.get("review_count", 350)
+    timeline = p.get("deployment_timeline", "2 to 4 weeks")
+    price = p.get("starting_price_tier", "Contact Vendor")
+    scales = p.get("target_company_scales", [])
+    verticals = p.get("supported_industry_verticals", [])[:3]
+    pros_preview = p.get("pros", [])[:2]
+
+    scales_html = "".join([f'<span class="pill" style="font-size:0.75rem;">{html.escape(s)}</span>' for s in scales[:2]])
+    verticals_html = "".join([f'<span class="pill" style="font-size:0.75rem; background:#eff6ff; color:#1d4ed8; border-color:#bfdbfe;">{html.escape(v)}</span>' for v in verticals])
+    
+    pros_html = "".join([
+        f'<div style="display:flex; align-items:flex-start; gap:6px; font-size:0.85rem; color:#475569; margin-bottom:4px;">'
+        f'<span style="color:#059669; font-weight:800;">&#10003;</span><span>{html.escape(pro)}</span></div>'
+        for pro in pros_preview
+    ])
+
+    return f'''
+    <article class="platform-card" data-slug="{slug}" data-name="{name.lower()}" data-scale="{' '.join(scales).lower()}">
+      <div class="platform-card-header">
+        <div class="platform-info">
+          <h2><a href="/cmms/{slug}/">{html.escape(name)}</a></h2>
+          <p class="platform-tagline">{html.escape(tagline)}</p>
+        </div>
+        <span class="rating-badge">&#9733; {rating} / 5.0</span>
+      </div>
+
+      <div class="grid-stats-mobile" style="margin-bottom: 1rem; gap: 0.75rem;">
+        <div class="metric-stat-box" style="padding: 0.75rem;">
+          <div class="metric-stat-label">Implementation</div>
+          <div class="metric-stat-val" style="color:var(--primary); font-size:0.95rem;">{html.escape(timeline)}</div>
+        </div>
+        <div class="metric-stat-box" style="padding: 0.75rem;">
+          <div class="metric-stat-label">Starting Price</div>
+          <div class="metric-stat-val" style="color:#0f172a; font-size:0.95rem;">{html.escape(price)}</div>
+        </div>
+        <div class="metric-stat-box" style="padding: 0.75rem;">
+          <div class="metric-stat-label">Free Trial</div>
+          <div class="metric-stat-val" style="color:#059669; font-size:0.95rem;">{html.escape(p.get('free_trial_text', 'Yes'))}</div>
+        </div>
+        <div class="metric-stat-box" style="padding: 0.75rem;">
+          <div class="metric-stat-label">Founded</div>
+          <div class="metric-stat-val" style="color:#0f172a; font-size:0.95rem;">{p.get('founded_year', 2015)}</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom: 0.85rem;">
+        {scales_html}
+        {verticals_html}
+      </div>
+
+      <div style="margin-bottom: 1.25rem;">
+        {pros_html}
+      </div>
+
+      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; pt:8px; border-top:1px solid var(--border-color); padding-top:12px;">
+        <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
+          Read Review &amp; Teardown &rarr;
+        </a>
+        <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
+          Official Website &#8599;
+        </a>
+      </div>
+    </article>
+'''
+
+for cat in categories:
+    cat_platforms = [p for p in platforms if cat["filter"](p)]
+    cat_cards_html = "".join([generate_card_html(p) for p in cat_platforms])
+    canonical_url = f"{DOMAIN}/{cat['url_path']}/"
+    sitemap_urls.append(canonical_url)
+    
+    out_dir = os.path.join("public", cat["url_path"])
+    os.makedirs(out_dir, exist_ok=True)
+    
+    schema_cat = {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": cat["title"],
+        "description": cat["desc"],
+        "url": canonical_url
+    }
+    
+    cat_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      cat["title"],
+      cat["desc"],
+      canonical_url,
+      json.dumps(schema_cat)
+  )}
+</head>
+<body>
+  {get_header_html("directory")}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>{html.escape(cat['h1'])}</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <span class="badge">Curated Shortlist</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">{html.escape(cat["h1"])}</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        {html.escape(cat["desc"])} We found <strong>{len(cat_platforms)}</strong> platforms matching this criteria.
+      </p>
+    </div>
+
+    <section id="platforms-container">
+      {cat_cards_html}
+    </section>
+  </main>
+  
+  {get_footer_html()}
+  {CLIENT_SEARCH_SCRIPT}
+</body>
+</html>
+"""
+    with open(os.path.join(out_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(cat_html)
+
+# ==============================================================================
+# Step 4.7: Compile ROI Calculator Page
+# ==============================================================================
+print(f">>> [4.7/5] Compiling ROI Calculator Widget Page...")
+
+roi_dir = os.path.join("public", "roi-calculator")
+os.makedirs(roi_dir, exist_ok=True)
+canonical_url = f"{DOMAIN}/roi-calculator/"
+sitemap_urls.append(canonical_url)
+
+schema_roi = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CMMS & Maintenance ROI Calculator",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Interactive calculator to estimate wrench time recovery, annual downtime savings, and CMMS software payback period.",
+    "url": canonical_url
+}
+
+roi_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      "Maintenance ROI & Downtime Calculator | PlantMaintHQ",
+      "Interactive ROI calculator to prove the financial value of CMMS software to your plant management. Calculate downtime savings and payback period.",
+      canonical_url,
+      json.dumps(schema_roi)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>ROI Calculator</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <span class="badge">Interactive Tool</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">CMMS Maintenance ROI Calculator</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        Estimate your potential annual savings from reduced unplanned downtime and increased wrench time by implementing a modern CMMS.
+      </p>
+    </div>
+
+    <div class="grid-2" style="align-items: start;">
+      <div class="card" style="margin-bottom:0;">
+        <h2>Facility Inputs</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Number of Maintenance Technicians</label>
+            <input type="number" id="roi-techs" value="10" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Average Hourly Wage (with burden)</label>
+            <input type="number" id="roi-wage" value="45" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Unplanned Downtime Hours (Annual)</label>
+            <input type="number" id="roi-downtime" value="250" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Cost per Hour of Downtime ($)</label>
+            <input type="number" id="roi-downtime-cost" value="10000" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+          <div>
+            <label style="display:block; font-weight:600; margin-bottom:0.5rem;">Estimated CMMS Cost (Annual)</label>
+            <input type="number" id="roi-cmms-cost" value="12000" style="width:100%; padding:0.75rem; border-radius:8px; border:1px solid var(--border-color); font-size:1rem;">
+          </div>
+        </div>
+      </div>
+      
+      <div class="card" style="background:#f8fafc; margin-bottom:0;">
+        <h2>Estimated ROI Breakdown</h2>
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Labor Efficiency Savings</div>
+            <div id="out-labor" style="font-size:1.5rem; font-weight:800; color:var(--primary);">$0</div>
+            <div style="font-size:0.85rem; color:var(--text-light); margin-top:0.25rem;">Based on 15% wrench time increase</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Downtime Reduction Savings</div>
+            <div id="out-downtime" style="font-size:1.5rem; font-weight:800; color:var(--primary);">$0</div>
+            <div style="font-size:0.85rem; color:var(--text-light); margin-top:0.25rem;">Based on 20% reduction in downtime</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px; border-left:4px solid var(--success);">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Total Annual ROI</div>
+            <div id="out-total" style="font-size:2rem; font-weight:800; color:var(--success);">$0</div>
+          </div>
+          <div style="background:#ffffff; border:1px solid var(--border-color); padding:1rem; border-radius:8px;">
+            <div style="font-size:0.85rem; color:var(--text-muted); text-transform:uppercase; font-weight:700;">Payback Period</div>
+            <div id="out-payback" style="font-size:1.5rem; font-weight:800; color:var(--text-main);">0 Months</div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+          <a href="/contact/?inquiry_type=ROI%20Breakdown" class="btn btn-primary" style="width:100%;">Email Me This ROI Breakdown &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    function formatCurrency(val) {{
+      return new Intl.NumberFormat('en-US', {{ style: 'currency', currency: 'USD', maximumFractionDigits: 0 }}).format(val);
+    }}
+    
+    function calculateROI() {{
+      const techs = parseFloat(document.getElementById('roi-techs').value) || 0;
+      const wage = parseFloat(document.getElementById('roi-wage').value) || 0;
+      const downtime = parseFloat(document.getElementById('roi-downtime').value) || 0;
+      const downtimeCost = parseFloat(document.getElementById('roi-downtime-cost').value) || 0;
+      const cmmsCost = parseFloat(document.getElementById('roi-cmms-cost').value) || 0;
+      
+      const laborSavings = techs * 2080 * wage * 0.15;
+      const downtimeSavings = downtime * downtimeCost * 0.20;
+      const totalSavings = laborSavings + downtimeSavings;
+      const netSavings = totalSavings - cmmsCost;
+      
+      let payback = 0;
+      if (totalSavings > 0) {{
+        payback = (cmmsCost / totalSavings) * 12;
+      }}
+      
+      document.getElementById('out-labor').textContent = formatCurrency(laborSavings);
+      document.getElementById('out-downtime').textContent = formatCurrency(downtimeSavings);
+      document.getElementById('out-total').textContent = formatCurrency(totalSavings);
+      document.getElementById('out-payback').textContent = payback.toFixed(1) + " Months";
+    }}
+    
+    document.querySelectorAll('input[type="number"]').forEach(input => {{
+      input.addEventListener('input', calculateROI);
+    }});
+    
+    document.addEventListener('DOMContentLoaded', calculateROI);
+  </script>
+  
+  {get_footer_html()}
+  {CLIENT_SEARCH_SCRIPT}
+</body>
+</html>
+"""
+with open(os.path.join(roi_dir, "index.html"), "w", encoding="utf-8") as f:
+    f.write(roi_html)
 
 # ==============================================================================
 # Step 5: Sync Data Bundles & XML Sitemap

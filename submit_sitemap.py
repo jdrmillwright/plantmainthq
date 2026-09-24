@@ -40,5 +40,22 @@ def submit_to_search_console():
 
     print(">>> [3/3] Search Console Submission Complete!")
 
+def submit_to_indexnow():
+    print(">>> [IndexNow] Submitting sitemap to Bing IndexNow gateway...")
+    sitemap_url = "https://plantmainthq.com/sitemap.xml"
+    key = "plantmainthq"
+    key_location = f"https://plantmainthq.com/sitemap.xml"
+    url = f"https://www.bing.com/indexnow?url=https://plantmainthq.com/&key={key}&keyLocation={urllib.parse.quote(key_location, safe='')}"
+    
+    try:
+        req = urllib.request.Request(url, method="GET")
+        with urllib.request.urlopen(req) as resp:
+            print(f"  [IndexNow] HTTP {resp.status} (Accepted)")
+    except urllib.error.HTTPError as he:
+        print(f"  [IndexNow Error] HTTP {he.code}")
+    except Exception as e:
+        print(f"  [IndexNow Error] {e}")
+
 if __name__ == "__main__":
     submit_to_search_console()
+    submit_to_indexnow()
