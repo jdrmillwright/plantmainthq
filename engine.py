@@ -567,7 +567,7 @@ for p in platforms:
       <div style="margin-top: 1.25rem; display: flex; justify-content: center; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
         <span class="rating-badge">&#9733; {overall_rating} / 5.0 ({review_count:,} verified ratings)</span>
         <span style="font-size: 0.95rem; font-weight: 600; color: #374151;">Starts at {html.escape(price)}</span>
-        <a href="/contact?tool={html.escape(name)}" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; background: #ffffff;">Get Advisor Advice on {html.escape(name)}</a>
+        <a href="/contact/?tool={html.escape(name)}&slug={slug}" class="btn btn-outline" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; background: #ffffff;">Get Advisor Advice on {html.escape(name)}</a>
         <a href="{website}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">Official Website &#8599;</a>
       </div>
     </div>
