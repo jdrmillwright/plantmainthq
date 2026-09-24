@@ -4,7 +4,7 @@ PlantMaintHQ Static Site Generation Engine (Clean B2B Edition)
 Compiles 106 programmatic CMMS platform teardowns, 5,565 head-to-head comparison pages,
 master directory catalog, XML sitemap, and data bundles.
 """
-import json, os, shutil, itertools, html
+import json, os, shutil, itertools, html, re
 from datetime import datetime
 import time
 
@@ -20,7 +20,10 @@ os.makedirs("public/vs", exist_ok=True)
 os.makedirs("public/contact", exist_ok=True)
 
 # Copy static assets into public directory
-for static_file in ["favicon.svg", "favicon.ico", "style.css", "analytics.js", "robots.txt", "404.html", "contact.html"]:
+for static_file in [
+    "favicon.svg", "favicon.ico", "apple-touch-icon.png", "og-image.png", "og-banner.png",
+    "style.css", "analytics.js", "robots.txt", "404.html", "contact.html"
+]:
     if os.path.exists(static_file):
         shutil.copy2(static_file, os.path.join("public", static_file))
 
@@ -39,7 +42,9 @@ sitemap_urls = [f"{DOMAIN}/", f"{DOMAIN}/contact"]
 print(f"    Loaded {total_platforms} verified CMMS platforms.")
 
 # Helper HTML Components
-def get_common_head(title, description, canonical_url, schema_json=None):
+def get_common_head(title, description, canonical_url, schema_json=None, og_image=None):
+    if not og_image:
+        og_image = f"{DOMAIN}/og-image.png"
     schema_script = f'<script type="application/ld+json">{schema_json}</script>' if schema_json else ""
     return f"""
     <meta charset="UTF-8">
@@ -49,6 +54,7 @@ def get_common_head(title, description, canonical_url, schema_json=None):
     <link rel="canonical" href="{canonical_url}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link rel="stylesheet" href="/style.css">
     <script src="/analytics.js" defer></script>
     <meta property="og:title" content="{html.escape(title)}">
@@ -56,9 +62,13 @@ def get_common_head(title, description, canonical_url, schema_json=None):
     <meta property="og:type" content="website">
     <meta property="og:url" content="{canonical_url}">
     <meta property="og:site_name" content="{SITE_NAME}">
+    <meta property="og:image" content="{og_image}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{html.escape(title)}">
     <meta name="twitter:description" content="{html.escape(description)}">
+    <meta name="twitter:image" content="{og_image}">
     {schema_script}
 """
 
@@ -518,21 +528,70 @@ for p in platforms:
 
     vs_cross_links_html = "".join(vs_links)
 
-    # Schema.org SoftwareApplication
+    # Parse starting price for schema offers
+    price_clean = "0"
+    if "$" in price:
+        m = re.search(r'\$?(\d+)', price)
+        if m:
+            price_clean = m.group(1)
+    elif "free" in price.lower():
+        price_clean = "0"
+
+    # Schema.org SoftwareApplication & BreadcrumbList
     schema_app = {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": name,
-        "operatingSystem": "iOS, Android, Web",
-        "applicationCategory": "BusinessApplication",
-        "description": description,
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": str(overall_rating),
-            "reviewCount": str(review_count),
-            "bestRating": "5",
-            "worstRating": "1"
-        }
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "CMMS Directory",
+                        "item": f"{DOMAIN}/#directory"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": f"{name} Review",
+                        "item": canonical_url
+                    }
+                ]
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": name,
+                "applicationCategory": "BusinessApplication / MaintenanceManagement",
+                "operatingSystem": "Web, iOS, Android",
+                "description": description,
+                "url": canonical_url,
+                "image": f"{DOMAIN}/og-image.png",
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": f"{overall_rating:.1f}",
+                    "reviewCount": str(review_count),
+                    "bestRating": "5.0",
+                    "worstRating": "1.0"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": price_clean,
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": SITE_NAME,
+                    "url": DOMAIN
+                }
+            }
+        ]
     }
 
     logo_url = f"https://ui-avatars.com/api/?name={html.escape(name)}&background=1d4ed8&color=fff&rounded=true&bold=true"
@@ -688,12 +747,96 @@ for p1, p2 in matchup_pairs:
     title = f"{p1['name']} vs {p2['name']} Comparison (2026) | PlantMaintHQ"
     description = f"Compare {p1['name']} vs {p2['name']}. Pricing ({p1['starting_price_tier']} vs {p2['starting_price_tier']}), implementation speed ({p1['deployment_timeline']} vs {p2['deployment_timeline']}), and verified user ratings."
 
+    p1_price_clean = "0"
+    if "$" in p1.get('starting_price_tier', ''):
+        m1 = re.search(r'\$?(\d+)', p1.get('starting_price_tier', ''))
+        if m1: p1_price_clean = m1.group(1)
+
+    p2_price_clean = "0"
+    if "$" in p2.get('starting_price_tier', ''):
+        m2 = re.search(r'\$?(\d+)', p2.get('starting_price_tier', ''))
+        if m2: p2_price_clean = m2.group(1)
+
     schema_vs = {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": title,
-        "description": description,
-        "url": canonical_url
+        "@graph": [
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Comparisons",
+                        "item": f"{DOMAIN}/#matrix"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": f"{p1['name']} vs {p2['name']}",
+                        "item": canonical_url
+                    }
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": canonical_url,
+                "url": canonical_url,
+                "name": title,
+                "description": description,
+                "mainEntity": {
+                    "@type": "ItemList",
+                    "name": f"{p1['name']} vs {p2['name']} CMMS Comparison",
+                    "itemListElement": [
+                        {
+                            "@type": "SoftwareApplication",
+                            "position": 1,
+                            "name": p1["name"],
+                            "applicationCategory": "BusinessApplication / MaintenanceManagement",
+                            "operatingSystem": "Web, iOS, Android",
+                            "url": f"{DOMAIN}/cmms/{p1['slug']}/",
+                            "aggregateRating": {
+                                "@type": "AggregateRating",
+                                "ratingValue": f"{p1.get('overall_rating', 4.7):.1f}",
+                                "reviewCount": str(p1.get('review_count', 350)),
+                                "bestRating": "5.0",
+                                "worstRating": "1.0"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": p1_price_clean,
+                                "priceCurrency": "USD"
+                            }
+                        },
+                        {
+                            "@type": "SoftwareApplication",
+                            "position": 2,
+                            "name": p2["name"],
+                            "applicationCategory": "BusinessApplication / MaintenanceManagement",
+                            "operatingSystem": "Web, iOS, Android",
+                            "url": f"{DOMAIN}/cmms/{p2['slug']}/",
+                            "aggregateRating": {
+                                "@type": "AggregateRating",
+                                "ratingValue": f"{p2.get('overall_rating', 4.7):.1f}",
+                                "reviewCount": str(p2.get('review_count', 350)),
+                                "bestRating": "5.0",
+                                "worstRating": "1.0"
+                            },
+                            "offers": {
+                                "@type": "Offer",
+                                "price": p2_price_clean,
+                                "priceCurrency": "USD"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
     }
 
     vs_html = f"""<!DOCTYPE html>
