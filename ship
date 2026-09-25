@@ -9,8 +9,8 @@ echo "==> Committing to GitHub..."
 git add .
 git commit -m "$MSG" || echo "No changes to commit"
 git -c credential.helper='!f() { gh auth git-credential "$@"; }; f' push origin main
-echo "==> Deploying to Cloud Run..."
-gcloud run deploy plantmainthq --source . --region us-east1 --allow-unauthenticated --quiet
+echo "==> Deploying to Cloud Run (plantmainthq-git for plantmainthq.com)..."
+gcloud run deploy plantmainthq-git --source . --region us-east1 --allow-unauthenticated --quiet
 echo "==> Production Live!"
 echo "==> Registering Sitemap with Google Search Console..."
 python3 submit_sitemap.py || echo "Warning: Sitemap submission skipped"
