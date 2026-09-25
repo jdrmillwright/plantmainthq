@@ -48,7 +48,7 @@
             <a href="/roi-calculator/">ROI Calculator</a>
             <a href="/contact/">Advisor Help</a>
           </nav>
-          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" onclick="toggleDrawer()">
             <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="3" y1="6" x2="21" y2="6"></line>
               <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -190,7 +190,39 @@
           </div>
         </div>
       </div>
-      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+      <div class="drawer-backdrop" id="drawer-backdrop" onclick="closeDrawer()"></div>
+      <script>
+        function toggleDrawer() {
+          var drawer = document.getElementById('nav-drawer');
+          var backdrop = document.getElementById('drawer-backdrop');
+          var btn = document.getElementById('mobile-menu-toggle');
+          if (!drawer) return;
+          var isOpen = drawer.classList.contains('open');
+          if (isOpen) {
+            drawer.classList.remove('open');
+            if (backdrop) backdrop.classList.remove('open');
+            if (btn) btn.classList.remove('active');
+            document.body.style.overflow = '';
+          } else {
+            drawer.classList.add('open');
+            if (backdrop) backdrop.classList.add('open');
+            if (btn) btn.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        }
+        function closeDrawer() {
+          var drawer = document.getElementById('nav-drawer');
+          var backdrop = document.getElementById('drawer-backdrop');
+          var btn = document.getElementById('mobile-menu-toggle');
+          if (drawer) drawer.classList.remove('open');
+          if (backdrop) backdrop.classList.remove('open');
+          if (btn) btn.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') closeDrawer();
+        });
+      </script>
     </header>
 
 

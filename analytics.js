@@ -205,7 +205,7 @@
         modal.innerHTML = 
             '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">' +
             '<span style="font-weight:800;color:#f59e0b;font-size:14px;">📊 PlantMaintHQ Live Tracker</span>' +
-            '<button onclick="document.getElementById(\\'pmhq-analytics-modal\\').remove()" style="background:none;border:none;color:#94a3b8;font-size:16px;cursor:pointer;">&times;</button>' +
+            '<button onclick="document.getElementById(\'pmhq-analytics-modal\').remove()" style="background:none;border:none;color:#94a3b8;font-size:16px;cursor:pointer;">&times;</button>' +
             '</div>' +
             '<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:6px;margin-bottom:12px;text-align:center;">' +
             '<div style="background:#0a0e17;padding:6px;border-radius:6px;"><div style="font-size:15px;font-weight:800;color:#10b981;">' + store.totals.visits + '</div><div style="font-size:9px;color:#94a3b8;">VISITS</div></div>' +
