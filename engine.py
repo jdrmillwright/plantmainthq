@@ -188,6 +188,31 @@ def get_header_html(active_nav="directory"):
           </div>
 
           <div class="drawer-section">
+            <div class="drawer-heading">Migration Playbooks</div>
+            <a href="/migrate/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128218;</span>
+              <div>
+                <strong>CMMS Migration Hub</strong>
+                <span class="drawer-subtext">Excel, paper &amp; legacy EAM cutover playbooks</span>
+              </div>
+            </a>
+            <a href="/migrate/migrating-from-excel-to-cmms/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128202;</span>
+              <div>
+                <strong>Excel to CMMS (30-Day Plan)</strong>
+                <span class="drawer-subtext">Sanitizing spreadsheets &amp; importing assets</span>
+              </div>
+            </a>
+            <a href="/migrate/cmms-data-migration-checklist/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9989;</span>
+              <div>
+                <strong>50-Point Import Checklist</strong>
+                <span class="drawer-subtext">Equipment hierarchy &amp; parts formatting</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
             <div class="drawer-heading">Expert Advisory</div>
             <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
               <span class="drawer-icon">&#128200;</span>
@@ -264,13 +289,15 @@ def get_footer_html():
           </div>
 
           <div class="footer-col">
-            <h4>Pricing &amp; Advisory</h4>
+            <h4>Pricing &amp; Migration</h4>
             <ul class="footer-link-list">
               <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
               <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
               <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
               <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
-              <li><a href="/contact/" style="color:var(--primary); font-weight:700;">Request Specialist Advice &rarr;</a></li>
+              <li><a href="/migrate/" style="color:var(--primary); font-weight:700;">CMMS Migration Playbooks</a></li>
+              <li><a href="/migrate/migrating-from-excel-to-cmms/">Excel to CMMS Guide</a></li>
+              <li><a href="/migrate/cmms-data-migration-checklist/">50-Point Import Checklist</a></li>
             </ul>
           </div>
         </div>
@@ -327,6 +354,9 @@ for idx, p in enumerate(platforms):
             price_val = int(pm.group(1))
 
     feat_tags = []
+    t_lower = timeline.lower()
+    has_fastdeploy = any(w in t_lower for w in ["48 hours", "1 week", "2 weeks", "1-2 weeks", "1 to 2", "1 - 2", "1 - 3 weeks", "1 to 3 weeks", "days", "rapid", "hours"])
+    if has_fastdeploy: feat_tags.append("fastdeploy")
     if has_predictive: feat_tags.append("predictive")
     if has_mobile: feat_tags.append("mobile")
     if has_inventory: feat_tags.append("inventory")
@@ -848,6 +878,7 @@ homepage_html = f"""<!DOCTYPE html>
       <div class="filter-row">
         <span class="filter-row-label">Key Features:</span>
         <div class="filter-pills" id="feature-filters">
+          <button class="filter-pill" data-feature="fastdeploy">&#9889; Fast Deploy (&lt; 2 Wks)</button>
           <button class="filter-pill" data-feature="predictive">&#128302; Predictive &amp; IoT</button>
           <button class="filter-pill" data-feature="mobile">&#128241; Mobile Offline</button>
           <button class="filter-pill" data-feature="inventory">&#128230; Parts &amp; Inventory</button>
@@ -1799,6 +1830,9 @@ def generate_card_html(p):
             price_val = int(pm.group(1))
 
     feat_tags = []
+    t_lower = timeline.lower()
+    has_fastdeploy = any(w in t_lower for w in ["48 hours", "1 week", "2 weeks", "1-2 weeks", "1 to 2", "1 - 2", "1 - 3 weeks", "1 to 3 weeks", "days", "rapid", "hours"])
+    if has_fastdeploy: feat_tags.append("fastdeploy")
     if has_predictive: feat_tags.append("predictive")
     if has_mobile: feat_tags.append("mobile")
     if has_inventory: feat_tags.append("inventory")
@@ -2652,6 +2686,379 @@ find_html = f"""<!DOCTYPE html>
 
 with open(os.path.join(find_dir, "index.html"), "w", encoding="utf-8") as f:
     f.write(find_html)
+
+# ==============================================================================
+# Step 4.9: Compile CMMS Migration Playbooks Hub & Guides (/migrate/)
+# ==============================================================================
+print(f">>> [4.9/5] Compiling CMMS Migration Playbooks Hub & Guides...")
+
+migrate_hub_dir = os.path.join("public", "migrate")
+os.makedirs(migrate_hub_dir, exist_ok=True)
+canonical_migrate_hub = f"{DOMAIN}/migrate/"
+sitemap_urls.append(canonical_migrate_hub)
+
+playbooks_meta = [
+    {
+        "slug": "migrating-from-excel-to-cmms",
+        "title": "Migrating from Excel to CMMS: The 30-Day Engineering Playbook",
+        "h1": "Migrating from Excel to a Modern CMMS: The 30-Day Playbook",
+        "badge": "Spreadsheet Cutover",
+        "time": "12 min read",
+        "desc": "How to transition equipment registries, preventive schedules, and parts logs from Microsoft Excel to an automated CMMS without operational downtime.",
+        "icon": "&#128202;",
+        "steps": [
+            ("Phase 1: The 7-Day Asset Audit & Column Standardization", "Export every shared drive spreadsheet. Standardize Equipment IDs into alphanumeric sequences. Map parent-child hierarchies (e.g. Line 1 > Filler > Drive Motor) so failure histories aggregate properly."),
+            ("Phase 2: Work Order & ISO 14224 Failure Code Alignment", "Replace unstructured free-text cells with standardized failure codes: Mechanical Wear, Electrical Fault, Contamination, Lubrication Starvation, Operator Error. This unlocks future root-cause MTBF analysis."),
+            ("Phase 3: Formulating the Master CSV Import Table", "Clean dates into standard ISO formats (YYYY-MM-DD). Split technician names into user IDs. Validate that every parts SKU matches a physical storeroom shelf or bin coordinate."),
+            ("Phase 4: Single-Line Parallel Run Pilot (Days 21-27)", "Pick one critical packaging or stamping cell. Run paper/Excel in parallel with mobile work orders for 7 days. Gather frontline technician feedback on UI click fatigue and fix field mappings."),
+            ("Phase 5: Full Plant Cutover & Setting Excel to Read-Only (Day 30)", "Archive the legacy spreadsheet into cold storage and lock editing permissions. Mandate all breakdown tickets flow through CMMS QR code scans.")
+        ],
+        "best_tools": [
+            ("MaintainX", "maintainx", "Top pick for frontline chat and zero-training mobile work order logging."),
+            ("Limble CMMS", "limble-cmms", "Best for flexible custom asset hierarchies and fast CSV import wizards."),
+            ("UpKeep", "upkeep", "Excellent mobile barcode scanning and agile inventory min/max triggers.")
+        ]
+    },
+    {
+        "slug": "migrating-from-paper-to-cmms",
+        "title": "Eliminating Paper Work Orders: The Frontline Adoption Blueprint",
+        "h1": "Eliminating Paper Work Orders: The Shop-Floor Adoption Blueprint",
+        "badge": "Frontline Change Management",
+        "time": "10 min read",
+        "desc": "Proven change management strategies to overcome veteran mechanic resistance, deploy laminated QR codes, and transition from paper clipboards to rugged mobile devices.",
+        "icon": "&#128221;",
+        "steps": [
+            ("Overcoming Veteran Technician Pushback", "Avoid complex corporate software jargon. Position the CMMS as wrench-time protection: 'No more searching for lost paper orders, no more being blamed for undocumented shift handovers.' Pick apps with voice-to-text dictation."),
+            ("The Laminated Machine Frame QR Code Rollout", "Generate durable weather-resistant QR codes for each asset. Machine operators can scan with a personal phone camera to submit photo-backed work requests in 15 seconds without user logins."),
+            ("Converting 3-Ring Binder Checklists to Digital SOPs", "Convert 40-page preventive maintenance binders into required mobile checklist steps with mandatory meter readings, before/after photo requirements, and pass/fail logic."),
+            ("Tracking the 30-Day Frontline Adoption Scorecard", "Monitor Work Order Closure Rate on Mobile vs Web. A healthy transition achieves >85% work order completions logged directly from shop floor tablets within 4 weeks.")
+        ],
+        "best_tools": [
+            ("MaintainX", "maintainx", "Easiest frontline adoption for technicians transitioning off paper clipboards."),
+            ("Limble CMMS", "limble-cmms", "Pioneered frictionless QR code request portals for shop-floor operators."),
+            ("Coast", "coast", "Super lightweight mobile-first messaging and work order ticketing.")
+        ]
+    },
+    {
+        "slug": "migrating-from-legacy-maximo",
+        "title": "Migrating from On-Premise IBM Maximo to Modern Cloud CMMS",
+        "h1": "Migrating from Legacy IBM Maximo / Infor to Cloud CMMS",
+        "badge": "Enterprise Modernization",
+        "time": "15 min read",
+        "desc": "Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.",
+        "icon": "&#127970;",
+        "steps": [
+            ("Total Cost of Ownership (TCO) Comparison", "On-premise legacy EAMs average $120,000+/year in Oracle DB licensing, on-site server hardware renewals, and six-figure custom consultant retainers compared to predictable modern cloud SaaS fees."),
+            ("SQL Table Extraction & Schema Sanitization", "Extract core tables: ASSET, LOCATIONS, WORKORDER, INVENTORY, and COMPANIES. Strip obsolete custom database triggers and normalize 15+ years of legacy records into clean UTF-8 CSVs."),
+            ("Preserving Historical Compliance & Audit Trails", "FDA 21 CFR Part 11 and ISO 9001 audits require retaining past maintenance logs. Migrate historical completed work orders into read-only archive tables or an integrated cloud data lake."),
+            ("Re-Architecting Enterprise ERP Integrations", "Replace brittle proprietary middleware and SOAP XML endpoints with secure modern REST webhooks connecting directly into SAP S/4HANA or Oracle Cloud ERP.")
+        ],
+        "best_tools": [
+            ("IFS Ultimo", "ifs-ultimo", "Enterprise-grade cloud EAM with seamless multi-site operational depth."),
+            ("eMaint", "emaint", "Fluke reliability backing with deep enterprise integration and calibration rigor."),
+            ("Hexagon EAM", "hexagon-eam", "Industry powerhouse for heavy capital asset tracking and linear GIS networks.")
+        ]
+    },
+    {
+        "slug": "cmms-data-migration-checklist",
+        "title": "The 50-Point CMMS Data Migration & Equipment Hierarchy Checklist",
+        "h1": "CMMS Data Migration & Equipment Hierarchy Master Checklist",
+        "badge": "Technical Master Checklist",
+        "time": "8 min read",
+        "desc": "A complete technical checklist for reliability engineers, millwrights, and data admins preparing CSV imports for assets, storerooms, PM schedules, and craft personnel.",
+        "icon": "&#9989;",
+        "steps": [
+            ("Section 1: Asset Registry & Mechanical Hierarchy", "Standardized Equipment Tag Numbers, Parent-Child Location IDs, Serial Numbers, Manufacturer/Model, Criticality Ranking (A/B/C), P&ID Drawing References, Installation Dates, Warranty Expirations."),
+            ("Section 2: Spare Parts & MRO Storeroom Master", "Internal Part SKU, OEM Part Number, Description, Bin/Aisle Coordinate, Unit of Measure, Current Stock Level, Min/Max Safety Thresholds, Standard Unit Cost, Preferred Vendor ID."),
+            ("Section 3: Preventive Maintenance (PM) Library", "Task Description, Standard Operating Procedure (SOP), Frequency Cycle (Calendar Days vs Run-Hours), Required Craft Skill, Estimated Duration, Lockout/Tagout (LOTO) Permit Requirement."),
+            ("Section 4: Personnel & Vendor Catalogs", "Technician Full Name, Email/Mobile Phone, Craft Specialty (Electrician, Millwright, HVAC), Burdened Labor Rate, Active Contractor Licenses, Certificate of Insurance (COI) Expiry.")
+        ],
+        "best_tools": [
+            ("Limble CMMS", "limble-cmms", "Pre-built CSV upload templates for assets, parts, and PM libraries."),
+            ("MaintainX", "maintainx", "Instant CSV mass-upload with automated column mapping."),
+            ("Fiix", "fiix", "Rockwell Automation cloud connectivity with structured hierarchy builders.")
+        ]
+    }
+]
+
+# Compile Hub Page
+schema_migrate_hub = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "name": "CMMS Migration Playbooks & Data Cutover Hub (2026)",
+            "description": "Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.",
+            "url": canonical_migrate_hub,
+            "publisher": {
+                "@type": "Organization",
+                "name": SITE_NAME,
+                "url": DOMAIN
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": f"{DOMAIN}/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Migration Playbooks",
+                    "item": canonical_migrate_hub
+                }
+            ]
+        }
+    ]
+}
+
+hub_cards_html = "".join([f"""
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">{b['badge']}</span>
+              <span style="font-size:0.8rem; color:var(--text-light);">{b['time']}</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/migrate/{b['slug']}/" style="color:var(--text-main); text-decoration:none;">{b['title']}</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              {b['desc']}
+            </p>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/migrate/{b['slug']}/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Read Full Playbook &rarr;
+            </a>
+          </div>
+        </div>
+""" for b in playbooks_meta])
+
+migrate_hub_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      "CMMS Migration Playbooks & Data Cutover Hub (2026) | PlantMaintHQ",
+      "Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.",
+      canonical_migrate_hub,
+      json.dumps(schema_migrate_hub)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>Migration Playbooks</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem; text-align:center;">
+      <span class="badge">&#128218; Engineering Migration Guides</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">CMMS Migration &amp; Data Cutover Playbooks</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        Practical step-by-step blueprints, CSV data sanitization frameworks, and shop-floor change management playbooks to modernize plant maintenance without operational disruptions.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2.5rem; gap:1.5rem;">
+      {hub_cards_html}
+    </div>
+
+    <!-- Migration Pitfalls Card -->
+    <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; margin-bottom:2rem;">
+      <h2 style="font-size:1.4rem; margin-bottom:0.75rem;">The 3 Biggest Reasons CMMS Migrations Fail:</h2>
+      <div class="grid-3" style="gap:1.25rem;">
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">1. Importing "Garbage In"</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Importing decades of duplicate equipment tags and vague descriptions creates immediate search friction for frontline mechanics.</p>
+        </div>
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">2. Frontline Click Fatigue</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Requiring 14 mandatory form fields just to close an oil filter change causes technicians to abandon the app and revert to paper.</p>
+        </div>
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">3. No Parallel Testing</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Attempting a whole-plant "big bang" cutover on a Monday morning without running a single line parallel pilot first.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advisor Help Card -->
+    <div class="card" style="background:#eff6ff; border:1px solid #bfdbfe; text-align:center; padding:2rem;">
+      <h2 style="font-size:1.5rem; color:#1e40af; margin-bottom:0.5rem;">Need Vendor-Neutral Migration Guidance?</h2>
+      <p style="font-size:0.95rem; color:#3b82f6; max-width:600px; margin:0 auto 1.25rem;">
+        Our engineering advisors review CSV import structures, vendor data migration clauses, and frontline adoption strategies at zero cost.
+      </p>
+      <a href="/contact/?inquiry_type=Migration%20Consulting" class="btn btn-primary" style="font-size:0.9rem;">
+        Speak with a Migration Specialist &rarr;
+      </a>
+    </div>
+  </main>
+
+  {get_footer_html()}
+</body>
+</html>
+"""
+
+with open(os.path.join(migrate_hub_dir, "index.html"), "w", encoding="utf-8") as f:
+    f.write(migrate_hub_html)
+
+# Compile Individual Migration Playbook Pages
+for pb in playbooks_meta:
+    pb_dir = os.path.join(migrate_hub_dir, pb["slug"])
+    os.makedirs(pb_dir, exist_ok=True)
+    canonical_pb_url = f"{DOMAIN}/migrate/{pb['slug']}/"
+    sitemap_urls.append(canonical_pb_url)
+
+    schema_pb = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Article",
+                "headline": pb["title"],
+                "description": pb["desc"],
+                "url": canonical_pb_url,
+                "author": {
+                    "@type": "Organization",
+                    "name": "PlantMaintHQ Reliability Engineering Group"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": SITE_NAME,
+                    "url": DOMAIN
+                },
+                "datePublished": "2026-01-15",
+                "dateModified": TODAY
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Migration Playbooks",
+                        "item": canonical_migrate_hub
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": pb["title"],
+                        "item": canonical_pb_url
+                    }
+                ]
+            }
+        ]
+    }
+
+    steps_html = "".join([f"""
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:10px; padding:1.5rem; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.15rem; color:var(--text-main); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--primary); font-weight:800;">&#10003;</span> {s[0]}
+        </h3>
+        <p style="font-size:0.95rem; color:#475569; line-height:1.65; margin:0;">
+          {s[1]}
+        </p>
+      </div>
+    """ for s in pb["steps"]])
+
+    tools_html = "".join([f"""
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/{t[1]}/" style="color:var(--text-main); text-decoration:none;">{t[0]}</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">{t[2]}</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/{t[1]}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/{t[1]}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    """ for t in pb["best_tools"]])
+
+    pb_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      pb["title"] + " | PlantMaintHQ",
+      pb["desc"],
+      canonical_pb_url,
+      json.dumps(schema_pb)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/migrate/">Migration Playbooks</a>
+      <span>&rsaquo;</span>
+      <span>{html.escape(pb['badge'])}</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
+        <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">{pb['badge']}</span>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem; background:#ffffff;">
+          <span>&#128438;&#65039; Print Playbook PDF</span>
+        </button>
+      </div>
+      <h1 style="font-size:2.2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">{html.escape(pb['h1'])}</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; line-height:1.6;">
+        {html.escape(pb['desc'])}
+      </p>
+      <div style="font-size:0.85rem; color:var(--text-light); margin-top:1rem;">
+        Published by PlantMaintHQ Reliability Engineering Group &bull; {pb['time']}
+      </div>
+    </div>
+
+    <!-- Playbook Action Steps -->
+    <div class="card">
+      <h2 style="margin-bottom:1.25rem;">Step-by-Step Implementation Framework</h2>
+      {steps_html}
+    </div>
+
+    <!-- Recommended Software for This Migration -->
+    <div class="card">
+      <h2 style="margin-bottom:0.5rem;">Top CMMS Platforms Built for This Migration</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">
+        These platforms feature automated CSV import assistants, responsive mobile adoption, and dedicated customer success onboarding:
+      </p>
+      <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        {tools_html}
+      </div>
+    </div>
+
+    <!-- Contextual Lead Magnet Card -->
+    <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; text-align:center; padding:2rem;">
+      <h3 style="font-size:1.35rem; margin-bottom:0.5rem; color:var(--text-main);">Need Help Reviewing Your Migration CSV Hierarchy?</h3>
+      <p style="font-size:0.9rem; color:var(--text-muted); max-width:560px; margin:0 auto 1.25rem;">
+        Send us your sanitized equipment hierarchy or database export for a free technical sanity check before committing to software.
+      </p>
+      <a href="/contact/?inquiry_type=Migration%20Data%20Review" class="btn btn-primary" style="font-size:0.9rem;">
+        Request Migration Architecture Review &rarr;
+      </a>
+    </div>
+  </main>
+
+  {get_footer_html()}
+</body>
+</html>
+"""
+    with open(os.path.join(pb_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(pb_html)
 
 # ==============================================================================
 # Step 5: Sync Data Bundles & XML Sitemap

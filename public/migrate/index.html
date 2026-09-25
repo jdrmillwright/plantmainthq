@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMMS Migration Playbooks &amp; Data Cutover Hub (2026) | PlantMaintHQ</title>
+    <meta name="description" content="Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.">
+    <link rel="canonical" href="https://plantmainthq.com/migrate/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="CMMS Migration Playbooks &amp; Data Cutover Hub (2026) | PlantMaintHQ">
+    <meta property="og:description" content="Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/migrate/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta property="og:image" content="https://plantmainthq.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CMMS Migration Playbooks &amp; Data Cutover Hub (2026) | PlantMaintHQ">
+    <meta name="twitter:description" content="Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-image.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "name": "CMMS Migration Playbooks & Data Cutover Hub (2026)", "description": "Step-by-step engineering playbooks for migrating maintenance operations from Excel spreadsheets, paper work orders, or legacy on-premise EAMs to modern cloud CMMS.", "url": "https://plantmainthq.com/migrate/", "publisher": {"@type": "Organization", "name": "PlantMaintHQ", "url": "https://plantmainthq.com"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://plantmainthq.com/"}, {"@type": "ListItem", "position": 2, "name": "Migration Playbooks", "item": "https://plantmainthq.com/migrate/"}]}]}</script>
+
+</head>
+<body>
+  
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span class="logo-brand">HQ</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
+            <a href="/#matrix">Comparison Matrix</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
+              <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
+              <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
+              <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Top Features</div>
+            <div class="drawer-chips">
+              <a href="/features/preventive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Preventive</a>
+              <a href="/features/predictive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Predictive &amp; IoT</a>
+              <a href="/features/inventory-management/" class="drawer-chip" onclick="closeDrawer()">Inventory</a>
+              <a href="/features/mobile-app/" class="drawer-chip" onclick="closeDrawer()">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Budget &amp; Scale</div>
+            <div class="drawer-chips">
+              <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
+              <a href="/pricing/affordable-cmms-under-50/" class="drawer-chip" onclick="closeDrawer()">Under $50/mo</a>
+              <a href="/best-cmms-for-small-teams/" class="drawer-chip" onclick="closeDrawer()">Small Teams</a>
+              <a href="/best-enterprise-eam-software/" class="drawer-chip" onclick="closeDrawer()">Enterprise EAM</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Migration Playbooks</div>
+            <a href="/migrate/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128218;</span>
+              <div>
+                <strong>CMMS Migration Hub</strong>
+                <span class="drawer-subtext">Excel, paper &amp; legacy EAM cutover playbooks</span>
+              </div>
+            </a>
+            <a href="/migrate/migrating-from-excel-to-cmms/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128202;</span>
+              <div>
+                <strong>Excel to CMMS (30-Day Plan)</strong>
+                <span class="drawer-subtext">Sanitizing spreadsheets &amp; importing assets</span>
+              </div>
+            </a>
+            <a href="/migrate/cmms-data-migration-checklist/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9989;</span>
+              <div>
+                <strong>50-Point Import Checklist</strong>
+                <span class="drawer-subtext">Equipment hierarchy &amp; parts formatting</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    </header>
+
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>Migration Playbooks</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem; text-align:center;">
+      <span class="badge">&#128218; Engineering Migration Guides</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">CMMS Migration &amp; Data Cutover Playbooks</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        Practical step-by-step blueprints, CSV data sanitization frameworks, and shop-floor change management playbooks to modernize plant maintenance without operational disruptions.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2.5rem; gap:1.5rem;">
+      
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Spreadsheet Cutover</span>
+              <span style="font-size:0.8rem; color:var(--text-light);">12 min read</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/migrate/migrating-from-excel-to-cmms/" style="color:var(--text-main); text-decoration:none;">Migrating from Excel to CMMS: The 30-Day Engineering Playbook</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              How to transition equipment registries, preventive schedules, and parts logs from Microsoft Excel to an automated CMMS without operational downtime.
+            </p>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/migrate/migrating-from-excel-to-cmms/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Read Full Playbook &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Frontline Change Management</span>
+              <span style="font-size:0.8rem; color:var(--text-light);">10 min read</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/migrate/migrating-from-paper-to-cmms/" style="color:var(--text-main); text-decoration:none;">Eliminating Paper Work Orders: The Frontline Adoption Blueprint</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              Proven change management strategies to overcome veteran mechanic resistance, deploy laminated QR codes, and transition from paper clipboards to rugged mobile devices.
+            </p>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/migrate/migrating-from-paper-to-cmms/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Read Full Playbook &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Enterprise Modernization</span>
+              <span style="font-size:0.8rem; color:var(--text-light);">15 min read</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/migrate/migrating-from-legacy-maximo/" style="color:var(--text-main); text-decoration:none;">Migrating from On-Premise IBM Maximo to Modern Cloud CMMS</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.
+            </p>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/migrate/migrating-from-legacy-maximo/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Read Full Playbook &rarr;
+            </a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Technical Master Checklist</span>
+              <span style="font-size:0.8rem; color:var(--text-light);">8 min read</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/migrate/cmms-data-migration-checklist/" style="color:var(--text-main); text-decoration:none;">The 50-Point CMMS Data Migration & Equipment Hierarchy Checklist</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              A complete technical checklist for reliability engineers, millwrights, and data admins preparing CSV imports for assets, storerooms, PM schedules, and craft personnel.
+            </p>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/migrate/cmms-data-migration-checklist/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Read Full Playbook &rarr;
+            </a>
+          </div>
+        </div>
+
+    </div>
+
+    <!-- Migration Pitfalls Card -->
+    <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; margin-bottom:2rem;">
+      <h2 style="font-size:1.4rem; margin-bottom:0.75rem;">The 3 Biggest Reasons CMMS Migrations Fail:</h2>
+      <div class="grid-3" style="gap:1.25rem;">
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">1. Importing "Garbage In"</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Importing decades of duplicate equipment tags and vague descriptions creates immediate search friction for frontline mechanics.</p>
+        </div>
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">2. Frontline Click Fatigue</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Requiring 14 mandatory form fields just to close an oil filter change causes technicians to abandon the app and revert to paper.</p>
+        </div>
+        <div style="background:#ffffff; border:1px solid var(--border-color); padding:1.25rem; border-radius:8px;">
+          <strong style="color:#dc2626; display:block; margin-bottom:0.35rem;">3. No Parallel Testing</strong>
+          <p style="font-size:0.85rem; color:#475569; margin:0; line-height:1.5;">Attempting a whole-plant "big bang" cutover on a Monday morning without running a single line parallel pilot first.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Advisor Help Card -->
+    <div class="card" style="background:#eff6ff; border:1px solid #bfdbfe; text-align:center; padding:2rem;">
+      <h2 style="font-size:1.5rem; color:#1e40af; margin-bottom:0.5rem;">Need Vendor-Neutral Migration Guidance?</h2>
+      <p style="font-size:0.95rem; color:#3b82f6; max-width:600px; margin:0 auto 1.25rem;">
+        Our engineering advisors review CSV import structures, vendor data migration clauses, and frontline adoption strategies at zero cost.
+      </p>
+      <a href="/contact/?inquiry_type=Migration%20Consulting" class="btn btn-primary" style="font-size:0.9rem;">
+        Speak with a Migration Specialist &rarr;
+      </a>
+    </div>
+  </main>
+
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <a href="/" class="logo" style="margin-bottom:0.75rem;">
+                <div class="logo-icon" style="width:28px; height:28px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                PlantMaint<span class="logo-brand">HQ</span>
+              </a>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:1rem;">
+                The independent technical benchmark &amp; software directory for maintenance managers, millwrights, and plant reliability engineers.
+              </p>
+              <div style="font-size:0.8rem; color:var(--text-light);">
+                Zero sponsored paywalls. Unbiased engineering audits.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Directories &amp; Tools</h4>
+            <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
+              <li><a href="/#directory">All 106 CMMS Platforms</a></li>
+              <li><a href="/#matrix">Top Comparison Matrix</a></li>
+              <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
+              <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
+              <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
+              <li><a href="/features/mobile-app/">Mobile Apps</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industry Shortlists</h4>
+            <ul class="footer-link-list">
+              <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
+              <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
+              <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
+              <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pricing &amp; Migration</h4>
+            <ul class="footer-link-list">
+              <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
+              <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
+              <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
+              <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
+              <li><a href="/migrate/" style="color:var(--primary); font-weight:700;">CMMS Migration Playbooks</a></li>
+              <li><a href="/migrate/migrating-from-excel-to-cmms/">Excel to CMMS Guide</a></li>
+              <li><a href="/migrate/cmms-data-migration-checklist/">50-Point Import Checklist</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 PlantMaintHQ. Independent maintenance software benchmarks. All trademarks belong to their respective owners.
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="/sitemap.xml" style="color:var(--text-muted); text-decoration:none;">XML Sitemap</a>
+            <a href="/contact/" style="color:var(--text-muted); text-decoration:none;">Contact Desk</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

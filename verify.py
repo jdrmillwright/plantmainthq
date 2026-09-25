@@ -24,6 +24,8 @@ def run_checks():
         "contact/index.html",
         "roi-calculator/index.html",
         "find/index.html",
+        "migrate/index.html",
+        "migrate/migrating-from-excel-to-cmms/index.html",
         "best-cmms-for-manufacturing/index.html",
         "best-cmms-for-facilities/index.html",
         "best-cmms-for-healthcare/index.html",

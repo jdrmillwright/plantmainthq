@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrating from On-Premise IBM Maximo to Modern Cloud CMMS | PlantMaintHQ</title>
+    <meta name="description" content="Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.">
+    <link rel="canonical" href="https://plantmainthq.com/migrate/migrating-from-legacy-maximo/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="Migrating from On-Premise IBM Maximo to Modern Cloud CMMS | PlantMaintHQ">
+    <meta property="og:description" content="Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/migrate/migrating-from-legacy-maximo/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta property="og:image" content="https://plantmainthq.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Migrating from On-Premise IBM Maximo to Modern Cloud CMMS | PlantMaintHQ">
+    <meta name="twitter:description" content="Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-image.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Migrating from On-Premise IBM Maximo to Modern Cloud CMMS", "description": "Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.", "url": "https://plantmainthq.com/migrate/migrating-from-legacy-maximo/", "author": {"@type": "Organization", "name": "PlantMaintHQ Reliability Engineering Group"}, "publisher": {"@type": "Organization", "name": "PlantMaintHQ", "url": "https://plantmainthq.com"}, "datePublished": "2026-01-15", "dateModified": "2026-09-25"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://plantmainthq.com/"}, {"@type": "ListItem", "position": 2, "name": "Migration Playbooks", "item": "https://plantmainthq.com/migrate/"}, {"@type": "ListItem", "position": 3, "name": "Migrating from On-Premise IBM Maximo to Modern Cloud CMMS", "item": "https://plantmainthq.com/migrate/migrating-from-legacy-maximo/"}]}]}</script>
+
+</head>
+<body>
+  
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span class="logo-brand">HQ</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
+            <a href="/#matrix">Comparison Matrix</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
+              <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
+              <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
+              <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Top Features</div>
+            <div class="drawer-chips">
+              <a href="/features/preventive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Preventive</a>
+              <a href="/features/predictive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Predictive &amp; IoT</a>
+              <a href="/features/inventory-management/" class="drawer-chip" onclick="closeDrawer()">Inventory</a>
+              <a href="/features/mobile-app/" class="drawer-chip" onclick="closeDrawer()">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Budget &amp; Scale</div>
+            <div class="drawer-chips">
+              <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
+              <a href="/pricing/affordable-cmms-under-50/" class="drawer-chip" onclick="closeDrawer()">Under $50/mo</a>
+              <a href="/best-cmms-for-small-teams/" class="drawer-chip" onclick="closeDrawer()">Small Teams</a>
+              <a href="/best-enterprise-eam-software/" class="drawer-chip" onclick="closeDrawer()">Enterprise EAM</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Migration Playbooks</div>
+            <a href="/migrate/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128218;</span>
+              <div>
+                <strong>CMMS Migration Hub</strong>
+                <span class="drawer-subtext">Excel, paper &amp; legacy EAM cutover playbooks</span>
+              </div>
+            </a>
+            <a href="/migrate/migrating-from-excel-to-cmms/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128202;</span>
+              <div>
+                <strong>Excel to CMMS (30-Day Plan)</strong>
+                <span class="drawer-subtext">Sanitizing spreadsheets &amp; importing assets</span>
+              </div>
+            </a>
+            <a href="/migrate/cmms-data-migration-checklist/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9989;</span>
+              <div>
+                <strong>50-Point Import Checklist</strong>
+                <span class="drawer-subtext">Equipment hierarchy &amp; parts formatting</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    </header>
+
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/migrate/">Migration Playbooks</a>
+      <span>&rsaquo;</span>
+      <span>Enterprise Modernization</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
+        <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Enterprise Modernization</span>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem; background:#ffffff;">
+          <span>&#128438;&#65039; Print Playbook PDF</span>
+        </button>
+      </div>
+      <h1 style="font-size:2.2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Migrating from Legacy IBM Maximo / Infor to Cloud CMMS</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; line-height:1.6;">
+        Technical architectural guide to decommissioning costly on-premise Maximo / Infor servers, sanitizing Oracle/SQL database tables, and slashing 5-year maintenance TCO.
+      </p>
+      <div style="font-size:0.85rem; color:var(--text-light); margin-top:1rem;">
+        Published by PlantMaintHQ Reliability Engineering Group &bull; 15 min read
+      </div>
+    </div>
+
+    <!-- Playbook Action Steps -->
+    <div class="card">
+      <h2 style="margin-bottom:1.25rem;">Step-by-Step Implementation Framework</h2>
+      
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:10px; padding:1.5rem; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.15rem; color:var(--text-main); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--primary); font-weight:800;">&#10003;</span> Total Cost of Ownership (TCO) Comparison
+        </h3>
+        <p style="font-size:0.95rem; color:#475569; line-height:1.65; margin:0;">
+          On-premise legacy EAMs average $120,000+/year in Oracle DB licensing, on-site server hardware renewals, and six-figure custom consultant retainers compared to predictable modern cloud SaaS fees.
+        </p>
+      </div>
+    
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:10px; padding:1.5rem; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.15rem; color:var(--text-main); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--primary); font-weight:800;">&#10003;</span> SQL Table Extraction & Schema Sanitization
+        </h3>
+        <p style="font-size:0.95rem; color:#475569; line-height:1.65; margin:0;">
+          Extract core tables: ASSET, LOCATIONS, WORKORDER, INVENTORY, and COMPANIES. Strip obsolete custom database triggers and normalize 15+ years of legacy records into clean UTF-8 CSVs.
+        </p>
+      </div>
+    
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:10px; padding:1.5rem; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.15rem; color:var(--text-main); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--primary); font-weight:800;">&#10003;</span> Preserving Historical Compliance & Audit Trails
+        </h3>
+        <p style="font-size:0.95rem; color:#475569; line-height:1.65; margin:0;">
+          FDA 21 CFR Part 11 and ISO 9001 audits require retaining past maintenance logs. Migrate historical completed work orders into read-only archive tables or an integrated cloud data lake.
+        </p>
+      </div>
+    
+      <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:10px; padding:1.5rem; margin-bottom:1.25rem;">
+        <h3 style="font-size:1.15rem; color:var(--text-main); margin-bottom:0.5rem; display:flex; align-items:center; gap:8px;">
+          <span style="color:var(--primary); font-weight:800;">&#10003;</span> Re-Architecting Enterprise ERP Integrations
+        </h3>
+        <p style="font-size:0.95rem; color:#475569; line-height:1.65; margin:0;">
+          Replace brittle proprietary middleware and SOAP XML endpoints with secure modern REST webhooks connecting directly into SAP S/4HANA or Oracle Cloud ERP.
+        </p>
+      </div>
+    
+    </div>
+
+    <!-- Recommended Software for This Migration -->
+    <div class="card">
+      <h2 style="margin-bottom:0.5rem;">Top CMMS Platforms Built for This Migration</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">
+        These platforms feature automated CSV import assistants, responsive mobile adoption, and dedicated customer success onboarding:
+      </p>
+      <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/ifs-ultimo/" style="color:var(--text-main); text-decoration:none;">IFS Ultimo</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">Enterprise-grade cloud EAM with seamless multi-site operational depth.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/ifs-ultimo/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/ifs-ultimo/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/emaint/" style="color:var(--text-main); text-decoration:none;">eMaint</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">Fluke reliability backing with deep enterprise integration and calibration rigor.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/emaint/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/emaint/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/hexagon-eam/" style="color:var(--text-main); text-decoration:none;">Hexagon EAM</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">Industry powerhouse for heavy capital asset tracking and linear GIS networks.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/hexagon-eam/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/hexagon-eam/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+
+    <!-- Contextual Lead Magnet Card -->
+    <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; text-align:center; padding:2rem;">
+      <h3 style="font-size:1.35rem; margin-bottom:0.5rem; color:var(--text-main);">Need Help Reviewing Your Migration CSV Hierarchy?</h3>
+      <p style="font-size:0.9rem; color:var(--text-muted); max-width:560px; margin:0 auto 1.25rem;">
+        Send us your sanitized equipment hierarchy or database export for a free technical sanity check before committing to software.
+      </p>
+      <a href="/contact/?inquiry_type=Migration%20Data%20Review" class="btn btn-primary" style="font-size:0.9rem;">
+        Request Migration Architecture Review &rarr;
+      </a>
+    </div>
+  </main>
+
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <a href="/" class="logo" style="margin-bottom:0.75rem;">
+                <div class="logo-icon" style="width:28px; height:28px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                PlantMaint<span class="logo-brand">HQ</span>
+              </a>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:1rem;">
+                The independent technical benchmark &amp; software directory for maintenance managers, millwrights, and plant reliability engineers.
+              </p>
+              <div style="font-size:0.8rem; color:var(--text-light);">
+                Zero sponsored paywalls. Unbiased engineering audits.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Directories &amp; Tools</h4>
+            <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
+              <li><a href="/#directory">All 106 CMMS Platforms</a></li>
+              <li><a href="/#matrix">Top Comparison Matrix</a></li>
+              <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
+              <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
+              <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
+              <li><a href="/features/mobile-app/">Mobile Apps</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industry Shortlists</h4>
+            <ul class="footer-link-list">
+              <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
+              <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
+              <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
+              <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pricing &amp; Migration</h4>
+            <ul class="footer-link-list">
+              <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
+              <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
+              <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
+              <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
+              <li><a href="/migrate/" style="color:var(--primary); font-weight:700;">CMMS Migration Playbooks</a></li>
+              <li><a href="/migrate/migrating-from-excel-to-cmms/">Excel to CMMS Guide</a></li>
+              <li><a href="/migrate/cmms-data-migration-checklist/">50-Point Import Checklist</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 PlantMaintHQ. Independent maintenance software benchmarks. All trademarks belong to their respective owners.
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="/sitemap.xml" style="color:var(--text-muted); text-decoration:none;">XML Sitemap</a>
+            <a href="/contact/" style="color:var(--text-muted); text-decoration:none;">Contact Desk</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
