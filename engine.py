@@ -144,6 +144,16 @@ def get_header_html(active_nav="directory"):
           </div>
 
           <div class="drawer-section">
+            <div class="drawer-heading">By Top Features</div>
+            <div class="drawer-chips">
+              <a href="/features/preventive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Preventive</a>
+              <a href="/features/predictive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Predictive &amp; IoT</a>
+              <a href="/features/inventory-management/" class="drawer-chip" onclick="closeDrawer()">Inventory</a>
+              <a href="/features/mobile-app/" class="drawer-chip" onclick="closeDrawer()">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
             <div class="drawer-heading">By Budget &amp; Scale</div>
             <div class="drawer-chips">
               <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
@@ -207,7 +217,10 @@ def get_footer_html():
               <li><a href="/#directory">All 106 CMMS Platforms</a></li>
               <li><a href="/#matrix">Top Comparison Matrix</a></li>
               <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
-              <li><a href="/#guide">Evaluation Criteria</a></li>
+              <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
+              <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
+              <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
+              <li><a href="/features/mobile-app/">Mobile Apps</a></li>
             </ul>
           </div>
 
@@ -1151,6 +1164,34 @@ categories = [
         "h1": "Best Enterprise EAM Software",
         "desc": "Heavy-duty Enterprise Asset Management (EAM) platforms for multi-plant networks and global operations.",
         "filter": lambda p: any("enterprise" in s.lower() for s in p.get("target_company_scales", []))
+    },
+    {
+        "url_path": "features/preventive-maintenance",
+        "title": "Best Preventive Maintenance Software (2026)",
+        "h1": "Best Preventive Maintenance Software",
+        "desc": "Compare top CMMS platforms with advanced preventive maintenance (PM) scheduling and automated work orders.",
+        "filter": lambda p: any("preventive" in f.lower() or "preventative" in f.lower() for f in p.get("features", []))
+    },
+    {
+        "url_path": "features/predictive-maintenance",
+        "title": "Best Predictive Maintenance Software & IoT CMMS (2026)",
+        "h1": "Best Predictive Maintenance Software",
+        "desc": "Top platforms offering condition-based and predictive maintenance through IoT sensors and machine learning.",
+        "filter": lambda p: any("predictive" in f.lower() or "condition" in f.lower() for f in p.get("features", []))
+    },
+    {
+        "url_path": "features/inventory-management",
+        "title": "Best CMMS for Inventory & Spare Parts Management (2026)",
+        "h1": "Best CMMS for Inventory Management",
+        "desc": "Compare maintenance software with robust MRO inventory control, spare parts tracking, and purchasing.",
+        "filter": lambda p: any("inventory" in f.lower() or "spare parts" in f.lower() for f in p.get("features", []))
+    },
+    {
+        "url_path": "features/mobile-app",
+        "title": "Best Mobile CMMS Apps for Technicians (2026)",
+        "h1": "Best Mobile CMMS Apps",
+        "desc": "Top-rated mobile-first maintenance apps for iOS and Android, empowering technicians on the shop floor.",
+        "filter": lambda p: any("mobile" in f.lower() for f in p.get("features", [])) or p.get("mobile_ux_rating", 0) >= 4.5
     }
 ]
 
