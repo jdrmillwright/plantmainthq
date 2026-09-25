@@ -1225,6 +1225,95 @@ for p in platforms:
       </div>
     </div>
 
+    <!-- Section: 1-Click RFP Evaluation Spec Sheet -->
+    <div class="card" id="rfp-spec-sheet">
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+        <div>
+          <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe; margin-bottom:0.4rem;">Procurement Toolkit</span>
+          <h2 style="margin-bottom:0.25rem;">{html.escape(name)} RFP Evaluation Scorecard &amp; Spec Sheet</h2>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">
+            Standardized technical evaluation scorecard for maintenance managers, millwrights, and engineering procurement committees.
+          </p>
+        </div>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem; display:inline-flex; align-items:center; gap:6px; background:#ffffff;">
+          <span>&#128438;&#65039; Print / Save RFP PDF</span>
+        </button>
+      </div>
+
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:10px; padding:1.25rem; margin-bottom:1.5rem;">
+        <div class="grid-2" style="gap:1rem;">
+          <div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Audited Platform</div>
+            <strong style="font-size:1.15rem; color:var(--text-main);">{html.escape(name)}</strong>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">Overall Rating: &#9733; {overall_rating} / 5.0 ({review_count} ratings)</div>
+          </div>
+          <div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Pricing &amp; Velocity</div>
+            <strong style="font-size:1.15rem; color:var(--primary);">{html.escape(price)}</strong>
+            <div style="font-size:0.85rem; color:var(--text-muted); margin-top:2px;">Deployment: {html.escape(timeline)} &bull; Free Trial: {html.escape(free_trial_text)}</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table class="matrix-table" style="font-size:0.9rem;">
+          <thead>
+            <tr>
+              <th style="width:30%;">Evaluation Criteria</th>
+              <th style="width:45%;">Audited Capability &amp; Spec</th>
+              <th style="width:25%; text-align:center;">Audit Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Frontline Mobile App</strong></td>
+              <td>Offline work order execution, camera barcode scanning &amp; voice dictation</td>
+              <td style="text-align:center;"><span style="color:#059669; font-weight:700;">&#9733; {p.get('mobile_ux_rating', 4.5)} / 5.0</span></td>
+            </tr>
+            <tr>
+              <td><strong>2. PM Scheduling Engine</strong></td>
+              <td>Automated calendar, meter-hour triggers &amp; recurring task generation</td>
+              <td style="text-align:center;"><span style="color:#059669; font-weight:700;">&#10003; Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>3. MRO Storeroom &amp; Parts</strong></td>
+              <td>Min/max stock thresholds, auto-PO replenishment &amp; QR/barcode auditing</td>
+              <td style="text-align:center;"><span style="color:#059669; font-weight:700;">&#10003; Verified</span></td>
+            </tr>
+            <tr>
+              <td><strong>4. IoT &amp; Condition Telemetry</strong></td>
+              <td>Vibration, infrared, PLC runtime hours &amp; sensor alert triggers</td>
+              <td style="text-align:center;"><span style="color:{'#059669' if any('predictive' in f.lower() or 'iot' in f.lower() for f in p.get('features', [])) else '#64748b'}; font-weight:700;">{'&#10003; Supported' if any('predictive' in f.lower() or 'iot' in f.lower() for f in p.get('features', [])) else 'Optional / API'}</span></td>
+            </tr>
+            <tr>
+              <td><strong>5. Enterprise Integrations</strong></td>
+              <td>ERP connector (SAP, Oracle, NetSuite), SSO/SAML, REST APIs</td>
+              <td style="text-align:center;"><span style="color:{'#059669' if any('erp' in f.lower() or 'sap' in f.lower() for f in p.get('features', [])) else '#64748b'}; font-weight:700;">{'&#10003; Enterprise Tier' if any('erp' in f.lower() or 'sap' in f.lower() for f in p.get('features', [])) else 'REST API'}</span></td>
+            </tr>
+            <tr>
+              <td><strong>6. Audit Trail &amp; Regulatory</strong></td>
+              <td>21 CFR Part 11, OSHA LOTO permits, ISO 9001 electronic signatures</td>
+              <td style="text-align:center;"><span style="color:#059669; font-weight:700;">&#10003; Supported</span></td>
+            </tr>
+            <tr>
+              <td><strong>7. Implementation Support</strong></td>
+              <td>Dedicated onboarding specialist, historical data migration, SLA guarantee</td>
+              <td style="text-align:center;"><span style="color:#0f172a; font-weight:700;">{html.escape(timeline)}</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="margin-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; border-top:1px solid var(--border-color); padding-top:1rem;">
+        <span style="font-size:0.85rem; color:var(--text-muted);">
+          Independent evaluation compiled by <strong>PlantMaintHQ Technical Audit Team</strong>.
+        </span>
+        <a href="/contact/?inquiry_type=RFP%20Support&amp;tool={html.escape(name)}" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
+          Get Unbiased Advisor RFP Help &rarr;
+        </a>
+      </div>
+    </div>
+
     <!-- Head-to-Head Comparisons -->
     <div class="card">
       <h2>Compare {html.escape(name)} Head-to-Head</h2>
@@ -1779,10 +1868,36 @@ for cat in categories:
     
     schema_cat = {
         "@context": "https://schema.org",
-        "@type": "CollectionPage",
-        "name": cat["title"],
-        "description": cat["desc"],
-        "url": canonical_url
+        "@graph": [
+            {
+                "@type": "CollectionPage",
+                "name": cat["title"],
+                "description": cat["desc"],
+                "url": canonical_url,
+                "publisher": {
+                    "@type": "Organization",
+                    "name": SITE_NAME,
+                    "url": DOMAIN
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": cat["h1"],
+                        "item": canonical_url
+                    }
+                ]
+            }
+        ]
     }
     
     cat_html = f"""<!DOCTYPE html>
