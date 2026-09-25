@@ -1,0 +1,7 @@
+Equipment_ID,Equipment_Name,Parent_Location_ID,Category,Criticality_Rating,Manufacturer,Model_Number,Serial_Number,Install_Date,Warranty_Expiry,Status
+LINE-01,Packaging Line 1,PLANT-MAIN,Production Line,A,Krones,Mod-500,SN-99214,2021-04-12,2024-04-12,Active
+LINE-01-MTR01,Main Conveyor Drive Motor,LINE-01,Electric Motor,A,Baldor-Reliance,EM3710T,SN-44120,2021-04-15,2024-04-15,Active
+LINE-01-PMP01,Centrifugal Feed Pump,LINE-01,Pumps,B,Goulds,3196-STX,SN-10293,2020-08-10,2023-08-10,Active
+LINE-01-GBX01,Right-Angle Speed Reducer,LINE-01,Gearboxes,A,SEW-Eurodrive,K77-DRN100L4,SN-55819,2021-04-15,2024-04-15,Active
+HVAC-RTU-01,Rooftop Air Handler 1,FACILITY-ROOF,HVAC,B,Trane,Voyager-3,SN-88192,2019-06-20,2024-06-20,Active
+COMP-01,Rotary Screw Air Compressor 100HP,UTILITY-ROOM,Pneumatics,A,Sullair,S-energy-75,SN-33921,2018-03-14,2023-03-14,Active

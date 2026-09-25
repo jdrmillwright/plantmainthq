@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-F Curve &amp; Interval Formula &amp; Calculator | PlantMaintHQ</title>
+    <meta name="description" content="Learn the formula, world-class benchmark targets, and interactive calculator for P-F Curve &amp; Interval. Uncover how top CMMS platforms automate tracking.">
+    <link rel="canonical" href="https://plantmainthq.com/glossary/p-f-interval/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="P-F Curve &amp; Interval Formula &amp; Calculator | PlantMaintHQ">
+    <meta property="og:description" content="Learn the formula, world-class benchmark targets, and interactive calculator for P-F Curve &amp; Interval. Uncover how top CMMS platforms automate tracking.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/glossary/p-f-interval/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta property="og:image" content="https://plantmainthq.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="P-F Curve &amp; Interval Formula &amp; Calculator | PlantMaintHQ">
+    <meta name="twitter:description" content="Learn the formula, world-class benchmark targets, and interactive calculator for P-F Curve &amp; Interval. Uncover how top CMMS platforms automate tracking.">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-image.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "DefinedTerm", "name": "P-F Curve & Interval", "description": "The visual representation of asset degradation illustrating how early condition monitoring intercepts catastrophic functional breakdowns.", "url": "https://plantmainthq.com/glossary/p-f-interval/", "inDefinedTermSet": "https://plantmainthq.com/glossary/"}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://plantmainthq.com/"}, {"@type": "ListItem", "position": 2, "name": "Reliability Glossary", "item": "https://plantmainthq.com/glossary/"}, {"@type": "ListItem", "position": 3, "name": "P-F Curve & Interval", "item": "https://plantmainthq.com/glossary/p-f-interval/"}]}]}</script>
+
+</head>
+<body>
+  
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span class="logo-brand">HQ</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
+            <a href="/#matrix">Comparison Matrix</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/glossary/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128214;</span>
+              <div>
+                <strong>Reliability Metrics &amp; KPIs</strong>
+                <span class="drawer-subtext">Interactive formulas for MTTR, MTBF, OEE</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
+              <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
+              <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
+              <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Top Features</div>
+            <div class="drawer-chips">
+              <a href="/features/preventive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Preventive</a>
+              <a href="/features/predictive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Predictive &amp; IoT</a>
+              <a href="/features/inventory-management/" class="drawer-chip" onclick="closeDrawer()">Inventory</a>
+              <a href="/features/mobile-app/" class="drawer-chip" onclick="closeDrawer()">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Budget &amp; Scale</div>
+            <div class="drawer-chips">
+              <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
+              <a href="/pricing/affordable-cmms-under-50/" class="drawer-chip" onclick="closeDrawer()">Under $50/mo</a>
+              <a href="/best-cmms-for-small-teams/" class="drawer-chip" onclick="closeDrawer()">Small Teams</a>
+              <a href="/best-enterprise-eam-software/" class="drawer-chip" onclick="closeDrawer()">Enterprise EAM</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Migration Playbooks</div>
+            <a href="/migrate/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128218;</span>
+              <div>
+                <strong>CMMS Migration Hub</strong>
+                <span class="drawer-subtext">Excel, paper &amp; legacy EAM cutover playbooks</span>
+              </div>
+            </a>
+            <a href="/migrate/migrating-from-excel-to-cmms/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128202;</span>
+              <div>
+                <strong>Excel to CMMS (30-Day Plan)</strong>
+                <span class="drawer-subtext">Sanitizing spreadsheets &amp; importing assets</span>
+              </div>
+            </a>
+            <a href="/migrate/cmms-data-migration-checklist/" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9989;</span>
+              <div>
+                <strong>50-Point Import Checklist</strong>
+                <span class="drawer-subtext">Equipment hierarchy &amp; parts formatting</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    </header>
+
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/glossary/">Reliability Glossary</a>
+      <span>&rsaquo;</span>
+      <span>P-F Curve</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
+        <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">Predictive Reliability</span>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem; background:#ffffff;">
+          <span>&#128438;&#65039; Print Reference Card</span>
+        </button>
+      </div>
+      <h1 style="font-size:2.2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">P-F Curve &amp; Interval</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; line-height:1.6;">
+        The visual representation of asset degradation illustrating how early condition monitoring intercepts catastrophic functional breakdowns.
+      </p>
+    </div>
+
+    <!-- Formula & Benchmarks Grid -->
+    <div class="grid-2" style="margin-bottom:2rem; gap:1.5rem;">
+      <div class="card" style="margin-bottom:0;">
+        <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">Mathematical Formula</h2>
+        <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; text-align:center; margin-bottom:1rem;">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.25rem;">Standard Formula</div>
+          <div class="font-mono" style="font-size:1.2rem; font-weight:800; color:var(--primary);">
+            Time Elapsed Between Initial Detectable Defect (P) and Functional Failure (F)
+          </div>
+        </div>
+        <h3 style="font-size:1rem; margin-bottom:0.35rem;">World-Class Industry Benchmark:</h3>
+        <p style="font-size:0.9rem; color:#475569; line-height:1.6; margin:0;">
+          Ultrasound/Vibration provides 1–6 month warning; Oil analysis gives 1–3 months; Audible noise gives days; Heat gives hours.
+        </p>
+      </div>
+
+      <!-- Live Interactive Calculator -->
+      <div class="card" style="margin-bottom:0; background:#f8fafc; border:2px solid var(--border-color);">
+        <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">Interactive P-F Curve Calculator</h2>
+        
+      <div style="margin-bottom:1rem;">
+        <label for="in-vib" style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:0.35rem;">
+          Vibration Lead Time (Days)
+        </label>
+        <input type="number" id="in-vib" value="60" class="search-input" style="padding:0.6rem 0.85rem; font-size:0.95rem; font-weight:700;" oninput="calculateGlossaryMetric()">
+      </div>
+    
+      <div style="margin-bottom:1rem;">
+        <label for="in-current" style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:0.35rem;">
+          Current Operating Days Since Warning
+        </label>
+        <input type="number" id="in-current" value="15" class="search-input" style="padding:0.6rem 0.85rem; font-size:0.95rem; font-weight:700;" oninput="calculateGlossaryMetric()">
+      </div>
+    
+        <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:8px; padding:1rem; text-align:center; border-left:4px solid var(--primary);">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Calculated Result</div>
+          <div id="metric-output-val" style="font-size:2rem; font-weight:800; color:var(--primary); margin:0.25rem 0;">--</div>
+          <div id="metric-output-badge" class="recommendation-match-badge" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Tools for Automating this KPI -->
+    <div class="card">
+      <h2 style="margin-bottom:0.5rem;">Top CMMS Platforms for Automating P-F Curve</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">
+        These maintenance software platforms eliminate manual spreadsheet calculations by logging shift times and generating automated executive charts:
+      </p>
+      <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/emaint/" style="color:var(--text-main); text-decoration:none;">eMaint</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">Direct Fluke 3563 vibration sensor sync for automated P-F triggers.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/emaint/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/emaint/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/tractian/" style="color:var(--text-main); text-decoration:none;">Tractian</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">AI fault detection pinpointing bearing spalling months before failure.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/tractian/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/tractian/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/upkeep/" style="color:var(--text-main); text-decoration:none;">UpKeep</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">UpKeep Edge wireless IoT sensors for 24/7 temperature/vibration alarms.</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/upkeep/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/upkeep/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function calculateGlossaryMetric() {
+      const type = "pf-interval";
+      const outVal = document.getElementById('metric-output-val');
+      const outBadge = document.getElementById('metric-output-badge');
+      if (!outVal) return;
+
+      if (type === 'mttr') {
+        const downtime = parseFloat(document.getElementById('in-downtime').value) || 0;
+        const events = parseFloat(document.getElementById('in-events').value) || 1;
+        const res = (downtime / (events || 1)).toFixed(2);
+        outVal.textContent = res + " Hours";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) <= 4.0) {
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ World-Class Speed (< 4.0 hrs)';
+          } else {
+            outBadge.style.background = '#fef2f2';
+            outBadge.style.color = '#991b1b';
+            outBadge.textContent = '⚠ High Recovery Lag (> 4.0 hrs)';
+          }
+        }
+      } else if (type === 'mtbf') {
+        const uptime = parseFloat(document.getElementById('in-uptime').value) || 0;
+        const failures = parseFloat(document.getElementById('in-failures').value) || 1;
+        const res = (uptime / (failures || 1)).toFixed(1);
+        outVal.textContent = res + " Hours";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          outBadge.style.background = '#ecfdf5';
+          outBadge.style.color = '#065f46';
+          outBadge.textContent = '✓ Active Uptime Calculation';
+        }
+      } else if (type === 'oee') {
+        const a = (parseFloat(document.getElementById('in-avail').value) || 0) / 100;
+        const p = (parseFloat(document.getElementById('in-perf').value) || 0) / 100;
+        const q = (parseFloat(document.getElementById('in-qual').value) || 0) / 100;
+        const res = (a * p * q * 100).toFixed(1);
+        outVal.textContent = res + "% OEE";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 85.0) {
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ World-Class OEE (≥ 85%)';
+          } else {
+            outBadge.style.background = '#eff6ff';
+            outBadge.style.color = '#1e40af';
+            outBadge.textContent = 'Target: 85% Benchmark';
+          }
+        }
+      } else if (type === 'wrench-time') {
+        const shift = parseFloat(document.getElementById('in-shift').value) || 8;
+        const travel = parseFloat(document.getElementById('in-travel').value) || 0;
+        const parts = parseFloat(document.getElementById('in-parts').value) || 0;
+        const admin = parseFloat(document.getElementById('in-admin').value) || 0;
+        const toolHours = Math.max(0, shift - travel - parts - admin);
+        const res = ((toolHours / (shift || 1)) * 100).toFixed(1);
+        outVal.textContent = res + "% Wrench Time";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 55.0) {
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ Top Quartile (≥ 55%)';
+          } else {
+            outBadge.style.background = '#fffbeb';
+            outBadge.style.color = '#92400e';
+            outBadge.textContent = 'Avg Industry Level (30-40%)';
+          }
+        }
+      } else if (type === 'pf-interval') {
+        const lead = parseFloat(document.getElementById('in-vib').value) || 60;
+        const elapsed = parseFloat(document.getElementById('in-current').value) || 0;
+        const rem = Math.max(0, lead - elapsed);
+        outVal.textContent = rem + " Days Remaining";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          outBadge.style.background = rem > 15 ? '#ecfdf5' : '#fef2f2';
+          outBadge.style.color = rem > 15 ? '#065f46' : '#991b1b';
+          outBadge.textContent = rem > 15 ? 'Early Detection Safe Zone' : '⚠ Approaching Functional Breakdown';
+        }
+      } else if (type === 'pmp') {
+        const pm = parseFloat(document.getElementById('in-pm-hours').value) || 0;
+        const react = parseFloat(document.getElementById('in-reactive-hours').value) || 0;
+        const total = pm + react;
+        const res = total > 0 ? ((pm / total) * 100).toFixed(1) : 0;
+        outVal.textContent = res + "% Planned";
+        if (outBadge) {
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 80.0) {
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ Proactive Maintenance (≥ 80%)';
+          } else {
+            outBadge.style.background = '#fef2f2';
+            outBadge.style.color = '#991b1b';
+            outBadge.textContent = '⚠ High Reactive Firefighting (< 80%)';
+          }
+        }
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', calculateGlossaryMetric);
+  </script>
+
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <a href="/" class="logo" style="margin-bottom:0.75rem;">
+                <div class="logo-icon" style="width:28px; height:28px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                PlantMaint<span class="logo-brand">HQ</span>
+              </a>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:1rem;">
+                The independent technical benchmark &amp; software directory for maintenance managers, millwrights, and plant reliability engineers.
+              </p>
+              <div style="font-size:0.8rem; color:var(--text-light);">
+                Zero sponsored paywalls. Unbiased engineering audits.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Directories &amp; Tools</h4>
+            <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
+              <li><a href="/#directory">All 106 CMMS Platforms</a></li>
+              <li><a href="/#matrix">Top Comparison Matrix</a></li>
+              <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/glossary/" style="color:var(--primary); font-weight:700;">Reliability Metrics &amp; KPIs</a></li>
+              <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
+              <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
+              <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
+              <li><a href="/features/mobile-app/">Mobile Apps</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industry Shortlists</h4>
+            <ul class="footer-link-list">
+              <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
+              <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
+              <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
+              <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pricing &amp; Migration</h4>
+            <ul class="footer-link-list">
+              <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
+              <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
+              <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
+              <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
+              <li><a href="/migrate/" style="color:var(--primary); font-weight:700;">CMMS Migration Playbooks</a></li>
+              <li><a href="/migrate/migrating-from-excel-to-cmms/">Excel to CMMS Guide</a></li>
+              <li><a href="/migrate/cmms-data-migration-checklist/">50-Point Import Checklist</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 PlantMaintHQ. Independent maintenance software benchmarks. All trademarks belong to their respective owners.
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="/sitemap.xml" style="color:var(--text-muted); text-decoration:none;">XML Sitemap</a>
+            <a href="/contact/" style="color:var(--text-muted); text-decoration:none;">Contact Desk</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

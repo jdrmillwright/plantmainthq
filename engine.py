@@ -125,6 +125,13 @@ def get_header_html(active_nav="directory"):
                 <span class="drawer-subtext">Estimate your software payback period</span>
               </div>
             </a>
+            <a href="/glossary/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128214;</span>
+              <div>
+                <strong>Reliability Metrics &amp; KPIs</strong>
+                <span class="drawer-subtext">Interactive formulas for MTTR, MTBF, OEE</span>
+              </div>
+            </a>
           </div>
 
           <div class="drawer-section">
@@ -267,6 +274,7 @@ def get_footer_html():
               <li><a href="/#directory">All 106 CMMS Platforms</a></li>
               <li><a href="/#matrix">Top Comparison Matrix</a></li>
               <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/glossary/" style="color:var(--primary); font-weight:700;">Reliability Metrics &amp; KPIs</a></li>
               <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
               <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
               <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
@@ -2870,6 +2878,30 @@ migrate_hub_html = f"""<!DOCTYPE html>
       {hub_cards_html}
     </div>
 
+    <!-- Free Downloadable CSV Templates -->
+    <div class="card" style="background:#f8fafc; border:1px solid #bfdbfe; margin-bottom:2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;">
+        <div>
+          <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe; margin-bottom:0.25rem;">Free Downloadable Assets</span>
+          <h2 style="margin:0; font-size:1.4rem;">Pre-Formatted CMMS CSV Import Templates</h2>
+          <p style="color:var(--text-muted); margin:0; font-size:0.9rem;">
+            Ready-to-use CSV templates formatted with standard column headers for equipment registries, storeroom inventory, and PM tasks.
+          </p>
+        </div>
+      </div>
+      <div class="grid-3" style="gap:1rem;">
+        <a href="/templates/cmms-asset-hierarchy-template.csv" download class="btn btn-outline" style="background:#ffffff; font-size:0.85rem; display:flex; align-items:center; justify-content:center; gap:6px; padding:0.75rem 1rem;">
+          <span>&#128190;</span> Asset Hierarchy (.CSV)
+        </a>
+        <a href="/templates/cmms-mro-spare-parts-template.csv" download class="btn btn-outline" style="background:#ffffff; font-size:0.85rem; display:flex; align-items:center; justify-content:center; gap:6px; padding:0.75rem 1rem;">
+          <span>&#128190;</span> MRO Spare Parts (.CSV)
+        </a>
+        <a href="/templates/cmms-preventive-maintenance-template.csv" download class="btn btn-outline" style="background:#ffffff; font-size:0.85rem; display:flex; align-items:center; justify-content:center; gap:6px; padding:0.75rem 1rem;">
+          <span>&#128190;</span> PM Task Library (.CSV)
+        </a>
+      </div>
+    </div>
+
     <!-- Migration Pitfalls Card -->
     <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; margin-bottom:2rem;">
       <h2 style="font-size:1.4rem; margin-bottom:0.75rem;">The 3 Biggest Reasons CMMS Migrations Fail:</h2>
@@ -3059,6 +3091,537 @@ for pb in playbooks_meta:
 """
     with open(os.path.join(pb_dir, "index.html"), "w", encoding="utf-8") as f:
         f.write(pb_html)
+
+# ==============================================================================
+# Step 4.91: Generate Downloadable CMMS CSV Import Templates
+# ==============================================================================
+print(f">>> [4.91/5] Generating Downloadable CMMS CSV Import Templates...")
+
+templates_dir = os.path.join("public", "templates")
+os.makedirs(templates_dir, exist_ok=True)
+os.makedirs("templates", exist_ok=True)
+
+csv_assets = """Equipment_ID,Equipment_Name,Parent_Location_ID,Category,Criticality_Rating,Manufacturer,Model_Number,Serial_Number,Install_Date,Warranty_Expiry,Status
+LINE-01,Packaging Line 1,PLANT-MAIN,Production Line,A,Krones,Mod-500,SN-99214,2021-04-12,2024-04-12,Active
+LINE-01-MTR01,Main Conveyor Drive Motor,LINE-01,Electric Motor,A,Baldor-Reliance,EM3710T,SN-44120,2021-04-15,2024-04-15,Active
+LINE-01-PMP01,Centrifugal Feed Pump,LINE-01,Pumps,B,Goulds,3196-STX,SN-10293,2020-08-10,2023-08-10,Active
+LINE-01-GBX01,Right-Angle Speed Reducer,LINE-01,Gearboxes,A,SEW-Eurodrive,K77-DRN100L4,SN-55819,2021-04-15,2024-04-15,Active
+HVAC-RTU-01,Rooftop Air Handler 1,FACILITY-ROOF,HVAC,B,Trane,Voyager-3,SN-88192,2019-06-20,2024-06-20,Active
+COMP-01,Rotary Screw Air Compressor 100HP,UTILITY-ROOM,Pneumatics,A,Sullair,S-energy-75,SN-33921,2018-03-14,2023-03-14,Active
+"""
+
+csv_parts = """Part_SKU,Description,Category,Bin_Location,Current_Stock,Min_Safety_Stock,Max_Stock,Unit_Cost,Unit_Of_Measure,Preferred_Vendor
+BRG-6205-2RS,Deep Groove Ball Bearing 25x52x15mm,Bearings,BIN-A-12-04,18,5,25,14.50,EA,Motion Industries
+BRG-22216-E1,Spherical Roller Bearing 80x140x33mm,Bearings,BIN-A-14-02,4,2,8,124.00,EA,Applied Industrial
+VBLT-B52,Classical V-Belt B-Section 55in Pitch,Power Transmission,BIN-C-02-01,8,4,12,18.75,EA,Grainger
+SEAL-SKF-15243,Radial Shaft Oil Seal 1.5in ID x 2.4in OD,Seals,BIN-B-08-03,12,3,15,9.20,EA,Motion Industries
+OIL-ISO46-5GAL,Industrial Anti-Wear Hydraulic Oil 5 Gallon Pail,Lubricants,STOREROOM-LUB-01,6,2,10,85.00,PAIL,Mobil
+GRS-POLY-14OZ,Polyurea Synthetic High-Temp Grease Cartridge,Lubricants,STOREROOM-LUB-02,24,6,36,7.50,TUBE,Mobil
+FLTR-HYD-10MIC,High-Pressure Hydraulic Filter Element 10 Micron,Filtration,BIN-D-01-05,5,2,8,42.00,EA,Donaldson
+FUSE-FRN-R-30,Dual-Element Time-Delay Current-Limiting Fuse 30A,Electrical,BIN-E-03-02,15,5,20,12.25,EA,Bussmann
+"""
+
+csv_pms = """PM_Task_ID,Title,Equipment_ID,Frequency_Type,Frequency_Interval,Estimated_Hours,Assigned_Craft,LOTO_Required,Checklist_SOP
+PM-MTR-MTH,Monthly Motor Lubrication & Thermal Audit,LINE-01-MTR01,Calendar,30 Days,0.75,Millwright,Yes,"1. Lock out motor breaker. 2. Clean grease zerk. 3. Apply 2 pumps Mobil Polyrex EM. 4. Check bearing temp with infrared gun. 5. Clear LOTO."
+PM-AIR-QTR,Quarterly Air Filter & Belt Tension Audit,HVAC-RTU-01,Calendar,90 Days,1.5,HVAC Tech,Yes,"1. Isolate disconnect switch. 2. Replace MERV 13 pleated filters. 3. Check V-belt deflection (0.5 inch). 4. Record static pressure drop."
+PM-COMP-500H,500-Hour Compressor Oil Sampling & Filter Check,COMP-01,Meter-Hour,500 Hours,1.0,Millwright,No,"1. Draw oil sample from active port. 2. Check differential pressure on separator element. 3. Clean radiator core with compressed air."
+PM-GBX-SEMI,Semi-Annual Gearbox Oil Level & Backlash Inspection,LINE-01-GBX01,Calendar,180 Days,1.25,Millwright,Yes,"1. De-energize and LOTO. 2. Check synthetic oil level at sight glass. 3. Inspect magnetic drain plug for metal shavings. 4. Verify coupling alignment."
+PM-PLC-ANN,Annual Electrical Enclosure Cleaning & Thermal Scan,LINE-01,Calendar,365 Days,2.0,Electrician,Yes,"1. LOTO main feed. 2. Vacuum enclosure cooling fans. 3. Inspect terminal lugs with calibrated torque screwdriver. 4. Thermal camera scan under full load."
+"""
+
+with open(os.path.join(templates_dir, "cmms-asset-hierarchy-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_assets)
+with open(os.path.join(templates_dir, "cmms-mro-spare-parts-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_parts)
+with open(os.path.join(templates_dir, "cmms-preventive-maintenance-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_pms)
+
+with open(os.path.join("templates", "cmms-asset-hierarchy-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_assets)
+with open(os.path.join("templates", "cmms-mro-spare-parts-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_parts)
+with open(os.path.join("templates", "cmms-preventive-maintenance-template.csv"), "w", encoding="utf-8") as f:
+    f.write(csv_pms)
+
+# ==============================================================================
+# Step 4.92: Compile Reliability Metrics Glossary Hub & Pages (/glossary/)
+# ==============================================================================
+print(f">>> [4.92/5] Compiling Reliability Metrics Glossary Hub & KPI Pages...")
+
+glossary_hub_dir = os.path.join("public", "glossary")
+os.makedirs(glossary_hub_dir, exist_ok=True)
+canonical_glossary_hub = f"{DOMAIN}/glossary/"
+sitemap_urls.append(canonical_glossary_hub)
+
+glossary_terms = [
+    {
+        "slug": "mttr",
+        "term": "Mean Time to Repair (MTTR)",
+        "acronym": "MTTR",
+        "category": "Maintenance Velocity",
+        "formula": "Total Corrective Maintenance Downtime Hours / Number of Breakdown Incidents",
+        "benchmark": "World-class target is < 4.0 hours for assembly plants (< 2.0 hours for continuous process lines).",
+        "short_desc": "The average clock time required to diagnose, repair, and re-commission a failed machine back into production.",
+        "calc_type": "mttr",
+        "inputs": [("Total Breakdown Downtime (Hours)", "in-downtime", "24"), ("Number of Failure Events", "in-events", "8")],
+        "unit": "Hours",
+        "best_tools": [
+            ("MaintainX", "maintainx", "Instant technician work order timer logging and automated MTTR dashboards."),
+            ("Limble CMMS", "limble-cmms", "Granular wrench time vs waiting-on-parts time breakdown."),
+            ("Fiix", "fiix", "Rockwell AI failure code clustering for recurring breakdown reduction.")
+        ]
+    },
+    {
+        "slug": "mtbf",
+        "term": "Mean Time Between Failures (MTBF)",
+        "acronym": "MTBF",
+        "category": "Asset Reliability",
+        "formula": "Total Operating Uptime Hours / Number of Unplanned Breakdown Failures",
+        "benchmark": "Higher is better. World-class targets exceed 800 to 1,200 operating hours for discrete manufacturing cells.",
+        "short_desc": "The fundamental metric of asset reliability predicting the expected operating duration between machine failures.",
+        "calc_type": "mtbf",
+        "inputs": [("Total Operating Uptime (Hours)", "in-uptime", "1600"), ("Number of Unplanned Failures", "in-failures", "2")],
+        "unit": "Hours",
+        "best_tools": [
+            ("IBM Maximo", "ibm-maximo", "Enterprise reliability centered maintenance (RCM) modeling."),
+            ("IFS Ultimo", "ifs-ultimo", "Deep asset lifecycle failure rate Weibull distribution tracking."),
+            ("Tractian", "tractian", "Plug-and-play vibration sensors that compute live telemetry MTBF.")
+        ]
+    },
+    {
+        "slug": "oee",
+        "term": "Overall Equipment Effectiveness (OEE)",
+        "acronym": "OEE",
+        "category": "Operational Productivity",
+        "formula": "Availability (%) × Performance (%) × Quality (%)",
+        "benchmark": "World-class manufacturing benchmark is ≥ 85% (Availability 90% × Performance 95% × Quality 99.9%).",
+        "short_desc": "The gold standard manufacturing metric quantifying the percentage of planned production time that is truly productive.",
+        "calc_type": "oee",
+        "inputs": [("Availability % (0-100)", "in-avail", "90"), ("Performance % (0-100)", "in-perf", "95"), ("Quality % (0-100)", "in-qual", "99")],
+        "unit": "%",
+        "best_tools": [
+            ("Fiix", "fiix", "Live PLC connectivity and automated line OEE telemetry."),
+            ("MaintainX", "maintainx", "Frontline micro-stoppage logging and downtime reason tagging."),
+            ("eMaint", "emaint", "Fluke condition monitoring integration with machine speed loss audits.")
+        ]
+    },
+    {
+        "slug": "wrench-time",
+        "term": "Technician Wrench Time",
+        "acronym": "Tool Time",
+        "category": "Labor Efficiency",
+        "formula": "(Direct Hands-On Repair Minutes / Total Scheduled Shift Minutes) × 100",
+        "benchmark": "Typical paper/Excel plants average 25% to 35%. Top CMMS-enabled world-class plants achieve 55% to 65%.",
+        "short_desc": "The percentage of a maintenance craftsperson's shift spent actively turning wrenches on machinery versus in transit or searching for parts.",
+        "calc_type": "wrench-time",
+        "inputs": [("Scheduled Shift Hours", "in-shift", "8"), ("Travel & In-Transit Hours", "in-travel", "1.5"), ("Waiting for Parts / Storeroom Hours", "in-parts", "1.5"), ("Paperwork & System Logging Hours", "in-admin", "1.5")],
+        "unit": "%",
+        "best_tools": [
+            ("Limble CMMS", "limble-cmms", "Proven +18% wrench time recovery via streamlined mobile interface."),
+            ("MaintainX", "maintainx", "Eliminates transit time with instant shop-floor parts lookup."),
+            ("UpKeep", "upkeep", "Mobile barcode scanning cuts storeroom checkout delays by 70%.")
+        ]
+    },
+    {
+        "slug": "p-f-interval",
+        "term": "P-F Curve & Interval",
+        "acronym": "P-F Curve",
+        "category": "Predictive Reliability",
+        "formula": "Time Elapsed Between Initial Detectable Defect (P) and Functional Failure (F)",
+        "benchmark": "Ultrasound/Vibration provides 1–6 month warning; Oil analysis gives 1–3 months; Audible noise gives days; Heat gives hours.",
+        "short_desc": "The visual representation of asset degradation illustrating how early condition monitoring intercepts catastrophic functional breakdowns.",
+        "calc_type": "pf-interval",
+        "inputs": [("Vibration Lead Time (Days)", "in-vib", "60"), ("Current Operating Days Since Warning", "in-current", "15")],
+        "unit": "Days Remaining",
+        "best_tools": [
+            ("eMaint", "emaint", "Direct Fluke 3563 vibration sensor sync for automated P-F triggers."),
+            ("Tractian", "tractian", "AI fault detection pinpointing bearing spalling months before failure."),
+            ("UpKeep", "upkeep", "UpKeep Edge wireless IoT sensors for 24/7 temperature/vibration alarms.")
+        ]
+    },
+    {
+        "slug": "planned-maintenance-percentage",
+        "term": "Planned Maintenance Percentage (PMP)",
+        "acronym": "PMP",
+        "category": "Maintenance Strategy",
+        "formula": "(Scheduled Preventive Maintenance Hours / Total Maintenance Labor Hours) × 100",
+        "benchmark": "World-class target is ≥ 80% Planned (leaving less than 20% for reactive emergency breakdown work).",
+        "short_desc": "The ratio measuring how proactively maintenance labor is deployed versus reactive firefighting.",
+        "calc_type": "pmp",
+        "inputs": [("Scheduled PM Hours This Month", "in-pm-hours", "320"), ("Emergency Reactive Hours This Month", "in-reactive-hours", "80")],
+        "unit": "%",
+        "best_tools": [
+            ("Limble CMMS", "limble-cmms", "Automated recurring PM calendar scheduler with completion velocity tracking."),
+            ("Hippo CMMS", "hippo-cmms", "Visual floorplan calendar preventing overdue PM backlog buildup."),
+            ("FMX", "fmx", "User-friendly equipment maintenance scheduling for lean craft teams.")
+        ]
+    }
+]
+
+schema_glossary_hub = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "CollectionPage",
+            "name": "Maintenance Metrics & Reliability Glossary (2026)",
+            "description": "The industrial engineering reference guide for maintenance KPIs, reliability formulas, world-class benchmarks, and automated CMMS calculations.",
+            "url": canonical_glossary_hub,
+            "publisher": {
+                "@type": "Organization",
+                "name": SITE_NAME,
+                "url": DOMAIN
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": f"{DOMAIN}/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Reliability Glossary",
+                    "item": canonical_glossary_hub
+                }
+            ]
+        }
+    ]
+}
+
+glossary_hub_cards_html = "".join([f"""
+        <div class="card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+          <div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.75rem;">
+              <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">{t['category']}</span>
+              <span class="font-mono" style="font-size:0.85rem; font-weight:700; color:var(--text-main);">{t['acronym']}</span>
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800; margin-bottom:0.5rem;">
+              <a href="/glossary/{t['slug']}/" style="color:var(--text-main); text-decoration:none;">{t['term']}</a>
+            </h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+              {t['short_desc']}
+            </p>
+            <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:6px; padding:0.65rem 0.85rem; font-size:0.82rem; color:#475569; margin-bottom:1.25rem;">
+              <strong>Formula:</strong> <span class="font-mono" style="color:var(--primary);">{t['formula']}</span>
+            </div>
+          </div>
+          <div style="border-top:1px solid var(--border-color); padding-top:1rem;">
+            <a href="/glossary/{t['slug']}/" class="btn btn-outline" style="font-size:0.85rem; width:100%; text-align:center;">
+              Calculate &amp; View Benchmarks &rarr;
+            </a>
+          </div>
+        </div>
+""" for t in glossary_terms])
+
+glossary_hub_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      "Maintenance Metrics & Reliability Glossary (2026) | PlantMaintHQ",
+      "The industrial engineering reference guide for maintenance KPIs, reliability formulas, world-class benchmarks, and automated CMMS calculations.",
+      canonical_glossary_hub,
+      json.dumps(schema_glossary_hub)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>Reliability Glossary</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem; text-align:center;">
+      <span class="badge">&#128214; Plant Engineering Encyclopedia</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Maintenance &amp; Reliability Metrics Glossary</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; margin:0 auto;">
+        Interactive formulas, world-class benchmark targets, and technical implementation guides for key maintenance engineering performance indicators.
+      </p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:2.5rem; gap:1.5rem;">
+      {glossary_hub_cards_html}
+    </div>
+
+    <div class="card" style="background:#eff6ff; border:1px solid #bfdbfe; text-align:center; padding:2rem;">
+      <h2 style="font-size:1.5rem; color:#1e40af; margin-bottom:0.5rem;">Want to Automate These KPIs in Your Plant?</h2>
+      <p style="font-size:0.95rem; color:#3b82f6; max-width:600px; margin:0 auto 1.25rem;">
+        Modern CMMS platforms automatically generate MTTR, MTBF, and Wrench Time charts directly from technician work orders.
+      </p>
+      <a href="/find/" class="btn btn-primary" style="font-size:0.9rem;">
+        Take Software Finder Quiz &rarr;
+      </a>
+    </div>
+  </main>
+
+  {get_footer_html()}
+</body>
+</html>
+"""
+
+with open(os.path.join(glossary_hub_dir, "index.html"), "w", encoding="utf-8") as f:
+    f.write(glossary_hub_html)
+
+# Compile Individual Glossary Term Pages
+for term in glossary_terms:
+    term_dir = os.path.join(glossary_hub_dir, term["slug"])
+    os.makedirs(term_dir, exist_ok=True)
+    canonical_term_url = f"{DOMAIN}/glossary/{term['slug']}/"
+    sitemap_urls.append(canonical_term_url)
+
+    schema_term = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "DefinedTerm",
+                "name": term["term"],
+                "description": term["short_desc"],
+                "url": canonical_term_url,
+                "inDefinedTermSet": canonical_glossary_hub
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": f"{DOMAIN}/"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Reliability Glossary",
+                        "item": canonical_glossary_hub
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 3,
+                        "name": term["term"],
+                        "item": canonical_term_url
+                    }
+                ]
+            }
+        ]
+    }
+
+    term_tools_html = "".join([f"""
+      <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div>
+          <strong style="font-size:1.05rem; color:var(--text-main);"><a href="/cmms/{t[1]}/" style="color:var(--text-main); text-decoration:none;">{t[0]}</a></strong>
+          <p style="font-size:0.85rem; color:var(--text-muted); margin:0.25rem 0 0;">{t[2]}</p>
+        </div>
+        <div style="display:flex; gap:8px;">
+          <a href="/cmms/{t[1]}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Review &rarr;</a>
+          <a href="/go/{t[1]}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;">Website &#8599;</a>
+        </div>
+      </div>
+    """ for t in term["best_tools"]])
+
+    term_inputs_html = "".join([f"""
+      <div style="margin-bottom:1rem;">
+        <label for="{inp[1]}" style="display:block; font-size:0.85rem; font-weight:700; color:var(--text-main); margin-bottom:0.35rem;">
+          {inp[0]}
+        </label>
+        <input type="number" id="{inp[1]}" value="{inp[2]}" class="search-input" style="padding:0.6rem 0.85rem; font-size:0.95rem; font-weight:700;" oninput="calculateGlossaryMetric()">
+      </div>
+    """ for inp in term["inputs"]])
+
+    term_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      term["term"] + " Formula & Calculator | PlantMaintHQ",
+      f"Learn the formula, world-class benchmark targets, and interactive calculator for {term['term']}. Uncover how top CMMS platforms automate tracking.",
+      canonical_term_url,
+      json.dumps(schema_term)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <a href="/glossary/">Reliability Glossary</a>
+      <span>&rsaquo;</span>
+      <span>{html.escape(term['acronym'])}</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:0.75rem;">
+        <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe;">{term['category']}</span>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.8rem; padding:0.35rem 0.75rem; background:#ffffff;">
+          <span>&#128438;&#65039; Print Reference Card</span>
+        </button>
+      </div>
+      <h1 style="font-size:2.2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">{html.escape(term['term'])}</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:720px; line-height:1.6;">
+        {html.escape(term['short_desc'])}
+      </p>
+    </div>
+
+    <!-- Formula & Benchmarks Grid -->
+    <div class="grid-2" style="margin-bottom:2rem; gap:1.5rem;">
+      <div class="card" style="margin-bottom:0;">
+        <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">Mathematical Formula</h2>
+        <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:1.25rem; text-align:center; margin-bottom:1rem;">
+          <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase; font-weight:700; margin-bottom:0.25rem;">Standard Formula</div>
+          <div class="font-mono" style="font-size:1.2rem; font-weight:800; color:var(--primary);">
+            {term['formula']}
+          </div>
+        </div>
+        <h3 style="font-size:1rem; margin-bottom:0.35rem;">World-Class Industry Benchmark:</h3>
+        <p style="font-size:0.9rem; color:#475569; line-height:1.6; margin:0;">
+          {term['benchmark']}
+        </p>
+      </div>
+
+      <!-- Live Interactive Calculator -->
+      <div class="card" style="margin-bottom:0; background:#f8fafc; border:2px solid var(--border-color);">
+        <h2 style="font-size:1.25rem; margin-bottom:0.75rem;">Interactive {term['acronym']} Calculator</h2>
+        {term_inputs_html}
+        <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:8px; padding:1rem; text-align:center; border-left:4px solid var(--primary);">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Calculated Result</div>
+          <div id="metric-output-val" style="font-size:2rem; font-weight:800; color:var(--primary); margin:0.25rem 0;">--</div>
+          <div id="metric-output-badge" class="recommendation-match-badge" style="display:none;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Tools for Automating this KPI -->
+    <div class="card">
+      <h2 style="margin-bottom:0.5rem;">Top CMMS Platforms for Automating {term['acronym']}</h2>
+      <p style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1.25rem;">
+        These maintenance software platforms eliminate manual spreadsheet calculations by logging shift times and generating automated executive charts:
+      </p>
+      <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        {term_tools_html}
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function calculateGlossaryMetric() {{
+      const type = "{term['calc_type']}";
+      const outVal = document.getElementById('metric-output-val');
+      const outBadge = document.getElementById('metric-output-badge');
+      if (!outVal) return;
+
+      if (type === 'mttr') {{
+        const downtime = parseFloat(document.getElementById('in-downtime').value) || 0;
+        const events = parseFloat(document.getElementById('in-events').value) || 1;
+        const res = (downtime / (events || 1)).toFixed(2);
+        outVal.textContent = res + " Hours";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) <= 4.0) {{
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ World-Class Speed (< 4.0 hrs)';
+          }} else {{
+            outBadge.style.background = '#fef2f2';
+            outBadge.style.color = '#991b1b';
+            outBadge.textContent = '⚠ High Recovery Lag (> 4.0 hrs)';
+          }}
+        }}
+      }} else if (type === 'mtbf') {{
+        const uptime = parseFloat(document.getElementById('in-uptime').value) || 0;
+        const failures = parseFloat(document.getElementById('in-failures').value) || 1;
+        const res = (uptime / (failures || 1)).toFixed(1);
+        outVal.textContent = res + " Hours";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          outBadge.style.background = '#ecfdf5';
+          outBadge.style.color = '#065f46';
+          outBadge.textContent = '✓ Active Uptime Calculation';
+        }}
+      }} else if (type === 'oee') {{
+        const a = (parseFloat(document.getElementById('in-avail').value) || 0) / 100;
+        const p = (parseFloat(document.getElementById('in-perf').value) || 0) / 100;
+        const q = (parseFloat(document.getElementById('in-qual').value) || 0) / 100;
+        const res = (a * p * q * 100).toFixed(1);
+        outVal.textContent = res + "% OEE";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 85.0) {{
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ World-Class OEE (≥ 85%)';
+          }} else {{
+            outBadge.style.background = '#eff6ff';
+            outBadge.style.color = '#1e40af';
+            outBadge.textContent = 'Target: 85% Benchmark';
+          }}
+        }}
+      }} else if (type === 'wrench-time') {{
+        const shift = parseFloat(document.getElementById('in-shift').value) || 8;
+        const travel = parseFloat(document.getElementById('in-travel').value) || 0;
+        const parts = parseFloat(document.getElementById('in-parts').value) || 0;
+        const admin = parseFloat(document.getElementById('in-admin').value) || 0;
+        const toolHours = Math.max(0, shift - travel - parts - admin);
+        const res = ((toolHours / (shift || 1)) * 100).toFixed(1);
+        outVal.textContent = res + "% Wrench Time";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 55.0) {{
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ Top Quartile (≥ 55%)';
+          }} else {{
+            outBadge.style.background = '#fffbeb';
+            outBadge.style.color = '#92400e';
+            outBadge.textContent = 'Avg Industry Level (30-40%)';
+          }}
+        }}
+      }} else if (type === 'pf-interval') {{
+        const lead = parseFloat(document.getElementById('in-vib').value) || 60;
+        const elapsed = parseFloat(document.getElementById('in-current').value) || 0;
+        const rem = Math.max(0, lead - elapsed);
+        outVal.textContent = rem + " Days Remaining";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          outBadge.style.background = rem > 15 ? '#ecfdf5' : '#fef2f2';
+          outBadge.style.color = rem > 15 ? '#065f46' : '#991b1b';
+          outBadge.textContent = rem > 15 ? 'Early Detection Safe Zone' : '⚠ Approaching Functional Breakdown';
+        }}
+      }} else if (type === 'pmp') {{
+        const pm = parseFloat(document.getElementById('in-pm-hours').value) || 0;
+        const react = parseFloat(document.getElementById('in-reactive-hours').value) || 0;
+        const total = pm + react;
+        const res = total > 0 ? ((pm / total) * 100).toFixed(1) : 0;
+        outVal.textContent = res + "% Planned";
+        if (outBadge) {{
+          outBadge.style.display = 'inline-flex';
+          if (parseFloat(res) >= 80.0) {{
+            outBadge.style.background = '#ecfdf5';
+            outBadge.style.color = '#065f46';
+            outBadge.textContent = '✓ Proactive Maintenance (≥ 80%)';
+          }} else {{
+            outBadge.style.background = '#fef2f2';
+            outBadge.style.color = '#991b1b';
+            outBadge.textContent = '⚠ High Reactive Firefighting (< 80%)';
+          }}
+        }}
+      }}
+    }}
+
+    document.addEventListener('DOMContentLoaded', calculateGlossaryMetric);
+  </script>
+
+  {get_footer_html()}
+</body>
+</html>
+"""
+    with open(os.path.join(term_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(term_html)
 
 # ==============================================================================
 # Step 5: Sync Data Bundles & XML Sitemap

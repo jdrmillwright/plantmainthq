@@ -1,0 +1,9 @@
+Part_SKU,Description,Category,Bin_Location,Current_Stock,Min_Safety_Stock,Max_Stock,Unit_Cost,Unit_Of_Measure,Preferred_Vendor
+BRG-6205-2RS,Deep Groove Ball Bearing 25x52x15mm,Bearings,BIN-A-12-04,18,5,25,14.50,EA,Motion Industries
+BRG-22216-E1,Spherical Roller Bearing 80x140x33mm,Bearings,BIN-A-14-02,4,2,8,124.00,EA,Applied Industrial
+VBLT-B52,Classical V-Belt B-Section 55in Pitch,Power Transmission,BIN-C-02-01,8,4,12,18.75,EA,Grainger
+SEAL-SKF-15243,Radial Shaft Oil Seal 1.5in ID x 2.4in OD,Seals,BIN-B-08-03,12,3,15,9.20,EA,Motion Industries
+OIL-ISO46-5GAL,Industrial Anti-Wear Hydraulic Oil 5 Gallon Pail,Lubricants,STOREROOM-LUB-01,6,2,10,85.00,PAIL,Mobil
+GRS-POLY-14OZ,Polyurea Synthetic High-Temp Grease Cartridge,Lubricants,STOREROOM-LUB-02,24,6,36,7.50,TUBE,Mobil
+FLTR-HYD-10MIC,High-Pressure Hydraulic Filter Element 10 Micron,Filtration,BIN-D-01-05,5,2,8,42.00,EA,Donaldson
+FUSE-FRN-R-30,Dual-Element Time-Delay Current-Limiting Fuse 30A,Electrical,BIN-E-03-02,15,5,20,12.25,EA,Bussmann
