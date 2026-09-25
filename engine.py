@@ -138,8 +138,13 @@ def get_header_html(active_nav="directory"):
             <div class="drawer-chips">
               <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
               <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
               <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
               <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
             </div>
           </div>
 
@@ -229,8 +234,12 @@ def get_footer_html():
             <ul class="footer-link-list">
               <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
               <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
               <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
               <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
             </ul>
           </div>
 
@@ -279,6 +288,33 @@ for idx, p in enumerate(platforms):
     verticals = p.get("supported_industry_verticals", [])[:3]
     pros_preview = p.get("pros", [])[:2]
 
+    # Feature tags for multi-filtering
+    features_list = [f.lower() for f in p.get("features", [])]
+    has_predictive = any("predictive" in f or "condition" in f or "iot" in f or "sensor" in f for f in features_list)
+    has_mobile = any("mobile" in f or "offline" in f for f in features_list) or p.get("mobile_ux_rating", 0) >= 4.5
+    has_inventory = any("inventory" in f or "spare parts" in f or "mro" in f or "stock" in f for f in features_list)
+    has_pm = any("preventive" in f or "preventative" in f or "pm" in f or "recurring" in f for f in features_list)
+    has_erp = any("erp" in f or "sap" in f or "oracle" in f for f in features_list)
+    has_freetrial = bool(p.get("has_free_trial")) or "free" in str(price).lower()
+
+    # Numeric price for sorting
+    price_val = 9999
+    if "free" in str(price).lower():
+        price_val = 0
+    else:
+        pm = re.search(r'\$?(\d+)', str(price))
+        if pm:
+            price_val = int(pm.group(1))
+
+    feat_tags = []
+    if has_predictive: feat_tags.append("predictive")
+    if has_mobile: feat_tags.append("mobile")
+    if has_inventory: feat_tags.append("inventory")
+    if has_pm: feat_tags.append("pm")
+    if has_erp: feat_tags.append("erp")
+    if has_freetrial: feat_tags.append("freetrial")
+    feat_tags_str = " ".join(feat_tags)
+
     scales_html = "".join([f'<span class="pill" style="font-size:0.75rem;">{html.escape(s)}</span>' for s in scales[:2]])
     verticals_html = "".join([f'<span class="pill" style="font-size:0.75rem; background:#eff6ff; color:#1d4ed8; border-color:#bfdbfe;">{html.escape(v)}</span>' for v in verticals])
     
@@ -289,7 +325,7 @@ for idx, p in enumerate(platforms):
     ])
 
     card = f"""
-    <article class="platform-card" data-slug="{slug}" data-name="{name.lower()}" data-scale="{' '.join(scales).lower()}">
+    <article class="platform-card" data-slug="{slug}" data-name="{name.lower()}" data-scale="{' '.join(scales).lower()}" data-rating="{rating}" data-reviews="{reviews}" data-price="{price_val}" data-features="{feat_tags_str}" data-idx="{idx}">
       <div class="platform-card-header">
         <div class="platform-info">
           <h2><a href="/cmms/{slug}/">{html.escape(name)}</a></h2>
@@ -326,13 +362,18 @@ for idx, p in enumerate(platforms):
         {pros_html}
       </div>
 
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; pt:8px; border-top:1px solid var(--border-color); padding-top:12px;">
-        <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
-          Read Review &amp; Teardown &rarr;
-        </a>
-        <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
-          Official Website &#8599;
-        </a>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; border-top:1px solid var(--border-color); padding-top:12px;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
+            Read Review &amp; Teardown &rarr;
+          </a>
+          <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
+            Official Website &#8599;
+          </a>
+        </div>
+        <button class="compare-toggle-btn" data-slug="{slug}" data-name="{html.escape(name)}" data-idx="{idx}">
+          <span>+ Compare</span>
+        </button>
       </div>
     </article>
 """
@@ -355,50 +396,296 @@ for idx, p in enumerate(platforms):
 CLIENT_SEARCH_SCRIPT = """<script>
     document.addEventListener('DOMContentLoaded', function() {
       var searchInput = document.getElementById('cmms-search');
-      var filterButtons = document.querySelectorAll('#scale-filters .filter-pill');
-      var cards = document.querySelectorAll('.platform-card');
+      var scaleButtons = document.querySelectorAll('#scale-filters .filter-pill');
+      var featureButtons = document.querySelectorAll('#feature-filters .filter-pill');
+      var sortSelector = document.getElementById('sort-selector');
+      var resetBtn = document.getElementById('reset-filters-btn');
+      var noResultsEl = document.getElementById('no-results');
+      var noResultsClearBtn = document.getElementById('no-results-clear-btn');
       var statusEl = document.getElementById('filter-status');
-      var currentFilter = 'all';
+      var container = document.getElementById('platforms-container');
+      var cards = Array.from(document.querySelectorAll('.platform-card'));
 
-      function filterCards() {
-        var query = (searchInput.value || '').toLowerCase().trim();
-        var visibleCount = 0;
-        cards.forEach(function(card) {
-          var text = card.textContent.toLowerCase();
-          var scale = (card.getAttribute('data-scale') || '').toLowerCase();
-          var matchesQuery = !query || text.indexOf(query) !== -1;
-          var matchesFilter = currentFilter === 'all' || scale.indexOf(currentFilter) !== -1;
-          var isVisible = matchesQuery && matchesFilter;
-          card.style.display = isVisible ? 'block' : 'none';
-          if (isVisible) visibleCount++;
-        });
+      var currentScale = 'all';
+      var activeFeatures = new Set();
+      var currentSort = 'rating-desc';
+      var selectedCompare = [];
 
-        if (statusEl) {
-          statusEl.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' platforms';
+      function updateResetVisibility() {
+        var hasActiveFilter = (searchInput && searchInput.value.trim() !== '') ||
+                              currentScale !== 'all' ||
+                              activeFeatures.size > 0 ||
+                              currentSort !== 'rating-desc';
+        if (resetBtn) {
+          resetBtn.style.display = hasActiveFilter ? 'inline-block' : 'none';
         }
       }
 
-      if (searchInput) {
-        searchInput.addEventListener('input', filterCards);
-        searchInput.addEventListener('keyup', filterCards);
-        searchInput.addEventListener('paste', function() { setTimeout(filterCards, 10); });
+      function filterAndSortCards() {
+        var query = (searchInput && searchInput.value || '').toLowerCase().trim();
+        var visibleCards = [];
+
+        cards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          var scale = (card.getAttribute('data-scale') || '').toLowerCase();
+          var features = (card.getAttribute('data-features') || '').split(' ');
+
+          var matchesQuery = !query || text.indexOf(query) !== -1;
+          var matchesScale = currentScale === 'all' || scale.indexOf(currentScale) !== -1;
+
+          var matchesFeatures = true;
+          activeFeatures.forEach(function(feat) {
+            if (features.indexOf(feat) === -1) {
+              matchesFeatures = false;
+            }
+          });
+
+          var isVisible = matchesQuery && matchesScale && matchesFeatures;
+          card.style.display = isVisible ? 'block' : 'none';
+          if (isVisible) {
+            visibleCards.push(card);
+          }
+        });
+
+        // Sort visible cards
+        visibleCards.sort(function(a, b) {
+          if (currentSort === 'rating-desc') {
+            var rA = parseFloat(a.getAttribute('data-rating') || '0');
+            var rB = parseFloat(b.getAttribute('data-rating') || '0');
+            if (rB !== rA) return rB - rA;
+            var revA = parseInt(a.getAttribute('data-reviews') || '0', 10);
+            var revB = parseInt(b.getAttribute('data-reviews') || '0', 10);
+            return revB - revA;
+          } else if (currentSort === 'reviews-desc') {
+            var revA = parseInt(a.getAttribute('data-reviews') || '0', 10);
+            var revB = parseInt(b.getAttribute('data-reviews') || '0', 10);
+            return revB - revA;
+          } else if (currentSort === 'price-asc') {
+            var pA = parseInt(a.getAttribute('data-price') || '9999', 10);
+            var pB = parseInt(b.getAttribute('data-price') || '9999', 10);
+            return pA - pB;
+          } else if (currentSort === 'name-asc') {
+            var nA = (a.getAttribute('data-name') || '').toLowerCase();
+            var nB = (b.getAttribute('data-name') || '').toLowerCase();
+            return nA.localeCompare(nB);
+          }
+          return 0;
+        });
+
+        // Re-append sorted cards in DOM
+        if (container) {
+          visibleCards.forEach(function(card) {
+            container.appendChild(card);
+          });
+          if (noResultsEl) {
+            container.appendChild(noResultsEl);
+          }
+        }
+
+        if (statusEl) {
+          statusEl.textContent = 'Showing ' + visibleCards.length + ' of ' + cards.length + ' platforms';
+        }
+
+        if (noResultsEl) {
+          noResultsEl.style.display = visibleCards.length === 0 ? 'block' : 'none';
+        }
+
+        updateResetVisibility();
       }
 
-      filterButtons.forEach(function(btn) {
+      function resetAllFilters() {
+        if (searchInput) searchInput.value = '';
+        currentScale = 'all';
+        scaleButtons.forEach(function(b) {
+          if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        activeFeatures.clear();
+        featureButtons.forEach(function(b) { b.classList.remove('active'); });
+        currentSort = 'rating-desc';
+        if (sortSelector) sortSelector.value = 'rating-desc';
+        filterAndSortCards();
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterAndSortCards);
+        searchInput.addEventListener('keyup', filterAndSortCards);
+      }
+
+      scaleButtons.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          filterButtons.forEach(function(b) { b.classList.remove('active'); });
+          scaleButtons.forEach(function(b) { b.classList.remove('active'); });
           this.classList.add('active');
-          currentFilter = this.getAttribute('data-filter');
-          filterCards();
+          currentScale = this.getAttribute('data-filter');
+          filterAndSortCards();
         });
       });
 
+      featureButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var feat = this.getAttribute('data-feature');
+          if (activeFeatures.has(feat)) {
+            activeFeatures.delete(feat);
+            this.classList.remove('active');
+          } else {
+            activeFeatures.add(feat);
+            this.classList.add('active');
+          }
+          filterAndSortCards();
+        });
+      });
+
+      if (sortSelector) {
+        sortSelector.addEventListener('change', function() {
+          currentSort = this.value;
+          filterAndSortCards();
+        });
+      }
+
+      if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+      if (noResultsClearBtn) noResultsClearBtn.addEventListener('click', resetAllFilters);
+
+      // Compare Dock Management
+      var compareDock = document.getElementById('compare-dock');
+      var compareChips = document.getElementById('compare-chips');
+      var compareActionBtn = document.getElementById('compare-action-btn');
+      var compareHelpText = document.getElementById('compare-help-text');
+      var compareClearBtn = document.getElementById('compare-clear-btn');
+
+      function updateCompareDock() {
+        if (!compareDock) return;
+        if (selectedCompare.length === 0) {
+          compareDock.classList.remove('visible');
+          if (compareChips) compareChips.innerHTML = '';
+          cards.forEach(function(c) {
+            c.classList.remove('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.remove('selected');
+              btn.innerHTML = '<span>+ Compare</span>';
+            }
+          });
+          return;
+        }
+
+        compareDock.classList.add('visible');
+        cards.forEach(function(c) {
+          var slug = c.getAttribute('data-slug');
+          var isSel = selectedCompare.some(function(item) { return item.slug === slug; });
+          if (isSel) {
+            c.classList.add('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.add('selected');
+              btn.innerHTML = '<span>&#10003; Selected</span>';
+            }
+          } else {
+            c.classList.remove('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.remove('selected');
+              btn.innerHTML = '<span>+ Compare</span>';
+            }
+          }
+        });
+
+        if (compareChips) {
+          compareChips.innerHTML = selectedCompare.map(function(item) {
+            return '<span class="compare-dock-chip">' + item.name + ' <span class="compare-dock-remove" data-slug="' + item.slug + '">&times;</span></span>';
+          }).join(selectedCompare.length === 2 ? ' <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">vs</span> ' : '');
+
+          compareChips.querySelectorAll('.compare-dock-remove').forEach(function(removeBtn) {
+            removeBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var slug = this.getAttribute('data-slug');
+              selectedCompare = selectedCompare.filter(function(item) { return item.slug !== slug; });
+              updateCompareDock();
+            });
+          });
+        }
+
+        if (selectedCompare.length === 2) {
+          if (compareActionBtn) {
+            var item1 = selectedCompare[0];
+            var item2 = selectedCompare[1];
+            // Order pair by initial catalog index so it matches pre-generated combinations
+            var first = item1.idx < item2.idx ? item1 : item2;
+            var second = item1.idx < item2.idx ? item2 : item1;
+            compareActionBtn.href = '/vs/' + first.slug + '-vs-' + second.slug + '/';
+            compareActionBtn.style.display = 'inline-block';
+          }
+          if (compareHelpText) compareHelpText.style.display = 'none';
+        } else {
+          if (compareActionBtn) compareActionBtn.style.display = 'none';
+          if (compareHelpText) {
+            compareHelpText.style.display = 'inline';
+            compareHelpText.textContent = 'Select 1 more platform to compare head-to-head';
+          }
+        }
+      }
+
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.compare-toggle-btn');
+        if (btn) {
+          e.preventDefault();
+          var slug = btn.getAttribute('data-slug');
+          var name = btn.getAttribute('data-name');
+          var idx = parseInt(btn.getAttribute('data-idx') || '0', 10);
+          var existsIdx = selectedCompare.findIndex(function(item) { return item.slug === slug; });
+          if (existsIdx !== -1) {
+            selectedCompare.splice(existsIdx, 1);
+          } else {
+            if (selectedCompare.length >= 2) {
+              selectedCompare.shift();
+            }
+            selectedCompare.push({ slug: slug, name: name, idx: idx });
+          }
+          updateCompareDock();
+        }
+      });
+
+      if (compareClearBtn) {
+        compareClearBtn.addEventListener('click', function() {
+          selectedCompare = [];
+          updateCompareDock();
+        });
+      }
+
+      window.filterByTag = function(tag) {
+        if (tag === 'mobile') {
+          activeFeatures.add('mobile');
+          featureButtons.forEach(function(b) {
+            if (b.getAttribute('data-feature') === 'mobile') b.classList.add('active');
+          });
+          filterAndSortCards();
+          var el = document.getElementById('directory');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Support URL search params
       var urlParams = new URLSearchParams(window.location.search);
-      var queryFilter = urlParams.get('filter');
+      var queryFilter = urlParams.get('filter') || urlParams.get('q');
+      var scaleFilter = urlParams.get('scale');
+      var featureFilter = urlParams.get('feature');
+
       if (queryFilter && searchInput) {
         searchInput.value = queryFilter;
-        filterCards();
       }
+      if (scaleFilter) {
+        currentScale = scaleFilter;
+        scaleButtons.forEach(function(b) {
+          if (b.getAttribute('data-filter') === scaleFilter) b.classList.add('active');
+          else b.classList.remove('active');
+        });
+      }
+      if (featureFilter) {
+        activeFeatures.add(featureFilter);
+        featureButtons.forEach(function(b) {
+          if (b.getAttribute('data-feature') === featureFilter) b.classList.add('active');
+        });
+      }
+      filterAndSortCards();
     });
 </script>"""
 
@@ -459,15 +746,44 @@ homepage_html = f"""<!DOCTYPE html>
     <!-- Live Client-Side Filter Bar (Directly Under Stat Grid) -->
     <section class="controls-card" id="directory">
       <div style="position:relative;">
-        <input type="text" id="cmms-search" class="search-input" placeholder="Filter 106 platforms (e.g. MaintainX, Offline, SAP, Free Trial)...">
+        <input type="text" id="cmms-search" class="search-input" placeholder="Search 106 platforms by name, feature, or ERP (e.g. MaintainX, Offline, SAP, IoT)...">
       </div>
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem; margin-top:0.25rem;">
+
+      <!-- Company Scale Row -->
+      <div class="filter-row">
+        <span class="filter-row-label">Company Scale:</span>
         <div class="filter-pills" id="scale-filters">
-          <span style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Company Scale:</span>
           <button class="filter-pill active" data-filter="all">All Scales</button>
           <button class="filter-pill" data-filter="small">Small (1-50)</button>
           <button class="filter-pill" data-filter="mid-market">Mid-Market (51-500)</button>
           <button class="filter-pill" data-filter="enterprise">Enterprise (500+)</button>
+        </div>
+      </div>
+
+      <!-- Key Capabilities Row (Multi-Select) -->
+      <div class="filter-row">
+        <span class="filter-row-label">Key Features:</span>
+        <div class="filter-pills" id="feature-filters">
+          <button class="filter-pill" data-feature="predictive">&#128302; Predictive &amp; IoT</button>
+          <button class="filter-pill" data-feature="mobile">&#128241; Mobile Offline</button>
+          <button class="filter-pill" data-feature="inventory">&#128230; Parts &amp; Inventory</button>
+          <button class="filter-pill" data-feature="pm">&#128197; PM Scheduling</button>
+          <button class="filter-pill" data-feature="erp">&#128268; ERP Integrations</button>
+          <button class="filter-pill" data-feature="freetrial">&#127873; Free Trial</button>
+        </div>
+      </div>
+
+      <!-- Sort & Filter Status Row -->
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.75rem; border-top:1px solid #f1f5f9; padding-top:0.75rem;">
+        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+          <span style="font-size:0.78rem; font-weight:700; color:var(--text-muted); text-transform:uppercase;">Sort By:</span>
+          <select id="sort-selector" class="filter-select">
+            <option value="rating-desc">Highest Rated (Default)</option>
+            <option value="reviews-desc">Most Reviews</option>
+            <option value="price-asc">Lowest Starting Price</option>
+            <option value="name-asc">Platform Name (A–Z)</option>
+          </select>
+          <button id="reset-filters-btn" class="filter-reset-link" style="display:none;">Reset all filters</button>
         </div>
         <div id="filter-status" style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">
           Showing {total_platforms} of {total_platforms} platforms
@@ -478,7 +794,32 @@ homepage_html = f"""<!DOCTYPE html>
     <!-- Platform Directory Cards List -->
     <section id="platforms-container">
       {"".join(cards_html_list)}
+      <div id="no-results" class="no-results-box" style="display:none;">
+        <div style="font-size:2rem; margin-bottom:0.5rem;">🔍</div>
+        <h3 style="color:var(--text-main); margin-bottom:0.5rem;">No CMMS platforms matched your filters</h3>
+        <p style="font-size:0.9rem; margin-bottom:1rem;">Try clearing specific feature tags or searching for a broader term.</p>
+        <button id="no-results-clear-btn" class="btn btn-outline" style="font-size:0.85rem;">Clear All Filters</button>
+      </div>
     </section>
+
+    <!-- Floating Interactive Compare Dock -->
+    <div id="compare-dock" class="compare-dock">
+      <div class="compare-dock-container">
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <strong style="font-size:0.9rem; color:var(--text-main);">Head-to-Head Compare:</strong>
+          <div id="compare-chips" class="compare-dock-chips"></div>
+          <span id="compare-help-text" style="font-size:0.82rem; color:var(--text-muted);">Select 2 platforms to compare head-to-head</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <a id="compare-action-btn" href="#" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1rem; display:none;">
+            Compare Side-by-Side &rarr;
+          </a>
+          <button id="compare-clear-btn" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
 
     <!-- Top 20 Comparison Matrix -->
     <section class="card" id="matrix">
@@ -1192,6 +1533,41 @@ categories = [
         "h1": "Best Mobile CMMS Apps",
         "desc": "Top-rated mobile-first maintenance apps for iOS and Android, empowering technicians on the shop floor.",
         "filter": lambda p: any("mobile" in f.lower() for f in p.get("features", [])) or p.get("mobile_ux_rating", 0) >= 4.5
+    },
+    {
+        "url_path": "best-cmms-for-healthcare",
+        "title": "Best CMMS Software for Healthcare & Hospitals (2026)",
+        "h1": "Best CMMS for Healthcare & Hospitals",
+        "desc": "HIPAA and Joint Commission compliant CMMS solutions for hospital facilities, clinical engineering, and biomedical asset management.",
+        "filter": lambda p: any("healthcare" in v.lower() or "hospital" in v.lower() or "pharmaceutical" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-oil-gas",
+        "title": "Best CMMS Software for Oil & Gas Operations (2026)",
+        "h1": "Best CMMS for Oil, Gas & Petrochemical",
+        "desc": "Heavy-duty maintenance and asset integrity software engineered for upstream, midstream, downstream, and offshore energy infrastructure.",
+        "filter": lambda p: any("oil" in v.lower() or "gas" in v.lower() or "mining" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-utilities-energy",
+        "title": "Best CMMS Software for Utilities & Energy Plants (2026)",
+        "h1": "Best CMMS for Utilities & Energy",
+        "desc": "Mission-critical EAM and maintenance platforms for electric utilities, water/wastewater treatment, and renewable energy grids.",
+        "filter": lambda p: any("utilit" in v.lower() or "energy" in v.lower() or "public sector" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-education",
+        "title": "Best CMMS Software for Schools & Universities (2026)",
+        "h1": "Best CMMS for Education & Campuses",
+        "desc": "Campus facility and preventive maintenance software designed for school districts, higher education institutions, and university dorms.",
+        "filter": lambda p: any("education" in v.lower() or "campus" in v.lower() or "school" in v.lower() for v in p.get("supported_industry_verticals", []))
+    },
+    {
+        "url_path": "best-cmms-for-logistics-warehousing",
+        "title": "Best CMMS Software for Warehousing & Logistics (2026)",
+        "h1": "Best CMMS for Warehousing & Logistics",
+        "desc": "High-throughput maintenance software for automated fulfillment centers, sortation conveyors, forklifts, and distribution hubs.",
+        "filter": lambda p: any("logistics" in v.lower() or "packaging" in v.lower() or "transportation" in v.lower() for v in p.get("supported_industry_verticals", []))
     }
 ]
 
@@ -1207,6 +1583,37 @@ def generate_card_html(p):
     verticals = p.get("supported_industry_verticals", [])[:3]
     pros_preview = p.get("pros", [])[:2]
 
+    # Find catalog index for pairwise URL lookup
+    try:
+        idx = platforms.index(p)
+    except ValueError:
+        idx = 0
+
+    features_list = [f.lower() for f in p.get("features", [])]
+    has_predictive = any("predictive" in f or "condition" in f or "iot" in f or "sensor" in f for f in features_list)
+    has_mobile = any("mobile" in f or "offline" in f for f in features_list) or p.get("mobile_ux_rating", 0) >= 4.5
+    has_inventory = any("inventory" in f or "spare parts" in f or "mro" in f or "stock" in f for f in features_list)
+    has_pm = any("preventive" in f or "preventative" in f or "pm" in f or "recurring" in f for f in features_list)
+    has_erp = any("erp" in f or "sap" in f or "oracle" in f for f in features_list)
+    has_freetrial = bool(p.get("has_free_trial")) or "free" in str(price).lower()
+
+    price_val = 9999
+    if "free" in str(price).lower():
+        price_val = 0
+    else:
+        pm = re.search(r'\$?(\d+)', str(price))
+        if pm:
+            price_val = int(pm.group(1))
+
+    feat_tags = []
+    if has_predictive: feat_tags.append("predictive")
+    if has_mobile: feat_tags.append("mobile")
+    if has_inventory: feat_tags.append("inventory")
+    if has_pm: feat_tags.append("pm")
+    if has_erp: feat_tags.append("erp")
+    if has_freetrial: feat_tags.append("freetrial")
+    feat_tags_str = " ".join(feat_tags)
+
     scales_html = "".join([f'<span class="pill" style="font-size:0.75rem;">{html.escape(s)}</span>' for s in scales[:2]])
     verticals_html = "".join([f'<span class="pill" style="font-size:0.75rem; background:#eff6ff; color:#1d4ed8; border-color:#bfdbfe;">{html.escape(v)}</span>' for v in verticals])
     
@@ -1217,7 +1624,7 @@ def generate_card_html(p):
     ])
 
     return f'''
-    <article class="platform-card" data-slug="{slug}" data-name="{name.lower()}" data-scale="{' '.join(scales).lower()}">
+    <article class="platform-card" data-slug="{slug}" data-name="{name.lower()}" data-scale="{' '.join(scales).lower()}" data-rating="{rating}" data-reviews="{reviews}" data-price="{price_val}" data-features="{feat_tags_str}" data-idx="{idx}">
       <div class="platform-card-header">
         <div class="platform-info">
           <h2><a href="/cmms/{slug}/">{html.escape(name)}</a></h2>
@@ -1254,13 +1661,18 @@ def generate_card_html(p):
         {pros_html}
       </div>
 
-      <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap; pt:8px; border-top:1px solid var(--border-color); padding-top:12px;">
-        <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
-          Read Review &amp; Teardown &rarr;
-        </a>
-        <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
-          Official Website &#8599;
-        </a>
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; border-top:1px solid var(--border-color); padding-top:12px;">
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <a href="/cmms/{slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1rem;">
+            Read Review &amp; Teardown &rarr;
+          </a>
+          <a href="/go/{slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;" data-track="visit_site" data-platform="{name}" data-slug="{slug}">
+            Official Website &#8599;
+          </a>
+        </div>
+        <button class="compare-toggle-btn" data-slug="{slug}" data-name="{html.escape(name)}" data-idx="{idx}">
+          <span>+ Compare</span>
+        </button>
       </div>
     </article>
 '''
@@ -1313,6 +1725,25 @@ for cat in categories:
     <section id="platforms-container">
       {cat_cards_html}
     </section>
+
+    <!-- Floating Interactive Compare Dock -->
+    <div id="compare-dock" class="compare-dock">
+      <div class="compare-dock-container">
+        <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+          <strong style="font-size:0.9rem; color:var(--text-main);">Head-to-Head Compare:</strong>
+          <div id="compare-chips" class="compare-dock-chips"></div>
+          <span id="compare-help-text" style="font-size:0.82rem; color:var(--text-muted);">Select 2 platforms to compare head-to-head</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <a id="compare-action-btn" href="#" class="btn btn-primary" style="font-size:0.85rem; padding:0.45rem 1rem; display:none;">
+            Compare Side-by-Side &rarr;
+          </a>
+          <button id="compare-clear-btn" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.75rem;">
+            Clear
+          </button>
+        </div>
+      </div>
+    </div>
   </main>
   
   {get_footer_html()}

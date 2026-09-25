@@ -90,8 +90,13 @@
             <div class="drawer-chips">
               <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
               <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
               <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
               <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
             </div>
           </div>
 
@@ -287,8 +292,12 @@
             <ul class="footer-link-list">
               <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
               <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
               <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
               <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
             </ul>
           </div>
 
@@ -319,50 +328,296 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       var searchInput = document.getElementById('cmms-search');
-      var filterButtons = document.querySelectorAll('#scale-filters .filter-pill');
-      var cards = document.querySelectorAll('.platform-card');
+      var scaleButtons = document.querySelectorAll('#scale-filters .filter-pill');
+      var featureButtons = document.querySelectorAll('#feature-filters .filter-pill');
+      var sortSelector = document.getElementById('sort-selector');
+      var resetBtn = document.getElementById('reset-filters-btn');
+      var noResultsEl = document.getElementById('no-results');
+      var noResultsClearBtn = document.getElementById('no-results-clear-btn');
       var statusEl = document.getElementById('filter-status');
-      var currentFilter = 'all';
+      var container = document.getElementById('platforms-container');
+      var cards = Array.from(document.querySelectorAll('.platform-card'));
 
-      function filterCards() {
-        var query = (searchInput.value || '').toLowerCase().trim();
-        var visibleCount = 0;
-        cards.forEach(function(card) {
-          var text = card.textContent.toLowerCase();
-          var scale = (card.getAttribute('data-scale') || '').toLowerCase();
-          var matchesQuery = !query || text.indexOf(query) !== -1;
-          var matchesFilter = currentFilter === 'all' || scale.indexOf(currentFilter) !== -1;
-          var isVisible = matchesQuery && matchesFilter;
-          card.style.display = isVisible ? 'block' : 'none';
-          if (isVisible) visibleCount++;
-        });
+      var currentScale = 'all';
+      var activeFeatures = new Set();
+      var currentSort = 'rating-desc';
+      var selectedCompare = [];
 
-        if (statusEl) {
-          statusEl.textContent = 'Showing ' + visibleCount + ' of ' + cards.length + ' platforms';
+      function updateResetVisibility() {
+        var hasActiveFilter = (searchInput && searchInput.value.trim() !== '') ||
+                              currentScale !== 'all' ||
+                              activeFeatures.size > 0 ||
+                              currentSort !== 'rating-desc';
+        if (resetBtn) {
+          resetBtn.style.display = hasActiveFilter ? 'inline-block' : 'none';
         }
       }
 
-      if (searchInput) {
-        searchInput.addEventListener('input', filterCards);
-        searchInput.addEventListener('keyup', filterCards);
-        searchInput.addEventListener('paste', function() { setTimeout(filterCards, 10); });
+      function filterAndSortCards() {
+        var query = (searchInput && searchInput.value || '').toLowerCase().trim();
+        var visibleCards = [];
+
+        cards.forEach(function(card) {
+          var text = card.textContent.toLowerCase();
+          var scale = (card.getAttribute('data-scale') || '').toLowerCase();
+          var features = (card.getAttribute('data-features') || '').split(' ');
+
+          var matchesQuery = !query || text.indexOf(query) !== -1;
+          var matchesScale = currentScale === 'all' || scale.indexOf(currentScale) !== -1;
+
+          var matchesFeatures = true;
+          activeFeatures.forEach(function(feat) {
+            if (features.indexOf(feat) === -1) {
+              matchesFeatures = false;
+            }
+          });
+
+          var isVisible = matchesQuery && matchesScale && matchesFeatures;
+          card.style.display = isVisible ? 'block' : 'none';
+          if (isVisible) {
+            visibleCards.push(card);
+          }
+        });
+
+        // Sort visible cards
+        visibleCards.sort(function(a, b) {
+          if (currentSort === 'rating-desc') {
+            var rA = parseFloat(a.getAttribute('data-rating') || '0');
+            var rB = parseFloat(b.getAttribute('data-rating') || '0');
+            if (rB !== rA) return rB - rA;
+            var revA = parseInt(a.getAttribute('data-reviews') || '0', 10);
+            var revB = parseInt(b.getAttribute('data-reviews') || '0', 10);
+            return revB - revA;
+          } else if (currentSort === 'reviews-desc') {
+            var revA = parseInt(a.getAttribute('data-reviews') || '0', 10);
+            var revB = parseInt(b.getAttribute('data-reviews') || '0', 10);
+            return revB - revA;
+          } else if (currentSort === 'price-asc') {
+            var pA = parseInt(a.getAttribute('data-price') || '9999', 10);
+            var pB = parseInt(b.getAttribute('data-price') || '9999', 10);
+            return pA - pB;
+          } else if (currentSort === 'name-asc') {
+            var nA = (a.getAttribute('data-name') || '').toLowerCase();
+            var nB = (b.getAttribute('data-name') || '').toLowerCase();
+            return nA.localeCompare(nB);
+          }
+          return 0;
+        });
+
+        // Re-append sorted cards in DOM
+        if (container) {
+          visibleCards.forEach(function(card) {
+            container.appendChild(card);
+          });
+          if (noResultsEl) {
+            container.appendChild(noResultsEl);
+          }
+        }
+
+        if (statusEl) {
+          statusEl.textContent = 'Showing ' + visibleCards.length + ' of ' + cards.length + ' platforms';
+        }
+
+        if (noResultsEl) {
+          noResultsEl.style.display = visibleCards.length === 0 ? 'block' : 'none';
+        }
+
+        updateResetVisibility();
       }
 
-      filterButtons.forEach(function(btn) {
+      function resetAllFilters() {
+        if (searchInput) searchInput.value = '';
+        currentScale = 'all';
+        scaleButtons.forEach(function(b) {
+          if (b.getAttribute('data-filter') === 'all') b.classList.add('active');
+          else b.classList.remove('active');
+        });
+        activeFeatures.clear();
+        featureButtons.forEach(function(b) { b.classList.remove('active'); });
+        currentSort = 'rating-desc';
+        if (sortSelector) sortSelector.value = 'rating-desc';
+        filterAndSortCards();
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', filterAndSortCards);
+        searchInput.addEventListener('keyup', filterAndSortCards);
+      }
+
+      scaleButtons.forEach(function(btn) {
         btn.addEventListener('click', function() {
-          filterButtons.forEach(function(b) { b.classList.remove('active'); });
+          scaleButtons.forEach(function(b) { b.classList.remove('active'); });
           this.classList.add('active');
-          currentFilter = this.getAttribute('data-filter');
-          filterCards();
+          currentScale = this.getAttribute('data-filter');
+          filterAndSortCards();
         });
       });
 
+      featureButtons.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var feat = this.getAttribute('data-feature');
+          if (activeFeatures.has(feat)) {
+            activeFeatures.delete(feat);
+            this.classList.remove('active');
+          } else {
+            activeFeatures.add(feat);
+            this.classList.add('active');
+          }
+          filterAndSortCards();
+        });
+      });
+
+      if (sortSelector) {
+        sortSelector.addEventListener('change', function() {
+          currentSort = this.value;
+          filterAndSortCards();
+        });
+      }
+
+      if (resetBtn) resetBtn.addEventListener('click', resetAllFilters);
+      if (noResultsClearBtn) noResultsClearBtn.addEventListener('click', resetAllFilters);
+
+      // Compare Dock Management
+      var compareDock = document.getElementById('compare-dock');
+      var compareChips = document.getElementById('compare-chips');
+      var compareActionBtn = document.getElementById('compare-action-btn');
+      var compareHelpText = document.getElementById('compare-help-text');
+      var compareClearBtn = document.getElementById('compare-clear-btn');
+
+      function updateCompareDock() {
+        if (!compareDock) return;
+        if (selectedCompare.length === 0) {
+          compareDock.classList.remove('visible');
+          if (compareChips) compareChips.innerHTML = '';
+          cards.forEach(function(c) {
+            c.classList.remove('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.remove('selected');
+              btn.innerHTML = '<span>+ Compare</span>';
+            }
+          });
+          return;
+        }
+
+        compareDock.classList.add('visible');
+        cards.forEach(function(c) {
+          var slug = c.getAttribute('data-slug');
+          var isSel = selectedCompare.some(function(item) { return item.slug === slug; });
+          if (isSel) {
+            c.classList.add('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.add('selected');
+              btn.innerHTML = '<span>&#10003; Selected</span>';
+            }
+          } else {
+            c.classList.remove('card-selected-for-compare');
+            var btn = c.querySelector('.compare-toggle-btn');
+            if (btn) {
+              btn.classList.remove('selected');
+              btn.innerHTML = '<span>+ Compare</span>';
+            }
+          }
+        });
+
+        if (compareChips) {
+          compareChips.innerHTML = selectedCompare.map(function(item) {
+            return '<span class="compare-dock-chip">' + item.name + ' <span class="compare-dock-remove" data-slug="' + item.slug + '">&times;</span></span>';
+          }).join(selectedCompare.length === 2 ? ' <span style="font-size:0.8rem; font-weight:700; color:var(--text-muted);">vs</span> ' : '');
+
+          compareChips.querySelectorAll('.compare-dock-remove').forEach(function(removeBtn) {
+            removeBtn.addEventListener('click', function(e) {
+              e.stopPropagation();
+              var slug = this.getAttribute('data-slug');
+              selectedCompare = selectedCompare.filter(function(item) { return item.slug !== slug; });
+              updateCompareDock();
+            });
+          });
+        }
+
+        if (selectedCompare.length === 2) {
+          if (compareActionBtn) {
+            var item1 = selectedCompare[0];
+            var item2 = selectedCompare[1];
+            // Order pair by initial catalog index so it matches pre-generated combinations
+            var first = item1.idx < item2.idx ? item1 : item2;
+            var second = item1.idx < item2.idx ? item2 : item1;
+            compareActionBtn.href = '/vs/' + first.slug + '-vs-' + second.slug + '/';
+            compareActionBtn.style.display = 'inline-block';
+          }
+          if (compareHelpText) compareHelpText.style.display = 'none';
+        } else {
+          if (compareActionBtn) compareActionBtn.style.display = 'none';
+          if (compareHelpText) {
+            compareHelpText.style.display = 'inline';
+            compareHelpText.textContent = 'Select 1 more platform to compare head-to-head';
+          }
+        }
+      }
+
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.compare-toggle-btn');
+        if (btn) {
+          e.preventDefault();
+          var slug = btn.getAttribute('data-slug');
+          var name = btn.getAttribute('data-name');
+          var idx = parseInt(btn.getAttribute('data-idx') || '0', 10);
+          var existsIdx = selectedCompare.findIndex(function(item) { return item.slug === slug; });
+          if (existsIdx !== -1) {
+            selectedCompare.splice(existsIdx, 1);
+          } else {
+            if (selectedCompare.length >= 2) {
+              selectedCompare.shift();
+            }
+            selectedCompare.push({ slug: slug, name: name, idx: idx });
+          }
+          updateCompareDock();
+        }
+      });
+
+      if (compareClearBtn) {
+        compareClearBtn.addEventListener('click', function() {
+          selectedCompare = [];
+          updateCompareDock();
+        });
+      }
+
+      window.filterByTag = function(tag) {
+        if (tag === 'mobile') {
+          activeFeatures.add('mobile');
+          featureButtons.forEach(function(b) {
+            if (b.getAttribute('data-feature') === 'mobile') b.classList.add('active');
+          });
+          filterAndSortCards();
+          var el = document.getElementById('directory');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+      };
+
+      // Support URL search params
       var urlParams = new URLSearchParams(window.location.search);
-      var queryFilter = urlParams.get('filter');
+      var queryFilter = urlParams.get('filter') || urlParams.get('q');
+      var scaleFilter = urlParams.get('scale');
+      var featureFilter = urlParams.get('feature');
+
       if (queryFilter && searchInput) {
         searchInput.value = queryFilter;
-        filterCards();
       }
+      if (scaleFilter) {
+        currentScale = scaleFilter;
+        scaleButtons.forEach(function(b) {
+          if (b.getAttribute('data-filter') === scaleFilter) b.classList.add('active');
+          else b.classList.remove('active');
+        });
+      }
+      if (featureFilter) {
+        activeFeatures.add(featureFilter);
+        featureButtons.forEach(function(b) {
+          if (b.getAttribute('data-feature') === featureFilter) b.classList.add('active');
+        });
+      }
+      filterAndSortCards();
     });
 </script>
 </body>
