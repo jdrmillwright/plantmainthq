@@ -3,6 +3,8 @@ set -e
 MSG="${1:-auto-update site engine}"
 echo "==> Running Master Engine..."
 python3 engine.py
+echo "==> Running Pre-Deployment Verifications..."
+python3 verify.py
 echo "==> Committing to GitHub..."
 git add .
 git commit -m "$MSG" || echo "No changes to commit"

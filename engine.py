@@ -136,10 +136,20 @@ def get_header_html(active_nav="directory"):
           <div class="drawer-section">
             <div class="drawer-heading">By Industry</div>
             <div class="drawer-chips">
-              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('manufacturing');">Manufacturing</a>
-              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('energy');">Power &amp; Energy</a>
-              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('facilities');">Facilities</a>
-              <a href="/#directory" class="drawer-chip" onclick="closeDrawer(); filterByTag('fleet');">Fleet</a>
+              <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
+              <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Budget &amp; Scale</div>
+            <div class="drawer-chips">
+              <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
+              <a href="/pricing/affordable-cmms-under-50/" class="drawer-chip" onclick="closeDrawer()">Under $50/mo</a>
+              <a href="/best-cmms-for-small-teams/" class="drawer-chip" onclick="closeDrawer()">Small Teams</a>
+              <a href="/best-enterprise-eam-software/" class="drawer-chip" onclick="closeDrawer()">Enterprise EAM</a>
             </div>
           </div>
 
@@ -169,16 +179,68 @@ def get_header_html(active_nav="directory"):
 def get_footer_html():
     return f"""
     <footer>
-      <div class="container footer-inner">
-        <div>
-          <strong>PlantMaintHQ</strong> &copy; {datetime.now().year} &bull; Independent CMMS &amp; EAM Software Engineering Directory.
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <a href="/" class="logo" style="margin-bottom:0.75rem;">
+                <div class="logo-icon" style="width:28px; height:28px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                PlantMaint<span class="logo-brand">HQ</span>
+              </a>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:1rem;">
+                The independent technical benchmark &amp; software directory for maintenance managers, millwrights, and plant reliability engineers.
+              </p>
+              <div style="font-size:0.8rem; color:var(--text-light);">
+                Zero sponsored paywalls. Unbiased engineering audits.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Directories &amp; Tools</h4>
+            <ul class="footer-link-list">
+              <li><a href="/#directory">All 106 CMMS Platforms</a></li>
+              <li><a href="/#matrix">Top Comparison Matrix</a></li>
+              <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/#guide">Evaluation Criteria</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industry Shortlists</h4>
+            <ul class="footer-link-list">
+              <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
+              <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
+              <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pricing &amp; Advisory</h4>
+            <ul class="footer-link-list">
+              <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
+              <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
+              <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
+              <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
+              <li><a href="/contact/" style="color:var(--primary); font-weight:700;">Request Specialist Advice &rarr;</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="footer-links">
-          <a href="/#directory">Directory</a>
-          <a href="/#matrix">Matrix</a>
-          <a href="/#guide">Evaluation Criteria</a>
-          <a href="/contact">Advisor Contact</a>
-          <a href="/sitemap.xml">Sitemap</a>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; {datetime.now().year} PlantMaintHQ. Independent maintenance software benchmarks. All trademarks belong to their respective owners.
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="/sitemap.xml" style="color:var(--text-muted); text-decoration:none;">XML Sitemap</a>
+            <a href="/contact/" style="color:var(--text-muted); text-decoration:none;">Contact Desk</a>
+          </div>
         </div>
       </div>
     </footer>
@@ -912,7 +974,10 @@ for p1, p2 in matchup_pairs:
           <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">{html.escape(p1['tagline'])}</p>
           <div style="font-weight:700; color:var(--primary); font-size:0.95rem; margin-bottom:0.25rem;">Starts at {html.escape(p1['starting_price_tier'])}</div>
           <div style="font-size:0.85rem; color:#475569; margin-bottom:0.75rem;">Implementation: {html.escape(p1['deployment_timeline'])}</div>
-          <a href="/cmms/{p1['slug']}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">{html.escape(p1['name'])} Review &rarr;</a>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="/cmms/{p1['slug']}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">{html.escape(p1['name'])} Review &rarr;</a>
+            <a href="/go/{p1['slug']}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;" data-track="visit_site" data-platform="{p1['name']}" data-slug="{p1['slug']}">Website &#8599;</a>
+          </div>
         </div>
 
         <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:10px; padding:1.25rem;">
@@ -920,7 +985,10 @@ for p1, p2 in matchup_pairs:
           <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:0.75rem;">{html.escape(p2['tagline'])}</p>
           <div style="font-weight:700; color:var(--primary); font-size:0.95rem; margin-bottom:0.25rem;">Starts at {html.escape(p2['starting_price_tier'])}</div>
           <div style="font-size:0.85rem; color:#475569; margin-bottom:0.75rem;">Implementation: {html.escape(p2['deployment_timeline'])}</div>
-          <a href="/cmms/{p2['slug']}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">{html.escape(p2['name'])} Review &rarr;</a>
+          <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <a href="/cmms/{p2['slug']}/" class="btn btn-primary" style="font-size:0.8rem; padding:0.4rem 0.8rem;">{html.escape(p2['name'])} Review &rarr;</a>
+            <a href="/go/{p2['slug']}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.8rem; padding:0.4rem 0.8rem;" data-track="visit_site" data-platform="{p2['name']}" data-slug="{p2['slug']}">Website &#8599;</a>
+          </div>
         </div>
       </div>
     </div>

@@ -12,6 +12,17 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=DIRECTORY, **kwargs)
 
+    def end_headers(self):
+        # Set intelligent HTTP caching headers
+        path = self.path.lower()
+        if any(path.endswith(ext) for ext in ['.css', '.js', '.png', '.svg', '.ico', '.woff2', '.jpg', '.webp']):
+            self.send_header('Cache-Control', 'public, max-age=86400, immutable')
+        elif path.endswith('.xml') or path.endswith('.json'):
+            self.send_header('Cache-Control', 'public, max-age=3600')
+        else:
+            self.send_header('Cache-Control', 'public, max-age=600, must-revalidate')
+        super().end_headers()
+
     def do_POST(self):
         if self.path == '/api/contact':
             content_length = int(self.headers['Content-Length'])
