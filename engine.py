@@ -1528,8 +1528,16 @@ for p1, p2 in matchup_pairs:
     </div>
 
     <!-- Comparison Table -->
-    <div class="card">
-      <h2>Side-by-Side Evaluation</h2>
+    <div class="card" id="battlecard-table">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.25rem;">
+        <div>
+          <span class="badge" style="background:#eff6ff; color:var(--primary); border-color:#bfdbfe; margin-bottom:0.25rem;">Procurement Battlecard</span>
+          <h2 style="margin:0;">Side-by-Side Technical Evaluation</h2>
+        </div>
+        <button onclick="window.print()" class="btn btn-outline" style="font-size:0.85rem; padding:0.45rem 0.95rem; display:inline-flex; align-items:center; gap:6px; background:#ffffff;">
+          <span>&#128438;&#65039; Print / Save Battlecard PDF</span>
+        </button>
+      </div>
       <div style="overflow-x: auto;">
         <table class="matrix-table">
           <thead>
@@ -1556,6 +1564,11 @@ for p1, p2 in matchup_pairs:
               <td class="font-mono">{html.escape(p2['starting_price_tier'])}</td>
             </tr>
             <tr>
+              <td><strong>Mobile App Rating</strong></td>
+              <td><span style="color:#059669; font-weight:700;">&#9733; {p1.get('mobile_ux_rating', 4.5)} / 5.0</span></td>
+              <td><span style="color:#059669; font-weight:700;">&#9733; {p2.get('mobile_ux_rating', 4.5)} / 5.0</span></td>
+            </tr>
+            <tr>
               <td><strong>Free Trial Availability</strong></td>
               <td>{html.escape(p1.get('free_trial_text', 'Yes'))}</td>
               <td>{html.escape(p2.get('free_trial_text', 'Yes'))}</td>
@@ -1566,9 +1579,9 @@ for p1, p2 in matchup_pairs:
               <td>{html.escape(', '.join(p2.get('deployment_types', [])))}</td>
             </tr>
             <tr>
-              <td><strong>Founded Year</strong></td>
-              <td>{p1.get('founded_year', 2015)}</td>
-              <td>{p2.get('founded_year', 2015)}</td>
+              <td><strong>Target Facility Scale</strong></td>
+              <td>{html.escape(', '.join(p1.get('target_company_scales', [])))}</td>
+              <td>{html.escape(', '.join(p2.get('target_company_scales', [])))}</td>
             </tr>
             <tr>
               <td><strong>Top Strength</strong></td>
@@ -2058,9 +2071,51 @@ roi_html = f"""<!DOCTYPE html>
           </div>
         </div>
         
-        <div style="margin-top: 1.5rem;">
-          <a href="/contact/?inquiry_type=ROI%20Breakdown" class="btn btn-primary" style="width:100%;">Email Me This ROI Breakdown &rarr;</a>
+        <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+          <button onclick="window.print()" class="btn btn-outline" style="width:100%; display:inline-flex; align-items:center; justify-content:center; gap:6px; background:#ffffff; font-weight:700;">
+            <span>&#128438;&#65039; Print / Save Executive Business Case PDF</span>
+          </button>
+          <a href="/contact/?inquiry_type=ROI%20Breakdown" class="btn btn-primary" style="width:100%; text-align:center;">Email Me This ROI Breakdown &rarr;</a>
         </div>
+      </div>
+    </div>
+
+    <!-- Printable Executive Business Case (Visible during Print) -->
+    <div id="print-cfo-summary" class="card" style="display:none; margin-top:2rem;">
+      <div style="border-bottom:2px solid var(--primary); padding-bottom:0.75rem; margin-bottom:1rem; display:flex; justify-content:space-between; align-items:flex-end;">
+        <div>
+          <h2 style="margin:0; font-size:1.4rem;">CMMS Capital Justification &amp; Financial Payback Model</h2>
+          <div style="font-size:0.85rem; color:#475569;">Prepared via PlantMaintHQ Maintenance Economics Engine</div>
+        </div>
+        <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase;">Confidential Executive Brief</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-bottom:1.5rem;">
+        <div>
+          <h4 style="font-size:0.95rem; margin-bottom:0.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:4px;">1. Facility Baseline Parameters:</h4>
+          <ul style="font-size:0.85rem; color:#334155; line-height:1.8; margin:0; padding-left:1.2rem;">
+            <li>Maintenance Staff: <strong id="print-techs">10 technicians</strong></li>
+            <li>Fully Burdened Wage: <strong id="print-wage">$45.00/hr</strong></li>
+            <li>Annual Baseline Downtime: <strong id="print-downtime">250 hours</strong></li>
+            <li>Cost of Downtime: <strong id="print-downtime-cost">$10,000/hr</strong></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:0.95rem; margin-bottom:0.5rem; border-bottom:1px solid #e2e8f0; padding-bottom:4px;">2. Projected Financial Payback:</h4>
+          <ul style="font-size:0.85rem; color:#334155; line-height:1.8; margin:0; padding-left:1.2rem;">
+            <li>Labor Wrench Time Savings: <strong id="print-labor" style="color:var(--primary);">$0</strong></li>
+            <li>Unplanned Downtime Reduction: <strong id="print-downtime-sav" style="color:var(--primary);">$0</strong></li>
+            <li>Total Annual Value: <strong id="print-total" style="color:var(--success);">$0</strong></li>
+            <li>Projected Payback Window: <strong id="print-payback">0 Months</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:0.85rem 1rem; margin-bottom:1.5rem; font-size:0.85rem; color:#475569;">
+        <strong>Methodology Note:</strong> Figures assume industry benchmark wrench-time increase of 15% through mobile work order automation and a 20% reduction in unplanned downtime via scheduled preventive PMs.
+      </div>
+      <div style="border-top:1px dashed #cbd5e1; padding-top:1.5rem; margin-top:1.5rem; display:flex; justify-content:space-between; font-size:0.85rem; color:#64748b;">
+        <div>Plant Maintenance Manager: ______________________</div>
+        <div>Plant Controller / CFO: ______________________</div>
+        <div>Date: ____________</div>
       </div>
     </div>
   </main>
@@ -2091,6 +2146,24 @@ roi_html = f"""<!DOCTYPE html>
       document.getElementById('out-downtime').textContent = formatCurrency(downtimeSavings);
       document.getElementById('out-total').textContent = formatCurrency(totalSavings);
       document.getElementById('out-payback').textContent = payback.toFixed(1) + " Months";
+
+      // Populate print summary elements
+      const printTechs = document.getElementById('print-techs');
+      if (printTechs) printTechs.textContent = techs + " technicians";
+      const printWage = document.getElementById('print-wage');
+      if (printWage) printWage.textContent = formatCurrency(wage) + "/hr";
+      const printDowntime = document.getElementById('print-downtime');
+      if (printDowntime) printDowntime.textContent = downtime + " hours";
+      const printDowntimeCost = document.getElementById('print-downtime-cost');
+      if (printDowntimeCost) printDowntimeCost.textContent = formatCurrency(downtimeCost) + "/hr";
+      const printLabor = document.getElementById('print-labor');
+      if (printLabor) printLabor.textContent = formatCurrency(laborSavings);
+      const printDowntimeSav = document.getElementById('print-downtime-sav');
+      if (printDowntimeSav) printDowntimeSav.textContent = formatCurrency(downtimeSavings);
+      const printTotal = document.getElementById('print-total');
+      if (printTotal) printTotal.textContent = formatCurrency(totalSavings);
+      const printPayback = document.getElementById('print-payback');
+      if (printPayback) printPayback.textContent = payback.toFixed(1) + " Months";
     }}
     
     document.querySelectorAll('input[type="number"]').forEach(input => {{

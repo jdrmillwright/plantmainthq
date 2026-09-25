@@ -1187,6 +1187,9 @@ footer {
     border-bottom: 1px solid #cbd5e1 !important;
     padding: 8px !important;
   }
+  #print-cfo-summary {
+    display: block !important;
+  }
 }
 
 
