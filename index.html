@@ -43,8 +43,9 @@
         <div style="display:flex; align-items:center; gap:0.75rem;">
           <nav class="nav-links">
             <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
             <a href="/#matrix">Comparison Matrix</a>
-            <a href="/#guide">Evaluation Criteria</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
             <a href="/contact/">Advisor Help</a>
           </nav>
           <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
@@ -60,6 +61,24 @@
       <!-- Slide-Down Drawer Menu -->
       <div class="nav-drawer" id="nav-drawer">
         <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
           <div class="drawer-section">
             <div class="drawer-heading">Directory Navigation</div>
             <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
@@ -150,6 +169,15 @@
       <p>
         Unbiased technical teardowns, deployment lead times, starting price tiers, and frontline mobile adoption benchmarks across 106 verified maintenance management platforms.
       </p>
+
+      <div style="display:flex; justify-content:center; gap:12px; margin-top:1.5rem; flex-wrap:wrap;">
+        <a href="#directory" class="btn btn-primary" style="padding:0.7rem 1.5rem; font-size:0.95rem;">
+          Browse 106 Platforms &darr;
+        </a>
+        <a href="/find/" class="btn btn-outline" style="padding:0.7rem 1.5rem; font-size:0.95rem; background:#ffffff; border-color:var(--primary); color:var(--primary); font-weight:700;">
+          &#10024; Take CMMS Finder Quiz &rarr;
+        </a>
+      </div>
 
       <div class="trust-grid" style="margin-top: 2rem;">
         <div class="trust-card">
@@ -5761,225 +5789,382 @@
       </div>
     </div>
 
-    <!-- Top 20 Comparison Matrix -->
+    <!-- Top CMMS Comparison Matrix -->
     <section class="card" id="matrix">
-      <h2>Top CMMS Comparison Matrix</h2>
-      <p style="color:var(--text-muted); margin-bottom: 1.5rem;">
-        Direct comparison of implementation speeds, entry pricing models, and verified ratings across leading industrial maintenance tools.
-      </p>
-      <div style="overflow-x: auto;">
-        <table class="matrix-table">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.25rem; flex-wrap:wrap; gap:0.5rem;">
+        <div>
+          <h2 style="margin-bottom:0.25rem;">Top CMMS Comparison Matrix</h2>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">
+            Direct comparison of implementation speeds, entry pricing models, and verified ratings. Click headers to sort.
+          </p>
+        </div>
+        <span style="font-size:0.8rem; color:var(--text-muted); background:#f1f5f9; padding:4px 10px; border-radius:6px;">
+          &#8644; Mobile swipe horizontally to compare
+        </span>
+      </div>
+      <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 8px;">
+        <table class="matrix-table" id="sortable-matrix">
           <thead>
             <tr>
-              <th>Platform</th>
-              <th>Implementation</th>
-              <th>Starting Price</th>
-              <th>Rating</th>
+              <th id="th-name" class="sortable-th" onclick="sortMatrixTable('name')">Platform <span id="th-name-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-timeline" class="sortable-th" onclick="sortMatrixTable('timeline')">Implementation <span id="th-timeline-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-price" class="sortable-th" onclick="sortMatrixTable('price')">Starting Price <span id="th-price-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-rating" class="sortable-th" onclick="sortMatrixTable('rating')">Rating <span id="th-rating-icon" class="sort-icon">&#8645;</span></th>
               <th>Deployment</th>
               <th>Primary Vertical</th>
               <th>Review</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="matrix-tbody">
             
-        <tr>
+        <tr data-name="limble cmms" data-timeline="1 - 3 weeks" data-price="28" data-rating="4.9">
           <td><strong><a href="/cmms/limble-cmms/" style="color:var(--text-main); text-decoration:none;">Limble CMMS</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 - 3 weeks</td>
           <td class="font-mono">$28 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.9</span></td>
-          <td>1 - 3 weeks</td>
+          <td>Cloud SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Discrete Manufacturing</span></td>
           <td><a href="/cmms/limble-cmms/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="maintainx" data-timeline="Days to 2 weeks" data-price="0" data-rating="4.8">
           <td><strong><a href="/cmms/maintainx/" style="color:var(--text-main); text-decoration:none;">MaintainX</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">Days to 2 weeks</td>
           <td class="font-mono">$0 free tier / $21 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.8</span></td>
-          <td>Days to 2 weeks</td>
+          <td>Cloud SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Industrial Manufacturing</span></td>
           <td><a href="/cmms/maintainx/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="maintainx enterprise" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.8">
           <td><strong><a href="/cmms/maintainx-enterprise/" style="color:var(--text-main); text-decoration:none;">MaintainX Enterprise</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
           <td class="font-mono">Custom Enterprise Quote</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.8</span></td>
-          <td>3 to 6 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/maintainx-enterprise/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="jobber for commercial facilities" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.7">
           <td><strong><a href="/cmms/jobber-maintenance/" style="color:var(--text-main); text-decoration:none;">Jobber for Commercial Facilities</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.7</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Facilities &amp; Property</span></td>
           <td><a href="/cmms/jobber-maintenance/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="upkeep" data-timeline="2 - 4 weeks" data-price="20" data-rating="4.7">
           <td><strong><a href="/cmms/upkeep/" style="color:var(--text-main); text-decoration:none;">UpKeep</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">2 - 4 weeks</td>
           <td class="font-mono">$20 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.7</span></td>
-          <td>2 - 4 weeks</td>
+          <td>Cloud SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing &amp; Assembly Plants</span></td>
           <td><a href="/cmms/upkeep/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="fiix" data-timeline="4 - 8 weeks" data-price="45" data-rating="4.6">
           <td><strong><a href="/cmms/fiix/" style="color:var(--text-main); text-decoration:none;">Fiix</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">4 - 8 weeks</td>
           <td class="font-mono">$45 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.6</span></td>
-          <td>4 - 8 weeks</td>
+          <td>Cloud SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Heavy Industrial Manufacturing</span></td>
           <td><a href="/cmms/fiix/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="maintenity" data-timeline="1 to 3 weeks" data-price="19" data-rating="4.6">
           <td><strong><a href="/cmms/maintenity/" style="color:var(--text-main); text-decoration:none;">Maintenity</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$19 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.6</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/maintenity/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="maintplex" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.5">
           <td><strong><a href="/cmms/maintplex/" style="color:var(--text-main); text-decoration:none;">MaintPlex</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.5</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/maintplex/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="emaint" data-timeline="6 - 12 weeks" data-price="69" data-rating="4.5">
           <td><strong><a href="/cmms/emaint/" style="color:var(--text-main); text-decoration:none;">eMaint</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">6 - 12 weeks</td>
           <td class="font-mono">$69 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.5</span></td>
-          <td>6 - 12 weeks</td>
+          <td>Cloud SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Discrete &amp; Continuous Process Manufacturing</span></td>
           <td><a href="/cmms/emaint/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="asset panda cmms" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.4">
           <td><strong><a href="/cmms/asset-panda-cmms/" style="color:var(--text-main); text-decoration:none;">Asset Panda CMMS</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.4</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Facilities &amp; Property</span></td>
           <td><a href="/cmms/asset-panda-cmms/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="cryotos cmms" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.4">
           <td><strong><a href="/cmms/cryotos-cmms/" style="color:var(--text-main); text-decoration:none;">Cryotos CMMS</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.4</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/cryotos-cmms/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="ezofficeinventory" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.4">
           <td><strong><a href="/cmms/ezofficeinventory/" style="color:var(--text-main); text-decoration:none;">EZOfficeInventory</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.4</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Construction</span></td>
           <td><a href="/cmms/ezofficeinventory/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="maintenance care" data-timeline="1 to 3 weeks" data-price="19" data-rating="4.4">
           <td><strong><a href="/cmms/maintenance-care/" style="color:var(--text-main); text-decoration:none;">Maintenance Care</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$19 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.4</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Facilities &amp; Property</span></td>
           <td><a href="/cmms/maintenance-care/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="agility" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
           <td><strong><a href="/cmms/agility/" style="color:var(--text-main); text-decoration:none;">Agility</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/agility/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="archibus" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
           <td><strong><a href="/cmms/archibus/" style="color:var(--text-main); text-decoration:none;">Archibus</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
           <td class="font-mono">Custom Enterprise Quote</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>3 to 6 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Government</span></td>
           <td><a href="/cmms/archibus/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="asset essentials" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
           <td><strong><a href="/cmms/asset-essentials/" style="color:var(--text-main); text-decoration:none;">Asset Essentials</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
           <td class="font-mono">Custom Enterprise Quote</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>3 to 6 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Education</span></td>
           <td><a href="/cmms/asset-essentials/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="asset panda" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
           <td><strong><a href="/cmms/asset-panda/" style="color:var(--text-main); text-decoration:none;">Asset Panda</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">IT</span></td>
           <td><a href="/cmms/asset-panda/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="assetinfinity" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
           <td><strong><a href="/cmms/assetinfinity/" style="color:var(--text-main); text-decoration:none;">AssetInfinity</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
           <td class="font-mono">$35 / user / month</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>1 to 3 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
           <td><a href="/cmms/assetinfinity/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="assetworks" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
           <td><strong><a href="/cmms/assetworks/" style="color:var(--text-main); text-decoration:none;">AssetWorks</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
           <td class="font-mono">Custom Enterprise Quote</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>3 to 6 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Government</span></td>
           <td><a href="/cmms/assetworks/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
-        <tr>
+        <tr data-name="champs cmms" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
           <td><strong><a href="/cmms/champs-cmms/" style="color:var(--text-main); text-decoration:none;">CHAMPS CMMS</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
           <td class="font-mono">Custom Enterprise Quote</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
-          <td>3 to 6 weeks</td>
+          <td>Cloud/SaaS</td>
           <td><span class="pill" style="font-size:0.75rem;">Nuclear Power</span></td>
           <td><a href="/cmms/champs-cmms/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="carl source" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/carl-source/" style="color:var(--text-main); text-decoration:none;">Carl Source</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/carl-source/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="cityworks" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/cityworks/" style="color:var(--text-main); text-decoration:none;">Cityworks</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Local Government</span></td>
+          <td><a href="/cmms/cityworks/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="coast" data-timeline="1 to 3 weeks" data-price="19" data-rating="4.3">
+          <td><strong><a href="/cmms/coast/" style="color:var(--text-main); text-decoration:none;">Coast</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$19 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Facilities</span></td>
+          <td><a href="/cmms/coast/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="dimo maint" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/dimo-maint/" style="color:var(--text-main); text-decoration:none;">DIMO Maint</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/dimo-maint/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="dozuki" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/dozuki/" style="color:var(--text-main); text-decoration:none;">Dozuki</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/dozuki/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="eptura" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/eptura/" style="color:var(--text-main); text-decoration:none;">Eptura</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Corporate Real Estate</span></td>
+          <td><a href="/cmms/eptura/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="fmx" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/fmx/" style="color:var(--text-main); text-decoration:none;">FMX</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Education</span></td>
+          <td><a href="/cmms/fmx/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="facilio" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/facilio/" style="color:var(--text-main); text-decoration:none;">Facilio</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Commercial Real Estate</span></td>
+          <td><a href="/cmms/facilio/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="fracttal one" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/fracttal-one/" style="color:var(--text-main); text-decoration:none;">Fracttal One</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/fracttal-one/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="hexagon eam" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/hexagon-eam/" style="color:var(--text-main); text-decoration:none;">Hexagon EAM</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/hexagon-eam/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="hippo cmms" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/hippo-cmms/" style="color:var(--text-main); text-decoration:none;">Hippo CMMS</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/hippo-cmms/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="ibm maximo" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/ibm-maximo/" style="color:var(--text-main); text-decoration:none;">IBM Maximo</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Oil &amp; Gas</span></td>
+          <td><a href="/cmms/ibm-maximo/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="ifs eam" data-timeline="3 to 6 weeks" data-price="9999" data-rating="4.3">
+          <td><strong><a href="/cmms/ifs-eam/" style="color:var(--text-main); text-decoration:none;">IFS EAM</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">3 to 6 weeks</td>
+          <td class="font-mono">Custom Enterprise Quote</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Aerospace &amp; Defense</span></td>
+          <td><a href="/cmms/ifs-eam/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="ifs ultimo" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/ifs-ultimo/" style="color:var(--text-main); text-decoration:none;">IFS Ultimo</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/ifs-ultimo/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
+        </tr>
+
+        <tr data-name="mapcon" data-timeline="1 to 3 weeks" data-price="35" data-rating="4.3">
+          <td><strong><a href="/cmms/mapcon/" style="color:var(--text-main); text-decoration:none;">MAPCON</a></strong></td>
+          <td class="font-mono" style="color:var(--primary); font-weight:700;">1 to 3 weeks</td>
+          <td class="font-mono">$35 / user / month</td>
+          <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; 4.3</span></td>
+          <td>Cloud/SaaS</td>
+          <td><span class="pill" style="font-size:0.75rem;">Manufacturing</span></td>
+          <td><a href="/cmms/mapcon/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
 
           </tbody>
@@ -6042,6 +6227,7 @@
           <div class="footer-col">
             <h4>Directories &amp; Tools</h4>
             <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
               <li><a href="/#directory">All 106 CMMS Platforms</a></li>
               <li><a href="/#matrix">Top Comparison Matrix</a></li>
               <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
@@ -6347,6 +6533,60 @@
           updateCompareDock();
         });
       }
+
+      // Sortable Matrix Table Functionality
+      var matrixSortCol = '';
+      var matrixSortAsc = true;
+
+      window.sortMatrixTable = function(col) {
+        var tbody = document.getElementById('matrix-tbody');
+        if (!tbody) return;
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+
+        if (matrixSortCol === col) {
+          matrixSortAsc = !matrixSortAsc;
+        } else {
+          matrixSortCol = col;
+          matrixSortAsc = (col === 'name' || col === 'price');
+        }
+
+        rows.sort(function(a, b) {
+          var valA, valB;
+          if (col === 'rating') {
+            valA = parseFloat(a.getAttribute('data-rating') || '0');
+            valB = parseFloat(b.getAttribute('data-rating') || '0');
+            return matrixSortAsc ? valA - valB : valB - valA;
+          } else if (col === 'price') {
+            valA = parseInt(a.getAttribute('data-price') || '9999', 10);
+            valB = parseInt(b.getAttribute('data-price') || '9999', 10);
+            return matrixSortAsc ? valA - valB : valB - valA;
+          } else if (col === 'timeline') {
+            valA = (a.getAttribute('data-timeline') || '').toLowerCase();
+            valB = (b.getAttribute('data-timeline') || '').toLowerCase();
+            return matrixSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          } else {
+            valA = (a.getAttribute('data-name') || '').toLowerCase();
+            valB = (b.getAttribute('data-name') || '').toLowerCase();
+            return matrixSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          }
+        });
+
+        rows.forEach(function(row) { tbody.appendChild(row); });
+
+        ['name', 'timeline', 'price', 'rating'].forEach(function(c) {
+          var th = document.getElementById('th-' + c);
+          var icon = document.getElementById('th-' + c + '-icon');
+          if (th) {
+            th.classList.remove('sorted-asc', 'sorted-desc');
+            if (c === matrixSortCol) {
+              th.classList.add(matrixSortAsc ? 'sorted-asc' : 'sorted-desc');
+              if (icon) icon.innerHTML = matrixSortAsc ? '&#9650;' : '&#9660;';
+            } else {
+              if (icon) icon.innerHTML = '&#8645;';
+            }
+          }
+        });
+      };
 
       window.filterByTag = function(tag) {
         if (tag === 'mobile') {

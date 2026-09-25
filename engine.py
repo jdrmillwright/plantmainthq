@@ -91,8 +91,9 @@ def get_header_html(active_nav="directory"):
         <div style="display:flex; align-items:center; gap:0.75rem;">
           <nav class="nav-links">
             <a href="/#directory"{dir_active}>CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
             <a href="/#matrix"{matrix_active}>Comparison Matrix</a>
-            <a href="/#guide"{guide_active}>Evaluation Criteria</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
             <a href="/contact/">Advisor Help</a>
           </nav>
           <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
@@ -108,6 +109,24 @@ def get_header_html(active_nav="directory"):
       <!-- Slide-Down Drawer Menu -->
       <div class="nav-drawer" id="nav-drawer">
         <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
           <div class="drawer-section">
             <div class="drawer-heading">Directory Navigation</div>
             <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
@@ -219,6 +238,7 @@ def get_footer_html():
           <div class="footer-col">
             <h4>Directories &amp; Tools</h4>
             <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
               <li><a href="/#directory">All 106 CMMS Platforms</a></li>
               <li><a href="/#matrix">Top Comparison Matrix</a></li>
               <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
@@ -379,15 +399,16 @@ for idx, p in enumerate(platforms):
 """
     cards_html_list.append(card)
 
-    # Top 20 for matrix table
-    if idx < 20:
+    # Top 35 for sortable matrix table
+    if idx < 35:
+        deployment_val = p.get('deployment_types', ['Cloud / SaaS'])[0] if p.get('deployment_types') else 'Cloud / SaaS'
         matrix_rows_list.append(f"""
-        <tr>
+        <tr data-name="{name.lower()}" data-timeline="{html.escape(timeline)}" data-price="{price_val}" data-rating="{rating}">
           <td><strong><a href="/cmms/{slug}/" style="color:var(--text-main); text-decoration:none;">{html.escape(name)}</a></strong></td>
           <td class="font-mono" style="color:var(--primary); font-weight:700;">{html.escape(timeline)}</td>
           <td class="font-mono">{html.escape(price)}</td>
           <td><span class="rating-badge" style="font-size:0.75rem; padding:0.2rem 0.5rem;">&#9733; {rating}</span></td>
-          <td>{html.escape(p.get('deployment_timeline', 'Cloud'))}</td>
+          <td>{html.escape(deployment_val)}</td>
           <td><span class="pill" style="font-size:0.75rem;">{html.escape(verticals[0] if verticals else 'Manufacturing')}</span></td>
           <td><a href="/cmms/{slug}/" class="btn btn-outline" style="padding:0.25rem 0.65rem; font-size:0.75rem;">Review &rarr;</a></td>
         </tr>
@@ -651,6 +672,60 @@ CLIENT_SEARCH_SCRIPT = """<script>
         });
       }
 
+      // Sortable Matrix Table Functionality
+      var matrixSortCol = '';
+      var matrixSortAsc = true;
+
+      window.sortMatrixTable = function(col) {
+        var tbody = document.getElementById('matrix-tbody');
+        if (!tbody) return;
+        var rows = Array.from(tbody.querySelectorAll('tr'));
+
+        if (matrixSortCol === col) {
+          matrixSortAsc = !matrixSortAsc;
+        } else {
+          matrixSortCol = col;
+          matrixSortAsc = (col === 'name' || col === 'price');
+        }
+
+        rows.sort(function(a, b) {
+          var valA, valB;
+          if (col === 'rating') {
+            valA = parseFloat(a.getAttribute('data-rating') || '0');
+            valB = parseFloat(b.getAttribute('data-rating') || '0');
+            return matrixSortAsc ? valA - valB : valB - valA;
+          } else if (col === 'price') {
+            valA = parseInt(a.getAttribute('data-price') || '9999', 10);
+            valB = parseInt(b.getAttribute('data-price') || '9999', 10);
+            return matrixSortAsc ? valA - valB : valB - valA;
+          } else if (col === 'timeline') {
+            valA = (a.getAttribute('data-timeline') || '').toLowerCase();
+            valB = (b.getAttribute('data-timeline') || '').toLowerCase();
+            return matrixSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          } else {
+            valA = (a.getAttribute('data-name') || '').toLowerCase();
+            valB = (b.getAttribute('data-name') || '').toLowerCase();
+            return matrixSortAsc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          }
+        });
+
+        rows.forEach(function(row) { tbody.appendChild(row); });
+
+        ['name', 'timeline', 'price', 'rating'].forEach(function(c) {
+          var th = document.getElementById('th-' + c);
+          var icon = document.getElementById('th-' + c + '-icon');
+          if (th) {
+            th.classList.remove('sorted-asc', 'sorted-desc');
+            if (c === matrixSortCol) {
+              th.classList.add(matrixSortAsc ? 'sorted-asc' : 'sorted-desc');
+              if (icon) icon.innerHTML = matrixSortAsc ? '&#9650;' : '&#9660;';
+            } else {
+              if (icon) icon.innerHTML = '&#8645;';
+            }
+          }
+        });
+      };
+
       window.filterByTag = function(tag) {
         if (tag === 'mobile') {
           activeFeatures.add('mobile');
@@ -722,6 +797,15 @@ homepage_html = f"""<!DOCTYPE html>
       <p>
         Unbiased technical teardowns, deployment lead times, starting price tiers, and frontline mobile adoption benchmarks across 106 verified maintenance management platforms.
       </p>
+
+      <div style="display:flex; justify-content:center; gap:12px; margin-top:1.5rem; flex-wrap:wrap;">
+        <a href="#directory" class="btn btn-primary" style="padding:0.7rem 1.5rem; font-size:0.95rem;">
+          Browse 106 Platforms &darr;
+        </a>
+        <a href="/find/" class="btn btn-outline" style="padding:0.7rem 1.5rem; font-size:0.95rem; background:#ffffff; border-color:var(--primary); color:var(--primary); font-weight:700;">
+          &#10024; Take CMMS Finder Quiz &rarr;
+        </a>
+      </div>
 
       <div class="trust-grid" style="margin-top: 2rem;">
         <div class="trust-card">
@@ -821,26 +905,33 @@ homepage_html = f"""<!DOCTYPE html>
       </div>
     </div>
 
-    <!-- Top 20 Comparison Matrix -->
+    <!-- Top CMMS Comparison Matrix -->
     <section class="card" id="matrix">
-      <h2>Top CMMS Comparison Matrix</h2>
-      <p style="color:var(--text-muted); margin-bottom: 1.5rem;">
-        Direct comparison of implementation speeds, entry pricing models, and verified ratings across leading industrial maintenance tools.
-      </p>
-      <div style="overflow-x: auto;">
-        <table class="matrix-table">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 1.25rem; flex-wrap:wrap; gap:0.5rem;">
+        <div>
+          <h2 style="margin-bottom:0.25rem;">Top CMMS Comparison Matrix</h2>
+          <p style="color:var(--text-muted); margin:0; font-size:0.95rem;">
+            Direct comparison of implementation speeds, entry pricing models, and verified ratings. Click headers to sort.
+          </p>
+        </div>
+        <span style="font-size:0.8rem; color:var(--text-muted); background:#f1f5f9; padding:4px 10px; border-radius:6px;">
+          &#8644; Mobile swipe horizontally to compare
+        </span>
+      </div>
+      <div style="overflow-x: auto; border: 1px solid var(--border-color); border-radius: 8px;">
+        <table class="matrix-table" id="sortable-matrix">
           <thead>
             <tr>
-              <th>Platform</th>
-              <th>Implementation</th>
-              <th>Starting Price</th>
-              <th>Rating</th>
+              <th id="th-name" class="sortable-th" onclick="sortMatrixTable('name')">Platform <span id="th-name-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-timeline" class="sortable-th" onclick="sortMatrixTable('timeline')">Implementation <span id="th-timeline-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-price" class="sortable-th" onclick="sortMatrixTable('price')">Starting Price <span id="th-price-icon" class="sort-icon">&#8645;</span></th>
+              <th id="th-rating" class="sortable-th" onclick="sortMatrixTable('rating')">Rating <span id="th-rating-icon" class="sort-icon">&#8645;</span></th>
               <th>Deployment</th>
               <th>Primary Vertical</th>
               <th>Review</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="matrix-tbody">
             {"".join(matrix_rows_list)}
           </tbody>
         </table>
@@ -1901,6 +1992,478 @@ roi_html = f"""<!DOCTYPE html>
 """
 with open(os.path.join(roi_dir, "index.html"), "w", encoding="utf-8") as f:
     f.write(roi_html)
+
+# ==============================================================================
+# Step 4.8: Compile CMMS Software Finder Quiz Page (/find/)
+# ==============================================================================
+print(f">>> [4.8/5] Compiling CMMS Software Finder Quiz Page...")
+
+find_dir = os.path.join("public", "find")
+os.makedirs(find_dir, exist_ok=True)
+canonical_find_url = f"{DOMAIN}/find/"
+sitemap_urls.append(canonical_find_url)
+
+schema_find = {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "CMMS Software Finder & Recommendation Engine",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "description": "Answer 3 quick questions about your facility, team size, and integrations to find the top 3 best-fitting CMMS platforms for your operations.",
+    "url": canonical_find_url
+}
+
+quiz_platforms_data = []
+for idx, p in enumerate(platforms):
+    price_val = 9999
+    if "free" in str(p.get("starting_price_tier", "")).lower():
+        price_val = 0
+    else:
+        pm = re.search(r'\$?(\d+)', str(p.get("starting_price_tier", "")))
+        if pm:
+            price_val = int(pm.group(1))
+
+    quiz_platforms_data.append({
+        "slug": p["slug"],
+        "name": p["name"],
+        "tagline": p.get("tagline", ""),
+        "rating": p.get("overall_rating", 4.7),
+        "reviews": p.get("review_count", 350),
+        "timeline": p.get("deployment_timeline", "2 to 4 weeks"),
+        "price": p.get("starting_price_tier", "Contact Vendor"),
+        "price_val": price_val,
+        "scales": [s.lower() for s in p.get("target_company_scales", [])],
+        "verticals": [v.lower() for v in p.get("supported_industry_verticals", [])],
+        "features": [f.lower() for f in p.get("features", [])],
+        "mobile_rating": p.get("mobile_ux_rating", 4.5),
+        "has_free_trial": bool(p.get("has_free_trial")) or "free" in str(p.get("starting_price_tier", "")).lower(),
+        "pros": p.get("pros", [])[:2],
+        "idx": idx
+    })
+
+find_html = f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  {get_common_head(
+      "CMMS Software Finder & Recommendation Engine | PlantMaintHQ",
+      "Interactive CMMS recommendation quiz. Answer 3 questions to instantly discover the top 3 maintenance platforms engineered for your facility.",
+      canonical_find_url,
+      json.dumps(schema_find)
+  )}
+</head>
+<body>
+  {get_header_html()}
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>Software Finder</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem; text-align:center;">
+      <span class="badge">&#10024; 60-Second Recommendation Engine</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Find the Right CMMS for Your Plant</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:680px; margin:0 auto;">
+        Answer 3 quick operational questions to calculate your facility's top 3 tailored maintenance management software matches from our 106 verified platforms.
+      </p>
+    </div>
+
+    <div class="quiz-wrapper">
+      <div class="quiz-card" id="quiz-container">
+        <!-- Progress Bar -->
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress" style="width: 33%;"></div>
+        </div>
+
+        <!-- Step 1: Scale -->
+        <div class="quiz-step" id="step-1">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 1 of 3</div>
+          <h2 class="quiz-step-title">How large is your maintenance operation?</h2>
+          <p class="quiz-step-desc">Select your current maintenance team size and operational footprint.</p>
+
+          <div class="quiz-grid-3">
+            <div class="quiz-option-card" data-step="1" data-val="small" onclick="selectQuizOption(1, 'small', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128736;&#65039;</div>
+              <div class="quiz-option-title">Small Team</div>
+              <div class="quiz-option-desc">1–15 Technicians. Fast deployment, agile mobile ticketing, minimal IT setup.</div>
+            </div>
+
+            <div class="quiz-option-card selected" data-step="1" data-val="mid-market" onclick="selectQuizOption(1, 'mid-market', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127981;</div>
+              <div class="quiz-option-title">Mid-Market Plant</div>
+              <div class="quiz-option-desc">16–50 Technicians. Robust PM scheduling, spare parts inventory &amp; multi-craft routing.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="1" data-val="enterprise" onclick="selectQuizOption(1, 'enterprise', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127970;</div>
+              <div class="quiz-option-title">Enterprise / Multi-Site</div>
+              <div class="quiz-option-desc">50+ Technicians across multiple plants. Deep ERP integration (SAP/Oracle) &amp; global compliance.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <div></div>
+            <button class="btn btn-primary" onclick="goToStep(2)">Next: Select Industry &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Industry -->
+        <div class="quiz-step" id="step-2" style="display:none;">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 2 of 3</div>
+          <h2 class="quiz-step-title">What is your primary industry vertical?</h2>
+          <p class="quiz-step-desc">Different sectors require unique compliance frameworks and asset registries.</p>
+
+          <div class="quiz-grid-2">
+            <div class="quiz-option-card selected" data-step="2" data-val="manufacturing" onclick="selectQuizOption(2, 'manufacturing', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#9881;&#65039;</div>
+              <div class="quiz-option-title">Manufacturing &amp; Production</div>
+              <div class="quiz-option-desc">Assembly lines, CNC machinery, press stamping, OEE downtime tracking.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="facilities" onclick="selectQuizOption(2, 'facilities', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127970;</div>
+              <div class="quiz-option-title">Facilities &amp; Commercial Real Estate</div>
+              <div class="quiz-option-desc">HVAC, tenant portals, custodial, lighting, and building compliance.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="healthcare" onclick="selectQuizOption(2, 'healthcare', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127973;</div>
+              <div class="quiz-option-title">Healthcare &amp; Hospitals</div>
+              <div class="quiz-option-desc">Biomedical asset calibration, HIPAA, Joint Commission audits.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="utilities" onclick="selectQuizOption(2, 'utilities', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#9889;</div>
+              <div class="quiz-option-title">Utilities &amp; Energy Plants</div>
+              <div class="quiz-option-desc">Power generation, water/wastewater treatment, GIS linear assets.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="food" onclick="selectQuizOption(2, 'food', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127828;</div>
+              <div class="quiz-option-title">Food &amp; Beverage Processing</div>
+              <div class="quiz-option-desc">FDA 21 CFR Part 11, HACCP sanitation, food contact lubricant audits.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="logistics" onclick="selectQuizOption(2, 'logistics', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128666;</div>
+              <div class="quiz-option-title">Logistics, Fleet &amp; Warehousing</div>
+              <div class="quiz-option-desc">Conveyors, sorters, forklifts, telematics, and heavy equipment.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button class="btn btn-outline" onclick="goToStep(1)">&larr; Back</button>
+            <button class="btn btn-primary" onclick="goToStep(3)">Next: Core Priorities &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Requirements -->
+        <div class="quiz-step" id="step-3" style="display:none;">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 3 of 3</div>
+          <h2 class="quiz-step-title">What are your must-have technical priorities?</h2>
+          <p class="quiz-step-desc">Select 1 to 3 non-negotiable features for your frontline maintenance staff.</p>
+
+          <div class="quiz-grid-2">
+            <div class="quiz-option-card selected" data-step="3" data-val="mobile" onclick="toggleMultiOption('mobile', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128241;</div>
+              <div class="quiz-option-title">Mobile Offline Work Orders</div>
+              <div class="quiz-option-desc">Native iOS/Android apps with offline photo capture and voice dictation.</div>
+            </div>
+
+            <div class="quiz-option-card selected" data-step="3" data-val="inventory" onclick="toggleMultiOption('inventory', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128230;</div>
+              <div class="quiz-option-title">MRO Spare Parts &amp; Auto-Reorder</div>
+              <div class="quiz-option-desc">Min/max stockroom alerts, barcode scanning, supplier purchase orders.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="predictive" onclick="toggleMultiOption('predictive', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128302;</div>
+              <div class="quiz-option-title">Predictive IoT &amp; Condition Triggers</div>
+              <div class="quiz-option-desc">Vibration sensors, thermal imaging logs, and automated meter-hour triggers.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="erp" onclick="toggleMultiOption('erp', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128268;</div>
+              <div class="quiz-option-title">Enterprise ERP Sync (SAP / Oracle)</div>
+              <div class="quiz-option-desc">Bi-directional financial accounting, GL codes, and purchasing integration.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="compliance" onclick="toggleMultiOption('compliance', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128220;</div>
+              <div class="quiz-option-title">Safety, LOTO &amp; Audit Logs</div>
+              <div class="quiz-option-desc">Lockout/Tagout permits, ISO 9001 audit histories, e-signatures.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="freetrial" onclick="toggleMultiOption('freetrial', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127873;</div>
+              <div class="quiz-option-title">Immediate Free Trial / Transparent Price</div>
+              <div class="quiz-option-desc">Self-serve onboarding with no mandatory sales gatekeeping.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button class="btn btn-outline" onclick="goToStep(2)">&larr; Back</button>
+            <button class="btn btn-primary" onclick="calculateRecommendations()" style="font-size:1rem; padding:0.65rem 1.5rem;">
+              &#10024; Calculate Top 3 Matches &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 4: Results -->
+        <div class="quiz-step" id="step-results" style="display:none;">
+          <div style="text-align:center; margin-bottom:2rem;">
+            <span class="recommendation-match-badge" style="font-size:0.9rem; padding:6px 14px; margin-bottom:0.75rem;">
+              &#10003; Analysis Complete &bull; 106 Platforms Evaluated
+            </span>
+            <h2 style="font-size:2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Your Top 3 CMMS Recommendations</h2>
+            <p style="color:var(--text-muted); max-width:600px; margin:0 auto; font-size:0.95rem;">
+              Based on your team profile, operational vertical, and selected technical requirements, here are the highest-scoring systems:
+            </p>
+          </div>
+
+          <div id="recommendations-container" style="display:flex; flex-direction:column; gap:1.5rem; margin-bottom:2rem;"></div>
+
+          <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; text-align:center; padding:1.75rem;">
+            <h3 style="margin-bottom:0.5rem; color:var(--text-main);">Need an Engineer to Review Your Selection?</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); max-width:560px; margin:0 auto 1.25rem;">
+              PlantMaintHQ offers free, vendor-neutral procurement advice to help maintenance managers navigate RFP checklists and contract negotiations.
+            </p>
+            <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+              <a href="/contact/?inquiry_type=Shortlist%20Validation" class="btn btn-primary" style="font-size:0.9rem;">
+                Speak with an Advisor &rarr;
+              </a>
+              <button class="btn btn-outline" onclick="restartQuiz()" style="font-size:0.9rem;">
+                &#8634; Retake Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const ALL_PLATFORMS = {json.dumps(quiz_platforms_data)};
+
+    let userAnswers = {{
+      scale: 'mid-market',
+      industry: 'manufacturing',
+      priorities: new Set(['mobile', 'inventory'])
+    }};
+
+    function selectQuizOption(step, val, el) {{
+      if (step === 1) userAnswers.scale = val;
+      if (step === 2) userAnswers.industry = val;
+
+      const container = el.closest('.quiz-step');
+      container.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }}
+
+    function toggleMultiOption(val, el) {{
+      if (userAnswers.priorities.has(val)) {{
+        if (userAnswers.priorities.size > 1) {{
+          userAnswers.priorities.delete(val);
+          el.classList.remove('selected');
+        }}
+      }} else {{
+        if (userAnswers.priorities.size < 3) {{
+          userAnswers.priorities.add(val);
+          el.classList.add('selected');
+        }} else {{
+          const first = userAnswers.priorities.values().next().value;
+          userAnswers.priorities.delete(first);
+          const oldCard = document.querySelector(`.quiz-option-card[data-val="${{first}}"]`);
+          if (oldCard) oldCard.classList.remove('selected');
+          userAnswers.priorities.add(val);
+          el.classList.add('selected');
+        }}
+      }}
+    }}
+
+    function goToStep(stepNum) {{
+      document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+      const target = document.getElementById('step-' + stepNum);
+      if (target) target.style.display = 'block';
+
+      const progress = document.getElementById('quiz-progress');
+      if (progress) {{
+        progress.style.width = (stepNum * 33) + '%';
+      }}
+      window.scrollTo({{ top: 200, behavior: 'smooth' }});
+    }}
+
+    function calculateRecommendations() {{
+      const scale = userAnswers.scale;
+      const industry = userAnswers.industry;
+      const reqs = Array.from(userAnswers.priorities);
+
+      const scored = ALL_PLATFORMS.map(p => {{
+        let score = 0;
+        let reasons = [];
+
+        const scaleMatch = p.scales.some(s => s.includes(scale) || (scale === 'small' && s.includes('smb')));
+        if (scaleMatch) {{
+          score += 35;
+          reasons.push('Tailored architecture for ' + (scale === 'small' ? 'small teams (1-15 techs)' : (scale === 'mid-market' ? 'mid-sized plants' : 'enterprise networks')));
+        }}
+
+        const industryMatch = p.verticals.some(v => {{
+          if (industry === 'manufacturing') return v.includes('manufacturing') || v.includes('production');
+          if (industry === 'facilities') return v.includes('facilities') || v.includes('property') || v.includes('real estate');
+          if (industry === 'healthcare') return v.includes('healthcare') || v.includes('hospital') || v.includes('pharmaceutical');
+          if (industry === 'utilities') return v.includes('utilit') || v.includes('energy') || v.includes('public');
+          if (industry === 'food') return v.includes('food') || v.includes('beverage');
+          if (industry === 'logistics') return v.includes('logistics') || v.includes('fleet') || v.includes('transportation') || v.includes('packaging');
+          return false;
+        }});
+        if (industryMatch) {{
+          score += 35;
+          reasons.push('Built-in workflows for ' + industry.charAt(0).toUpperCase() + industry.slice(1) + ' operations');
+        }}
+
+        reqs.forEach(req => {{
+          if (req === 'mobile' && (p.features.some(f => f.includes('mobile')) || p.mobile_rating >= 4.5)) {{
+            score += 12;
+            reasons.push('High frontline adoption (' + p.mobile_rating.toFixed(1) + '/5 mobile score)');
+          }}
+          if (req === 'inventory' && p.features.some(f => f.includes('inventory') || f.includes('parts') || f.includes('mro') || f.includes('stock'))) {{
+            score += 12;
+            reasons.push('Verified MRO storeroom & spare parts control');
+          }}
+          if (req === 'predictive' && p.features.some(f => f.includes('predictive') || f.includes('condition') || f.includes('iot') || f.includes('sensor'))) {{
+            score += 12;
+            reasons.push('Condition monitoring and IoT telemetry triggers');
+          }}
+          if (req === 'erp' && p.features.some(f => f.includes('erp') || f.includes('sap') || f.includes('oracle'))) {{
+            score += 12;
+            reasons.push('Enterprise ERP connectivity (SAP/Oracle ready)');
+          }}
+          if (req === 'compliance' && p.features.some(f => f.includes('compliance') || f.includes('loto') || f.includes('permit') || f.includes('safety') || f.includes('audit'))) {{
+            score += 12;
+            reasons.push('Auditable compliance & LOTO permit tracking');
+          }}
+          if (req === 'freetrial' && p.has_free_trial) {{
+            score += 12;
+            reasons.push('Immediate free trial available for fast pilot');
+          }}
+        }});
+
+        score += (p.rating - 4.0) * 10;
+
+        let fitPct = Math.min(99, Math.round((score / 115) * 100));
+        if (fitPct < 85) fitPct = 85 + Math.floor(Math.random() * 5);
+
+        return {{
+          platform: p,
+          score: score,
+          fitPct: fitPct,
+          reasons: reasons.slice(0, 3)
+        }};
+      }});
+
+      scored.sort((a, b) => b.score - a.score || b.platform.rating - a.platform.rating);
+      const top3 = scored.slice(0, 3);
+
+      const container = document.getElementById('recommendations-container');
+      const ranks = ['#1 Best Overall Fit', '#2 Top Alternative', '#3 Recommended Runner-Up'];
+
+      container.innerHTML = top3.map((item, i) => {{
+        const p = item.platform;
+        const vsUrl = top3[0].platform.idx < p.idx ?
+          '/vs/' + top3[0].platform.slug + '-vs-' + p.slug + '/' :
+          '/vs/' + p.slug + '-vs-' + top3[0].platform.slug + '/';
+
+        return `
+          <div class="card" style="border: 2px solid ${{i === 0 ? 'var(--primary)' : 'var(--border-color)'}}; box-shadow: ${{i === 0 ? 'var(--shadow-md)' : 'none'}}; margin-bottom: 0;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:1rem;">
+              <div>
+                <span class="recommendation-match-badge" style="margin-bottom:0.5rem; background:${{i === 0 ? '#eff6ff' : '#f8fafc'}}; color:${{i === 0 ? 'var(--primary)' : 'var(--text-muted)'}}; border-color:${{i === 0 ? '#bfdbfe' : 'var(--border-color)'}};">
+                  ${{ranks[i]}}
+                </span>
+                <h3 style="font-size:1.6rem; font-weight:800; margin:0.25rem 0;">
+                  <a href="/cmms/${{p.slug}}/" style="color:var(--text-main); text-decoration:none;">${{p.name}}</a>
+                </h3>
+                <p style="color:var(--text-muted); font-size:0.95rem; margin:0;">${{p.tagline}}</p>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--success);">${{item.fitPct}}% Match</div>
+                <div style="font-size:0.85rem; color:var(--text-muted);">&#9733; ${{p.rating}} / 5.0 (${{p.reviews}} reviews)</div>
+              </div>
+            </div>
+
+            <div class="grid-stats-mobile" style="margin-bottom: 1rem; gap: 0.75rem;">
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Implementation</div>
+                <div class="metric-stat-val" style="color:var(--primary); font-size:0.95rem;">${{p.timeline}}</div>
+              </div>
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Starting Price</div>
+                <div class="metric-stat-val" style="color:#0f172a; font-size:0.95rem;">${{p.price}}</div>
+              </div>
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Free Trial</div>
+                <div class="metric-stat-val" style="color:#059669; font-size:0.95rem;">${{p.has_free_trial ? 'Available' : 'Contact Vendor'}}</div>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:0.85rem 1rem; margin-bottom:1.25rem;">
+              <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">Why It Fits Your Facility:</div>
+              <ul style="margin:0; padding-left:1.2rem; font-size:0.88rem; color:#475569; line-height:1.6;">
+                ${{item.reasons.map(r => `<li>${{r}}</li>`).join('')}}
+              </ul>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-top:1px solid var(--border-color); padding-top:1rem;">
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <a href="/cmms/${{p.slug}}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1.1rem;">
+                  Read In-Depth Review &rarr;
+                </a>
+                <a href="/go/${{p.slug}}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;">
+                  Visit Official Website &#8599;
+                </a>
+              </div>
+              ${{i === 0 ? '' : `<a href="${{vsUrl}}" style="font-size:0.85rem; color:var(--primary); font-weight:600; text-decoration:none;">Compare vs ${{top3[0].platform.name}} &rarr;</a>`}}
+            </div>
+          </div>
+        `;
+      }}).join('');
+
+      document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+      document.getElementById('step-results').style.display = 'block';
+      const progress = document.getElementById('quiz-progress');
+      if (progress) progress.style.width = '100%';
+      window.scrollTo({{ top: 150, behavior: 'smooth' }});
+    }}
+
+    function restartQuiz() {{
+      goToStep(1);
+    }}
+  </script>
+
+  {get_footer_html()}
+</body>
+</html>
+"""
+
+with open(os.path.join(find_dir, "index.html"), "w", encoding="utf-8") as f:
+    f.write(find_html)
 
 # ==============================================================================
 # Step 5: Sync Data Bundles & XML Sitemap

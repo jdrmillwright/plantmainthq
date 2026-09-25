@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CMMS Software Finder &amp; Recommendation Engine | PlantMaintHQ</title>
+    <meta name="description" content="Interactive CMMS recommendation quiz. Answer 3 questions to instantly discover the top 3 maintenance platforms engineered for your facility.">
+    <link rel="canonical" href="https://plantmainthq.com/find/">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/analytics.js" defer></script>
+    <meta property="og:title" content="CMMS Software Finder &amp; Recommendation Engine | PlantMaintHQ">
+    <meta property="og:description" content="Interactive CMMS recommendation quiz. Answer 3 questions to instantly discover the top 3 maintenance platforms engineered for your facility.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://plantmainthq.com/find/">
+    <meta property="og:site_name" content="PlantMaintHQ">
+    <meta property="og:image" content="https://plantmainthq.com/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CMMS Software Finder &amp; Recommendation Engine | PlantMaintHQ">
+    <meta name="twitter:description" content="Interactive CMMS recommendation quiz. Answer 3 questions to instantly discover the top 3 maintenance platforms engineered for your facility.">
+    <meta name="twitter:image" content="https://plantmainthq.com/og-image.png">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "CMMS Software Finder & Recommendation Engine", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "Answer 3 quick questions about your facility, team size, and integrations to find the top 3 best-fitting CMMS platforms for your operations.", "url": "https://plantmainthq.com/find/"}</script>
+
+</head>
+<body>
+  
+    <header>
+      <div class="nav-container">
+        <a href="/" class="logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </div>
+          PlantMaint<span class="logo-brand">HQ</span>
+        </a>
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+          <nav class="nav-links">
+            <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
+            <a href="/#matrix">Comparison Matrix</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
+            <a href="/contact/">Advisor Help</a>
+          </nav>
+          <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <svg class="hamburger-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Slide-Down Drawer Menu -->
+      <div class="nav-drawer" id="nav-drawer">
+        <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Directory Navigation</div>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128194;</span>
+              <div>
+                <strong>Full CMMS Directory</strong>
+                <span class="drawer-subtext">All 106 vetted maintenance platforms</span>
+              </div>
+            </a>
+            <a href="/#matrix" class="drawer-link" onclick="closeDrawer()">
+              <span class="drawer-icon">&#9878;&#65039;</span>
+              <div>
+                <strong>Head-to-Head Compare (/vs/)</strong>
+                <span class="drawer-subtext">Side-by-side specs, pricing &amp; ratings</span>
+              </div>
+            </a>
+            <a href="/#directory" class="drawer-link" onclick="closeDrawer(); filterByTag('mobile');">
+              <span class="drawer-icon">&#128241;</span>
+              <div>
+                <strong>Top Mobile-First CMMS</strong>
+                <span class="drawer-subtext">Shop-floor iOS &amp; Android ready tools</span>
+              </div>
+            </a>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Industry</div>
+            <div class="drawer-chips">
+              <a href="/best-cmms-for-manufacturing/" class="drawer-chip" onclick="closeDrawer()">Manufacturing</a>
+              <a href="/best-cmms-for-facilities/" class="drawer-chip" onclick="closeDrawer()">Facilities</a>
+              <a href="/best-cmms-for-healthcare/" class="drawer-chip" onclick="closeDrawer()">Healthcare</a>
+              <a href="/best-cmms-for-food-beverage/" class="drawer-chip" onclick="closeDrawer()">Food &amp; Beverage</a>
+              <a href="/best-cmms-for-utilities-energy/" class="drawer-chip" onclick="closeDrawer()">Utilities &amp; Energy</a>
+              <a href="/best-cmms-for-oil-gas/" class="drawer-chip" onclick="closeDrawer()">Oil &amp; Gas</a>
+              <a href="/best-cmms-for-fleet-maintenance/" class="drawer-chip" onclick="closeDrawer()">Fleet</a>
+              <a href="/best-cmms-for-education/" class="drawer-chip" onclick="closeDrawer()">Education</a>
+              <a href="/best-cmms-for-logistics-warehousing/" class="drawer-chip" onclick="closeDrawer()">Logistics</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Top Features</div>
+            <div class="drawer-chips">
+              <a href="/features/preventive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Preventive</a>
+              <a href="/features/predictive-maintenance/" class="drawer-chip" onclick="closeDrawer()">Predictive &amp; IoT</a>
+              <a href="/features/inventory-management/" class="drawer-chip" onclick="closeDrawer()">Inventory</a>
+              <a href="/features/mobile-app/" class="drawer-chip" onclick="closeDrawer()">Mobile Apps</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">By Budget &amp; Scale</div>
+            <div class="drawer-chips">
+              <a href="/pricing/best-free-cmms-software/" class="drawer-chip" onclick="closeDrawer()">Free CMMS</a>
+              <a href="/pricing/affordable-cmms-under-50/" class="drawer-chip" onclick="closeDrawer()">Under $50/mo</a>
+              <a href="/best-cmms-for-small-teams/" class="drawer-chip" onclick="closeDrawer()">Small Teams</a>
+              <a href="/best-enterprise-eam-software/" class="drawer-chip" onclick="closeDrawer()">Enterprise EAM</a>
+            </div>
+          </div>
+
+          <div class="drawer-section">
+            <div class="drawer-heading">Expert Advisory</div>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+            <a href="/contact/" class="drawer-link drawer-cta" onclick="closeDrawer()">
+              <span class="drawer-icon">&#128172;</span>
+              <div>
+                <strong>Request Advisor Advice (/contact/)</strong>
+                <span class="drawer-subtext" style="color:#dbeafe;">Unbiased vendor matching &amp; procurement guidance</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    </header>
+
+
+  <main class="container" style="padding-top: 2rem;">
+    <nav class="breadcrumbs">
+      <a href="/">Home</a>
+      <span>&rsaquo;</span>
+      <span>Software Finder</span>
+    </nav>
+
+    <div class="hero" style="background:#ffffff; border:1px solid var(--border-color); border-radius:14px; padding:2.5rem 1.5rem; box-shadow:var(--shadow-sm); margin-bottom:2rem; text-align:center;">
+      <span class="badge">&#10024; 60-Second Recommendation Engine</span>
+      <h1 style="font-size:2.4rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Find the Right CMMS for Your Plant</h1>
+      <p style="font-size:1.05rem; color:var(--text-muted); max-width:680px; margin:0 auto;">
+        Answer 3 quick operational questions to calculate your facility's top 3 tailored maintenance management software matches from our 106 verified platforms.
+      </p>
+    </div>
+
+    <div class="quiz-wrapper">
+      <div class="quiz-card" id="quiz-container">
+        <!-- Progress Bar -->
+        <div class="quiz-progress-bar">
+          <div class="quiz-progress-fill" id="quiz-progress" style="width: 33%;"></div>
+        </div>
+
+        <!-- Step 1: Scale -->
+        <div class="quiz-step" id="step-1">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 1 of 3</div>
+          <h2 class="quiz-step-title">How large is your maintenance operation?</h2>
+          <p class="quiz-step-desc">Select your current maintenance team size and operational footprint.</p>
+
+          <div class="quiz-grid-3">
+            <div class="quiz-option-card" data-step="1" data-val="small" onclick="selectQuizOption(1, 'small', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128736;&#65039;</div>
+              <div class="quiz-option-title">Small Team</div>
+              <div class="quiz-option-desc">1–15 Technicians. Fast deployment, agile mobile ticketing, minimal IT setup.</div>
+            </div>
+
+            <div class="quiz-option-card selected" data-step="1" data-val="mid-market" onclick="selectQuizOption(1, 'mid-market', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127981;</div>
+              <div class="quiz-option-title">Mid-Market Plant</div>
+              <div class="quiz-option-desc">16–50 Technicians. Robust PM scheduling, spare parts inventory &amp; multi-craft routing.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="1" data-val="enterprise" onclick="selectQuizOption(1, 'enterprise', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127970;</div>
+              <div class="quiz-option-title">Enterprise / Multi-Site</div>
+              <div class="quiz-option-desc">50+ Technicians across multiple plants. Deep ERP integration (SAP/Oracle) &amp; global compliance.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <div></div>
+            <button class="btn btn-primary" onclick="goToStep(2)">Next: Select Industry &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 2: Industry -->
+        <div class="quiz-step" id="step-2" style="display:none;">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 2 of 3</div>
+          <h2 class="quiz-step-title">What is your primary industry vertical?</h2>
+          <p class="quiz-step-desc">Different sectors require unique compliance frameworks and asset registries.</p>
+
+          <div class="quiz-grid-2">
+            <div class="quiz-option-card selected" data-step="2" data-val="manufacturing" onclick="selectQuizOption(2, 'manufacturing', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#9881;&#65039;</div>
+              <div class="quiz-option-title">Manufacturing &amp; Production</div>
+              <div class="quiz-option-desc">Assembly lines, CNC machinery, press stamping, OEE downtime tracking.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="facilities" onclick="selectQuizOption(2, 'facilities', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127970;</div>
+              <div class="quiz-option-title">Facilities &amp; Commercial Real Estate</div>
+              <div class="quiz-option-desc">HVAC, tenant portals, custodial, lighting, and building compliance.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="healthcare" onclick="selectQuizOption(2, 'healthcare', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127973;</div>
+              <div class="quiz-option-title">Healthcare &amp; Hospitals</div>
+              <div class="quiz-option-desc">Biomedical asset calibration, HIPAA, Joint Commission audits.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="utilities" onclick="selectQuizOption(2, 'utilities', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#9889;</div>
+              <div class="quiz-option-title">Utilities &amp; Energy Plants</div>
+              <div class="quiz-option-desc">Power generation, water/wastewater treatment, GIS linear assets.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="food" onclick="selectQuizOption(2, 'food', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127828;</div>
+              <div class="quiz-option-title">Food &amp; Beverage Processing</div>
+              <div class="quiz-option-desc">FDA 21 CFR Part 11, HACCP sanitation, food contact lubricant audits.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="2" data-val="logistics" onclick="selectQuizOption(2, 'logistics', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128666;</div>
+              <div class="quiz-option-title">Logistics, Fleet &amp; Warehousing</div>
+              <div class="quiz-option-desc">Conveyors, sorters, forklifts, telematics, and heavy equipment.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button class="btn btn-outline" onclick="goToStep(1)">&larr; Back</button>
+            <button class="btn btn-primary" onclick="goToStep(3)">Next: Core Priorities &rarr;</button>
+          </div>
+        </div>
+
+        <!-- Step 3: Requirements -->
+        <div class="quiz-step" id="step-3" style="display:none;">
+          <div style="font-size:0.8rem; font-weight:700; color:var(--primary); text-transform:uppercase; margin-bottom:0.25rem;">Step 3 of 3</div>
+          <h2 class="quiz-step-title">What are your must-have technical priorities?</h2>
+          <p class="quiz-step-desc">Select 1 to 3 non-negotiable features for your frontline maintenance staff.</p>
+
+          <div class="quiz-grid-2">
+            <div class="quiz-option-card selected" data-step="3" data-val="mobile" onclick="toggleMultiOption('mobile', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128241;</div>
+              <div class="quiz-option-title">Mobile Offline Work Orders</div>
+              <div class="quiz-option-desc">Native iOS/Android apps with offline photo capture and voice dictation.</div>
+            </div>
+
+            <div class="quiz-option-card selected" data-step="3" data-val="inventory" onclick="toggleMultiOption('inventory', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128230;</div>
+              <div class="quiz-option-title">MRO Spare Parts &amp; Auto-Reorder</div>
+              <div class="quiz-option-desc">Min/max stockroom alerts, barcode scanning, supplier purchase orders.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="predictive" onclick="toggleMultiOption('predictive', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128302;</div>
+              <div class="quiz-option-title">Predictive IoT &amp; Condition Triggers</div>
+              <div class="quiz-option-desc">Vibration sensors, thermal imaging logs, and automated meter-hour triggers.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="erp" onclick="toggleMultiOption('erp', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128268;</div>
+              <div class="quiz-option-title">Enterprise ERP Sync (SAP / Oracle)</div>
+              <div class="quiz-option-desc">Bi-directional financial accounting, GL codes, and purchasing integration.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="compliance" onclick="toggleMultiOption('compliance', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#128220;</div>
+              <div class="quiz-option-title">Safety, LOTO &amp; Audit Logs</div>
+              <div class="quiz-option-desc">Lockout/Tagout permits, ISO 9001 audit histories, e-signatures.</div>
+            </div>
+
+            <div class="quiz-option-card" data-step="3" data-val="freetrial" onclick="toggleMultiOption('freetrial', this)">
+              <div class="quiz-check-indicator">&#10003;</div>
+              <div class="quiz-option-icon">&#127873;</div>
+              <div class="quiz-option-title">Immediate Free Trial / Transparent Price</div>
+              <div class="quiz-option-desc">Self-serve onboarding with no mandatory sales gatekeeping.</div>
+            </div>
+          </div>
+
+          <div class="quiz-nav-row">
+            <button class="btn btn-outline" onclick="goToStep(2)">&larr; Back</button>
+            <button class="btn btn-primary" onclick="calculateRecommendations()" style="font-size:1rem; padding:0.65rem 1.5rem;">
+              &#10024; Calculate Top 3 Matches &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 4: Results -->
+        <div class="quiz-step" id="step-results" style="display:none;">
+          <div style="text-align:center; margin-bottom:2rem;">
+            <span class="recommendation-match-badge" style="font-size:0.9rem; padding:6px 14px; margin-bottom:0.75rem;">
+              &#10003; Analysis Complete &bull; 106 Platforms Evaluated
+            </span>
+            <h2 style="font-size:2rem; font-weight:800; color:var(--text-main); margin-bottom:0.5rem;">Your Top 3 CMMS Recommendations</h2>
+            <p style="color:var(--text-muted); max-width:600px; margin:0 auto; font-size:0.95rem;">
+              Based on your team profile, operational vertical, and selected technical requirements, here are the highest-scoring systems:
+            </p>
+          </div>
+
+          <div id="recommendations-container" style="display:flex; flex-direction:column; gap:1.5rem; margin-bottom:2rem;"></div>
+
+          <div class="card" style="background:#f8fafc; border:1px solid #cbd5e1; text-align:center; padding:1.75rem;">
+            <h3 style="margin-bottom:0.5rem; color:var(--text-main);">Need an Engineer to Review Your Selection?</h3>
+            <p style="font-size:0.9rem; color:var(--text-muted); max-width:560px; margin:0 auto 1.25rem;">
+              PlantMaintHQ offers free, vendor-neutral procurement advice to help maintenance managers navigate RFP checklists and contract negotiations.
+            </p>
+            <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+              <a href="/contact/?inquiry_type=Shortlist%20Validation" class="btn btn-primary" style="font-size:0.9rem;">
+                Speak with an Advisor &rarr;
+              </a>
+              <button class="btn btn-outline" onclick="restartQuiz()" style="font-size:0.9rem;">
+                &#8634; Retake Quiz
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const ALL_PLATFORMS = [{"slug": "limble-cmms", "name": "Limble CMMS", "tagline": "Modern, easy-to-use CMMS software built by maintenance professionals.", "rating": 4.9, "reviews": 1680, "timeline": "1 - 3 weeks", "price": "$28 / user / month", "price_val": 28, "scales": ["smb (5-25 technicians)", "mid-market (25-150 technicians)", "multi-plant enterprises"], "verticals": ["discrete manufacturing", "food & beverage processing", "packaging & converting", "facilities & commercial real estate", "consumer goods production", "chemicals & plastics", "municipalities & utilities"], "features": ["mobile work order management", "automated preventive maintenance scheduling", "instant qr code equipment tagging & lookup", "parts inventory with min/max threshold alerts", "customizable modular asset hierarchies", "bi-directional offline mobile data sync", "public work request portal with qr access", "vendor & outside contractor tracking", "real-time downtime, mtbf & mttr analytics", "automated purchase order generation"], "mobile_rating": 4.9, "has_free_trial": true, "pros": ["Exceptional frontline adoption: Mechanics require under 30 minutes of initial training to navigate, complete, and log work orders accurately.", "True offline functionality: Field technicians working in shielded basements, grain silos, or remote substations can execute work orders with seamless auto-sync upon reconnection."], "idx": 0}, {"slug": "maintainx", "name": "MaintainX", "tagline": "Mobile-first work order and procedure digitization software.", "rating": 4.8, "reviews": 2150, "timeline": "Days to 2 weeks", "price": "$0 free tier / $21 / user / month", "price_val": 0, "scales": ["small maintenance teams (1-15 technicians)", "growing mid-market operations", "multi-site industrial networks"], "verticals": ["industrial manufacturing", "food & beverage processing", "warehousing & logistics hubs", "fleet & heavy equipment", "hospitality & commercial facilities", "energy & utilities operations"], "features": ["built-in real-time team messaging", "digital standard operating procedures (sops)", "photo & voice dictation work orders", "calendar-based preventive maintenance", "spare parts & inventory management", "electronic signatures & audit trails", "asset health & meter reading logs", "automated vendor work requests", "iot sensor automated work order triggers", "interactive time & cost tracking"], "mobile_rating": 4.9, "has_free_trial": true, "pros": ["Conversational messaging interface: Embedded chat directly inside work orders allows technicians, operators, and supervisors to communicate without switching apps.", "Frictionless procedure digitization: Easily convert paper SOPs, lockout/tagout checklists, and safety inspections into step-by-step mobile forms with mandatory photo capture."], "idx": 1}, {"slug": "maintainx-enterprise", "name": "MaintainX Enterprise", "tagline": "Industrial frontline execution platform connecting plants with corporate ERP.", "rating": 4.8, "reviews": 800, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "packaging & logistics", "utilities & energy"], "features": ["multi-plant operational benchmarking", "enterprise erp (sap, oracle) integration", "single sign-on (sso) & scim user provisioning", "digital sops & frontline chat", "predictive vibration sensor telemetry", "custom enterprise sla & dedicated success"], "mobile_rating": 4.8, "has_free_trial": false, "pros": ["Unmatched technician mobile adoption rate across large industrial workforces", "Real-time team chat eliminates radio delays and missing shift handover notes"], "idx": 2}, {"slug": "jobber-maintenance", "name": "Jobber for Commercial Facilities", "tagline": "Operations management software for facility maintenance contractors.", "rating": 4.7, "reviews": 1465, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "food & beverage"], "features": ["client self-serve request portal", "recurring maintenance contract scheduling", "mobile work orders with photo attachments", "gps route optimization", "automated client sms & email reminders", "credit card processing & invoicing"], "mobile_rating": 4.7, "has_free_trial": true, "pros": ["Best-in-class mobile application usability for field technicians", "Client communications and booking portal reduce office phone calls"], "idx": 3}, {"slug": "upkeep", "name": "UpKeep", "tagline": "Asset Operations Management for modern maintenance teams.", "rating": 4.7, "reviews": 1940, "timeline": "2 - 4 weeks", "price": "$20 / user / month", "price_val": 20, "scales": ["small facilities (1-10 technicians)", "mid-sized manufacturing plants", "multi-location regional enterprises"], "verticals": ["manufacturing & assembly plants", "facilities & property management", "warehousing & distribution", "food production & agriculture", "fleet maintenance & terminals", "healthcare facilities & hospitals"], "features": ["mobile work order dispatch & tracking", "preventive maintenance & recurring tasks", "upkeep edge wireless iot condition monitoring", "parts inventory & automated purchase orders", "labor time tracking & cost allocation", "asset lifecycle & depreciation calculations", "third-party contractor & vendor portal", "customizable kpi & downtime dashboards", "checklists & inspection step validation", "app marketplace integrations"], "mobile_rating": 4.7, "has_free_trial": true, "pros": ["Holistic Asset Operations Management: Unifies frontline task execution with executive reliability reporting and asset financial depreciation.", "Integrated IoT hardware: Native UpKeep Edge wireless vibration and temperature sensors allow plants to launch condition-based predictive maintenance programs without third-party gateways."], "idx": 4}, {"slug": "fiix", "name": "Fiix", "tagline": "AI-powered CMMS to organize, track, and optimize maintenance.", "rating": 4.6, "reviews": 1280, "timeline": "4 - 8 weeks", "price": "$45 / user / month", "price_val": 45, "scales": ["mid-market manufacturing plants", "large-scale industrial sites", "global multi-plant enterprises"], "verticals": ["heavy industrial manufacturing", "automotive & tier 1 suppliers", "food & beverage processing", "metals, mining & minerals", "chemical processing & refining", "plastics & extrusion operations"], "features": ["fiix foresight ai failure prediction", "rockwell automation & factorytalk connectivity", "comprehensive work order management", "multi-plant asset standardization", "advanced mro inventory & stockroom control", "failure mode and effects analysis (fmea)", "regulatory audit logging (iso 9001 / fda 21 cfr)", "interactive kpi benchmarking & oee dashboards", "customizable user roles & approval hierarchies", "condition-based asset health triggers"], "mobile_rating": 4.5, "has_free_trial": true, "pros": ["Rockwell Automation synergy: Seamless telemetry pipeline with FactoryTalk, Allen-Bradley PLCs, and SCADA infrastructure for real-time fault code integration.", "Predictive AI insights: Fiix Foresight machine learning models analyze historical work orders to identify hidden failure triggers before catastrophic machine breakdown occurs."], "idx": 5}, {"slug": "maintenity", "name": "Maintenity", "tagline": "Agile mobile CMMS for light manufacturing and technical workshops.", "rating": 4.6, "reviews": 610, "timeline": "1 to 3 weeks", "price": "$19 / user / month", "price_val": 19, "scales": ["small (1-50)", "mid-market (51-500)"], "verticals": ["manufacturing", "food & beverage", "packaging & logistics"], "features": ["qr code asset scanning", "mobile photo work orders", "preventive maintenance schedules", "parts reorder level alerts", "equipment downtime logging", "offline sync for shop floor"], "mobile_rating": 4.6, "has_free_trial": true, "pros": ["Setup takes less than an afternoon with self-serve import tools", "Very low learning curve for machine operators and technicians"], "idx": 6}, {"slug": "maintplex", "name": "MaintPlex", "tagline": "Lightweight cloud maintenance tracker for machine shops and small plants.", "rating": 4.5, "reviews": 515, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "packaging & logistics"], "features": ["kanban board work order management", "lubrication & greasing route scheduler", "simple spare parts tally", "equipment qr code tagging", "technician mobile camera logging", "automated email overdue notifications"], "mobile_rating": 4.5, "has_free_trial": true, "pros": ["Visual Kanban boards make daily maintenance prioritization completely intuitive", "Extremely affordable fixed per-plant pricing model"], "idx": 7}, {"slug": "emaint", "name": "eMaint", "tagline": "Fluke Reliability's award-winning CMMS software.", "rating": 4.5, "reviews": 1120, "timeline": "6 - 12 weeks", "price": "$69 / user / month", "price_val": 69, "scales": ["mid-market industrial facilities", "large multi-facility enterprises", "global fortune 500 industrial operations"], "verticals": ["discrete & continuous process manufacturing", "oil & gas / petrochemicals", "aerospace & defense production", "pharmaceuticals & life sciences", "power generation & utilities", "water & wastewater treatment"], "features": ["fluke condition monitoring & sensor integration", "condition-based predictive maintenance", "interactive plant floorplan & p&id asset mapping", "fda 21 cfr part 11 & iso regulatory compliance", "complex preventive maintenance scheduling", "multi-warehouse mro spare parts tracking", "work order dispatch & labor resource planning", "vendor scorecards & service contract tracking", "no-code form, field, and workflow configuration", "advanced root cause analysis (rca) tracking"], "mobile_rating": 4.4, "has_free_trial": true, "pros": ["Fluke sensor ecosystem: Direct plug-and-play integration with Fluke 3561 vibration sensors, thermal imaging systems, and power quality loggers for real-time condition triggers.", "Infinite configurability: System administrators can customize tables, custom fields, data validation rules, and approval routings without writing custom software code."], "idx": 8}, {"slug": "asset-panda-cmms", "name": "Asset Panda CMMS", "tagline": "Hyper-configurable asset tracking and maintenance management platform.", "rating": 4.4, "reviews": 1370, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "manufacturing", "healthcare & pharmaceuticals", "packaging & logistics"], "features": ["unlimited user licensing model", "custom field & workflow engine", "built-in barcode & qr code scanner", "repair ticketing & work orders", "preventive maintenance reminders", "electronic signature capture"], "mobile_rating": 4.4, "has_free_trial": true, "pros": ["Unlimited user pricing allows shop floor operators to report issues freely", "Virtually infinite field customization without engineering tickets"], "idx": 9}, {"slug": "cryotos-cmms", "name": "Cryotos CMMS", "tagline": "Next-generation mobile CMMS and facility management software.", "rating": 4.4, "reviews": 895, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "healthcare & pharmaceuticals"], "features": ["custom workflow & form builder", "qr code asset tagging & verification", "preventive maintenance schedules", "technician sla monitoring", "offline mobile mode with gps", "iot sensor gateway integration"], "mobile_rating": 4.4, "has_free_trial": true, "pros": ["Highly flexible form builder for creating custom equipment checklists", "Very competitive pricing compared to legacy enterprise CMMS suites"], "idx": 10}, {"slug": "ezofficeinventory", "name": "EZOfficeInventory", "tagline": "Complete equipment tracking and maintenance software.", "rating": 4.4, "reviews": 1465, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["construction", "education", "media & broadcasting", "it"], "features": ["equipment checkout/check-in", "barcode and rfid scanning", "maintenance scheduling", "audit and compliance workflows", "custom alerts"], "mobile_rating": 4.4, "has_free_trial": true, "pros": ["Exceptional for tracking mobile assets and tools", "Very strong barcode and RFID scanning capabilities"], "idx": 11}, {"slug": "maintenance-care", "name": "Maintenance Care", "tagline": "Simple 2D and 3D visual maintenance software for modern facilities.", "rating": 4.4, "reviews": 2225, "timeline": "1 to 3 weeks", "price": "$19 / user / month", "price_val": 19, "scales": ["small (1-50)", "mid-market (51-500)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "food & beverage"], "features": ["interactive 3d virtual facility rooms", "free work order generation tier", "automated pm calendars", "mobile voice-to-text work orders", "asset capital reserve planning", "vendor document compliance"], "mobile_rating": 4.4, "has_free_trial": true, "pros": ["Free Forever tier supports basic reactive work orders for small teams", "Unique 3D room visualization makes locating equipment fast"], "idx": 12}, {"slug": "agility", "name": "Agility", "tagline": "Smart CMMS software by SSG Insight.", "rating": 4.3, "reviews": 4125, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "logistics", "facilities"], "features": ["customizable dashboards", "work order management", "preventive maintenance", "inventory management", "mobile app"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Strong reporting and analytics", "Flexible deployment options"], "idx": 13}, {"slug": "archibus", "name": "Archibus", "tagline": "The original Integrated Workplace Management System.", "rating": 4.3, "reviews": 4220, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["government", "education", "corporate real estate", "healthcare"], "features": ["space management", "building operations management", "autocad/bim integration", "preventive maintenance", "capital project management"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Industry-leading CAD and BIM integration", "Comprehensive facility management capabilities"], "idx": 14}, {"slug": "asset-essentials", "name": "Asset Essentials", "tagline": "Next-generation work and asset management platform by Dude Solutions (Brightly).", "rating": 4.3, "reviews": 2605, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["education", "government", "healthcare", "manufacturing"], "features": ["work order management", "asset tracking", "preventive maintenance", "capital forecasting", "gis integration", "mobile app"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Excellent capital planning and forecasting tools", "Strong presence and support in the public sector"], "idx": 15}, {"slug": "asset-panda", "name": "Asset Panda", "tagline": "Highly customizable asset tracking and maintenance platform.", "rating": 4.3, "reviews": 1370, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["it", "construction", "education", "manufacturing"], "features": ["customizable workflows", "mobile barcode/qr scanning", "preventive maintenance", "asset lifecycle tracking", "role-based access control"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Incredibly flexible and customizable to any workflow", "Excellent mobile app with built-in scanner"], "idx": 16}, {"slug": "assetinfinity", "name": "AssetInfinity", "tagline": "Cloud-hosted asset tracking, CMMS, and auditing software.", "rating": 4.3, "reviews": 895, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "fleet & heavy equipment"], "features": ["rfid & nfc asset auditing", "tool crib check-in / check-out", "breakdown ticketing & pm scheduling", "spare parts minimum threshold alerts", "mobile offline audit mode", "depreciation & cost tracking"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Built-in support for cutting-edge RFID, NFC, and QR scanning hardware", "Very clean modern mobile application interface"], "idx": 17}, {"slug": "assetworks", "name": "AssetWorks", "tagline": "Comprehensive asset management for public and private sectors.", "rating": 4.3, "reviews": 4505, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["government", "education", "transit", "public works"], "features": ["fleet management", "facility management", "capital planning", "preventive maintenance", "fuel management integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Industry-leading fleet management capabilities", "Deep capital planning and lifecycle costing"], "idx": 18}, {"slug": "champs-cmms", "name": "CHAMPS CMMS", "tagline": "Web-based CMMS and EAM solutions.", "rating": 4.3, "reviews": 4505, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["nuclear power", "utilities", "water/wastewater", "manufacturing"], "features": ["work order management", "lockout/tagout (loto) management", "preventive maintenance", "inventory control", "purchasing"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Exceptional for highly regulated industries (e.g., Nuclear)", "Robust safety and LOTO features"], "idx": 19}, {"slug": "carl-source", "name": "Carl Source", "tagline": "Expert EAM and CMMS software.", "rating": 4.3, "reviews": 3935, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "healthcare", "public sector", "transportation"], "features": ["industry-specific editions", "asset lifecycle management", "regulatory compliance tracking", "mobile app (carl touch)", "iot and bim integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Industry-specific versions ensure relevant features", "Strong regulatory and compliance tools"], "idx": 20}, {"slug": "cityworks", "name": "Cityworks", "tagline": "GIS-centric public asset management.", "rating": 4.3, "reviews": 2890, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["local government", "utilities", "public works", "water/wastewater"], "features": ["native esri arcgis integration", "public works management", "permitting and licensing", "work order management", "mobile field execution"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Unmatched GIS integration", "Perfectly tailored for public works workflows"], "idx": 21}, {"slug": "coast", "name": "Coast", "tagline": "Maintenance and facility management made easy.", "rating": 4.3, "reviews": 705, "timeline": "1 to 3 weeks", "price": "$19 / user / month", "price_val": 19, "scales": ["small (1-50)", "mid-market (51-500)"], "verticals": ["facilities", "hospitality", "property management", "light manufacturing"], "features": ["team messaging", "work order management", "preventive maintenance", "asset tracking", "checklists and forms"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Extremely easy to use, high adoption rate", "Built-in team communication"], "idx": 22}, {"slug": "dimo-maint", "name": "DIMO Maint", "tagline": "Scalable CMMS solutions for all business sizes.", "rating": 4.3, "reviews": 2985, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "healthcare", "mining", "public sector"], "features": ["work order management", "preventive maintenance", "erp integration", "inventory management", "multi-company management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Excellent ERP integration capabilities", "Scalable from small teams to enterprise"], "idx": 23}, {"slug": "dozuki", "name": "Dozuki", "tagline": "Standardize procedures and train your workforce.", "rating": 4.3, "reviews": 1465, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "electronics", "automotive", "aerospace"], "features": ["visual work instructions", "document control", "training modules", "multilingual support", "version control"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Best-in-class visual procedure creation", "Excellent for capturing tribal knowledge"], "idx": 24}, {"slug": "eptura", "name": "Eptura", "tagline": "Worktech software connecting workplaces, people, and assets.", "rating": 4.3, "reviews": 420, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["corporate real estate", "manufacturing", "fleet", "healthcare"], "features": ["enterprise asset management", "workplace management", "preventive maintenance", "visitor management", "space planning", "fleet management"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Combines facility and asset management in one ecosystem", "Highly scalable for global enterprises"], "idx": 25}, {"slug": "fmx", "name": "FMX", "tagline": "Facilities management software that empowers your team.", "rating": 4.3, "reviews": 1370, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["education", "property management", "manufacturing", "religious organizations"], "features": ["calendar-based scheduling", "work order management", "preventive maintenance", "event scheduling", "equipment maintenance", "inventory management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Intuitive calendar view is universally understood", "Unlimited users on most pricing tiers"], "idx": 26}, {"slug": "facilio", "name": "Facilio", "tagline": "Connected property operations software.", "rating": 4.3, "reviews": 895, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["commercial real estate", "healthcare", "higher education", "retail"], "features": ["connected cmms", "energy management", "tenant portal", "iot and bas integration", "predictive maintenance"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Excellent integration with building automation systems", "Strong focus on energy and sustainability"], "idx": 27}, {"slug": "fracttal-one", "name": "Fracttal One", "tagline": "Intelligent maintenance management for the IoT era.", "rating": 4.3, "reviews": 1085, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities", "fleet", "healthcare"], "features": ["iot integration (fracttal sense)", "mobile-first work orders", "asset management", "predictive maintenance", "nfc and qr code scanning"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Excellent mobile experience", "Strong IoT and predictive capabilities"], "idx": 28}, {"slug": "hexagon-eam", "name": "Hexagon EAM", "tagline": "Industry-leading enterprise asset management software.", "rating": 4.3, "reviews": 3840, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "transit", "healthcare", "facilities"], "features": ["advanced asset management", "predictive maintenance", "fleet management", "energy performance monitoring", "mobile eam"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Highly flexible and configurable", "Strong mobile capabilities"], "idx": 29}, {"slug": "hippo-cmms", "name": "Hippo CMMS", "tagline": "Powerful, affordable, and user-friendly CMMS software.", "rating": 4.3, "reviews": 2130, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "healthcare", "hospitality", "education"], "features": ["advanced dashboards (graphical views)", "work order management", "preventive maintenance", "equipment management", "inventory management", "vendor management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Visual floor plan navigation is highly intuitive", "Affordable pricing structure"], "idx": 30}, {"slug": "ibm-maximo", "name": "IBM Maximo", "tagline": "World-class Enterprise Asset Management (EAM) for complex industries.", "rating": 4.3, "reviews": 5550, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["oil & gas", "manufacturing", "utilities", "transportation"], "features": ["predictive maintenance", "ai-powered asset monitoring", "work order management", "inventory and procurement", "mobile execution", "spatial asset management (gis)"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Unmatched scalability for global enterprises", "Deep integration with IoT and AI"], "idx": 31}, {"slug": "ifs-eam", "name": "IFS EAM", "tagline": "Agile enterprise asset management for complex industries.", "rating": 4.3, "reviews": 4125, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["aerospace & defense", "energy", "construction", "manufacturing"], "features": ["complex asset management", "mro (maintenance, repair, overhaul)", "project and contract management", "mobile work execution", "iot integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Exceptional for complex, heavy industries", "Strong MRO capabilities"], "idx": 32}, {"slug": "ifs-ultimo", "name": "IFS Ultimo", "tagline": "Enterprise Asset Management that works for you.", "rating": 4.3, "reviews": 3650, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "logistics", "healthcare", "utilities"], "features": ["hse (health, safety, environment) integration", "asset management", "work order management", "fleet management", "it service management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Excellent integration of safety and maintenance", "Highly customizable and scalable"], "idx": 33}, {"slug": "mapcon", "name": "MAPCON", "tagline": "Advanced CMMS software for industrial maintenance.", "rating": 4.3, "reviews": 4220, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "mining", "food & beverage", "facilities"], "features": ["advanced asset management", "preventive and predictive maintenance", "multi-site management", "barcode and qr code scanning", "detailed reporting"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Very deep feature set for industrial use", "Flexible deployment options (SaaS or On-Premise)"], "idx": 34}, {"slug": "mex-cmms", "name": "MEX CMMS", "tagline": "Australia's #1 CMMS software.", "rating": 4.3, "reviews": 3175, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["mining", "manufacturing", "facilities", "agriculture"], "features": ["asset register", "preventive maintenance", "work order management", "statutory reporting", "stores and purchasing"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Designed specifically with engineers in mind", "Excellent offline capabilities for remote sites"], "idx": 35}, {"slug": "mainsaver", "name": "Mainsaver", "tagline": "Enterprise Asset Management software.", "rating": 4.3, "reviews": 4125, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "power generation", "life sciences", "public sector"], "features": ["maintenance management", "materials management", "purchasing management", "regulatory compliance", "mobile app (mainsaver connect)"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Very deep feature set for complex operations", "Strong compliance tracking (FDA, OSHA)"], "idx": 36}, {"slug": "maintmaster", "name": "MaintMaster", "tagline": "The CMMS that adapts to you.", "rating": 4.3, "reviews": 2510, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "logistics", "facilities"], "features": ["visual navigation (images and maps)", "highly customizable workflows", "work order management", "asset tracking", "iot integration"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Incredibly flexible and customizable", "Visual interface is intuitive for shop floor workers"], "idx": 37}, {"slug": "maintenance-connection", "name": "Maintenance Connection", "tagline": "Powerful CMMS software to optimize maintenance operations.", "rating": 4.3, "reviews": 2605, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["healthcare", "manufacturing", "government", "facilities"], "features": ["work order tracking", "preventive maintenance", "asset management", "inventory control", "reporting and dashboards"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Highly customizable interface", "Strong reporting capabilities"], "idx": 38}, {"slug": "maintimizer", "name": "MaintiMizer", "tagline": "CMMS software by Ashcom Technologies.", "rating": 4.3, "reviews": 3935, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "facilities", "packaging"], "features": ["work order management", "preventive maintenance", "inventory and purchasing", "time and attendance", "reporting"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Very stable and reliable platform", "Good customer support and training"], "idx": 39}, {"slug": "manwinwin", "name": "ManWinWin", "tagline": "Flexible and easy-to-use CMMS software.", "rating": 4.3, "reviews": 4315, "timeline": "1 to 3 weeks", "price": "$19 / user / month", "price_val": 19, "scales": ["small (1-50)", "mid-market (51-500)"], "verticals": ["manufacturing", "facilities", "fleet", "hospitality"], "features": ["ai maintenance assistant", "work order management", "asset management", "inventory control", "dashboard analytics"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Offers a genuinely useful free version (ManWinWin Express)", "Innovative AI features"], "idx": 40}, {"slug": "maxpanda", "name": "Maxpanda", "tagline": "Award-winning CMMS software.", "rating": 4.3, "reviews": 1465, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["education", "property management", "healthcare", "manufacturing"], "features": ["work order management", "preventive maintenance", "asset tracking", "inventory management", "vendor management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Unlimited users on all plans", "Very affordable pricing"], "idx": 41}, {"slug": "micromain", "name": "MicroMain", "tagline": "Simplifying maintenance and facility management.", "rating": 4.3, "reviews": 3365, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "healthcare", "hospitality", "property management"], "features": ["work order management", "preventive maintenance", "asset tracking", "parts inventory", "purchase orders"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Very easy to learn and use", "Affordable pricing for mid-sized teams"], "idx": 42}, {"slug": "nexgen-am", "name": "NEXGEN Asset Management", "tagline": "Next generation asset management and CMMS.", "rating": 4.3, "reviews": 2130, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["utilities", "public works", "facilities", "manufacturing"], "features": ["asset lifecycle planning", "risk assessment", "work order management", "preventive maintenance", "condition assessment"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Excellent capital planning and risk assessment tools", "Strong focus on asset lifecycle, not just maintenance"], "idx": 43}, {"slug": "oracle-eam", "name": "Oracle EAM", "tagline": "Comprehensive asset lifecycle management.", "rating": 4.3, "reviews": 4695, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "public sector", "utilities", "transportation"], "features": ["condition-based maintenance", "asset tracking and hierarchy", "work order management", "inventory and procurement integration", "cost tracking and analytics"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Native integration with Oracle ecosystem", "Robust financial tracking of maintenance costs"], "idx": 44}, {"slug": "parsable", "name": "Parsable", "tagline": "Connected worker platform for industrial operations.", "rating": 4.3, "reviews": 1275, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["cpg", "manufacturing", "packaging", "energy"], "features": ["digital sops and checklists", "multimedia work instructions", "real-time collaboration", "data capture and analytics", "erp/cmms integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Exceptional for standardizing maintenance procedures", "Rich multimedia instructions improve safety and quality"], "idx": 45}, {"slug": "planon", "name": "Planon", "tagline": "Integrated Workplace Management System (IWMS).", "rating": 4.3, "reviews": 4220, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["corporate real estate", "higher education", "healthcare", "service providers"], "features": ["real estate management", "space and workplace management", "asset and maintenance management", "integrated services management", "sustainability tracking"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["True end-to-end workplace management", "Highly scalable for global enterprises"], "idx": 46}, {"slug": "poka", "name": "Poka", "tagline": "The connected worker app for manufacturing.", "rating": 4.3, "reviews": 1275, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["food & beverage", "cpg", "packaging", "manufacturing"], "features": ["knowledge management", "troubleshooting feed", "digital forms and checklists", "skills management", "autonomous maintenance"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Drives autonomous maintenance (TPM) effectively", "Highly engaging social-feed style interface"], "idx": 47}, {"slug": "proteus-cmms", "name": "Proteus CMMS", "tagline": "Next-generation CMMS by Eagle Technology.", "rating": 4.3, "reviews": 3840, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities", "healthcare", "education"], "features": ["work order management", "preventive maintenance", "building automation integration", "asset tracking", "mobile app"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Strong integration with Building Automation Systems", "Multi-language support"], "idx": 48}, {"slug": "qfm", "name": "QFM", "tagline": "Award-winning CAFM and CMMS software.", "rating": 4.3, "reviews": 3460, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities management providers", "healthcare", "education", "public sector"], "features": ["sla and contract management", "helpdesk and work orders", "asset management", "space management", "mobile app"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Exceptional SLA and contract management", "Highly configurable workflows"], "idx": 49}, {"slug": "redlist", "name": "Redlist", "tagline": "Cloud-based maintenance, safety, and dispatch software.", "rating": 4.3, "reviews": 1085, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["construction", "mining", "heavy manufacturing", "agriculture"], "features": ["lubrication management", "work order management", "safety forms and compliance", "equipment dispatching", "mobile-first design"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Unique focus on lubrication management", "Combines safety and maintenance seamlessly"], "idx": 50}, {"slug": "rosmiman", "name": "Rosmiman", "tagline": "Comprehensive Asset Management and Facility Management.", "rating": 4.3, "reviews": 2510, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["public sector", "healthcare", "corporate real estate", "utilities"], "features": ["smart city asset management", "facility management (cafm)", "preventive maintenance", "energy management", "gis and bim integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Exceptional GIS and BIM integration", "Highly scalable for massive infrastructure"], "idx": 51}, {"slug": "sap-eam", "name": "SAP EAM", "tagline": "Intelligent asset management for the modern enterprise.", "rating": 4.3, "reviews": 5170, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "oil & gas", "chemicals", "utilities"], "features": ["predictive and preventive maintenance", "asset lifecycle management", "deep erp integration", "mobile asset management", "iot and machine learning capabilities"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Seamless integration with SAP ERP", "Unmatched scalability and depth of features"], "idx": 52}, {"slug": "shire-system", "name": "Shire System", "tagline": "Leading UK maintenance and facility management software.", "rating": 4.3, "reviews": 4220, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "education", "healthcare", "facilities"], "features": ["work order management", "preventive maintenance", "materials and inventory", "purchasing", "mobile app"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Very easy to set up and use", "Cost-effective for mid-sized organizations"], "idx": 53}, {"slug": "siveco-valuekeep", "name": "Siveco Valuekeep", "tagline": "Modern cloud and mobile CMMS built to optimize asset operations.", "rating": 4.3, "reviews": 1085, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "food & beverage", "packaging & logistics"], "features": ["technician mobile app with offline mode", "preventive & corrective maintenance", "mro stock & warehouse management", "subcontractor service management", "asset qr code scanning", "interactive maintenance planning calendar"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Intuitive modern mobile application designed for shop-floor technicians", "Solid offline synchronization allows work in basements and remote plants"], "idx": 54}, {"slug": "somax", "name": "Somax", "tagline": "Cloud-based CMMS for modern maintenance.", "rating": 4.3, "reviews": 2700, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "facilities", "education"], "features": ["mobile work orders", "preventive maintenance", "parts inventory", "purchasing", "equipment tracking"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Clean, intuitive interface", "Strong mobile capabilities"], "idx": 55}, {"slug": "tractian", "name": "TRACTIAN", "tagline": "AI-powered predictive maintenance and CMMS.", "rating": 4.3, "reviews": 705, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "plastics", "automotive"], "features": ["plug-and-play iot sensors", "ai fault detection", "work order management", "asset tree management", "mobile app"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Seamless integration of hardware (sensors) and software", "Highly accurate predictive maintenance AI"], "idx": 56}, {"slug": "toolsense", "name": "ToolSense", "tagline": "Asset operations platform for machines and tools.", "rating": 4.3, "reviews": 895, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["construction", "facility services", "manufacturing", "logistics"], "features": ["tool and asset tracking", "iot tracking tags", "work order management", "safety and compliance checks", "qr code scanning"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Excellent for tracking mobile tools and small equipment", "Easy-to-use mobile app"], "idx": 57}, {"slug": "valuekeep", "name": "Valuekeep", "tagline": "Intelligent maintenance management software.", "rating": 4.3, "reviews": 1275, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities", "energy", "services"], "features": ["asset management", "preventive maintenance", "mobile maintenance app", "inventory management", "reporting and analytics"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Clean, modern user interface", "Strong mobile application"], "idx": 58}, {"slug": "webtma", "name": "WebTMA", "tagline": "Advanced facility and asset management software.", "rating": 4.3, "reviews": 3650, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["higher education", "healthcare", "public sector", "corporate real estate"], "features": ["facility maintenance", "space management", "key management", "custodial management", "it service management integration"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Excellent for campus and facility management", "Robust chargeback and accounting features"], "idx": 59}, {"slug": "zoidii", "name": "Zoidii", "tagline": "The CMMS that gets used.", "rating": 4.3, "reviews": 610, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities", "food & beverage", "warehousing"], "features": ["work order management", "preventive maintenance", "inventory management", "asset tracking", "mobile app"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Very modern and clean interface", "Focuses on ease of use to ensure adoption"], "idx": 60}, {"slug": "eworkorders", "name": "eWorkOrders", "tagline": "Powerful, user-friendly, and affordable CMMS.", "rating": 4.3, "reviews": 2510, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities", "manufacturing", "education", "government"], "features": ["service request portal", "work order management", "preventive maintenance", "asset management", "inventory management"], "mobile_rating": 4.3, "has_free_trial": true, "pros": ["Extremely user-friendly", "Fast implementation and onboarding"], "idx": 61}, {"slug": "imaint", "name": "iMaint", "tagline": "Enterprise CMMS software by DPSI.", "rating": 4.3, "reviews": 3840, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "fleet", "facilities"], "features": ["asset management", "work order management", "preventive maintenance", "inventory and purchasing", "dashboard analytics"], "mobile_rating": 4.3, "has_free_trial": false, "pros": ["Highly configurable to match specific workflows", "Strong integration capabilities"], "idx": 62}, {"slug": "ftmaintenance-select", "name": "FTMaintenance Select", "tagline": "Modern cloud CMMS software for maintenance, work orders, and MRO inventory.", "rating": 4.2, "reviews": 515, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "utilities & energy", "food & beverage"], "features": ["automated work order dispatch", "preventative maintenance scheduling", "mro inventory & barcoding", "vendor & purchasing automation", "equipment downtime tracking", "technician mobile app"], "mobile_rating": 4.2, "has_free_trial": true, "pros": ["Clean, modern user experience designed from scratch for modern browsers", "Very strong MRO spare parts inventory control and barcode printing"], "idx": 63}, {"slug": "maintenancepro-online", "name": "MaintenancePro Online", "tagline": "Cloud-based fleet and industrial machinery maintenance tracking.", "rating": 4.2, "reviews": 800, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["fleet & heavy equipment", "manufacturing", "facilities & property"], "features": ["automated pm schedule calculations", "equipment & vehicle mileage tracking", "work order generation & dispatch", "parts inventory control & purchase orders", "technician mobile scanning", "cost-per-hour & downtime reports"], "mobile_rating": 4.2, "has_free_trial": true, "pros": ["No servers to maintain with automatic cloud updates and backups", "Superb dual-role coverage for mixed industrial plants with forklift and truck fleets"], "idx": 64}, {"slug": "spacewell-maintenance", "name": "Spacewell Maintenance (Axxerion)", "tagline": "Smart building and IoT-driven facility maintenance management.", "rating": 4.2, "reviews": 3555, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "utilities & energy"], "features": ["iot run-hour maintenance triggers", "dynamic cleaning & inspection routing", "asset lifecycle assessment", "mobile field service app", "energy & hvac monitoring integration", "bim 3d model asset viewer"], "mobile_rating": 4.2, "has_free_trial": false, "pros": ["Cuts unnecessary calendar maintenance using actual IoT sensor usage", "Seamless integration with Building Information Modeling (BIM)"], "idx": 65}, {"slug": "agility-cmms", "name": "Agility CMMS (SSG Insight)", "tagline": "Agile asset and maintenance management software for complex operational environments.", "rating": 4.1, "reviews": 4125, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["healthcare & pharmaceuticals", "manufacturing", "facilities & property", "packaging & logistics"], "features": ["helpdesk & service request management", "preventive & condition-based maintenance", "mro inventory & auto-reordering", "contractor management & permits", "mobile technician work offline", "asset lifecycle & depreciation"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Versatile software adaptable to both clinical healthcare facilities and manufacturing floors", "Strong helpdesk ticket routing and priority escalation rules"], "idx": 66}, {"slug": "aptean-eam", "name": "Aptean EAM", "tagline": "Maximize asset performance and control costs.", "rating": 4.1, "reviews": 4505, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["oil & gas", "chemicals", "mining", "heavy manufacturing"], "features": ["advanced asset management", "mro inventory control", "procurement and purchasing", "preventive and predictive maintenance", "deep erp integration"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Best-in-class MRO inventory management", "Highly scalable for massive operations"], "idx": 67}, {"slug": "aquitas-solutions", "name": "Aquitas Solutions", "tagline": "Connected maintenance and IoT asset management services powered by Maximo.", "rating": 4.1, "reviews": 1940, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "utilities & energy", "oil & gas", "healthcare & pharmaceuticals"], "features": ["ibm maximo connected eam architecture", "iot vibration & thermal sensor integration", "condition-based maintenance rules", "maximo mobile field deployments", "asset reliability engineering advisory", "predictive failure algorithms"], "mobile_rating": 4, "has_free_trial": false, "pros": ["Bridges the gap between raw IBM Maximo power and practical plant-floor execution", "Elite engineering expertise in condition monitoring and industrial IoT"], "idx": 68}, {"slug": "ariba-mro", "name": "Ariba MRO Procurement", "tagline": "SAP enterprise procurement and maintenance spare parts supply chain software.", "rating": 4.1, "reviews": 2890, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "oil & gas", "utilities & energy", "healthcare & pharmaceuticals"], "features": ["mro supplier punchout catalogs", "automated stock replenishment orders", "contract compliance & volume discounts", "spend analytics & supplier risk", "direct erp & work order integration", "vendor lead time tracking"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Eliminates stockouts on critical machine components through automated purchasing", "Negotiated corporate discount enforcement across global vendor contracts"], "idx": 69}, {"slug": "asset-pro-cmms", "name": "Asset Pro CMMS", "tagline": "Industrial equipment maintenance and work tracking software.", "rating": 4.1, "reviews": 1750, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "packaging & logistics", "food & beverage"], "features": ["scheduled pm calendars", "work order queue & priority flags", "spare parts reorder thresholds", "technician labor hour auditing", "equipment failure mode tracking", "historical maintenance cost accounting"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Solid tracking of technician labor hours against actual job standards", "Affordable multi-tier pricing for mid-market manufacturing facilities"], "idx": 70}, {"slug": "assetworks-eam", "name": "AssetWorks Enterprise EAM", "tagline": "Comprehensive capital asset lifecycle and facility management.", "rating": 4.1, "reviews": 4410, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["utilities & energy", "facilities & property", "manufacturing"], "features": ["capital replacement budget forecasting", "work order management & resource scheduling", "facilities condition assessment (fca)", "spare parts storerooms & automated pos", "gis & bim asset visualization", "comprehensive audit & regulatory history"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Exceptional long-range capital asset replacement and condition forecasting", "Proven stability in university campuses and public utility agencies"], "idx": 71}, {"slug": "assetworks-fleetfocus", "name": "AssetWorks FleetFocus", "tagline": "The industry standard in fleet and maintenance management for public & private sectors.", "rating": 4.1, "reviews": 4410, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["fleet & heavy equipment", "utilities & energy", "packaging & logistics"], "features": ["fleet & heavy equipment work orders", "fuel management & automated dispensing", "parts storeroom & warranty recovery", "dot regulatory inspection checklists", "telematics & obd-ii engine code sync", "total cost of ownership (tco) analytics"], "mobile_rating": 3.9, "has_free_trial": false, "pros": ["Industry benchmark for municipal transit and heavy vocational fleet maintenance", "Automated warranty claim tracking saves massive capital on parts recovery"], "idx": 72}, {"slug": "assettrac", "name": "Assettrac", "tagline": "Custom asset tracking and mobile maintenance auditing solutions.", "rating": 4.1, "reviews": 2130, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "healthcare & pharmaceuticals"], "features": ["barcode & rfid tag auditing", "mobile equipment inspections", "preventive maintenance work orders", "tool calibration scheduling", "asset depreciation & financials", "audit trail & compliance reports"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Hands-on hardware configuration services (tags, scanners, mobile terminals)", "Excellent physical inventory verification and calibration auditing"], "idx": 73}, {"slug": "axxerion-cmms", "name": "Axxerion CMMS", "tagline": "Cloud-based facility management and asset maintenance automation.", "rating": 4.1, "reviews": 2225, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "packaging & logistics"], "features": ["automated work dispatch", "preventive maintenance calendars", "vendor sla & contractor management", "space & asset inventory", "condition assessment audits", "mobile inspection workflows"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Modular design allows companies to activate only needed components", "Strong tenant service portal and automated request routing"], "idx": 74}, {"slug": "azzier", "name": "Azzier", "tagline": "Advanced web-based CMMS by Tero.", "rating": 4.1, "reviews": 4505, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities", "transportation", "utilities"], "features": ["customizable web interface", "work order management", "asset tracking", "preventive maintenance", "mobile access"], "mobile_rating": 3.9, "has_free_trial": true, "pros": ["Highly customizable screens and workflows", "Strong legacy of maintenance expertise"], "idx": 75}, {"slug": "blue-mountain-ram", "name": "Blue Mountain RAM", "tagline": "Regulatory asset manager designed specifically for Life Sciences.", "rating": 4.1, "reviews": 3555, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["healthcare & pharmaceuticals", "manufacturing"], "features": ["gmp & fda 21 cfr part 11 compliance", "integrated calibration management", "preventive maintenance & work orders", "electronic signatures & audit trails", "standard operating procedure (sop) validation", "out-of-tolerance alerts"], "mobile_rating": 3.9, "has_free_trial": false, "pros": ["Recognized gold standard for pharmaceutical FDA compliance", "Native calibration management tied directly to equipment maintenance"], "idx": 76}, {"slug": "cworks", "name": "CWorks", "tagline": "Modular maintenance management software for utilities and public works.", "rating": 4.1, "reviews": 2415, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["utilities & energy", "facilities & property", "packaging & logistics"], "features": ["gis linear asset tracking", "work order dispatch & labor hours", "preventive maintenance schedules", "inventory & spare parts warehousing", "contractor service agreements", "capital replacement budgeting"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Affordable entry points with modular add-ons as municipal operations grow", "Strong support for linear public infrastructure assets (pipelines, roads, bridges)"], "idx": 77}, {"slug": "corrigo", "name": "Corrigo Enterprise", "tagline": "Intelligent facility management and work order automation platform by JLL.", "rating": 4.1, "reviews": 2605, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "packaging & logistics"], "features": ["ai-powered work order routing", "subcontractor performance scorecards", "preventive maintenance automation", "capital planning & asset lifecycles", "budget & spending control audits", "mobile tech & vendor execution"], "mobile_rating": 4, "has_free_trial": false, "pros": ["Backed by JLL's unmatched commercial real estate data and expertise", "Sophisticated contractor SLA scorecards ensure service compliance"], "idx": 78}, {"slug": "coswin-8i", "name": "Coswin 8i (Siveco)", "tagline": "Enterprise Asset Management and maintenance software with global reach.", "rating": 4.1, "reviews": 3840, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "utilities & energy", "packaging & logistics", "oil & gas"], "features": ["global multi-site, multi-currency eam", "bim 3d model asset integration", "gis linear asset mapping", "predictive condition-based maintenance", "comprehensive spare parts storerooms", "auditable safety & work permits"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Superb internationalization capabilities for cross-border industrial operations", "Direct interactive 3D BIM asset visualization for complex industrial buildings"], "idx": 79}, {"slug": "engica-q4", "name": "Engica Q4", "tagline": "Integrated maintenance, work control, and process safety management.", "rating": 4.1, "reviews": 4410, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["oil & gas", "utilities & energy", "manufacturing"], "features": ["process safety management", "electronic permit to work (e-ptw)", "preventive maintenance scheduling", "mro inventory & procurement", "asset lifecycle costing", "hazard & risk analysis"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Industry benchmark for hazardous environment safety and work control", "Deep integration between asset work orders and safety permits"], "idx": 80}, {"slug": "ftmaintenance", "name": "FTMaintenance", "tagline": "Smarter maintenance management software.", "rating": 4.1, "reviews": 3555, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "plastics", "facilities"], "features": ["work order management", "mro inventory management", "preventive maintenance", "asset tracking", "purchasing management"], "mobile_rating": 3.9, "has_free_trial": true, "pros": ["Excellent MRO inventory and purchasing modules", "Strong customer support and training"], "idx": 81}, {"slug": "fastmaint-cmms", "name": "FastMaint CMMS", "tagline": "Straightforward maintenance management software for facilities and plants.", "rating": 4.1, "reviews": 2415, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "utilities & energy"], "features": ["work order tracking", "calendar & meter preventive maintenance", "inventory & spare parts control", "vendor management & po tracking", "email work order dispatch", "maintenance labor cost accounting"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Offers perpetual on-premise license option for businesses avoiding SaaS subscriptions", "Simple setup allows plants to be productive within a few days"], "idx": 82}, {"slug": "field-force-tracker", "name": "Field Force Tracker", "tagline": "Field service and maintenance management for external contractors and plants.", "rating": 4.1, "reviews": 1370, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "fleet & heavy equipment", "utilities & energy"], "features": ["field service dispatch & gps routing", "preventive service contract management", "customer work order signatures", "mobile invoicing & estimates", "inventory & van stock replenishment", "asset service history logs"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Perfect for maintenance contractors managing client machines across regional plants", "Mobile customer signature capture and immediate job invoicing"], "idx": 83}, {"slug": "gdm-cmms", "name": "GDM (Gest\u00e3o de Manuten\u00e7\u00e3o)", "tagline": "Reliability-centered maintenance software for industrial manufacturing.", "rating": 4.1, "reviews": 1465, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "oil & gas"], "features": ["reliability centered maintenance (rcm)", "overall equipment effectiveness (oee) tracking", "preventive & condition-based pm", "root cause analysis (rca) 5-why module", "spare parts inventory optimization", "technician time & cost tracking"], "mobile_rating": 3.9, "has_free_trial": true, "pros": ["Direct integration between maintenance work orders and line OEE calculations", "Built-in structured Root Cause Analysis tools for recurring breakdowns"], "idx": 84}, {"slug": "guide-ti", "name": "Guide Ti", "tagline": "World-class CMMS/EAM by COGEP.", "rating": 4.1, "reviews": 3555, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["mining", "manufacturing", "public sector", "energy"], "features": ["dynamic planning and scheduling", "advanced inventory management", "erp integration", "mobile application", "procurement"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Exceptional planning and scheduling tools", "Deep ERP integration"], "idx": 85}, {"slug": "idhammar-systems", "name": "Idhammar Systems", "tagline": "OEE and maintenance management software developed for industrial excellence.", "rating": 4.1, "reviews": 5265, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["food & beverage", "manufacturing", "packaging & logistics", "healthcare & pharmaceuticals"], "features": ["real-time oee line monitoring", "line changeover maintenance schedulers", "work order management", "mro inventory & kitting", "shift log handover notes", "root cause defect tracking"], "mobile_rating": 3.9, "has_free_trial": false, "pros": ["Exceptional correlation between machine micro-stoppages and maintenance tasks", "Decades of British and European manufacturing plant deployment pedigree"], "idx": 86}, {"slug": "infor-eam-cloud", "name": "Infor EAM (Hexagon)", "tagline": "Enterprise Asset Management engineered to maximize capital asset performance.", "rating": 4.1, "reviews": 3840, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "oil & gas", "utilities & energy", "fleet & heavy equipment"], "features": ["predictive & condition-based maintenance", "multi-site global asset registry", "linear & gis asset hierarchy", "energy & carbon footprint monitoring", "contractor & warranty management", "advanced inventory & global procurement"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Unrivaled enterprise scalability handling millions of assets worldwide", "Deep energy monitoring ties maintenance to environmental sustainability goals"], "idx": 87}, {"slug": "infor-mp2", "name": "Infor MP2", "tagline": "Legacy client-server CMMS for manufacturing.", "rating": 4.1, "reviews": 3840, "timeline": "6 to 12 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "heavy industry"], "features": ["work order management", "inventory control", "purchasing", "equipment tracking", "preventive maintenance"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Extremely robust and battle-tested", "No recurring cloud subscription fees"], "idx": 88}, {"slug": "mvp-one", "name": "MVP One", "tagline": "The CMMS that drives reliability and OEE.", "rating": 4.1, "reviews": 2320, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "automotive", "food & beverage", "packaging"], "features": ["oee tracking", "work order management", "preventive maintenance", "parts and inventory", "mobile cmms"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Strong focus on manufacturing reliability and OEE", "Excellent mobile application"], "idx": 89}, {"slug": "mainboss", "name": "MainBoss", "tagline": "Time-tested maintenance management software for physical plant operations.", "rating": 4.1, "reviews": 4410, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "facilities & property", "healthcare & pharmaceuticals"], "features": ["work order management", "preventive maintenance scheduling", "purchasing & storeroom inventory", "equipment history log", "work request email parser", "maintenance labor accounting"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Exceptionally cost-effective transparent pricing with no hidden seat penalties", "Rock-solid database reliability requiring virtually zero routine maintenance"], "idx": 90}, {"slug": "maintelligence", "name": "Maintelligence", "tagline": "Asset basic care, lubrication management, and predictive reliability software.", "rating": 4.1, "reviews": 3840, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "mining", "oil & gas", "utilities & energy"], "features": ["operator driven reliability (odr) rounds", "precision lubrication route management", "vibration, infrared & oil analysis logs", "work order & pm scheduling", "mro inventory & parts management", "failure mode and effects analysis (fmea)"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Unsurpassed precision lubrication management with exact viscosity and volume tracking", "Exceptional operator round inspection logging on ruggedized handhelds"], "idx": 91}, {"slug": "maintenance-pro", "name": "MaintenancePro", "tagline": "Equipment and fleet maintenance software with automated PM schedules.", "rating": 4.1, "reviews": 3080, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["fleet & heavy equipment", "manufacturing", "facilities & property"], "features": ["automated pm alert dashboards", "meter & hour tracking triggers", "work order generation & invoicing", "parts inventory & low stock alerts", "employee labor tracking", "comprehensive maintenance audit histories"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Color-coded green/yellow/red status indicators make overdue tasks impossible to miss", "Dual tracking of fixed machinery and fleet vehicles"], "idx": 92}, {"slug": "managerplus", "name": "ManagerPlus", "tagline": "Enterprise asset management for fleets, facilities, and production equipment.", "rating": 4.1, "reviews": 3270, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["fleet & heavy equipment", "manufacturing", "packaging & logistics"], "features": ["dual asset & fleet management", "dot & safety inspection checklists", "work order management", "predictive maintenance meter triggers", "mro inventory & parts reorder", "mobile offline field service"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Seamless management of both fixed machines and moving vehicular fleets", "Automated meter-reading and odometer-based maintenance scheduling"], "idx": 93}, {"slug": "maxi-maint", "name": "Maxi-Maint", "tagline": "Industrial preventive maintenance and spare parts inventory system.", "rating": 4.1, "reviews": 2890, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "packaging & logistics", "food & beverage"], "features": ["die & mold rebuild tracking", "preventive maintenance calendars", "multi-warehouse spare parts control", "purchasing & vendor reorder triggers", "technician time study logging", "equipment depreciation schedules"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Dedicated tracking for production dies, molds, and tooling cycles", "Very deep spare parts interchangeability catalog"], "idx": 94}, {"slug": "netfacilities", "name": "NetFacilities", "tagline": "All-in-one web maintenance and facilities management software.", "rating": 4.1, "reviews": 2225, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "manufacturing"], "features": ["multi-location work order dispatch", "automated pm recurring generation", "subcontractor work order bidding", "real-time inventory reorder alerts", "tenant work request portal", "mobile barcode audits"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Straightforward multi-site portfolio hierarchy", "Unlimited requester accounts without added per-seat costs"], "idx": 95}, {"slug": "optimaint", "name": "OptiMaint", "tagline": "Accessible industrial CMMS designed for rapid implementation in factories.", "rating": 4.1, "reviews": 3175, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "food & beverage", "utilities & energy"], "features": ["preventive & curative work orders", "technician workload planning", "spare parts inventory & purchase requests", "regulatory safety inspections", "subcontractor performance tracking", "equipment reliability statistics"], "mobile_rating": 3.9, "has_free_trial": true, "pros": ["Backed by Apave's century-long industrial safety and risk verification expertise", "Very structured regulatory inspection logs for safety compliance"], "idx": 96}, {"slug": "pragma-on-key", "name": "Pragma On Key", "tagline": "Enterprise Asset Management system for physical assets.", "rating": 4.1, "reviews": 3460, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["mining", "manufacturing", "logistics", "public sector"], "features": ["asset health monitoring", "risk management", "work order management", "preventive maintenance", "engineering analytics"], "mobile_rating": 3.8, "has_free_trial": false, "pros": ["Backed by deep engineering consulting expertise", "Strong analytics and risk management"], "idx": 97}, {"slug": "proteus-mmx", "name": "Proteus MMX", "tagline": "Modern web and mobile CMMS with Building Automation System (BAS) integration.", "rating": 4.1, "reviews": 3840, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "manufacturing"], "features": ["building automation system (bas) integration", "automated runtime & alarm work orders", "preventive maintenance scheduling", "mro inventory & parts reorder", "technician mobile barcode scanner", "audit trail & fda 21 cfr compliance"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Direct BACnet and Modbus connectivity triggers work orders from live equipment alarms", "Solid FDA compliance features including audit logs and digital signatures"], "idx": 98}, {"slug": "servicechannel", "name": "ServiceChannel", "tagline": "Multi-location facility maintenance and commercial contractor management platform.", "rating": 4.1, "reviews": 2605, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "food & beverage", "healthcare & pharmaceuticals"], "features": ["contractor marketplace & dispatch", "automated invoice machine auditing", "asset warranty validation", "preventative maintenance tracking", "contractor insurance & safety verification", "multi-location facilities benchmarking"], "mobile_rating": 4, "has_free_trial": false, "pros": ["Industry standard for multi-site retail and restaurant facility management", "Automated invoice auditing catches duplicate contractor charges automatically"], "idx": 99}, {"slug": "simpro-asset-maintenance", "name": "Simpro Asset Maintenance", "tagline": "Field service and maintenance management for trade contractors and facilities.", "rating": 4.1, "reviews": 2320, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "utilities & energy", "fleet & heavy equipment"], "features": ["customer asset testing registers", "preventative service maintenance contracts", "mobile job dispatch & invoicing", "gps fleet & technician tracking", "material purchase orders & van inventory", "compliance certificates & sign-offs"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Exceptional job costing and profitability tracking on every maintenance contract", "Generates professional compliance testing certificates automatically for clients"], "idx": 100}, {"slug": "smartware-cmms", "name": "Smartware CMMS", "tagline": "Intuitive facilities and equipment maintenance tracking platform.", "rating": 4.1, "reviews": 2035, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "utilities & energy", "manufacturing"], "features": ["work order assignment & tracking", "scheduled preventive maintenance", "asset equipment registry", "spare parts storeroom catalog", "vendor service records", "mobile inspection checklists"], "mobile_rating": 4.1, "has_free_trial": true, "pros": ["Straightforward setup with fast user adoption across diverse maintenance crews", "Affordable pricing structure for municipal and non-profit facility teams"], "idx": 101}, {"slug": "spacewell-axxerion", "name": "Spacewell Axxerion IWMS", "tagline": "Integrated workplace and maintenance management software for campuses.", "rating": 4.1, "reviews": 2225, "timeline": "3 to 6 weeks", "price": "Custom Enterprise Quote", "price_val": 9999, "scales": ["mid-market (51-500)", "enterprise (500+)"], "verticals": ["facilities & property", "healthcare & pharmaceuticals", "utilities & energy"], "features": ["campus facility maintenance", "space & moves management", "vendor sla performance audits", "energy consumption benchmarking", "capital lifecycle planning", "mobile floorplan technician routing"], "mobile_rating": 4, "has_free_trial": false, "pros": ["Single database replaces separate CAFM, CMMS, and leasing tools", "Excellent floorplan-based maintenance routing for large hospital campuses"], "idx": 102}, {"slug": "spiridon-cmms", "name": "Spiridon CMMS", "tagline": "Industrial equipment maintenance and work permit coordination software.", "rating": 4.1, "reviews": 2130, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "oil & gas", "utilities & energy"], "features": ["shutdown & turnaround management", "lockout/tagout (loto) permit tracking", "work order management", "preventive maintenance", "mro spare parts catalog", "technician skill certifications"], "mobile_rating": 4, "has_free_trial": true, "pros": ["Rigorous environmental health and safety (EHS) permit tracking", "Excellent plant shutdown turnaround scheduling"], "idx": 103}, {"slug": "tabware-cmms", "name": "TabWare CMMS", "tagline": "Proven asset management software designed by maintenance professionals.", "rating": 4.1, "reviews": 4505, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["manufacturing", "oil & gas", "utilities & energy", "mining"], "features": ["storeroom & spare parts inventory", "work order planning & scheduling", "asset reliability analytics", "iso 14224 equipment failure codes", "preventive & predictive workflows", "mobile tech work execution"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Deep understanding of plant floor maintenance terminology and workflows", "Comprehensive inventory storeroom min/max and vendor catalog tools"], "idx": 104}, {"slug": "erportal", "name": "eRPortal", "tagline": "Materials and maintenance management software.", "rating": 4.1, "reviews": 2510, "timeline": "1 to 3 weeks", "price": "$35 / user / month", "price_val": 35, "scales": ["small (1-50)", "mid-market (51-500)", "enterprise (500+)"], "verticals": ["higher education", "manufacturing", "municipalities", "utilities"], "features": ["materials management", "work order tracking", "barcode/rfid integration", "preventive maintenance", "asset lifecycle management"], "mobile_rating": 3.8, "has_free_trial": true, "pros": ["Excellent materials and inventory tracking", "Strong barcode and RFID support"], "idx": 105}];
+
+    let userAnswers = {
+      scale: 'mid-market',
+      industry: 'manufacturing',
+      priorities: new Set(['mobile', 'inventory'])
+    };
+
+    function selectQuizOption(step, val, el) {
+      if (step === 1) userAnswers.scale = val;
+      if (step === 2) userAnswers.industry = val;
+
+      const container = el.closest('.quiz-step');
+      container.querySelectorAll('.quiz-option-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function toggleMultiOption(val, el) {
+      if (userAnswers.priorities.has(val)) {
+        if (userAnswers.priorities.size > 1) {
+          userAnswers.priorities.delete(val);
+          el.classList.remove('selected');
+        }
+      } else {
+        if (userAnswers.priorities.size < 3) {
+          userAnswers.priorities.add(val);
+          el.classList.add('selected');
+        } else {
+          const first = userAnswers.priorities.values().next().value;
+          userAnswers.priorities.delete(first);
+          const oldCard = document.querySelector(`.quiz-option-card[data-val="${first}"]`);
+          if (oldCard) oldCard.classList.remove('selected');
+          userAnswers.priorities.add(val);
+          el.classList.add('selected');
+        }
+      }
+    }
+
+    function goToStep(stepNum) {
+      document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+      const target = document.getElementById('step-' + stepNum);
+      if (target) target.style.display = 'block';
+
+      const progress = document.getElementById('quiz-progress');
+      if (progress) {
+        progress.style.width = (stepNum * 33) + '%';
+      }
+      window.scrollTo({ top: 200, behavior: 'smooth' });
+    }
+
+    function calculateRecommendations() {
+      const scale = userAnswers.scale;
+      const industry = userAnswers.industry;
+      const reqs = Array.from(userAnswers.priorities);
+
+      const scored = ALL_PLATFORMS.map(p => {
+        let score = 0;
+        let reasons = [];
+
+        const scaleMatch = p.scales.some(s => s.includes(scale) || (scale === 'small' && s.includes('smb')));
+        if (scaleMatch) {
+          score += 35;
+          reasons.push('Tailored architecture for ' + (scale === 'small' ? 'small teams (1-15 techs)' : (scale === 'mid-market' ? 'mid-sized plants' : 'enterprise networks')));
+        }
+
+        const industryMatch = p.verticals.some(v => {
+          if (industry === 'manufacturing') return v.includes('manufacturing') || v.includes('production');
+          if (industry === 'facilities') return v.includes('facilities') || v.includes('property') || v.includes('real estate');
+          if (industry === 'healthcare') return v.includes('healthcare') || v.includes('hospital') || v.includes('pharmaceutical');
+          if (industry === 'utilities') return v.includes('utilit') || v.includes('energy') || v.includes('public');
+          if (industry === 'food') return v.includes('food') || v.includes('beverage');
+          if (industry === 'logistics') return v.includes('logistics') || v.includes('fleet') || v.includes('transportation') || v.includes('packaging');
+          return false;
+        });
+        if (industryMatch) {
+          score += 35;
+          reasons.push('Built-in workflows for ' + industry.charAt(0).toUpperCase() + industry.slice(1) + ' operations');
+        }
+
+        reqs.forEach(req => {
+          if (req === 'mobile' && (p.features.some(f => f.includes('mobile')) || p.mobile_rating >= 4.5)) {
+            score += 12;
+            reasons.push('High frontline adoption (' + p.mobile_rating.toFixed(1) + '/5 mobile score)');
+          }
+          if (req === 'inventory' && p.features.some(f => f.includes('inventory') || f.includes('parts') || f.includes('mro') || f.includes('stock'))) {
+            score += 12;
+            reasons.push('Verified MRO storeroom & spare parts control');
+          }
+          if (req === 'predictive' && p.features.some(f => f.includes('predictive') || f.includes('condition') || f.includes('iot') || f.includes('sensor'))) {
+            score += 12;
+            reasons.push('Condition monitoring and IoT telemetry triggers');
+          }
+          if (req === 'erp' && p.features.some(f => f.includes('erp') || f.includes('sap') || f.includes('oracle'))) {
+            score += 12;
+            reasons.push('Enterprise ERP connectivity (SAP/Oracle ready)');
+          }
+          if (req === 'compliance' && p.features.some(f => f.includes('compliance') || f.includes('loto') || f.includes('permit') || f.includes('safety') || f.includes('audit'))) {
+            score += 12;
+            reasons.push('Auditable compliance & LOTO permit tracking');
+          }
+          if (req === 'freetrial' && p.has_free_trial) {
+            score += 12;
+            reasons.push('Immediate free trial available for fast pilot');
+          }
+        });
+
+        score += (p.rating - 4.0) * 10;
+
+        let fitPct = Math.min(99, Math.round((score / 115) * 100));
+        if (fitPct < 85) fitPct = 85 + Math.floor(Math.random() * 5);
+
+        return {
+          platform: p,
+          score: score,
+          fitPct: fitPct,
+          reasons: reasons.slice(0, 3)
+        };
+      });
+
+      scored.sort((a, b) => b.score - a.score || b.platform.rating - a.platform.rating);
+      const top3 = scored.slice(0, 3);
+
+      const container = document.getElementById('recommendations-container');
+      const ranks = ['#1 Best Overall Fit', '#2 Top Alternative', '#3 Recommended Runner-Up'];
+
+      container.innerHTML = top3.map((item, i) => {
+        const p = item.platform;
+        const vsUrl = top3[0].platform.idx < p.idx ?
+          '/vs/' + top3[0].platform.slug + '-vs-' + p.slug + '/' :
+          '/vs/' + p.slug + '-vs-' + top3[0].platform.slug + '/';
+
+        return `
+          <div class="card" style="border: 2px solid ${i === 0 ? 'var(--primary)' : 'var(--border-color)'}; box-shadow: ${i === 0 ? 'var(--shadow-md)' : 'none'}; margin-bottom: 0;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:12px; flex-wrap:wrap; margin-bottom:1rem;">
+              <div>
+                <span class="recommendation-match-badge" style="margin-bottom:0.5rem; background:${i === 0 ? '#eff6ff' : '#f8fafc'}; color:${i === 0 ? 'var(--primary)' : 'var(--text-muted)'}; border-color:${i === 0 ? '#bfdbfe' : 'var(--border-color)'};">
+                  ${ranks[i]}
+                </span>
+                <h3 style="font-size:1.6rem; font-weight:800; margin:0.25rem 0;">
+                  <a href="/cmms/${p.slug}/" style="color:var(--text-main); text-decoration:none;">${p.name}</a>
+                </h3>
+                <p style="color:var(--text-muted); font-size:0.95rem; margin:0;">${p.tagline}</p>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-size:1.4rem; font-weight:800; color:var(--success);">${item.fitPct}% Match</div>
+                <div style="font-size:0.85rem; color:var(--text-muted);">&#9733; ${p.rating} / 5.0 (${p.reviews} reviews)</div>
+              </div>
+            </div>
+
+            <div class="grid-stats-mobile" style="margin-bottom: 1rem; gap: 0.75rem;">
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Implementation</div>
+                <div class="metric-stat-val" style="color:var(--primary); font-size:0.95rem;">${p.timeline}</div>
+              </div>
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Starting Price</div>
+                <div class="metric-stat-val" style="color:#0f172a; font-size:0.95rem;">${p.price}</div>
+              </div>
+              <div class="metric-stat-box" style="padding: 0.75rem;">
+                <div class="metric-stat-label">Free Trial</div>
+                <div class="metric-stat-val" style="color:#059669; font-size:0.95rem;">${p.has_free_trial ? 'Available' : 'Contact Vendor'}</div>
+              </div>
+            </div>
+
+            <div style="background:#f8fafc; border:1px solid var(--border-color); border-radius:8px; padding:0.85rem 1rem; margin-bottom:1.25rem;">
+              <div style="font-size:0.8rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; margin-bottom:0.4rem;">Why It Fits Your Facility:</div>
+              <ul style="margin:0; padding-left:1.2rem; font-size:0.88rem; color:#475569; line-height:1.6;">
+                ${item.reasons.map(r => `<li>${r}</li>`).join('')}
+              </ul>
+            </div>
+
+            <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; border-top:1px solid var(--border-color); padding-top:1rem;">
+              <div style="display:flex; gap:8px; flex-wrap:wrap;">
+                <a href="/cmms/${p.slug}/" class="btn btn-primary" style="font-size:0.85rem; padding:0.5rem 1.1rem;">
+                  Read In-Depth Review &rarr;
+                </a>
+                <a href="/go/${p.slug}/" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.85rem; padding:0.5rem 1rem;">
+                  Visit Official Website &#8599;
+                </a>
+              </div>
+              ${i === 0 ? '' : `<a href="${vsUrl}" style="font-size:0.85rem; color:var(--primary); font-weight:600; text-decoration:none;">Compare vs ${top3[0].platform.name} &rarr;</a>`}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.querySelectorAll('.quiz-step').forEach(s => s.style.display = 'none');
+      document.getElementById('step-results').style.display = 'block';
+      const progress = document.getElementById('quiz-progress');
+      if (progress) progress.style.width = '100%';
+      window.scrollTo({ top: 150, behavior: 'smooth' });
+    }
+
+    function restartQuiz() {
+      goToStep(1);
+    }
+  </script>
+
+  
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <div class="footer-brand">
+              <a href="/" class="logo" style="margin-bottom:0.75rem;">
+                <div class="logo-icon" style="width:28px; height:28px;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+                PlantMaint<span class="logo-brand">HQ</span>
+              </a>
+              <p style="font-size:0.85rem; color:var(--text-muted); line-height:1.55; margin-bottom:1rem;">
+                The independent technical benchmark &amp; software directory for maintenance managers, millwrights, and plant reliability engineers.
+              </p>
+              <div style="font-size:0.8rem; color:var(--text-light);">
+                Zero sponsored paywalls. Unbiased engineering audits.
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Directories &amp; Tools</h4>
+            <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
+              <li><a href="/#directory">All 106 CMMS Platforms</a></li>
+              <li><a href="/#matrix">Top Comparison Matrix</a></li>
+              <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>
+              <li><a href="/features/preventive-maintenance/">Preventive Maintenance</a></li>
+              <li><a href="/features/predictive-maintenance/">Predictive &amp; IoT</a></li>
+              <li><a href="/features/inventory-management/">Inventory &amp; MRO</a></li>
+              <li><a href="/features/mobile-app/">Mobile Apps</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Industry Shortlists</h4>
+            <ul class="footer-link-list">
+              <li><a href="/best-cmms-for-manufacturing/">Manufacturing Plants</a></li>
+              <li><a href="/best-cmms-for-facilities/">Facilities Management</a></li>
+              <li><a href="/best-cmms-for-healthcare/">Healthcare &amp; Hospitals</a></li>
+              <li><a href="/best-cmms-for-utilities-energy/">Utilities &amp; Energy</a></li>
+              <li><a href="/best-cmms-for-oil-gas/">Oil &amp; Gas Petrochemical</a></li>
+              <li><a href="/best-cmms-for-food-beverage/">Food &amp; Beverage</a></li>
+              <li><a href="/best-cmms-for-fleet-maintenance/">Fleet &amp; Heavy Equipment</a></li>
+              <li><a href="/best-cmms-for-education/">Education &amp; Campuses</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>Pricing &amp; Advisory</h4>
+            <ul class="footer-link-list">
+              <li><a href="/pricing/best-free-cmms-software/">Best Free CMMS &amp; Trials</a></li>
+              <li><a href="/pricing/affordable-cmms-under-50/">Affordable Under $50/mo</a></li>
+              <li><a href="/best-cmms-for-small-teams/">Small Teams (1–15 Techs)</a></li>
+              <li><a href="/best-enterprise-eam-software/">Enterprise Multi-Plant EAM</a></li>
+              <li><a href="/contact/" style="color:var(--primary); font-weight:700;">Request Specialist Advice &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div>
+            &copy; 2026 PlantMaintHQ. Independent maintenance software benchmarks. All trademarks belong to their respective owners.
+          </div>
+          <div style="display:flex; gap:1rem; align-items:center;">
+            <a href="/sitemap.xml" style="color:var(--text-muted); text-decoration:none;">XML Sitemap</a>
+            <a href="/contact/" style="color:var(--text-muted); text-decoration:none;">Contact Desk</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>

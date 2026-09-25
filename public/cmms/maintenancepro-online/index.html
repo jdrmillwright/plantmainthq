@@ -43,8 +43,9 @@
         <div style="display:flex; align-items:center; gap:0.75rem;">
           <nav class="nav-links">
             <a href="/#directory" class="active">CMMS Directory</a>
+            <a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder</a>
             <a href="/#matrix">Comparison Matrix</a>
-            <a href="/#guide">Evaluation Criteria</a>
+            <a href="/roi-calculator/">ROI Calculator</a>
             <a href="/contact/">Advisor Help</a>
           </nav>
           <button class="hamburger-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
@@ -60,6 +61,24 @@
       <!-- Slide-Down Drawer Menu -->
       <div class="nav-drawer" id="nav-drawer">
         <div class="nav-drawer-inner">
+          <div class="drawer-section">
+            <div class="drawer-heading">Interactive Tools</div>
+            <a href="/find/" class="drawer-link" onclick="closeDrawer()" style="background:#eff6ff; border:1px solid #bfdbfe; margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#10024;</span>
+              <div>
+                <strong style="color:var(--primary);">CMMS Software Finder Quiz</strong>
+                <span class="drawer-subtext">Find your top 3 matches in 60 seconds</span>
+              </div>
+            </a>
+            <a href="/roi-calculator/" class="drawer-link" onclick="closeDrawer()" style="background:#f8fafc; border:1px solid var(--border-color); margin-bottom: 0.5rem;">
+              <span class="drawer-icon">&#128200;</span>
+              <div>
+                <strong>ROI Calculator</strong>
+                <span class="drawer-subtext">Estimate your software payback period</span>
+              </div>
+            </a>
+          </div>
+
           <div class="drawer-section">
             <div class="drawer-heading">Directory Navigation</div>
             <a href="/#directory" class="drawer-link" onclick="closeDrawer()">
@@ -282,6 +301,7 @@
           <div class="footer-col">
             <h4>Directories &amp; Tools</h4>
             <ul class="footer-link-list">
+              <li><a href="/find/" style="color:var(--primary); font-weight:700;">&#10024; Software Finder Quiz</a></li>
               <li><a href="/#directory">All 106 CMMS Platforms</a></li>
               <li><a href="/#matrix">Top Comparison Matrix</a></li>
               <li><a href="/roi-calculator/">Maintenance ROI Calculator</a></li>

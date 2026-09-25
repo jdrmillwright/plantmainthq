@@ -23,6 +23,7 @@ def run_checks():
         "og-image.png",
         "contact/index.html",
         "roi-calculator/index.html",
+        "find/index.html",
         "best-cmms-for-manufacturing/index.html",
         "best-cmms-for-facilities/index.html",
         "best-cmms-for-healthcare/index.html",
